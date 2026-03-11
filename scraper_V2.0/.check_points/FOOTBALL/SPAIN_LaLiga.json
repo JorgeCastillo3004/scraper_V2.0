@@ -1,0 +1,101 @@
+{
+    "Real Madrid": {
+        "team_id": "6afcaeeb-c544-41ff-9bf2-530e0f7d7c97",
+        "team_url": "https://www.flashscore.com/team/real-madrid/W8mj7MDD/",
+        "stadium_id": "2e78c553-b547-4489-92d5-6799b8ea1805"
+    },
+    "Barcelona": {
+        "team_id": "ac0a4e03-7ffb-4690-b816-364eeaed9dbd",
+        "team_url": "https://www.flashscore.com/team/barcelona/SKbpVP5K/",
+        "stadium_id": "343901b8-ec7e-4df5-80a5-66927a6b066a"
+    },
+    "Villarreal": {
+        "team_id": "d8716966-1dbd-4ae5-b313-c5a4b34492ce",
+        "team_url": "https://www.flashscore.com/team/villarreal/lUatW5jE/",
+        "stadium_id": "c08ff2cd-6477-4024-989a-b9e327365f3e"
+    },
+    "Atl. Madrid": {
+        "team_id": "57ad1f85-6b4c-4c17-ba80-a0dbe95118ab",
+        "team_url": "https://www.flashscore.com/team/atl-madrid/jaarqpLQ/",
+        "stadium_id": "0d86c750-f239-4813-b789-13d0e5fff22c"
+    },
+    "Betis": {
+        "team_id": "3157d50a-e2b1-4f50-8b1d-f587a23ff7b2",
+        "team_url": "https://www.flashscore.com/team/betis/vJbTeCGP/",
+        "stadium_id": "20c9b8ad-6155-4cc2-b52c-e5f8058d8b80"
+    },
+    "Espanyol": {
+        "team_id": "736c6794-ff0a-46b5-a4eb-cb242147ee3b",
+        "team_url": "https://www.flashscore.com/team/espanyol/QFfPdh1J/",
+        "stadium_id": "17d87683-ec88-43c6-8435-e7774bbcec60"
+    },
+    "Elche": {
+        "team_id": "db766991-78cf-4b74-b242-8bab33991e52",
+        "team_url": "https://www.flashscore.com/team/elche/4jl02tPF/",
+        "stadium_id": "1e2f944c-db8d-4b31-b84d-2a8e1f62c461"
+    },
+    "Ath Bilbao": {
+        "team_id": "a195d8a2-1373-43aa-991e-327e055725df",
+        "team_url": "https://www.flashscore.com/team/ath-bilbao/IP5zl0cJ/",
+        "stadium_id": "cccf69dc-74ac-4b5c-8042-a7e331e377f1"
+    },
+    "Sevilla": {
+        "team_id": "312539f1-fe42-48bd-816f-dd3ee82f25da",
+        "team_url": "https://www.flashscore.com/team/sevilla/h8oAv4Ts/",
+        "stadium_id": "8bff0c63-d18f-4282-a747-c5d5ba0eb05e"
+    },
+    "Alaves": {
+        "team_id": "1e08802f-99e7-46df-b29b-041ecb02ddde",
+        "team_url": "https://www.flashscore.com/team/alaves/hxt57t2q/",
+        "stadium_id": "dbacb436-142f-454a-8393-bf7d831f367d"
+    },
+    "Rayo Vallecano": {
+        "team_id": "c419092b-d76c-4040-aa22-41a8a348b174",
+        "team_url": "https://www.flashscore.com/team/rayo-vallecano/8bcjFy6O/",
+        "stadium_id": "971cef27-8175-4bce-bb34-ba45320f97de"
+    },
+    "Getafe": {
+        "team_id": "9190e3b7-1c9b-4ab5-9fad-e3ea06b1546a",
+        "team_url": "https://www.flashscore.com/team/getafe/dboeiWOt/",
+        "stadium_id": "b2598b40-20a2-46a3-8903-90bf9b5ffc12"
+    },
+    "Osasuna": {
+        "team_id": "29e5d0a0-311b-46aa-8460-a92a72c37c8b",
+        "team_url": "https://www.flashscore.com/team/osasuna/ETdxjU8a/",
+        "stadium_id": "77048dab-ed4b-43f0-bbd7-8192cd34a426"
+    },
+    "Valencia": {
+        "team_id": "a951dc40-49fb-43f9-af20-c21c4e703a89",
+        "team_url": "https://www.flashscore.com/team/valencia/CQeaytrD/",
+        "stadium_id": "0640be45-0bbe-4426-9ed9-6734ce557431"
+    },
+    "Levante": {
+        "team_id": "173c2567-3813-41d6-9e15-637b0be76965",
+        "team_url": "https://www.flashscore.com/team/levante/G8FL0ShI/",
+        "stadium_id": "b03edca8-b19a-4945-b77f-58adf83681ef"
+    },
+    "Mallorca": {
+        "team_id": "f2257336-89e3-404c-b0be-1e7b62bba63f",
+        "team_url": "https://www.flashscore.com/team/mallorca/4jDQxrbf/",
+        "stadium_id": "54c64dc0-514e-4f84-97ef-c34042d0c2e4"
+    },
+    "Celta Vigo": {
+        "team_id": "b18b6085-6894-4868-b1f0-ed2fa481e4ee",
+        "team_url": "https://www.flashscore.com/team/celta-vigo/8pvUZFhf/",
+        "stadium_id": "17db9e29-39e0-4cc4-b69f-79787472eb56"
+    },
+    "Real Sociedad": {
+        "team_id": "44cf260b-9020-4c23-b292-3e5f7ad52034",
+        "team_url": "https://www.flashscore.com/team/real-sociedad/jNvak2f3/",
+        "stadium_id": "a470339c-7932-4176-8d34-e6f460c04ebb"
+    },
+    "R. Oviedo": {
+        "team_id": "4c30316b-6d5a-4dcb-a776-d73a671af0f6",
+        "team_url": "https://www.flashscore.com/team/r-oviedo/SzYzw34K/"
+    },
+    "Girona": {
+        "team_id": "52050bf6-a5d6-4a6e-8474-ff4e8a510cde",
+        "team_url": "https://www.flashscore.com/team/girona/nNNpcUSL/",
+        "stadium_id": "f749fa18-406e-4f52-aaf5-e14836bb0848"
+    }
+}

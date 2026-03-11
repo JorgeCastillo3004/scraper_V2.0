@@ -1,0 +1,58 @@
+{
+    "0": {
+        "match_id": "3b75a7af-72f1-4aab-8f26-3c694f78733c",
+        "match_date": "22.11. 23:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Santa Fe~Fortaleza",
+        "home": "Santa Fe",
+        "visitor": "Fortaleza",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/C6YFTu9e/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "50g3gmbv70fmumsfm"
+    },
+    "1": {
+        "match_id": "a09853bf-1e28-4c6b-8284-b965b137f79c",
+        "match_date": "23.11. 01:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "Deportes Tolima~Bucaramanga",
+        "home": "Deportes Tolima",
+        "visitor": "Bucaramanga",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/KWyORJw8/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "50g3gmbv70fmumsfm"
+    },
+    "2": {
+        "match_id": "536a8d11-bcdd-47df-874d-6d7f45e9dcc0",
+        "match_date": "23.11. 23:45",
+        "start_time": "",
+        "end_time": "",
+        "name": "Ind. Medellin~Atl. Nacional",
+        "home": "Ind. Medellin",
+        "visitor": "Atl. Nacional",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/h4IEV1vq/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "50g3gmbv70fmumsfm"
+    },
+    "3": {
+        "match_id": "7c718c94-96ac-40a5-b619-6e767ee43a26",
+        "match_date": "24.11. 02:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "America De Cali~Junior",
+        "home": "America De Cali",
+        "visitor": "Junior",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/dYWryOGL/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "50g3gmbv70fmumsfm"
+    }
+}

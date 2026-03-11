@@ -1,0 +1,58 @@
+{
+    "0": {
+        "match_id": "b0dd19bb-c69d-4760-a2ad-87f4bb1ea354",
+        "match_date": "28.11. 02:40",
+        "start_time": "",
+        "end_time": "",
+        "name": "Colombia~Venezuela",
+        "home": "Colombia",
+        "visitor": "Venezuela",
+        "home_result": "80",
+        "visitor_result": "78",
+        "link_details": "https://www.flashscore.com/match/dz24fALh/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "1": {
+        "match_id": "5f01e286-c34a-43e2-b9b4-be48662d4e73",
+        "match_date": "28.11. 02:40",
+        "start_time": "",
+        "end_time": "",
+        "name": "Panama~Uruguay",
+        "home": "Panama",
+        "visitor": "Uruguay",
+        "home_result": "60",
+        "visitor_result": "93",
+        "link_details": "https://www.flashscore.com/match/jXen5RZA/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "2": {
+        "match_id": "1bc5e6bd-1584-406c-9627-090905d8d4bd",
+        "match_date": "28.11. 00:10",
+        "start_time": "",
+        "end_time": "",
+        "name": "Chile~Brazil",
+        "home": "Chile",
+        "visitor": "Brazil",
+        "home_result": "66",
+        "visitor_result": "82",
+        "link_details": "https://www.flashscore.com/match/rZvoNeP7/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "3": {
+        "match_id": "bfd47f31-df65-4db7-8694-101c894722ce",
+        "match_date": "28.11. 00:10",
+        "start_time": "",
+        "end_time": "",
+        "name": "Cuba~Argentina",
+        "home": "Cuba",
+        "visitor": "Argentina",
+        "home_result": "68",
+        "visitor_result": "80",
+        "link_details": "https://www.flashscore.com/match/xxxwPHfe/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    }
+}

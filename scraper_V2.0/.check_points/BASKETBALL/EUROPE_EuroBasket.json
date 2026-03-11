@@ -1,0 +1,46 @@
+{
+    "North Macedonia": {
+        "team_id": "96cd3fe3-8ed3-4b44-9c42-0e020ca110a6",
+        "team_url": "https://www.flashscore.com/team/north-macedonia/O2ZfdF3t/"
+    },
+    "Ireland": {
+        "team_id": "c6f02045-017c-40e5-ac41-b1d538af3a36",
+        "team_url": "https://www.flashscore.com/team/ireland/b9g6i5vI/",
+        "stadium_id": "ae7f743f-2f5b-442b-b9b1-ec65868e9ef0"
+    },
+    "Luxembourg": {
+        "team_id": "83324d96-bf40-48cf-931e-d401ea80bee0",
+        "team_url": "https://www.flashscore.com/team/luxembourg/EcXmTagQ/"
+    },
+    "Azerbaijan": {
+        "team_id": "168c546c-4054-45b3-9181-90aeec89e262",
+        "team_url": "https://www.flashscore.com/team/azerbaijan/vJoyhT61/",
+        "stadium_id": "dd9cde8f-c730-46f6-9a80-1a696e6a1829"
+    },
+    "Bulgaria": {
+        "team_id": "fea679a9-7271-46e7-a424-aa020f770e28",
+        "team_url": "https://www.flashscore.com/team/bulgaria/t8oMbC2h/"
+    },
+    "Armenia": {
+        "team_id": "75879fc7-75c6-40a3-a9ef-3b54b6554a62",
+        "team_url": "https://www.flashscore.com/team/armenia/EiXGp3go/",
+        "stadium_id": "07863b81-3e27-4a49-9fba-48867da1b3b8"
+    },
+    "Norway": {
+        "team_id": "22385ae5-e392-40b8-8c40-0b3424c903a7",
+        "team_url": "https://www.flashscore.com/team/norway/l4puBDEh/"
+    },
+    "Albania": {
+        "team_id": "f7890914-255f-4a8c-b09d-e16c27a61cff",
+        "team_url": "https://www.flashscore.com/team/albania/02iWX1ps/",
+        "stadium_id": "76f771cd-36ca-491b-a69b-57d45e4af897"
+    },
+    "Slovakia": {
+        "team_id": "a9069ab8-0f7f-4171-b6c2-427485f49f4e",
+        "team_url": "https://www.flashscore.com/team/slovakia/lSZ19QOb/"
+    },
+    "Kosovo": {
+        "team_id": "dc8e9996-e50f-43e0-80c5-497e86e67b50",
+        "team_url": "https://www.flashscore.com/team/kosovo/8Y4hqqWd/"
+    }
+}

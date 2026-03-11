@@ -1,0 +1,58 @@
+{
+    "0": {
+        "match_id": "c5635da3-9c81-457a-a9dc-f1fd06078798",
+        "match_date": "06.07. 21:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Netherlands~Turkey",
+        "home": "Netherlands",
+        "visitor": "Turkey",
+        "home_result": "2",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/naiVz03c/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    },
+    "1": {
+        "match_id": "e1fc5f5b-7b0c-4866-9aae-3910e7db779b",
+        "match_date": "06.07. 18:00\nPen",
+        "start_time": "",
+        "end_time": "",
+        "name": "England~Switzerland",
+        "home": "England",
+        "visitor": "Switzerland",
+        "home_result": "2",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/0dMzsHxJ/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    },
+    "2": {
+        "match_id": "3a9258b9-86cb-4fb8-beea-222c06afeb1a",
+        "match_date": "05.07. 21:00\nPen",
+        "start_time": "",
+        "end_time": "",
+        "name": "Portugal~France",
+        "home": "Portugal",
+        "visitor": "France",
+        "home_result": "0",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/xf5z0D9j/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    },
+    "3": {
+        "match_id": "23437116-ced8-47f8-8533-bd921e9def84",
+        "match_date": "05.07. 18:00\nAET",
+        "start_time": "",
+        "end_time": "",
+        "name": "Spain~Germany",
+        "home": "Spain",
+        "visitor": "Germany",
+        "home_result": "2",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/rm0QrnRk/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    }
+}

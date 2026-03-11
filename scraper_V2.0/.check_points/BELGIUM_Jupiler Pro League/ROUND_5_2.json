@@ -1,0 +1,72 @@
+{
+    "0": {
+        "match_id": "4c1d72ee-7d0e-43cf-a47e-0fe23ac5a7cb",
+        "match_date": "24.08. 19:15",
+        "start_time": "",
+        "end_time": "",
+        "name": "Dender~Leuven",
+        "home": "Dender",
+        "visitor": "Leuven",
+        "home_result": "0",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/6kyCQJeD/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    },
+    "1": {
+        "match_id": "7aab18b9-9b07-45ac-acbc-393572f26737",
+        "match_date": "24.08. 18:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "RAAL La Louviere~Royale Union SG",
+        "home": "RAAL La Louviere",
+        "visitor": "Royale Union SG",
+        "home_result": "0",
+        "visitor_result": "0",
+        "link_details": "https://www.flashscore.com/match/ANs3SuR0/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    },
+    "2": {
+        "match_id": "8f4609eb-9a5b-47a8-bf8e-c6c6030b0b9a",
+        "match_date": "24.08. 13:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "Antwerp~KV Mechelen",
+        "home": "Antwerp",
+        "visitor": "KV Mechelen",
+        "home_result": "2",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/IP2OZNYQ/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    },
+    "3": {
+        "match_id": "4264d927-c6f9-4ea7-b276-4eb63048129e",
+        "match_date": "23.08. 20:45",
+        "start_time": "",
+        "end_time": "",
+        "name": "Waregem~St. Truiden",
+        "home": "Waregem",
+        "visitor": "St. Truiden",
+        "home_result": "0",
+        "visitor_result": "2",
+        "link_details": "https://www.flashscore.com/match/CSaGyp4E/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    },
+    "4": {
+        "match_id": "534c4bf3-9922-42d7-ab78-f2500c3aef24",
+        "match_date": "23.08. 18:15",
+        "start_time": "",
+        "end_time": "",
+        "name": "St. Liege~Cercle Brugge KSV",
+        "home": "St. Liege",
+        "visitor": "Cercle Brugge KSV",
+        "home_result": "0",
+        "visitor_result": "3",
+        "link_details": "https://www.flashscore.com/match/dKHTDtC7/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    }
+}

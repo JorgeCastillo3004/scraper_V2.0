@@ -1,0 +1,58 @@
+{
+    "0": {
+        "match_id": "d948dc9b-6a85-468a-9bb4-4c89520e8590",
+        "match_date": "28.11. 12:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "China~South Korea",
+        "home": "China",
+        "visitor": "South Korea",
+        "home_result": "76",
+        "visitor_result": "80",
+        "link_details": "https://www.flashscore.com/match/4Yb40geC/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "1": {
+        "match_id": "cf6a5ba9-31d7-4ff9-b293-d25272134b5d",
+        "match_date": "28.11. 11:05",
+        "start_time": "",
+        "end_time": "",
+        "name": "Japan~Chinese Taipei",
+        "home": "Japan",
+        "visitor": "Chinese Taipei",
+        "home_result": "90",
+        "visitor_result": "64",
+        "link_details": "https://www.flashscore.com/match/865e2FQa/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "2": {
+        "match_id": "8e3f576a-20ad-48c0-9334-e16a90116672",
+        "match_date": "28.11. 10:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Guam~Philippines",
+        "home": "Guam",
+        "visitor": "Philippines",
+        "home_result": "46",
+        "visitor_result": "87",
+        "link_details": "https://www.flashscore.com/match/UwmzcKlK/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "3": {
+        "match_id": "a5a2f3dd-66de-43f3-957a-e97d9406ed34",
+        "match_date": "28.11. 09:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "Australia~New Zealand",
+        "home": "Australia",
+        "visitor": "New Zealand",
+        "home_result": "84",
+        "visitor_result": "79",
+        "link_details": "https://www.flashscore.com/match/lrAmZGdD/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Hapoel Tel-Aviv": {
+        "team_id": "3fff0d4e-b1d2-4c84-9c96-a755fb42926b",
+        "team_url": "https://www.flashscore.com/team/hapoel-tel-aviv/x0WjVzjP/",
+        "stadium_id": "dbb70b7c-9c55-4156-bdf8-19fdf0294e3a"
+    },
+    "Olympiacos": {
+        "team_id": "f7931202-b8d8-49e2-9198-907c44a3a65a",
+        "team_url": "https://www.flashscore.com/team/olympiacos-piraeus/ptNXXDf6/",
+        "stadium_id": "c9df32b4-cd29-4cc8-8166-45c31f2eab75"
+    },
+    "Crvena zvezda": {
+        "team_id": "dd160f7a-85d1-4933-86f5-3b6d661fbf34",
+        "team_url": "https://www.flashscore.com/team/crvena-zvezda/6uAuZ6Pt/",
+        "stadium_id": "b6a5fa2a-b0f6-4ff1-8b4e-ecf283b248ec"
+    },
+    "Panathinaikos": {
+        "team_id": "d61a406d-997c-4eb7-94d5-489b2d00b28f",
+        "team_url": "https://www.flashscore.com/team/panathinaikos/bqRyXX9C/",
+        "stadium_id": "ec461c56-4a39-45f3-a8d6-4bfe98735de8"
+    },
+    "Zalgiris Kaunas": {
+        "team_id": "f642c4db-201a-4885-8b26-624243488c33",
+        "team_url": "https://www.flashscore.com/team/zalgiris-kaunas/6JbDYvUs/",
+        "stadium_id": "dc596010-cafd-4272-8078-e4aa250d0fd1"
+    },
+    "Monaco": {
+        "team_id": "ec74d398-d41d-4982-96b0-39ddad6ddf04",
+        "team_url": "https://www.flashscore.com/team/as-monaco/YFxc9UAj/",
+        "stadium_id": "89b36bd9-dafd-4794-9c76-3685c2cc029b"
+    },
+    "Valencia": {
+        "team_id": "7668befb-ff0d-4ce5-8ad1-4697fd220142",
+        "team_url": "https://www.flashscore.com/team/valencia/6w8lqYGE/",
+        "stadium_id": "8d2f9728-7fb8-461c-be33-d7b0b56045b2"
+    },
+    "Fenerbahce": {
+        "team_id": "2f3e73fe-04c4-4333-9bd5-3dacb2b6cd7c",
+        "team_url": "https://www.flashscore.com/team/fenerbahce/rDhoZR1l/",
+        "stadium_id": "f488d26f-eef6-4980-87bc-6b92e4b9a1ce"
+    },
+    "Barcelona": {
+        "team_id": "a936659f-2b04-4169-ae9a-668ba0e23b2a",
+        "team_url": "https://www.flashscore.com/team/barcelona/EDQLcAfL/",
+        "stadium_id": "bca52649-ceed-441e-8b84-7d643080721b"
+    },
+    "Real Madrid": {
+        "team_id": "42d64a49-be73-4953-a62a-8170808877ea",
+        "team_url": "https://www.flashscore.com/team/real-madrid/MP6gLUO7/",
+        "stadium_id": "f92f9354-e12d-469e-bfb3-9da7c904cf84"
+    },
+    "Olimpia Milano": {
+        "team_id": "f115cb0e-db08-412b-a86b-1f4c7cc30eb0",
+        "team_url": "https://www.flashscore.com/team/milan/tUT82gR9/",
+        "stadium_id": "23146315-bbea-47a8-a594-f8c3274540e0"
+    },
+    "Virtus Bologna": {
+        "team_id": "ea47006f-d368-49e9-a3ae-20277a9ee35b",
+        "team_url": "https://www.flashscore.com/team/virtus-bologna/YwDFycYd/",
+        "stadium_id": "24d2cf3b-82ee-44d5-90f8-3f16aad69706"
+    },
+    "Dubai": {
+        "team_id": "4b76c161-9a64-44d9-b083-e29357ef3ff9",
+        "team_url": "https://www.flashscore.com/team/dubai/b7EUA43e/",
+        "stadium_id": "295b795b-ac40-43f5-9dd8-859f0557da04"
+    },
+    "Anadolu Efes": {
+        "team_id": "1bc3a81b-4eea-419a-bf06-310ec20deb43",
+        "team_url": "https://www.flashscore.com/team/anadolu-efes/ny4KlAOf/",
+        "stadium_id": "f3665033-853e-4af0-9bb4-7f083d015ec8"
+    },
+    "Bayern": {
+        "team_id": "27f4c739-dbde-4ba3-ada5-ec9992eebf61",
+        "team_url": "https://www.flashscore.com/team/bayern/6LstMRPo/",
+        "stadium_id": "a853f226-999d-492a-b0d9-9ebe33240d25"
+    },
+    "Paris": {
+        "team_id": "935a0ac2-d73e-42cf-8e71-6bbd4c424492",
+        "team_url": "https://www.flashscore.com/team/paris/CdCP6AWf/",
+        "stadium_id": "c5e1d3a3-6e6d-4012-9db0-07e7cdd2b8d5"
+    },
+    "Baskonia": {
+        "team_id": "efeda1ed-4e97-4bd8-9887-a50647398938",
+        "team_url": "https://www.flashscore.com/team/saski-baskonia/8zQPdU9R/",
+        "stadium_id": "7ed43a1c-ba11-4aec-acff-9201fac1619a"
+    },
+    "Partizan Mozzart Bet": {
+        "team_id": "3c303283-5e2e-4c6a-bf09-ba31034e3ee6",
+        "team_url": "https://www.flashscore.com/team/partizan-mozzart-bet/GAiz1YL6/",
+        "stadium_id": "1817ae99-42e0-42ef-929d-fce38412b6e7"
+    },
+    "Maccabi Tel Aviv": {
+        "team_id": "5aa6b84d-3d82-4600-862f-299d49982372",
+        "team_url": "https://www.flashscore.com/team/maccabi-tel-aviv/nLuro05B/",
+        "stadium_id": "bd75c364-4668-495a-b091-84cf528e2cb9"
+    },
+    "Lyon-Villeurbanne": {
+        "team_id": "41bd0af9-7e91-4139-a930-bccdbc523f1a",
+        "team_url": "https://www.flashscore.com/team/lyon-villeurbanne/KrXB5aC1/",
+        "stadium_id": "24d1d016-ae61-44a6-bb22-641c7eb80b3d"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Arsenal": {
+        "team_id": "d2f43e9c-0ed1-477e-8126-cbe478436609",
+        "team_url": "https://www.flashscore.com/team/arsenal/hA1Zm19f/",
+        "stadium_id": "4e31cc4e-7dec-4e53-ad2c-5ad963567cc5"
+    },
+    "Manchester City": {
+        "team_id": "d80e41a8-e3ac-433f-b844-2fffa2fc5284",
+        "team_url": "https://www.flashscore.com/team/manchester-city/Wtn9Stg0/",
+        "stadium_id": "22463079-cd06-48cf-8f84-5eb0e17c6b85"
+    },
+    "Liverpool": {
+        "team_id": "f89bf268-2fee-4b01-9918-7106ca15b815",
+        "team_url": "https://www.flashscore.com/team/liverpool/lId4TMwf/",
+        "stadium_id": "62a48456-1e37-4228-8133-bd7b1b9e6821"
+    },
+    "Bournemouth": {
+        "team_id": "3cc43d5c-131e-48c2-ac45-9220039d7c3c",
+        "team_url": "https://www.flashscore.com/team/bournemouth/OtpNdwrc/",
+        "stadium_id": "5bc6aaa9-1cd6-4bc5-8f34-9979bfaccfa3"
+    },
+    "Chelsea": {
+        "team_id": "f41b92e4-3f36-4392-921b-9ce279b0d06b",
+        "team_url": "https://www.flashscore.com/team/chelsea/4fGZN2oK/",
+        "stadium_id": "45651580-da55-4620-82f9-421c2e0f50d6"
+    },
+    "Tottenham": {
+        "team_id": "8e172f1c-3218-4abf-be2e-4f3f7e199154",
+        "team_url": "https://www.flashscore.com/team/tottenham/UDg08Ohm/",
+        "stadium_id": "f1d32429-19ca-42bb-873d-1226132c359e"
+    },
+    "Sunderland": {
+        "team_id": "56d82bb0-d461-4517-aeff-320e6ee3aa8a",
+        "team_url": "https://www.flashscore.com/team/sunderland/WSzc94ws/",
+        "stadium_id": "0e0bf84b-5367-48e8-9d21-bae44d3fe630"
+    },
+    "Crystal Palace": {
+        "team_id": "a4471816-dca2-4b74-bd22-ca969ddd22b6",
+        "team_url": "https://www.flashscore.com/team/crystal-palace/AovF1Mia/",
+        "stadium_id": "f9ef6857-10f5-46ec-9892-bdba16db0d47"
+    },
+    "Manchester Utd": {
+        "team_id": "4fdcd871-2aed-4433-a07f-2354d495307e",
+        "team_url": "https://www.flashscore.com/team/manchester-united/ppjDR086/",
+        "stadium_id": "dd9ecde1-0a31-4d05-b91a-893969b799c6"
+    },
+    "Brighton": {
+        "team_id": "7af6ffe4-607f-4fac-9b07-7da56a413a57",
+        "team_url": "https://www.flashscore.com/team/brighton/2XrRecc3/",
+        "stadium_id": "17c591f1-0c23-4468-9a08-1356dd864cd9"
+    },
+    "Aston Villa": {
+        "team_id": "e7d97fd4-34e0-40cc-bfb1-8e4e45e449f8",
+        "team_url": "https://www.flashscore.com/team/aston-villa/W00wmLO0/",
+        "stadium_id": "a4805f8c-e382-4efa-a416-d7d0db27356b"
+    },
+    "Everton": {
+        "team_id": "f7d020de-f681-4b61-91e6-ad8b8ea0c329",
+        "team_url": "https://www.flashscore.com/team/everton/KluSTr9s/",
+        "stadium_id": "6701fb4c-6206-47ea-a26a-0e080d6002f4"
+    },
+    "Brentford": {
+        "team_id": "0a6f2030-d8dd-41c9-a824-28528aaba372",
+        "team_url": "https://www.flashscore.com/team/brentford/xYe7DwID/",
+        "stadium_id": "bf19a7ee-29cf-40b5-828d-b8cf374f5d09"
+    },
+    "Newcastle": {
+        "team_id": "b658ad63-1172-421b-b83f-c1db59e429ff",
+        "team_url": "https://www.flashscore.com/team/newcastle-utd/p6ahwuwJ/",
+        "stadium_id": "448c64a8-fda5-40ed-b724-8c51288ebad1"
+    },
+    "Fulham": {
+        "team_id": "60d75646-2456-4728-ba77-4de4fb6ad211",
+        "team_url": "https://www.flashscore.com/team/fulham/69ZiU2Om/",
+        "stadium_id": "d0233050-1ff6-4e3a-9dac-dc5b6e59f4e8"
+    },
+    "Leeds": {
+        "team_id": "ae6ed9d9-2c51-4fc4-bc84-144a82a5ab37",
+        "team_url": "https://www.flashscore.com/team/leeds/tUxUbLR2/",
+        "stadium_id": "8f3a9311-6ba8-4fb1-bb1d-7fdb4a67d617"
+    },
+    "Burnley": {
+        "team_id": "54354f72-a877-468c-8a05-0888591aa91a",
+        "team_url": "https://www.flashscore.com/team/burnley/z3dmTMMO/",
+        "stadium_id": "0731275f-2ac1-422b-8119-e01fe4c399d7"
+    },
+    "Nottingham": {
+        "team_id": "7a769b6e-5dac-4432-9944-d3664366868b",
+        "team_url": "https://www.flashscore.com/team/nottingham/UsushcZr/",
+        "stadium_id": "2411c84c-96c9-4510-a7a4-7f44633967f1"
+    },
+    "West Ham": {
+        "team_id": "70e22b33-22a7-4e96-9f5d-aea62fb96b61",
+        "team_url": "https://www.flashscore.com/team/west-ham/Cxq57r8g/",
+        "stadium_id": "aa5cdec6-22d9-4ff5-9e9e-e3a02a808aa5"
+    },
+    "Wolves": {
+        "team_id": "59dcabb4-9adf-4fa8-b5a9-42c76d334e3e",
+        "team_url": "https://www.flashscore.com/team/wolves/j3Azpf5d/",
+        "stadium_id": "8f602696-9737-4273-bfd9-48abce2ce233"
+    }
+}
