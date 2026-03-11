@@ -16,3 +16,4 @@ check_points/
 # Python
 __pycache__/
 *.pyc
+.check_points/
