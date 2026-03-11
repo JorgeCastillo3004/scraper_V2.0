@@ -180,7 +180,7 @@ def launch_navigator(url, headless= True, enable_profile=False):
     driver.execute_script("document.body.style.zoom='50%'")    
     return driver
 
-def login(driver, email_="jignacio@jweglobal.com", password_="Caracas5050@\n", max_attempts=3):
+def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
     """
     Login robusto en FlashScore.
     - Reintenta hasta max_attempts veces si cualquier paso falla

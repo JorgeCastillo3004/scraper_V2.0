@@ -32,9 +32,9 @@ MATCH_THRESHOLD = 20   # ligas con menos de este número de partidos se habilita
 
 def get_connection():
     return psycopg2.connect(
-        host="96.30.195.40",
-        user="wohhu",
-        password="caracas123",
+        host="DB_HOST",
+        user="DB_USER",
+        password="DB_PASS",
         dbname="sports_db"
     )
 

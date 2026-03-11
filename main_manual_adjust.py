@@ -15,6 +15,8 @@ from milestone4 import *
 from milestone6 import *
 from milestone7 import *
 from milestone8 import *
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import FS_EMAIL, FS_PASSWORD
 
 CONFIG = load_json('check_points/CONFIG.json')
 database_enable = CONFIG['DATA_BASE']
@@ -53,7 +55,7 @@ def main():
 
 if __name__ == "__main__":
     driver = launch_navigator('https://www.flashscore.com', headless=True)
-    login(driver, email_="jignacio@jweglobal.com", password_="Caracas5050@\n")
+    login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)
     main()
     if database_enable:
         con.close()

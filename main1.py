@@ -26,11 +26,13 @@ from milestone2 import *
 from milestone3 import *
 from milestone4 import *
 from milestone6 import *
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import FS_EMAIL, FS_PASSWORD
 
 
 def main_others():
 	driver = launch_navigator('https://www.flashscore.com', headless = True)
-	login(driver, email_= "jignacio@jweglobal.com", password_ = "Caracas5050@\n")
+	login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)
 	day_execution_s1 = -1
 	day_execution_s2 = -1
 	day_execution_s3 = -1

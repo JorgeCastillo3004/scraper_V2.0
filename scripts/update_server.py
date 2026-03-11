@@ -14,12 +14,15 @@ import paramiko
 import os
 import sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from config import SERVER_HOST, SERVER_USER, SERVER_PASS, SERVER_PATH
+
 # ── Configuración ─────────────────────────────────────────────────────────────
-HOST        = '104.156.244.145'
-USER        = 'root'
-PASS        = '3,uM$2M4BnE.R*f*'
-LOCAL_BASE  = '/home/you/work_2026'
-REMOTE_BASE = '/root/scraper_v3'
+HOST        = SERVER_HOST
+USER        = SERVER_USER
+PASS        = SERVER_PASS
+LOCAL_BASE  = '/home/you/scraper_V2.0'
+REMOTE_BASE = SERVER_PATH
 
 # Carpetas/archivos excluidos en el nivel raíz
 ROOT_EXCLUDE = {

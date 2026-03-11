@@ -1,4 +1,7 @@
 import psycopg2
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
 from common_functions import load_json
 from unidecode import unidecode
 import re
@@ -6,12 +9,7 @@ import hashlib
 import pycountry
 
 def getdb():
-    return psycopg2.connect(
-                host="96.30.195.40",
-                user="wohhu",
-                password="caracas123",
-        dbname='sports_db',
-        )
+    return psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
 
 def ensure_connection():
     global con

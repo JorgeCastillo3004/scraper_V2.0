@@ -189,7 +189,7 @@ def complete_dict_match(match_dict, stadium_dict, season_info):
 
 def extract_matchs_from_schedule():
     driver = launch_navigator('https://www.flashscore.com', headless = False)
-    login(driver, email_= "jignacio@jweglobal.com", password_ = "Caracas5050@\n")
+    login(driver, email_= "FS_EMAIL", password_ = "FS_PASSWORD")
     sport_name = 'FOOTBALL'
 
     # LOAD SPORTS LIST OF URLS

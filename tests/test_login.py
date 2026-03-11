@@ -18,8 +18,8 @@ os.chdir('/home/you/work_2026')
 
 from common_functions import launch_navigator, login
 
-EMAIL    = "jignacio@jweglobal.com"
-PASSWORD = "Caracas5050@"
+EMAIL    = "FS_EMAIL"
+PASSWORD = "FS_PASSWORD"
 
 results = []
 

@@ -3,7 +3,7 @@ DO
 $$
 BEGIN
     IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'db_admin') THEN
-        CREATE ROLE db_admin WITH LOGIN PASSWORD 'caracas123';
+        CREATE ROLE db_admin WITH LOGIN PASSWORD 'DB_PASS';
         ALTER ROLE db_admin CREATEDB;
     END IF;
 END
@@ -242,21 +242,21 @@ create table if not exists public.country
 alter table public.country
     owner to db_admin;
 
-create table if not exists public.wohhu_params
+create table if not exists public.DB_USER_params
 (
     name          varchar(35) not null
-        constraint wohhu_params_pk
+        constraint DB_USER_params_pk
             primary key,
     config_params oid
 );
 
-comment on table public.wohhu_params is 'Wohhu configuration parameters';
+comment on table public.DB_USER_params is 'Wohhu configuration parameters';
 
-comment on column public.wohhu_params.name is 'Name of the configuration paramater';
+comment on column public.DB_USER_params.name is 'Name of the configuration paramater';
 
-comment on column public.wohhu_params.config_params is 'Configuration parameters';
+comment on column public.DB_USER_params.config_params is 'Configuration parameters';
 
-alter table public.wohhu_params
+alter table public.DB_USER_params
     owner to db_admin;
 
 create table if not exists public.pool

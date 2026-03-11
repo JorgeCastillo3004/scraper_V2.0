@@ -52,7 +52,7 @@ def get_list_recent_news(driver, max_older_news, last_index, last_date_saved):
 			# Verificar base de datos
 			print("--", end = '')
 			# image_path_small = random_name(folder = 'images/news/small_images', termination = '.avif')
-			# new path /var/www/wohhu-images/
+			# new path /var/www/DB_USER-images/
 			image_path_small = img_path(title, folder = 'images/news/small_images', termination = '.avif')
 			# save_image(driver, image_url, image_path_small)
 			image_name_file = image_path_small.split('/')[-1]
@@ -323,5 +323,5 @@ database_enable = CONFIG['DATA_BASE']
 # if __name__ == "__main__":	
 # 	driver = launch_navigator('https://www.flashscore.com', database_enable)
 # 	initial_settings_m1(driver)
-# 	login(driver, email_= "jignacio@jweglobal.com", password_ = "Caracas5050@\n")	
+# 	login(driver, email_= "FS_EMAIL", password_ = "FS_PASSWORD")	
 # 	main_extract_news(driver)

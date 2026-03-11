@@ -1231,7 +1231,7 @@ def get_dict_players(event_block):
 
 if __name__ == "__main__":	
     driver = launch_navigator('https://www.flashscore.com', headless = True)
-    login(driver, email_= "jignacio@jweglobal.com", password_ = "Caracas5050@\n")
+    login(driver, email_= "FS_EMAIL", password_ = "FS_PASSWORD")
 
     results_fixtures_extraction(driver, list_sports=["FOOTBALL","BASKETBALL","BASEBALL",
                                                         "AM._FOOTBALL", "HOCKEY", "TENNIS"

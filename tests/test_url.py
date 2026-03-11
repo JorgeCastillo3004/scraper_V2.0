@@ -4,8 +4,8 @@ import psycopg2
 def getdb():
     return psycopg2.connect(
         host="localhost",
-        user="wohhu",
-        password="caracas123",
+        user="DB_USER",
+        password="DB_PASS",
         dbname='sports_db',
     )
 

@@ -23,10 +23,12 @@ from common_functions import *
 from data_base import *
 from milestone7 import *
 from milestone8 import *
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import FS_EMAIL, FS_PASSWORD
 
 def main_live():
 	driver = launch_navigator('https://www.flashscore.com', headless = True)
-	login(driver, email_= "jignacio@jweglobal.com", password_ = "Caracas5050@\n")	
+	login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)	
 	print("Section live...")
 	day_execution_s7 = -1
 	execute_ready_s7 = False
