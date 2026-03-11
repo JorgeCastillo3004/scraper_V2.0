@@ -1,0 +1,139 @@
+{
+    "Chicago White Sox": {
+        "team_id": "8e208317-0f92-4108-82ec-52c7950ca173",
+        "team_url": "https://www.flashscore.com/team/chicago-white-sox/SW9D1eZo/"
+    },
+    "Los Angeles Angels": {
+        "team_id": "ce6d5abc-dca0-4fda-9c13-6ffea8923f52",
+        "team_url": "https://www.flashscore.com/team/los-angeles-angels/Mg9H0Flh/"
+    },
+    "Toronto Blue Jays": {
+        "team_id": "60d4fc57-a8cd-48a6-a5f5-97baeed9016c",
+        "team_url": "https://www.flashscore.com/team/toronto-blue-jays/zcDLaZ3b/",
+        "stadium_id": "2f47aafd-786d-4620-908e-6605e6d97337"
+    },
+    "Kansas City Royals": {
+        "team_id": "3ae325c2-b6d6-4c90-bc34-126e868b827b",
+        "team_url": "https://www.flashscore.com/team/kansas-city-royals/IL2QbgJ4/",
+        "stadium_id": "e2ad8af1-4869-411c-836b-710da4b1f60f"
+    },
+    "Baltimore Orioles": {
+        "team_id": "cebc9fad-1939-421d-b1fe-02bb8cb222e1",
+        "team_url": "https://www.flashscore.com/team/baltimore-orioles/EcZwBi3N/",
+        "stadium_id": "c4f64951-db48-4ba5-8ba1-8ad8a477032c"
+    },
+    "New York Yankees": {
+        "team_id": "a3b652a6-16e2-4593-8a63-3ed9b02b9039",
+        "team_url": "https://www.flashscore.com/team/new-york-yankees/SrC4LDIT/"
+    },
+    "Cleveland Guardians": {
+        "team_id": "53ba9966-26a7-4f90-a72d-4b39be60bd5f",
+        "team_url": "https://www.flashscore.com/team/cleveland-guardians/4K05MrFG/"
+    },
+    "Tampa Bay Rays": {
+        "team_id": "2202478f-1c7d-46ae-ab08-91f27e86aa12",
+        "team_url": "https://www.flashscore.com/team/tampa-bay-rays/GCHgI4hp/"
+    },
+    "Texas Rangers": {
+        "team_id": "4826a2e7-e543-4e06-a659-408a2ad37317",
+        "team_url": "https://www.flashscore.com/team/texas-rangers/f3GcHO7j/"
+    },
+    "Detroit Tigers": {
+        "team_id": "711ae0b3-506a-4210-81fc-bdb78c5f3786",
+        "team_url": "https://www.flashscore.com/team/detroit-tigers/0QIlt8pi/"
+    },
+    "Seattle Mariners": {
+        "team_id": "57656008-8afd-4471-98de-e013df02986d",
+        "team_url": "https://www.flashscore.com/team/seattle-mariners/txYPhSac/",
+        "stadium_id": "ddc578d9-2042-4ecd-ae13-5c3e08ba525c"
+    },
+    "Boston Red Sox": {
+        "team_id": "73ee3e89-e91c-465d-8cbf-17508b2fab5d",
+        "team_url": "https://www.flashscore.com/team/boston-red-sox/zaXTinF3/"
+    },
+    "Minnesota Twins": {
+        "team_id": "399faf24-534b-4a6f-9bc2-f76a8a025194",
+        "team_url": "https://www.flashscore.com/team/minnesota-twins/OjWW1naM/"
+    },
+    "Houston Astros": {
+        "team_id": "22ac124f-c73b-47ed-a4b1-979402f9c402",
+        "team_url": "https://www.flashscore.com/team/houston-astros/lfZXonNq/",
+        "stadium_id": "98858b6f-57d0-4a7f-9d49-1ca32d1ba773"
+    },
+    "Athletics": {
+        "team_id": "79020f4d-2eeb-48c2-8c48-38a6450ff099",
+        "team_url": "https://www.flashscore.com/team/athletics/xIYDcQid/"
+    },
+    "Atlanta Braves": {
+        "team_id": "2e68e157-742a-45f6-adc8-6c72913bb774",
+        "team_url": "https://www.flashscore.com/team/atlanta-braves/0UPxbDYA/",
+        "stadium_id": "ea5fdd27-0da2-4b60-9e4d-86f7fae37890"
+    },
+    "Arizona Diamondbacks": {
+        "team_id": "8a138b35-d6d9-4de8-a2fe-13950fd19591",
+        "team_url": "https://www.flashscore.com/team/arizona-diamondbacks/8bP2bXmH/",
+        "stadium_id": "2569a800-7397-4d0f-917b-31d1a1941969"
+    },
+    "Washington Nationals": {
+        "team_id": "f9b91dbe-78e7-496d-a324-296288f69682",
+        "team_url": "https://www.flashscore.com/team/washington-nationals/CE026gRp/"
+    },
+    "Milwaukee Brewers": {
+        "team_id": "c5e232df-8032-4420-b9bf-0b10352d21f5",
+        "team_url": "https://www.flashscore.com/team/milwaukee-brewers/CGzqC60o/",
+        "stadium_id": "74e2c44f-51c2-43dd-a615-4d335dec7f8c"
+    },
+    "Chicago Cubs": {
+        "team_id": "93f11028-9f38-4daf-af00-2f5b680ada54",
+        "team_url": "https://www.flashscore.com/team/chicago-cubs/j7ZnBQFi/",
+        "stadium_id": "c1f9809e-4c9a-45da-b29a-0eceefdc6672"
+    },
+    "Los Angeles Dodgers": {
+        "team_id": "40cb2c78-9c3d-499e-87e6-54952973f529",
+        "team_url": "https://www.flashscore.com/team/los-angeles-dodgers/nwPDBpVc/",
+        "stadium_id": "09221b39-1230-4ec9-af20-10d483d95e7a"
+    },
+    "Philadelphia Phillies": {
+        "team_id": "16ff32da-0f6d-4f3b-bb10-dc6c3e478903",
+        "team_url": "https://www.flashscore.com/team/philadelphia-phillies/QTNHA4p4/",
+        "stadium_id": "c88155a2-00b3-4a07-8c77-1883eac94f6f"
+    },
+    "Colorado Rockies": {
+        "team_id": "2b25a9ed-c394-4e69-ae76-aa978c206f38",
+        "team_url": "https://www.flashscore.com/team/colorado-rockies/naYhNOaA/"
+    },
+    "New York Mets": {
+        "team_id": "59d98291-ce1c-4521-82f1-e92b9f208e58",
+        "team_url": "https://www.flashscore.com/team/new-york-mets/I5wWW4UM/",
+        "stadium_id": "b58d77ad-c79f-436c-b95b-86fe6027225e"
+    },
+    "Miami Marlins": {
+        "team_id": "6f4045cc-2d36-4a94-bead-98931ac63c4c",
+        "team_url": "https://www.flashscore.com/team/miami-marlins/ddxzWOqT/",
+        "stadium_id": "cbedcbd1-7458-499e-8f02-14d8b052bb87"
+    },
+    "Cincinnati Reds": {
+        "team_id": "8d0a7ec2-5dce-4b5b-b671-b39df82075b0",
+        "team_url": "https://www.flashscore.com/team/cincinnati-reds/EkWXj6U9/",
+        "stadium_id": "445caaef-6bdf-488c-9c85-d88b832fdbf8"
+    },
+    "Pittsburgh Pirates": {
+        "team_id": "b0dd1b76-697f-4bcf-a8a0-5b7cd6ca5ba8",
+        "team_url": "https://www.flashscore.com/team/pittsburgh-pirates/tr9K2SqG/"
+    },
+    "St.Louis Cardinals": {
+        "team_id": "2f0707ed-bb43-4344-9c73-cffcde29f99a",
+        "team_url": "https://www.flashscore.com/team/st-louis-cardinals/IDVz16ES/",
+        "stadium_id": "dc4bff87-5b58-44a2-96d4-22ad22e03f83"
+    },
+    "San Francisco Giants": {
+        "team_id": "53951890-5f28-4d17-a037-0ea5903e33dd",
+        "team_url": "https://www.flashscore.com/team/san-francisco-giants/bRZ9b6xj/",
+        "stadium_id": "ecf9aa93-373a-4379-ab31-d01bbd42dfee"
+    },
+    "San Diego Padres": {
+        "team_id": "5ca4c192-a391-42a4-bfc8-28589d8f5f56",
+        "team_url": "https://www.flashscore.com/team/san-diego-padres/8poQN9Ud/",
+        "stadium_id": "99e83b98-f39d-4193-9346-a7b66ddd4451"
+    }
+}

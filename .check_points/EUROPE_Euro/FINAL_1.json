@@ -1,0 +1,44 @@
+{
+    "0": {
+        "match_id": "3fb40dc8-d721-4604-bffd-d2b22627f60f",
+        "match_date": "26.03. 20:45",
+        "start_time": "",
+        "end_time": "",
+        "name": "Ukraine~Iceland",
+        "home": "Ukraine",
+        "visitor": "Iceland",
+        "home_result": "2",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/KK1OaVP7/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    },
+    "1": {
+        "match_id": "60f6dc70-e83b-4940-8a87-1444b089fbbe",
+        "match_date": "26.03. 20:45\nPen",
+        "start_time": "",
+        "end_time": "",
+        "name": "Wales~Poland",
+        "home": "Wales",
+        "visitor": "Poland",
+        "home_result": "0",
+        "visitor_result": "1",
+        "link_details": "https://www.flashscore.com/match/bTFTAeY8/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    },
+    "2": {
+        "match_id": "799bc700-c697-428d-941d-92d8f71a48a6",
+        "match_date": "26.03. 18:00\nPen",
+        "start_time": "",
+        "end_time": "",
+        "name": "Georgia~Greece",
+        "home": "Georgia",
+        "visitor": "Greece",
+        "home_result": "1",
+        "visitor_result": "0",
+        "link_details": "https://www.flashscore.com/match/fwl3yesj/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "4ex9xdkdu6chrpa20"
+    }
+}

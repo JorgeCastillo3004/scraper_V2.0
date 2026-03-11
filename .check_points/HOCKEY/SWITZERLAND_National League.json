@@ -1,0 +1,58 @@
+{
+    "Davos": {
+        "team_id": "a9eb668f-71eb-4461-99cc-95bbdf149384",
+        "team_url": "https://www.flashscore.com/team/davos/6yAC1NAl/"
+    },
+    "Fribourg": {
+        "team_id": "2cfce031-57d6-4b9c-82b8-f11b681ea708",
+        "team_url": "https://www.flashscore.com/team/fribourg/r94HIWFD/"
+    },
+    "Lausanne": {
+        "team_id": "614bff43-aa76-4b3c-9e78-7006d81b5b12",
+        "team_url": "https://www.flashscore.com/team/lausanne/0CAYHtul/"
+    },
+    "Servette": {
+        "team_id": "1f7ea029-9f3b-45a5-82dc-d7c44368f5d6",
+        "team_url": "https://www.flashscore.com/team/servette/46e8yYpl/"
+    },
+    "Rapperswil-Jona": {
+        "team_id": "fd04e625-1837-4590-a8cb-affe8d6f3780",
+        "team_url": "https://www.flashscore.com/team/rapperswil-jona/dxdryEVs/"
+    },
+    "Lugano": {
+        "team_id": "ff325754-59fb-48d5-8c82-42e977b85c97",
+        "team_url": "https://www.flashscore.com/team/lugano/0UG7sGhE/"
+    },
+    "Zug": {
+        "team_id": "1f0322f1-cd5c-47f6-9205-20379b17c210",
+        "team_url": "https://www.flashscore.com/team/zug/tv5F5ho1/"
+    },
+    "Zurich": {
+        "team_id": "67c07d70-c0de-4736-a977-64aff32e9157",
+        "team_url": "https://www.flashscore.com/team/zurich/vmRgFvP6/"
+    },
+    "Langnau Tigers": {
+        "team_id": "eb3c52d1-1de1-4bd5-a973-bbb899b2d932",
+        "team_url": "https://www.flashscore.com/team/langnau-tigers/fT9GufNQ/"
+    },
+    "Ambri-Piotta": {
+        "team_id": "612355cf-63e3-444d-89c1-47ef8beaa523",
+        "team_url": "https://www.flashscore.com/team/ambri-piotta/4I5DJC07/"
+    },
+    "Biel": {
+        "team_id": "7be9f762-8337-44e4-ac54-5e98ac9ff8a8",
+        "team_url": "https://www.flashscore.com/team/biel/ENTilh0f/"
+    },
+    "EHC Kloten": {
+        "team_id": "a200e8ff-297f-40da-8508-92eff42f0fee",
+        "team_url": "https://www.flashscore.com/team/kloten/C4KBtz8K/"
+    },
+    "Bern": {
+        "team_id": "7a848f1b-378b-4d2f-9fa4-f740cb8854e4",
+        "team_url": "https://www.flashscore.com/team/bern/OSn023er/"
+    },
+    "Ajoie": {
+        "team_id": "fc37e44f-c673-44c3-ad5f-81220685a231",
+        "team_url": "https://www.flashscore.com/team/ajoie/pzDqNr2K/"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "Aguilas Cibaenas": {
+        "team_id": "5af0d056-fc88-4aa0-a79e-376cd41ac484",
+        "team_url": "https://www.flashscore.com/team/aguilas-cibaenas/IJANR5UH/",
+        "stadium_id": "f7ab59c0-ef53-4fdd-b088-343b8664c6cc"
+    },
+    "Toros del Este": {
+        "team_id": "b72a5c3a-c5df-487f-8d35-ac863c106202",
+        "team_url": "https://www.flashscore.com/team/toros-del-este/x6rfWKL3/",
+        "stadium_id": "24015a10-5f63-4e2b-b852-65dba40bdb51"
+    },
+    "Gigantes del Cibao": {
+        "team_id": "f5175b96-df88-4ab3-b890-cca392b26c4e",
+        "team_url": "https://www.flashscore.com/team/gigantes-del-cibao/OIxe9cEj/",
+        "stadium_id": "e6307b6c-f171-4af8-857e-2dc9348088b8"
+    },
+    "Estrellas Orientales": {
+        "team_id": "159cabc1-d043-4241-bb9b-3f7be45d431b",
+        "team_url": "https://www.flashscore.com/team/estrellas-orientales/AFYjAwap/"
+    },
+    "Leones del Escogido": {
+        "team_id": "405a3627-3287-453a-8abd-cfbe1b39188f",
+        "team_url": "https://www.flashscore.com/team/leones-del-escogido/UuunYtii/",
+        "stadium_id": "2cf5615e-c17d-4c04-8f29-a9fe9d677a31"
+    },
+    "Tigres del Licey": {
+        "team_id": "7a6e2b03-03a5-471e-9263-f50eec9f22e5",
+        "team_url": "https://www.flashscore.com/team/tigres-del-licey/8WwjX06c/"
+    }
+}

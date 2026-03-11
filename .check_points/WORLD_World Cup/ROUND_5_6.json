@@ -1,0 +1,58 @@
+{
+    "0": {
+        "match_id": "9c2d17f4-098a-410a-8945-8e6617c93930",
+        "match_date": "03.07. 22:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Bahamas~Jamaica",
+        "home": "Bahamas",
+        "visitor": "Jamaica",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/OnuBFAM5/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "1": {
+        "match_id": "77fcc7e4-b025-445f-89c2-f3a551d44e15",
+        "match_date": "03.07. 22:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Canada~Puerto Rico",
+        "home": "Canada",
+        "visitor": "Puerto Rico",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/AqslhKvP/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "2": {
+        "match_id": "edebdafe-9b8c-44de-a3b4-5a24251783a4",
+        "match_date": "03.07. 22:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Dominican Republic~USA",
+        "home": "Dominican Republic",
+        "visitor": "USA",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/CQhdfk4e/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    },
+    "3": {
+        "match_id": "60130cf4-6ad0-4742-b28c-acec74e4f79f",
+        "match_date": "03.07. 22:00",
+        "start_time": "",
+        "end_time": "",
+        "name": "Mexico~Nicaragua",
+        "home": "Mexico",
+        "visitor": "Nicaragua",
+        "home_result": "",
+        "visitor_result": "",
+        "link_details": "https://www.flashscore.com/match/Ikx3HWig/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "1szntdq0kvp6odaob"
+    }
+}

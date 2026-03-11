@@ -1,0 +1,66 @@
+{
+    "India": {
+        "team_id": "9877ae40-d00d-497c-a90f-19ea446f9c23",
+        "team_url": "https://www.flashscore.com/team/india/A1UUGpep/"
+    },
+    "Turkmenistan": {
+        "team_id": "e5d345c0-07d5-489f-90bb-dabdc874c6a4",
+        "team_url": "https://www.flashscore.com/team/turkmenistan/SUftDSK5/",
+        "stadium_id": "16252161-f57d-4a7f-b504-e166c89bd41f"
+    },
+    "Thailand": {
+        "team_id": "ad877420-fd4f-47e1-a61a-e58d9c002c78",
+        "team_url": "https://www.flashscore.com/team/thailand/zHgBrkd7/",
+        "stadium_id": "0bd32c2b-9a4b-468f-a9c2-992d37d5dcdd"
+    },
+    "Sri Lanka": {
+        "team_id": "a3bbebe2-7b8c-4fab-9de7-fa426b27db56",
+        "team_url": "https://www.flashscore.com/team/sri-lanka/GW4b2iPg/",
+        "stadium_id": "15e11fe1-81d5-40cb-837d-1efabc85f22a"
+    },
+    "Chinese Taipei": {
+        "team_id": "835302be-870b-48fb-bd56-836ecbce1954",
+        "team_url": "https://www.flashscore.com/team/chinese-taipei/CbzOhSZN/",
+        "stadium_id": "ccacf80a-006e-4e7e-98a4-f8e46e10fe28"
+    },
+    "Syria": {
+        "team_id": "5ed38efa-aff6-4574-9410-dffbafdbba26",
+        "team_url": "https://www.flashscore.com/team/syria/bDoeW1BH/",
+        "stadium_id": "4eba2bc2-537a-4074-8fae-86294cc59ccc"
+    },
+    "Myanmar": {
+        "team_id": "9cdf316d-df91-4072-9fa3-8a5376eb589d",
+        "team_url": "https://www.flashscore.com/team/myanmar/2JBsa3Sl/",
+        "stadium_id": "22b77c65-1805-4cbd-9fb8-f646eacf2530"
+    },
+    "Afghanistan": {
+        "team_id": "8729c64b-213d-44f8-8e20-d6e498bdff7a",
+        "team_url": "https://www.flashscore.com/team/afghanistan/4M0iRO5p/",
+        "stadium_id": "e5d2b44f-7488-419e-8723-79c5edcd1d44"
+    },
+    "Pakistan": {
+        "team_id": "6334bc58-5a2a-4fe6-ad38-d78be5b6157a",
+        "team_url": "https://www.flashscore.com/team/pakistan/YDdhqj6h/",
+        "stadium_id": "4f0a4ce8-d4f3-45fa-827c-920ce4d16aab"
+    },
+    "Malaysia": {
+        "team_id": "81bd83f8-bfbd-4091-a0fb-9d8393075f6d",
+        "team_url": "https://www.flashscore.com/team/malaysia/rDaObqDr/",
+        "stadium_id": "f21655ff-645f-47e1-9487-f43683fb038d"
+    },
+    "Vietnam": {
+        "team_id": "3e4d4cfd-2f46-4919-a4c2-ef3f1bd91d82",
+        "team_url": "https://www.flashscore.com/team/vietnam/xAcurtwO/",
+        "stadium_id": "d3df2b6f-2632-419d-8001-1f16fb29727c"
+    },
+    "Laos": {
+        "team_id": "38bc0b4a-3b85-4722-9ea8-5f2c25c862c7",
+        "team_url": "https://www.flashscore.com/team/laos/2VDnGBrG/",
+        "stadium_id": "2298cb35-f99c-4ff2-9685-a006f5b4fef9"
+    },
+    "Nepal": {
+        "team_id": "9fb64b33-35bb-4fd5-8946-df0722112971",
+        "team_url": "https://www.flashscore.com/team/nepal/lhkLpjfJ/",
+        "stadium_id": "f8aaa2bd-9266-4fd7-a938-3cc9e708d152"
+    }
+}

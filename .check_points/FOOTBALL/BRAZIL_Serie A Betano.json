@@ -1,0 +1,102 @@
+{
+    "Palmeiras": {
+        "team_id": "fadf8c34-c214-4e47-aa77-66c8209d24ea",
+        "team_url": "https://www.flashscore.com/team/palmeiras/hMn9FTbH/",
+        "stadium_id": "738f3633-82af-43dd-9e5a-2412e021e08b"
+    },
+    "Flamengo RJ": {
+        "team_id": "873fc006-e6b0-4590-8c6a-54bb83da7caa",
+        "team_url": "https://www.flashscore.com/team/flamengo-rj/WjxY29qB/",
+        "stadium_id": "9936f707-0a65-48ef-b971-da4b31e12a74"
+    },
+    "Cruzeiro": {
+        "team_id": "aa77d819-dca5-443f-9922-cb1ae9ae2a12",
+        "team_url": "https://www.flashscore.com/team/cruzeiro/0SwtclaU/",
+        "stadium_id": "7d239ffa-9e5c-4011-a38a-2440ec40e915"
+    },
+    "Mirassol": {
+        "team_id": "48ea343d-3fd4-4c3a-a6be-984073ad4ad4",
+        "team_url": "https://www.flashscore.com/team/mirassol/pQ8ryEe7/",
+        "stadium_id": "78c86350-68d4-4ab8-b005-5b9c8f2c0b07"
+    },
+    "Bahia": {
+        "team_id": "d3e541b5-cb6a-472d-8128-b40981b193f9",
+        "team_url": "https://www.flashscore.com/team/bahia/UeD7XtzM/",
+        "stadium_id": "8ba08c51-4a79-4cdc-b90d-df55c3efc8ec"
+    },
+    "Botafogo RJ": {
+        "team_id": "9b309dc8-3905-41d9-a68f-0ad09107121f",
+        "team_url": "https://www.flashscore.com/team/botafogo-rj/jXzWoWa5/",
+        "stadium_id": "cc1100c6-9dc8-4831-85bf-967c7531fc50"
+    },
+    "Fluminense": {
+        "team_id": "8b4982fb-6c81-4825-808e-3d3227f085ce",
+        "team_url": "https://www.flashscore.com/team/fluminense/EV9L3kU4/",
+        "stadium_id": "d33a332b-a18c-4f0f-ab02-93b11f76fa0b"
+    },
+    "Vasco": {
+        "team_id": "1bb0d3df-5f0e-4944-a69b-9c63c7edc360",
+        "team_url": "https://www.flashscore.com/team/vasco/2RABlYFn/",
+        "stadium_id": "5705b41a-aac7-4766-969d-e43df420ffc3"
+    },
+    "Sao Paulo": {
+        "team_id": "b4a07fe0-9067-479f-b2de-ec071383e39b",
+        "team_url": "https://www.flashscore.com/team/sao-paulo/QgP0oAUH/",
+        "stadium_id": "b7920a6a-1096-4a92-af51-7c5374a62b9a"
+    },
+    "Bragantino": {
+        "team_id": "1da41522-cf71-40ef-8947-a80f8a54d040",
+        "team_url": "https://www.flashscore.com/team/bragantino/jwKvKhGa/",
+        "stadium_id": "43eb591d-db62-47da-9e12-acf010bd7244"
+    },
+    "Corinthians": {
+        "team_id": "7e5ae245-24a8-42c6-8372-5a95f4281412",
+        "team_url": "https://www.flashscore.com/team/corinthians/QBGfQbSe/",
+        "stadium_id": "9d72bd12-8d2e-4663-aa45-21f0771c12aa"
+    },
+    "Gremio": {
+        "team_id": "e811d7b4-244b-4058-abf1-b6a5628bdf0f",
+        "team_url": "https://www.flashscore.com/team/gremio/E1EFmhVh/",
+        "stadium_id": "0e0b94c7-643b-472e-a0eb-186cc500b38a"
+    },
+    "Ceara": {
+        "team_id": "5a92f4f6-a84e-451c-bcd6-895d1a0bcd95",
+        "team_url": "https://www.flashscore.com/team/ceara/p0JrJCV5/",
+        "stadium_id": "0bb633eb-3f6b-4135-848a-0ea8d6860258"
+    },
+    "Internacional": {
+        "team_id": "54a0fe59-1791-49e6-afb4-37db026d6cc1",
+        "team_url": "https://www.flashscore.com/team/internacional/tSCiHj0I/",
+        "stadium_id": "abfe79bc-1db5-4fec-aad6-7788a2b40d37"
+    },
+    "Atletico-MG": {
+        "team_id": "e197fd90-bc21-46b2-9b43-64b494061edb",
+        "team_url": "https://www.flashscore.com/team/atletico-mg/hGLC5Bah/",
+        "stadium_id": "8bbfbdcc-8524-448a-b89e-e9d56b1915f2"
+    },
+    "Santos": {
+        "team_id": "42dea3b0-22e1-405e-b564-a353f38d8eac",
+        "team_url": "https://www.flashscore.com/team/santos/n3QdnjFB/",
+        "stadium_id": "3bcda388-5873-491b-8516-0eaa2a704d86"
+    },
+    "Vitoria": {
+        "team_id": "d6ca16f4-fc72-4a88-ac8c-0493a4d2d93d",
+        "team_url": "https://www.flashscore.com/team/vitoria/8bSbHipn/",
+        "stadium_id": "6b13aba9-a55a-4f2b-8c9b-95dfa30c31da"
+    },
+    "Juventude": {
+        "team_id": "166a7851-1a35-4073-9cfe-43550e65ffa7",
+        "team_url": "https://www.flashscore.com/team/ec-juventude/GS36K259/",
+        "stadium_id": "239275b4-2993-4911-8bbe-c14b75df3933"
+    },
+    "Fortaleza": {
+        "team_id": "afe5ecd5-0a27-4ae7-9856-28bfe95a793c",
+        "team_url": "https://www.flashscore.com/team/fortaleza/42FbPIs2/",
+        "stadium_id": "11df5afb-1488-47b1-aa6d-d3217e974c0a"
+    },
+    "Sport Recife": {
+        "team_id": "8b0f53d3-6909-4104-8eea-a2830f21fe8e",
+        "team_url": "https://www.flashscore.com/team/sport-recife/KIBeGAFO/",
+        "stadium_id": "697a54fc-0b16-461d-90ca-6beff9fca4a2"
+    }
+}
