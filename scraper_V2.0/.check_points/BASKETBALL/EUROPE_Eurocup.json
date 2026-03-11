@@ -1,0 +1,102 @@
+{
+    "Cedevita Olimpija": {
+        "team_id": "3d4c3113-8ebe-4d87-9100-122b05a68411",
+        "team_url": "https://www.flashscore.com/team/cedevita-olimpija/M7fraCjJ/",
+        "stadium_id": "06d0fbea-62f1-4053-961d-76f07bdd9ed7"
+    },
+    "Hapoel Jerusalem": {
+        "team_id": "2ec13e42-f03a-4d13-b8fa-b0e9dc4bae43",
+        "team_url": "https://www.flashscore.com/team/hapoel-jerusalem/Emu0IzI2/",
+        "stadium_id": "5dcfb567-0a65-43e0-93b2-8520e3aa22b4"
+    },
+    "Bahcesehir Kol.": {
+        "team_id": "480d6eb7-fe36-4ab5-92d8-e1b1c7bcfba8",
+        "team_url": "https://www.flashscore.com/team/bahcesehir-koleji/AJURGI1d/",
+        "stadium_id": "f3c77460-6b27-4429-b2b9-ed2416044cac"
+    },
+    "Cluj-Napoca": {
+        "team_id": "1eaef101-3007-4507-8919-261d38d1ca44",
+        "team_url": "https://www.flashscore.com/team/csu-cluj-napoca/Iy6Md8xS/",
+        "stadium_id": "eeb9ae83-104b-48f2-8463-74d9b8653311"
+    },
+    "Venezia": {
+        "team_id": "aac28ca7-3ae3-4738-bd51-34a3292c6ed4",
+        "team_url": "https://www.flashscore.com/team/venezia/nR1rGe9M/",
+        "stadium_id": "6eb9ec95-6b58-4d9e-97b2-f0d0ab3547b6"
+    },
+    "Slask Wroclaw": {
+        "team_id": "d5816f7b-cac3-4f91-8ad4-6e217294cb9a",
+        "team_url": "https://www.flashscore.com/team/slask-wroclaw/AJa8Xj5a/",
+        "stadium_id": "6f770456-f205-48b4-8d63-83353d0429e7"
+    },
+    "Aris": {
+        "team_id": "439fafac-b89d-464f-9f03-4de93d809e2c",
+        "team_url": "https://www.flashscore.com/team/aris/fND8BWOm/",
+        "stadium_id": "02842ea3-2093-483c-ad26-b8aa586ebf3d"
+    },
+    "Neptunas": {
+        "team_id": "715db1f1-d50a-40c6-a09f-70d63688cee0",
+        "team_url": "https://www.flashscore.com/team/neptunas/pUCKb7F3/",
+        "stadium_id": "d7e72608-309b-47d3-b17e-1ebfc231d7ed"
+    },
+    "Manresa": {
+        "team_id": "fb15232c-824a-4fbd-87dc-445e995fae3b",
+        "team_url": "https://www.flashscore.com/team/manresa/KAm6vlvR/",
+        "stadium_id": "c0062964-f931-4f30-b1f7-441f4bfb5f5b"
+    },
+    "Hamburg": {
+        "team_id": "db5f0869-3452-437c-a758-17e1b3192fd9",
+        "team_url": "https://www.flashscore.com/team/hamburg-towers/zyBCtTHn/",
+        "stadium_id": "6f9e2ecc-61c1-4706-8a01-05949a532dea"
+    },
+    "JL Bourg": {
+        "team_id": "e16208f9-c845-4b84-86c0-8200846bc5de",
+        "team_url": "https://www.flashscore.com/team/jl-bourg/A5BNuIF5/",
+        "stadium_id": "34ec3d31-22c3-4f9f-8c8f-dcba42b46a06"
+    },
+    "Buducnost": {
+        "team_id": "aff6a5ab-57e2-4c86-82ae-b9b51046bd4f",
+        "team_url": "https://www.flashscore.com/team/buducnost/6s1E9IqE/",
+        "stadium_id": "fdd8abdc-f0e8-46d6-b86e-b493f2920fea"
+    },
+    "Besiktas": {
+        "team_id": "1ab8b850-a0a7-4a50-8e64-70e41457509f",
+        "team_url": "https://www.flashscore.com/team/besiktas/hE4Gkj9l/",
+        "stadium_id": "4a579c34-1024-4e27-955f-a23396c11e09"
+    },
+    "Turk Telekom": {
+        "team_id": "3c8ad94c-8ec3-4d1f-b184-8bf90a1ca104",
+        "team_url": "https://www.flashscore.com/team/turk-telekom/xzhkYoHf/",
+        "stadium_id": "e18fd572-d400-4b8d-97c8-d5598dd09d9a"
+    },
+    "Ulm": {
+        "team_id": "11fca783-38ea-4b8f-8c69-ff447580fa34",
+        "team_url": "https://www.flashscore.com/team/ulm/fcks1zeJ/",
+        "stadium_id": "aa5fb706-0531-40cf-8e2b-eb1c6c5e29df"
+    },
+    "Chemnitz": {
+        "team_id": "8378943b-6cc6-4973-ac96-d0d74ec72c0b",
+        "team_url": "https://www.flashscore.com/team/chemnitz/hInQh5sp/",
+        "stadium_id": "e7d0aaac-aa00-4623-a682-70c88f1707c0"
+    },
+    "London Lions": {
+        "team_id": "04c3b7b8-d534-41b4-b988-456077c9338b",
+        "team_url": "https://www.flashscore.com/team/london-lions/2L6k5Rg4/",
+        "stadium_id": "fdc4527e-9f43-4d36-9415-6b918142dd33"
+    },
+    "Trento": {
+        "team_id": "21e78c51-c47e-4363-b72e-f8120fdbce78",
+        "team_url": "https://www.flashscore.com/team/trento/ITNxcZJl/",
+        "stadium_id": "af2390fb-579e-4e2f-9b69-6af97c971854"
+    },
+    "Lietkabelis": {
+        "team_id": "c41cdbbd-78de-416c-b125-2545cb054677",
+        "team_url": "https://www.flashscore.com/team/lietkabelis/vVYAjqNq/",
+        "stadium_id": "0e1f8aea-3e80-499d-9ca2-c020a13a2374"
+    },
+    "Panionios": {
+        "team_id": "f0c296cf-7d43-4c89-ae27-0c1af3ef5d81",
+        "team_url": "https://www.flashscore.com/team/panionios/2HXSYgu0/",
+        "stadium_id": "5e069d72-8800-473a-8570-44d9519afea4"
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "Bayern Munich": {
+        "team_id": "48a8e71c-8b50-4617-9078-96740b9a6d9d",
+        "team_url": "https://www.flashscore.com/team/bayern-munich/nVp0wiqd/",
+        "stadium_id": "71217a71-7f98-437a-b466-10812d7c11f3"
+    },
+    "RB Leipzig": {
+        "team_id": "37aa27f8-2d34-48c0-8760-1c98cafabbb2",
+        "team_url": "https://www.flashscore.com/team/rb-leipzig/KbS1suSm/",
+        "stadium_id": "37c85e55-0d99-4f28-8105-1fbe3d45af4e"
+    },
+    "Stuttgart": {
+        "team_id": "32f2d560-ac1a-4b44-90d7-52b83e0d9d39",
+        "team_url": "https://www.flashscore.com/team/vfb-stuttgart/nJQmYp1B/",
+        "stadium_id": "5e693564-a6ba-49ef-8a44-6017e4e9f1a0"
+    },
+    "Dortmund": {
+        "team_id": "77977317-aeb0-461e-907c-4278cdfb46f4",
+        "team_url": "https://www.flashscore.com/team/dortmund/nP1i5US1/",
+        "stadium_id": "98fe8a8b-e166-4cf9-b4f4-62c93f5909d5"
+    },
+    "Bayer Leverkusen": {
+        "team_id": "e399d26d-0414-4292-8d9e-7521dc44d242",
+        "team_url": "https://www.flashscore.com/team/bayer-leverkusen/4jcj2zMd/",
+        "stadium_id": "b979cea4-f706-41a1-954e-bf015a40c45d"
+    },
+    "FC Koln": {
+        "team_id": "5a11a7fd-afdf-4070-8023-54f53e1a84fc",
+        "team_url": "https://www.flashscore.com/team/1-fc-koln/WG9pOTse/",
+        "stadium_id": "54f68c70-01a2-494d-9ba9-f1e961f3ac57"
+    },
+    "Eintracht Frankfurt": {
+        "team_id": "57e95aa2-410b-4647-abb4-6e90ae15b639",
+        "team_url": "https://www.flashscore.com/team/eintracht-frankfurt/8vndvXTk/",
+        "stadium_id": "186d62c0-8134-43f1-a1fd-988291c16e45"
+    },
+    "Hoffenheim": {
+        "team_id": "6ed9ab2f-1969-40fd-aa89-31f1675c0616",
+        "team_url": "https://www.flashscore.com/team/hoffenheim/hQAtP9Sl/",
+        "stadium_id": "954b4dc8-9c22-4136-9a44-95e83ad1bc0b"
+    },
+    "Union Berlin": {
+        "team_id": "e5abbde6-901a-4667-abbe-e3df489f7b1c",
+        "team_url": "https://www.flashscore.com/team/union-berlin/pzHW4oaE/",
+        "stadium_id": "f5b96efb-5891-47c0-a896-f4724aadf9fb"
+    },
+    "Freiburg": {
+        "team_id": "aedc1d4f-9016-4001-9cb1-629d172b0e32",
+        "team_url": "https://www.flashscore.com/team/freiburg/fiEQZ7C7/",
+        "stadium_id": "6fae8737-2c12-4fed-9560-7749029a0115"
+    },
+    "Hamburger SV": {
+        "team_id": "2f817417-aa8a-45b0-ab86-672947830cf6",
+        "team_url": "https://www.flashscore.com/team/hamburger/v9k3aY5F/",
+        "stadium_id": "bdaf09bd-d294-426e-93dc-01a1b63413ac"
+    },
+    "Werder Bremen": {
+        "team_id": "1a443d57-d97e-48d4-a616-63511e160779",
+        "team_url": "https://www.flashscore.com/team/werder-bremen/Ig1f1fy3/",
+        "stadium_id": "e6fbdd09-e3fa-4aef-82f0-58055b53e235"
+    },
+    "Augsburg": {
+        "team_id": "52adea29-99c3-400d-bcb0-537279676f54",
+        "team_url": "https://www.flashscore.com/team/augsburg/fTVNku3I/",
+        "stadium_id": "b1680912-5e27-429f-9202-ef57d6295120"
+    },
+    "St. Pauli": {
+        "team_id": "b71d12a5-a86a-43fd-9778-46348fa683d2",
+        "team_url": "https://www.flashscore.com/team/st-pauli/ILyJuN3g/",
+        "stadium_id": "7f5f6a2d-3b86-4dec-87da-752bb809ea40"
+    },
+    "Wolfsburg": {
+        "team_id": "404e16d1-3387-4af9-9865-97fca6e00a45",
+        "team_url": "https://www.flashscore.com/team/wolfsburg/nwkTahLL/",
+        "stadium_id": "085e8b61-fb44-4cae-ae02-1ffee2c4ffca"
+    },
+    "Mainz": {
+        "team_id": "740e520c-23fe-4d79-bb12-2815980ee115",
+        "team_url": "https://www.flashscore.com/team/mainz/EuakNmc1/",
+        "stadium_id": "6c9c6827-d7d1-4dfb-8f22-dcda0f180e40"
+    },
+    "Heidenheim": {
+        "team_id": "03badf2c-9282-4504-9149-f6544e4fcf05",
+        "team_url": "https://www.flashscore.com/team/heidenheim/KWixEVWi/",
+        "stadium_id": "ebd25660-82c0-4258-b019-292ab920f109"
+    },
+    "B. Monchengladbach": {
+        "team_id": "4cc92a8a-6046-47e6-9239-dea6b3d5e6b2",
+        "team_url": "https://www.flashscore.com/team/b-monchengladbach/88HSzjDr/",
+        "stadium_id": "c4a4c20d-5f86-4b94-b0c2-564717ddde1f"
+    }
+}

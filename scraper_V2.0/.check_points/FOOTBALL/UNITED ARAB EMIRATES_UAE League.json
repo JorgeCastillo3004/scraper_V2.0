@@ -1,0 +1,72 @@
+{
+    "Al Ain": {
+        "team_id": "908bdb49-3702-4e1e-936d-0e6416782c61",
+        "team_url": "https://www.flashscore.com/team/al-ain/UX1exRBg/",
+        "stadium_id": "77e95dd2-4547-4d82-83cf-c01cb741ec65"
+    },
+    "Al Wahda": {
+        "team_id": "6b099eb6-8e37-4cb2-9ea4-b997fc6c311b",
+        "team_url": "https://www.flashscore.com/team/al-wahda/21AL1RQp/",
+        "stadium_id": "d6f0e362-a7bd-46e3-90e2-ad61a82eaa03"
+    },
+    "Al Wasl": {
+        "team_id": "72e96f34-5746-4b70-8d26-516d5afbf9b7",
+        "team_url": "https://www.flashscore.com/team/al-wasl/OQuUcn3P/",
+        "stadium_id": "d70dd0cb-1b25-44a8-b76c-a39762c7f8b2"
+    },
+    "Ittihad Kalba": {
+        "team_id": "0debb3c8-1d21-40dd-91bc-945a702476a3",
+        "team_url": "https://www.flashscore.com/team/ittihad-kalba/CxR74upk/",
+        "stadium_id": "fa392f32-37ba-4ba4-8514-19f4be8b04cd"
+    },
+    "Shabab Al-Ahli Dubai": {
+        "team_id": "064428ee-5601-4f6a-bf61-2b243579bf73",
+        "team_url": "https://www.flashscore.com/team/shabab-al-ahli-dubai/EiQ5g3JL/",
+        "stadium_id": "44ddb1eb-c379-434e-b7d9-fbd619241ba6"
+    },
+    "Al Jazira": {
+        "team_id": "15e9124b-76fc-4128-805f-83c81505296c",
+        "team_url": "https://www.flashscore.com/team/al-jazira/WUREBBlh/",
+        "stadium_id": "797dc10c-a288-4daf-8f0a-eda9077ca746"
+    },
+    "Ajman": {
+        "team_id": "e0ac6575-96a6-42d1-9a9c-625dbaa4b5ce",
+        "team_url": "https://www.flashscore.com/team/ajman/CtP7yoRa/",
+        "stadium_id": "14a2a370-1b68-4f5c-8751-e9a3f2106970"
+    },
+    "Al Dhafra": {
+        "team_id": "8a77c59a-c102-4828-b219-63f9d6c4bf7c",
+        "team_url": "https://www.flashscore.com/team/al-dhafra/WnyRy5t6/",
+        "stadium_id": "4450d45b-672b-4058-88eb-a0caf06888e5"
+    },
+    "Al Nasr": {
+        "team_id": "ba3e4ba0-b60f-4f15-bb15-4e3f15e8f4ea",
+        "team_url": "https://www.flashscore.com/team/al-nasr/40ZYZrBI/",
+        "stadium_id": "ad51afcf-7a52-46ff-9494-9ee7379c114f"
+    },
+    "Al Sharjah": {
+        "team_id": "f5a15349-444d-4ef1-8a72-ec71120d2402",
+        "team_url": "https://www.flashscore.com/team/al-sharjah/YqFkJ2t6/",
+        "stadium_id": "0496d555-d9d5-436f-889c-7d625bbd013d"
+    },
+    "Khorfakkan": {
+        "team_id": "db007ded-13d8-41e6-babc-33b9d9b72eb1",
+        "team_url": "https://www.flashscore.com/team/khorfakkan/AwzVzPeC/",
+        "stadium_id": "b51a1c54-db36-4215-831f-1c49a55bbc25"
+    },
+    "Al Bataeh": {
+        "team_id": "a96e8744-2c07-4531-ac1a-d2ee72d2f74e",
+        "team_url": "https://www.flashscore.com/team/al-bataeh/ABf8Ftqg/",
+        "stadium_id": "036e1b65-1ac4-4e4b-bda1-b8be311a83bb"
+    },
+    "Dibba Al Fujairah": {
+        "team_id": "59d9168f-1771-408f-bd93-ea452e83bfc9",
+        "team_url": "https://www.flashscore.com/team/dibba-al-fujairah/2eHlABP4/",
+        "stadium_id": "7a955a76-7e2e-4c40-aa46-ad35ab4fef47"
+    },
+    "Bani Yas": {
+        "team_id": "58ef2942-3117-4522-9f78-6b8c013c0859",
+        "team_url": "https://www.flashscore.com/team/bani-yas/8riCzYNT/",
+        "stadium_id": "50e960ce-356b-4f15-884d-0b62609c7553"
+    }
+}

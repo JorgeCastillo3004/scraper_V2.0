@@ -1,0 +1,48 @@
+{
+    "Monaco": {
+        "team_id": "1b9bdf85-d781-4d00-b426-be60fefdf507",
+        "team_url": "https://www.flashscore.com/team/monaco/2PIvr8o4/"
+    },
+    "Slavia Prague": {
+        "team_id": "134bfb5c-b0c3-4c5f-8401-bf6c76c8983c",
+        "team_url": "https://www.flashscore.com/team/slavia-prague/viXGgnyB/"
+    },
+    "Pafos": {
+        "team_id": "ebf0ab35-bb41-438e-9499-ebd0a22da3ac",
+        "team_url": "https://www.flashscore.com/team/pafos/n99DUVW8/",
+        "stadium_id": "210de167-3ee0-43a0-9a58-14f459d76aa3"
+    },
+    "Bayer Leverkusen": {
+        "team_id": "87d1380c-6573-402d-bafd-b7898eacea21",
+        "team_url": "https://www.flashscore.com/team/bayer-leverkusen/4jcj2zMd/"
+    },
+    "Villarreal": {
+        "team_id": "e15fa9ad-50e1-41b2-a20a-d0d9bacd716e",
+        "team_url": "https://www.flashscore.com/team/villarreal/lUatW5jE/"
+    },
+    "FC Copenhagen": {
+        "team_id": "ed74cd21-18ad-4b9d-b52a-8ace19544530",
+        "team_url": "https://www.flashscore.com/team/fc-copenhagen/hSPZwbEh/",
+        "stadium_id": "7e3fd3ac-b9a0-4bbf-862b-da20dc2d9d59"
+    },
+    "Olympiacos Piraeus": {
+        "team_id": "84f617fc-7d6a-4428-990b-3bffedeb5227",
+        "team_url": "https://www.flashscore.com/team/olympiacos-piraeus/hnzvnHPS/",
+        "stadium_id": "b4f6e96d-4bf7-4488-b85f-c24faff6618c"
+    },
+    "Kairat Almaty": {
+        "team_id": "d1befed6-1bc0-4311-bc11-4850082750c1",
+        "team_url": "https://www.flashscore.com/team/kairat-almaty/CrO7xXpJ/",
+        "stadium_id": "18379a9e-4235-41b5-b599-5337cefe634b"
+    },
+    "Benfica": {
+        "team_id": "f8cb634f-3cab-4c97-b894-6acc8ab77a12",
+        "team_url": "https://www.flashscore.com/team/benfica/zBkyuyRI/",
+        "stadium_id": "5c30aa4c-2613-4e63-9b54-32bec7b5e9dd"
+    },
+    "Ajax": {
+        "team_id": "d143f17a-82ef-4c4b-833d-f2e8e596eec2",
+        "team_url": "https://www.flashscore.com/team/ajax/8UOvIwnb/",
+        "stadium_id": "3102f77b-d11a-48de-b8a8-97aec8cb268b"
+    }
+}

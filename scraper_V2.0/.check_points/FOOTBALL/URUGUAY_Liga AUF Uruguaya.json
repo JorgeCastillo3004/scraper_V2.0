@@ -1,0 +1,82 @@
+{
+    "Penarol": {
+        "team_id": "2af49c47-5b6e-46b1-be8f-31f76ea5c100",
+        "team_url": "https://www.flashscore.com/team/penarol/r1hkKQek/",
+        "stadium_id": "b3442a51-8dfc-4ad3-9d17-cfda627de449"
+    },
+    "Nacional": {
+        "team_id": "a9b2fc91-eef1-4cc7-ab89-4b332f67b0bf",
+        "team_url": "https://www.flashscore.com/team/club-nacional/UaVu2MhA/",
+        "stadium_id": "fd763fa7-e878-43f5-aa34-622898a1a46b"
+    },
+    "Liverpool M.": {
+        "team_id": "317ce20a-27fb-4f54-9b6c-3be1ea617a1a",
+        "team_url": "https://www.flashscore.com/team/liverpool-m/0KuKBKxT/",
+        "stadium_id": "90be6e49-cff3-49c6-a107-b54c4a775ca7"
+    },
+    "Defensor Sp.": {
+        "team_id": "624a29db-2775-41d9-9fdc-8044370d9f0a",
+        "team_url": "https://www.flashscore.com/team/defensor-sp/U9v7QSIL/",
+        "stadium_id": "45e39a92-d89b-448e-ab7b-0d2ef6c077a7"
+    },
+    "Boston River": {
+        "team_id": "6bf4a99e-8880-446a-9ace-58d7063ffd0a",
+        "team_url": "https://www.flashscore.com/team/boston-river/U1MuWpN3/",
+        "stadium_id": "7df289c3-05c9-47c4-8f6d-a5f3e016cf63"
+    },
+    "Montevideo City": {
+        "team_id": "587b346d-2527-4433-8beb-b7d17d85871a",
+        "team_url": "https://www.flashscore.com/team/montevideo-city/lpWdsUdH/",
+        "stadium_id": "3df4efa5-4c3e-4db5-8eb8-ddb102da29f1"
+    },
+    "CA Cerro": {
+        "team_id": "b0abd1f9-7b60-4e1c-9017-5a9692335a53",
+        "team_url": "https://www.flashscore.com/team/ca-cerro/OMUq1t8G/",
+        "stadium_id": "3a64b118-484f-40db-9601-d0a087704d63"
+    },
+    "Cerro Largo": {
+        "team_id": "17c7eee0-3b06-4d28-9ea7-4243b3158824",
+        "team_url": "https://www.flashscore.com/team/cerro-largo/jgsDvTBl/",
+        "stadium_id": "82a193e1-cba5-44e4-9904-408e35e0cc8f"
+    },
+    "Progreso": {
+        "team_id": "643811d3-adc6-47e5-8679-34101484ad37",
+        "team_url": "https://www.flashscore.com/team/progreso/2TRo7vop/",
+        "stadium_id": "8d36355a-4bf8-4e5a-90f6-5e2c7afe78fd"
+    },
+    "Danubio": {
+        "team_id": "4400acef-a8c9-4a0d-b33e-4d57c3a20668",
+        "team_url": "https://www.flashscore.com/team/danubio/AcRB7b0j/",
+        "stadium_id": "c655b27c-7a76-4ab5-9336-5524601006dc"
+    },
+    "Racing Montevideo": {
+        "team_id": "c1cb4c6f-e276-49fa-9cfc-91cb8043d7be",
+        "team_url": "https://www.flashscore.com/team/racing-montevideo/thR1R82f/",
+        "stadium_id": "bb7db917-96a5-4d51-9933-b0f6e33abce9"
+    },
+    "Miramar": {
+        "team_id": "fee47986-5f34-4a22-ad75-ade320a21e8f",
+        "team_url": "https://www.flashscore.com/team/miramar/44ICDll9/",
+        "stadium_id": "76088c88-c203-408b-bee2-344f55c683b8"
+    },
+    "Juventud": {
+        "team_id": "31825a89-8663-433e-9ad5-12971bf95997",
+        "team_url": "https://www.flashscore.com/team/juventud/UcloL6tq/",
+        "stadium_id": "a124c9d8-0dd6-4179-ae67-563b601542bf"
+    },
+    "River Plate": {
+        "team_id": "aab356f8-0a3c-405c-a94a-57719009b0cf",
+        "team_url": "https://www.flashscore.com/team/river-plate-montevideo/CI1JPnYR/",
+        "stadium_id": "71b9a862-4b3f-41c9-be4e-99c1a42786f0"
+    },
+    "Wanderers": {
+        "team_id": "3e820b37-6a26-44f5-b883-d7148021a324",
+        "team_url": "https://www.flashscore.com/team/wanderers/dvF4FAJd/",
+        "stadium_id": "19d68385-58fa-4d3e-b4b1-29c3bb207464"
+    },
+    "Plaza Colonia": {
+        "team_id": "1b4566f0-871d-46aa-90d1-423236805125",
+        "team_url": "https://www.flashscore.com/team/plaza-colonia/27mJGMIe/",
+        "stadium_id": "a1ecc905-5f6e-426a-ace3-e3905024e3ea"
+    }
+}

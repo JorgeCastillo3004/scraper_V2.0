@@ -1,0 +1,30 @@
+{
+    "0": {
+        "match_id": "dc790d02-a841-458f-8090-6f725cedf10f",
+        "match_date": "24.09. 20:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "Club Brugge KV~Westerlo",
+        "home": "Club Brugge KV",
+        "visitor": "Westerlo",
+        "home_result": "5",
+        "visitor_result": "5",
+        "link_details": "https://www.flashscore.com/match/O6JLF2se/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    },
+    "1": {
+        "match_id": "d1568371-13c0-4a2b-8410-adfa0b75dd9d",
+        "match_date": "23.09. 20:30",
+        "start_time": "",
+        "end_time": "",
+        "name": "Anderlecht~Gent",
+        "home": "Anderlecht",
+        "visitor": "Gent",
+        "home_result": "1",
+        "visitor_result": "0",
+        "link_details": "https://www.flashscore.com/match/2cveU1dl/#/match-summary/match-summary",
+        "place": "",
+        "country_id": "3lyh60xx0cciv1my9"
+    }
+}

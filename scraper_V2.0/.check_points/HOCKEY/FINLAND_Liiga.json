@@ -1,0 +1,82 @@
+{
+    "Assat": {
+        "team_id": "028d97a6-00db-4ef8-9e23-91a6fa8009fb",
+        "team_url": "https://www.flashscore.com/team/assat-pori/I9wm5xTA/",
+        "stadium_id": "38ae5d5b-7d36-4fd1-9cd6-b4bd26a60898"
+    },
+    "JYP": {
+        "team_id": "ae939099-5bc5-4a76-8762-5a3d08e9129f",
+        "team_url": "https://www.flashscore.com/team/jyp-jyvaskyla/YVjXBEzi/",
+        "stadium_id": "f7e3fe30-c8e0-4513-9e24-09e7e9614021"
+    },
+    "Tappara": {
+        "team_id": "c3827e09-373c-4fa4-9ce5-2ac1b63b589e",
+        "team_url": "https://www.flashscore.com/team/tappara/llrWVOwG/",
+        "stadium_id": "d1db6b6b-e7e5-490c-8a89-65888e8275c1"
+    },
+    "KooKoo": {
+        "team_id": "262a68b6-8492-4922-8175-a65b59b70bcf",
+        "team_url": "https://www.flashscore.com/team/kookoo/ljjApDE3/",
+        "stadium_id": "ec8fcb29-e3f6-4cb2-85c4-1bc35b7c36a4"
+    },
+    "Lukko": {
+        "team_id": "11405b3c-471b-4b2b-84f6-7e9e55accebb",
+        "team_url": "https://www.flashscore.com/team/lukko-rauman/hdqQJQgc/",
+        "stadium_id": "ceedb18e-1981-4ca8-ba3f-c163974e15b8"
+    },
+    "Kiekko-Espoo": {
+        "team_id": "0ce98896-ea7c-4070-922e-f1cea7d713b6",
+        "team_url": "https://www.flashscore.com/team/kiekko-espoo/IVYOkYeB/",
+        "stadium_id": "8b17e8e9-2d8c-417b-8e8b-8b2598638869"
+    },
+    "Jukurit": {
+        "team_id": "d3a2605b-804c-4948-bb93-f06195777b0f",
+        "team_url": "https://www.flashscore.com/team/jukurit/vmuCbWr3/",
+        "stadium_id": "292a4eb3-6902-4eb1-800b-cfd0bd60972e"
+    },
+    "TPS Turku": {
+        "team_id": "4173f035-df98-4504-85c2-bb60b826b6f6",
+        "team_url": "https://www.flashscore.com/team/tps-turku/Wd5rVrgM/",
+        "stadium_id": "f0210c49-6d35-444b-a57f-fad81f753270"
+    },
+    "SaiPa": {
+        "team_id": "f7efb76a-d2ab-4ad2-9349-a8814fd5e37c",
+        "team_url": "https://www.flashscore.com/team/saipa/Q9sYH4O9/",
+        "stadium_id": "31161ed5-b623-498d-845e-760e542e4000"
+    },
+    "KalPa": {
+        "team_id": "cc7da452-9ece-40bd-b6a3-d192fadb8f4e",
+        "team_url": "https://www.flashscore.com/team/kalpa-kuopio/tMuMK6vi/",
+        "stadium_id": "7b5ae558-ace2-4f2f-a54e-785493fcde3e"
+    },
+    "Hameenlinna": {
+        "team_id": "d2f15c72-6b1b-4718-8ecf-3d2442b888fe",
+        "team_url": "https://www.flashscore.com/team/hameenlinna/zV5a4drH/",
+        "stadium_id": "9642dd15-71ae-4f91-8329-cf7937a07f2c"
+    },
+    "Ilves": {
+        "team_id": "33936767-d3fa-4440-9311-980b10e774a6",
+        "team_url": "https://www.flashscore.com/team/ilves-tampere/Oh5uGzDT/",
+        "stadium_id": "86ce01e6-8677-42d1-b7a7-54f799b14214"
+    },
+    "Karpat": {
+        "team_id": "091997ce-4e7d-4b91-800a-b556fa72f09c",
+        "team_url": "https://www.flashscore.com/team/karpat-oulu/fPJxL2x2/",
+        "stadium_id": "ffa1d252-eb4e-4719-8280-e7afa1da8fde"
+    },
+    "Pelicans": {
+        "team_id": "9394b924-9686-4a6d-a77f-6c207638df85",
+        "team_url": "https://www.flashscore.com/team/pelicans-lahti/nJrUIp93/",
+        "stadium_id": "da25955d-2f95-479e-878f-18bdcbda59d2"
+    },
+    "Vaasan Sport": {
+        "team_id": "7fc95e09-6df5-4973-9c1f-ac39f3602872",
+        "team_url": "https://www.flashscore.com/team/vaasan-sport/Qqy8aCTd/",
+        "stadium_id": "5b2bd5e8-1d84-4255-93d2-c67181d22bc2"
+    },
+    "IFK Helsinki": {
+        "team_id": "a5c3aaab-d3cb-4b44-ba38-485cb691901c",
+        "team_url": "https://www.flashscore.com/team/ifk-helsinki/Ige43GcN/",
+        "stadium_id": "463dbb04-c252-481b-b877-3f4f693a8c89"
+    }
+}

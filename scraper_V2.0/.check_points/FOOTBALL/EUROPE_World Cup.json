@@ -1,0 +1,27 @@
+{
+    "Croatia": {
+        "team_id": "5ba62d12-902d-44fe-aa79-5130e2317ae0",
+        "team_url": "https://www.flashscore.com/team/croatia/K8aznggo/",
+        "stadium_id": "16d3eee6-a954-4a86-917c-0152eeae0608"
+    },
+    "Czech Republic": {
+        "team_id": "2d808f8a-4856-4e02-87f8-4a96353aa744",
+        "team_url": "https://www.flashscore.com/team/czech-republic/6LHwBDGU/",
+        "stadium_id": "f3556383-1d06-407d-9d52-d766c80a34d5"
+    },
+    "Faroe Islands": {
+        "team_id": "5ba959c8-4758-4cac-9eda-57569158ed53",
+        "team_url": "https://www.flashscore.com/team/faroe-islands/nBmAj3Fc/",
+        "stadium_id": "f52edf1d-f6e2-4e1a-a07e-3fdc9dad9227"
+    },
+    "Montenegro": {
+        "team_id": "0e86b210-8e01-4604-a8c3-fa8ee5293938",
+        "team_url": "https://www.flashscore.com/team/montenegro/hOduZ1pN/",
+        "stadium_id": "8b4c52d8-70f4-4fcf-a20d-835057983869"
+    },
+    "Gibraltar": {
+        "team_id": "445bd5d2-55f0-4887-9fc8-8e1eb0889a0c",
+        "team_url": "https://www.flashscore.com/team/gibraltar/CEihsqe7/",
+        "stadium_id": "ee3d6851-c955-49fb-b315-4ff1fb7f6a13"
+    }
+}

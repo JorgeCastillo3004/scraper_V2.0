@@ -1,0 +1,56 @@
+{
+    "Ecuador": {
+        "team_id": "6ba2550d-7bfa-4f69-8888-343acc16b053",
+        "team_url": "https://www.flashscore.com/team/ecuador/8tbm8Tri/",
+        "stadium_id": "3b93285b-0c7a-4b07-95e5-3c0a6e6ee083"
+    },
+    "Mexico": {
+        "team_id": "c8773317-3953-41cf-afa6-dc930607e008",
+        "team_url": "https://www.flashscore.com/team/mexico/O6iHcNkd/",
+        "stadium_id": "d44f276f-3767-428b-890e-66f139b085cf"
+    },
+    "Jamaica": {
+        "team_id": "79bacba3-a93e-4847-8247-cd94becd9d32",
+        "team_url": "https://www.flashscore.com/team/jamaica/CWmDb3zj/"
+    },
+    "Uruguay": {
+        "team_id": "a824f24f-e63f-4fc6-8a68-53b689e79d57",
+        "team_url": "https://www.flashscore.com/team/uruguay/xMk44orG/",
+        "stadium_id": "9da5db48-b6c4-42ce-b227-57bac0838b96"
+    },
+    "Panama": {
+        "team_id": "bda5a475-86f9-4ad1-821a-d0d5d8f1b3e4",
+        "team_url": "https://www.flashscore.com/team/panama/OWKqbCfi/",
+        "stadium_id": "3e631ea6-2c78-4e63-8ebb-5f2d197cee4b"
+    },
+    "USA": {
+        "team_id": "75b3258e-3294-41eb-a157-8b313b3ca18f",
+        "team_url": "https://www.flashscore.com/team/usa/fuitL4CF/",
+        "stadium_id": "4aad9344-4604-45c0-8ce8-d497967dc12c"
+    },
+    "Bolivia": {
+        "team_id": "1e03cba6-0c26-4414-808c-409f23332ba4",
+        "team_url": "https://www.flashscore.com/team/bolivia/nXdi7mbc/",
+        "stadium_id": "1db19006-a0bf-4cf9-b0c0-9694e3b2bcbd"
+    },
+    "Colombia": {
+        "team_id": "094ff22d-b00b-4388-9b99-053b8dfb538f",
+        "team_url": "https://www.flashscore.com/team/colombia/G02s4PCS/",
+        "stadium_id": "6029abda-902c-4b59-bc0a-760a0d269232"
+    },
+    "Brazil": {
+        "team_id": "c0d78213-41c5-4c74-a1eb-d75bbd39a3ca",
+        "team_url": "https://www.flashscore.com/team/brazil/I9l9aqLq/",
+        "stadium_id": "281be5e3-4d00-471a-8bde-0402887ad043"
+    },
+    "Costa Rica": {
+        "team_id": "5d83f51d-d89d-42ee-bc92-5e475424fab3",
+        "team_url": "https://www.flashscore.com/team/costa-rica/C4ePE2kq/",
+        "stadium_id": "ccc86d94-bff8-48ce-9798-6370139cea3c"
+    },
+    "Paraguay": {
+        "team_id": "45d6cb67-2b68-4ee3-8d22-4e05d6e07c36",
+        "team_url": "https://www.flashscore.com/team/paraguay/YaNlqp6j/",
+        "stadium_id": "383a9d04-a7f3-4a16-8b43-2525eb53e4ac"
+    }
+}

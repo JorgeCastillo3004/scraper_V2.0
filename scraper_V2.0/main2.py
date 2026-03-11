@@ -1,0 +1,63 @@
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
+
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import chromedriver_autoinstaller
+from selenium import webdriver
+from datetime import datetime
+import pandas as pd
+import random
+import time
+import json
+import re
+from datetime import date, timedelta
+import string
+from common_functions import *
+from data_base import *
+from milestone7 import *
+from milestone8 import *
+
+def main_live():
+	driver = launch_navigator('https://www.flashscore.com', headless = True)
+	login(driver, email_= "FS_EMAIL", password_ = "FS_PASSWORD")	
+	print("Section live...")
+	day_execution_s7 = -1
+	execute_ready_s7 = False
+
+	list_s7 = []
+
+	old_execution_schedule_s7 = '*'
+	section_schedule = update_data()
+	# while True:
+
+		# new_execution_schedule_s7 = section_schedule['LIVE_SECTION']['TIME']
+		# print("Main live time: ", new_execution_schedule_s7)
+		# if new_execution_schedule_s7 != old_execution_schedule_s7:
+		# 	execution_schedule_s7 = new_execution_schedule_s7
+		# 	old_execution_schedule_s7 = execution_schedule_s7
+		# 	day_execution_s7 = -1
+		# enable_execution_s7, day_execution_s7, execute_ready_s7, execution_schedule_s7 = execute_section(execution_schedule_s7, day_execution_s7, execute_ready_s7)
+		# if enable_execution_s7:
+		# live_games(driver, section_schedule['LIVE_SECTION']['SPORTS'])
+		# print("Lives section: ")
+		# update_lives_matchs(driver)
+	live_games(driver, ["FOOTBALL"])
+		# list_s7.append(datetime.now().time().strftime('%H:%M:%S'))
+		# print(list_s7, '\n')
+
+		# section_schedule = update_data()
+		# print("l-", end='')
+		# # print(stop)
+		# time.sleep(1)	
+	# driver.quit()
+
+if __name__ == "__main__":	
+	main_live()
+	
