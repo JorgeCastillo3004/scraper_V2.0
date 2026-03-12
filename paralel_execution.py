@@ -32,6 +32,7 @@ import milestone4
 import common_functions
 from common_functions import launch_navigator, load_check_point
 from milestone4 import extraction_by_dict
+from data_base import cleanup_stale_leagues
 
 
 # ─────────────────────────────────────────────
@@ -201,6 +202,11 @@ def worker(worker_id, sport_leagues_dict, name_section):
 # ─────────────────────────────────────────────
 
 def run_parallel(n_sessions, name_section='results'):
+    # Limpiar claims huérfanos de ejecuciones anteriores (timeout 2h)
+    stale = cleanup_stale_leagues(timeout_minutes=120)
+    if stale:
+        print(f'[INFO] {stale} claims huérfanos limpiados de running_leagues')
+
     enabled      = get_enabled_leagues(name_section)
     league_dicts = split_into_dicts(enabled, n_sessions)
 

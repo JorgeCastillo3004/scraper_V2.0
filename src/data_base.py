@@ -665,4 +665,53 @@ def get_match_by_league_id(league_id):
         return int(row[0]) if row else 0
 
 
+# ── Running leagues — control de ejecución paralela entre procesos/máquinas ────
+
+def claim_league(league_id, section, host=None):
+    """
+    Intenta reclamar una liga para procesarla.
+    Retorna True si el claim fue exitoso (nadie más la está procesando).
+    Retorna False si ya está siendo procesada por otro worker/máquina.
+    Usa INSERT ... ON CONFLICT DO NOTHING para garantizar atomicidad.
+    """
+    import socket
+    ensure_connection()
+    host = host or socket.gethostname()
+    with con.cursor() as cur:
+        cur.execute("""
+            INSERT INTO running_leagues (league_id, section, host, started_at)
+            VALUES (%s, %s, %s, NOW())
+            ON CONFLICT (league_id, section) DO NOTHING
+        """, (league_id, section, host))
+        con.commit()
+        return cur.rowcount == 1
+
+
+def release_league(league_id, section):
+    """Libera el claim de una liga al terminar su procesamiento."""
+    ensure_connection()
+    with con.cursor() as cur:
+        cur.execute(
+            "DELETE FROM running_leagues WHERE league_id = %s AND section = %s",
+            (league_id, section)
+        )
+        con.commit()
+
+
+def cleanup_stale_leagues(timeout_minutes=120):
+    """
+    Elimina claims huérfanos (worker caído) con más de timeout_minutes minutos.
+    Llamar al inicio de cada ejecución paralela.
+    """
+    ensure_connection()
+    with con.cursor() as cur:
+        cur.execute("""
+            DELETE FROM running_leagues
+            WHERE started_at < NOW() - INTERVAL '%s minutes'
+        """, (timeout_minutes,))
+        deleted = cur.rowcount
+        con.commit()
+    return deleted
+
+
 con = getdb()

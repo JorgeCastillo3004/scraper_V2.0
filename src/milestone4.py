@@ -9,7 +9,7 @@ import psycopg2
 import shutil
 
 from common_functions import *
-from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id
+from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues
 from milestone6 import *
 
 local_time_naive = datetime.now()
@@ -877,33 +877,37 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
             if not league_info:
                 continue
 
-            if league_info.get(extract_key, {}).get('running', False):
+            league_id = league_info.get('league_id', '')
+
+            # Claim atómico en DB — evita doble procesamiento entre procesos/máquinas
+            if not claim_league(league_id, name_section):
+                print(f'[INFO] Liga en uso (otro worker): {league_name}')
                 continue
 
-            league_info[extract_key]['running'] = True
-            save_check_point(li_file, leagues_info_json)
+            try:
+                complete_info(league_info, league_name, sport_name, dict_sport_id)
 
-            complete_info(league_info, league_name, sport_name, dict_sport_id)
+                prev_match_number = get_match_by_league_id(league_id)
+                path_league_info  = 'check_points/leagues_season/{}/{}.json'.format(sport_name, league_name)
+                dict_league       = load_check_point(path_league_info)
 
-            prev_match_number = get_match_by_league_id(league_info['league_id'])
-            path_league_info  = 'check_points/leagues_season/{}/{}.json'.format(sport_name, league_name)
-            dict_league       = load_check_point(path_league_info)
+                if name_section in list(league_info.keys()):
+                    wait_update_page(driver, league_info[name_section], "container__heading")
+                    if not round_files_exist(sport_name, league_name, name_section):
+                        navigate_through_rounds(driver, league_info, section_name=name_section)
 
-            if name_section in list(league_info.keys()):
-                wait_update_page(driver, league_info[name_section], "container__heading")
-                if not round_files_exist(sport_name, league_name, name_section):
-                    navigate_through_rounds(driver, league_info, section_name=name_section)
+                    league_checkpoint = league_info[extract_key]
+                    get_complete_match_info(driver, league_info, dict_league, league_checkpoint,
+                                            leagues_info_json, section=name_section, li_file=li_file)
 
-                league_checkpoint = league_info[extract_key]
-                get_complete_match_info(driver, league_info, dict_league, league_checkpoint,
-                                        leagues_info_json, section=name_section, li_file=li_file)
+                new_match_number = get_match_by_league_id(league_id)
+                league_info[extract_key]['extract'] = False
+                if new_match_number != prev_match_number:
+                    league_info['matches'] = new_match_number
+                save_check_point(li_file, leagues_info_json)
 
-            new_match_number = get_match_by_league_id(league_info['league_id'])
-            league_info[extract_key]['extract'] = False
-            league_info[extract_key]['running'] = False
-            if new_match_number != prev_match_number:
-                league_info['matches'] = new_match_number
-            save_check_point(li_file, leagues_info_json)
+            finally:
+                release_league(league_id, name_section)
 
 
 def build_detail_score_dict(racer, dict_match):
