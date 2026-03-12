@@ -19,18 +19,15 @@ import sys
 import json
 import psycopg2
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src'))
-os.chdir('/home/you/work_2026')
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
 from common_functions import load_check_point, save_check_point
 
 # ── Conexión DB ────────────────────────────────────────────────────────────────
-con = psycopg2.connect(
-    host="DB_HOST",
-    user="DB_USER",
-    password="DB_PASS",
-    dbname='sports_db',
-)
+con = psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
 cur = con.cursor()
 
 # ── Cargar leagues_info para obtener league_name, sport_name, league_id ───────

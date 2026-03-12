@@ -9,15 +9,13 @@ Uso:
 """
 
 import psycopg2
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
 
 
 def get_connection():
-    return psycopg2.connect(
-        host="DB_HOST",
-        user="DB_USER",
-        password="DB_PASS",
-        dbname="sports_db"
-    )
+    return psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
 
 
 def print_status():

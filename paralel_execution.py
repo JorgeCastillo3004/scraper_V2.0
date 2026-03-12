@@ -15,8 +15,8 @@ Ejemplos:
 import sys
 import os
 import threading
-import traceback
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 from rich.layout import Layout
@@ -47,7 +47,6 @@ def _locked_save(*args, **kwargs):
         _original_save(*args, **kwargs)
 
 
-# Monkey-patch en ambos módulos que llaman a save_check_point
 milestone4.save_check_point      = _locked_save
 common_functions.save_check_point = _locked_save
 
@@ -61,24 +60,34 @@ SCREENSHOTS_DIR   = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lo
 
 WORKER_COLORS = ['cyan', 'yellow', 'green', 'magenta', 'blue', 'red', 'white', 'bright_cyan']
 
-MAX_LINES = 18  # líneas visibles por panel de worker
+MAX_LINES = 16  # líneas de log por panel (debajo del header de liga)
 
 
 # ─────────────────────────────────────────────
 #  ESTADO COMPARTIDO POR WORKERS (dashboard)
 # ─────────────────────────────────────────────
-_state_lock   = threading.Lock()
-_thread_map   = {}   # thread ident → worker_id
-_worker_lines = {}   # worker_id → list of str (últimas MAX_LINES líneas)
-_worker_status = {}  # worker_id → 'running' | 'done' | 'error'
-_live_handle  = None
+_state_lock    = threading.Lock()
+_thread_map    = {}   # thread ident → worker_id
+_worker_lines  = {}   # worker_id → list of str (últimas MAX_LINES líneas)
+_worker_status = {}   # worker_id → 'running' | 'done' | 'error'
+_worker_league = {}   # worker_id → str "SPORT / league" actual
 
 
 def _register_thread(worker_id):
     with _state_lock:
         _thread_map[threading.current_thread().ident] = worker_id
-        _worker_lines[worker_id] = []
+        _worker_lines[worker_id]  = []
         _worker_status[worker_id] = 'running'
+        _worker_league[worker_id] = 'Iniciando...'
+
+
+def set_current_league(sport, league):
+    """Actualiza la liga activa del worker actual (se muestra fija en el panel)."""
+    ident = threading.current_thread().ident
+    with _state_lock:
+        wid = _thread_map.get(ident)
+        if wid is not None:
+            _worker_league[wid] = f'{sport}  /  {league}'
 
 
 def wlog(msg):
@@ -92,6 +101,10 @@ def wlog(msg):
             _worker_lines[wid].pop(0)
 
 
+# ─────────────────────────────────────────────
+#  LAYOUT Y RENDER
+# ─────────────────────────────────────────────
+
 def _build_layout(n_workers):
     layout = Layout()
     cols = [Layout(name=f'w{i}') for i in range(n_workers)]
@@ -101,14 +114,19 @@ def _build_layout(n_workers):
 
 def _render_layout(layout, n_workers, name_section):
     for i in range(n_workers):
-        color  = WORKER_COLORS[i % len(WORKER_COLORS)]
-        status = _worker_status.get(i, 'running')
-        lines  = _worker_lines.get(i, [])
+        color   = WORKER_COLORS[i % len(WORKER_COLORS)]
+        status  = _worker_status.get(i, 'running')
+        lines   = _worker_lines.get(i, [])
+        league  = _worker_league.get(i, '—')
 
         status_icon = {'running': '●', 'done': '✔', 'error': '✘'}.get(status, '●')
         title = f"[{color}]{status_icon} WORKER {i}  [{name_section.upper()}][/{color}]"
 
-        body = Text.from_markup('\n'.join(lines) if lines else '[dim]Iniciando...[/dim]')
+        # Primera línea fija: liga actual
+        header = f"[bold {color}]▶ {league}[/bold {color}]"
+        sep    = f"[dim]{'─' * 40}[/dim]"
+        body_lines = [header, sep] + lines
+        body = Text.from_markup('\n'.join(body_lines))
         layout[f'w{i}'].update(Panel(body, title=title, border_style=color))
 
 
@@ -119,9 +137,13 @@ _original_print = __builtins__['print'] if isinstance(__builtins__, dict) else p
 
 def _patched_print(*args, **kwargs):
     msg = ' '.join(str(a) for a in args)
-    # Solo capturar mensajes clave; el resto se descarta
-    keywords = ('[RONDAS]', '[INFO]', '[OK ]', '[DUP]', '[WARN]', '[ERROR]')
+    keywords = ('[LIGA]', '[RONDAS]', '[INFO]', '[OK ]', '[DUP]', '[WARN]', '[ERROR]')
     if any(msg.startswith(k) for k in keywords):
+        # Capturar [LIGA] para actualizar header
+        if msg.startswith('[LIGA]'):
+            parts = msg.replace('[LIGA]', '').strip().split('/', 1)
+            if len(parts) == 2:
+                set_current_league(parts[0].strip(), parts[1].strip())
         wlog(msg)
 
 import builtins
@@ -151,6 +173,34 @@ def split_into_dicts(enabled_leagues, n_sessions):
         worker_idx = i % n_sessions
         dicts[worker_idx].setdefault(sport, []).append(league)
     return dicts
+
+
+# ─────────────────────────────────────────────
+#  DISTRIBUCIÓN + CONFIRMACIÓN DEL USUARIO
+# ─────────────────────────────────────────────
+
+def _show_distribution(league_dicts, name_section, console):
+    """Muestra tabla de distribución de ligas por worker y pide confirmación."""
+    table = Table(title=f'Distribución de ligas — [{name_section.upper()}]', show_header=True)
+    table.add_column('Worker', style='bold', justify='center')
+    table.add_column('Deporte')
+    table.add_column('Liga')
+
+    for idx, d in enumerate(league_dicts):
+        color = WORKER_COLORS[idx % len(WORKER_COLORS)]
+        first = True
+        for sport, leagues in d.items():
+            for league in leagues:
+                worker_label = f'[{color}]W{idx}[/{color}]' if first else ''
+                table.add_row(worker_label, sport if first or True else '', league)
+                first = False
+
+    console.print()
+    console.print(table)
+    console.print()
+
+    resp = input('  ¿Continuar con la ejecución? [s/N]: ').strip().lower()
+    return resp == 's'
 
 
 # ─────────────────────────────────────────────
@@ -186,6 +236,7 @@ def worker(worker_id, sport_leagues_dict, name_section):
         extraction_by_dict(driver, sport_leagues_dict, name_section=name_section)
         with _state_lock:
             _worker_status[worker_id] = 'done'
+            _worker_league[worker_id] = 'Completado ✔'
         wlog(f'[{color}]Extracción completada ✔[/{color}]')
     except Exception as e:
         with _state_lock:
@@ -202,21 +253,28 @@ def worker(worker_id, sport_leagues_dict, name_section):
 # ─────────────────────────────────────────────
 
 def run_parallel(n_sessions, name_section='results'):
-    # Limpiar claims huérfanos de ejecuciones anteriores (timeout 2h)
+    console = Console()
+
+    # Limpiar claims huérfanos
     stale = cleanup_stale_leagues(timeout_minutes=120)
     if stale:
-        print(f'[INFO] {stale} claims huérfanos limpiados de running_leagues')
+        console.print(f'[dim]  {stale} claims huérfanos limpiados[/dim]')
 
     enabled      = get_enabled_leagues(name_section)
     league_dicts = split_into_dicts(enabled, n_sessions)
 
-    layout  = _build_layout(n_sessions)
-    console = Console()
+    # Mostrar distribución y pedir confirmación
+    if not _show_distribution(league_dicts, name_section, console):
+        console.print('[yellow]  Ejecución cancelada.[/yellow]')
+        return
 
-    # Inicializar estados vacíos antes de lanzar threads
+    layout = _build_layout(n_sessions)
+
+    # Inicializar estados
     for i in range(n_sessions):
         _worker_lines[i]  = []
         _worker_status[i] = 'running'
+        _worker_league[i] = 'Iniciando...'
 
     with Live(layout, console=console, refresh_per_second=4, screen=True):
         with ThreadPoolExecutor(max_workers=n_sessions) as executor:
@@ -230,16 +288,16 @@ def run_parallel(n_sessions, name_section='results'):
                     idx = futures.pop(future)
                     try:
                         future.result()
-                    except Exception as e:
+                    except Exception:
                         with _state_lock:
                             _worker_status[idx] = 'error'
                 _render_layout(layout, n_sessions, name_section)
                 if futures:
-                    import time; time.sleep(0.25)
+                    time.sleep(0.25)
 
         _render_layout(layout, n_sessions, name_section)
 
-    # Resumen final fuera del Live
+    # Resumen final
     console.print()
     table = Table(title='Resumen de ejecución', show_header=True)
     table.add_column('Worker', style='bold')

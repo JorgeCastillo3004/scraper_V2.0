@@ -16,9 +16,12 @@ Uso:
 """
 
 import sys
+import os
 import json
 import psycopg2
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src'))
 from common_functions import load_check_point, save_check_point
 
@@ -31,12 +34,7 @@ MATCH_THRESHOLD = 20   # ligas con menos de este número de partidos se habilita
 # ─── Conexión ─────────────────────────────────────────────────────────────────
 
 def get_connection():
-    return psycopg2.connect(
-        host="DB_HOST",
-        user="DB_USER",
-        password="DB_PASS",
-        dbname="sports_db"
-    )
+    return psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
 
 
 # ─── Queries ──────────────────────────────────────────────────────────────────

@@ -1,5 +1,8 @@
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import (
+    NoSuchElementException, TimeoutException,
+    StaleElementReferenceException, WebDriverException
+)
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
@@ -8,7 +11,39 @@ import time
 import psycopg2
 import shutil
 
+# Excepciones que indican problema de carga — recuperables con reload
+RETRY_EXCEPTIONS = (TimeoutException, StaleElementReferenceException,
+                    WebDriverException, NoSuchElementException)
+
+MATCH_MAX_ATTEMPTS  = 3   # intentos por match
+LEAGUE_MAX_RETRIES  = 2   # reintentos por liga ante fallo grave
+RETRY_BASE_DELAY    = 5   # segundos base (se multiplica por intento)
+
 from common_functions import *
+
+
+def retry_match(driver, url, fn, max_attempts=MATCH_MAX_ATTEMPTS, base_delay=RETRY_BASE_DELAY):
+    """
+    Ejecuta fn(driver) con reintentos ante errores de carga.
+    - Intento 1: sin delay (no penaliza el caso exitoso).
+    - Intentos 2+: recarga la URL del match + backoff (base_delay * intento).
+    - Si todos fallan: retorna None (el match se salta y se registra en issues).
+    El driver nunca se cierra.
+    """
+    for attempt in range(max_attempts):
+        try:
+            if attempt > 0:
+                delay = base_delay * attempt
+                print(f'[WARN] Reintento {attempt}/{max_attempts - 1} — espera {delay}s — recargando URL')
+                time.sleep(delay)
+                driver.get(url)
+                dismiss_cookies(driver)
+            return fn(driver)
+        except RETRY_EXCEPTIONS as e:
+            if attempt == max_attempts - 1:
+                print(f'[ERROR] Match fallido tras {max_attempts} intentos: {e}')
+                return None
+    return None
 from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues
 from milestone6 import *
 
@@ -521,10 +556,28 @@ def get_complete_match_info(driver, league_info, dict_country_league_season, lea
 
             url_details = event_info['link_details']
             print(f"[INFO] Cargando detalles: {event_info['name']}")
-            wait_load_details(driver, url_details)
-            event_info = get_match_info(driver, event_info)
+
+            # ── NIVEL B: retry por match ──────────────────────────────
+            def _extract(driver):
+                wait_load_details(driver, url_details)
+                info = get_match_info(driver, event_info)
+                info['statistic'] = get_statistics_game(driver)
+                return info
+
+            result = retry_match(driver, url_details, _extract)
+
+            if result is None:
+                # Todos los intentos fallaron → registrar y saltar match
+                match_issues[event_info.get('name', url_details)] = {
+                    'url': url_details, 'round': round_file
+                }
+                save_check_point('check_points/issues/issues_match.json', match_issues)
+                league_fully_processed = False
+                continue
+            # ─────────────────────────────────────────────────────────
+
+            event_info.update(result)
             event_info['tournament_id'] = ''
-            event_info['statistic'] = get_statistics_game(driver)
             event_info['league_id'] = league_id
             event_info['season_id'] = season_id
             date_copy = event_info['match_date']
@@ -544,7 +597,6 @@ def get_complete_match_info(driver, league_info, dict_country_league_season, lea
             league_checkpoint['round'] = round_file
             league_checkpoint['match'] = event_info['name']
             save_check_point(li_file, leagues_info_json)
-            count = 6
 
 
     if league_fully_processed:
@@ -885,6 +937,13 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
                 continue
 
             try:
+                # Notificar liga activa al dashboard (capturado por paralel_execution)
+                print(f'[LIGA] {sport_name} / {league_name}')
+
+                # Marcar como en ejecución
+                league_info[extract_key]['status'] = 'running'
+                save_check_point(li_file, leagues_info_json)
+
                 complete_info(league_info, league_name, sport_name, dict_sport_id)
 
                 prev_match_number = get_match_by_league_id(league_id)
@@ -897,14 +956,44 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
                         navigate_through_rounds(driver, league_info, section_name=name_section)
 
                     league_checkpoint = league_info[extract_key]
-                    get_complete_match_info(driver, league_info, dict_league, league_checkpoint,
-                                            leagues_info_json, section=name_section, li_file=li_file)
+
+                    # ── NIVEL C: retry de liga ante fallo grave ───────
+                    for league_attempt in range(LEAGUE_MAX_RETRIES + 1):
+                        try:
+                            get_complete_match_info(driver, league_info, dict_league,
+                                                    league_checkpoint, leagues_info_json,
+                                                    section=name_section, li_file=li_file)
+                            break  # éxito → salir del retry
+                        except RETRY_EXCEPTIONS as e:
+                            if league_attempt == LEAGUE_MAX_RETRIES:
+                                raise  # agota reintentos → sube al except de liga
+                            delay = 10 * (league_attempt + 1)
+                            print(f'[WARN] Error en liga {league_name}, reintento {league_attempt + 1}/{LEAGUE_MAX_RETRIES} en {delay}s')
+                            time.sleep(delay)
+                            # Recargar URL de liga — checkpoint retoma desde último match guardado
+                            driver.get(league_info[name_section])
+                    # ─────────────────────────────────────────────────
 
                 new_match_number = get_match_by_league_id(league_id)
-                league_info[extract_key]['extract'] = False
+                league_info[extract_key]['extract']  = False
+                league_info[extract_key]['status']   = 'completed'
                 if new_match_number != prev_match_number:
                     league_info['matches'] = new_match_number
+
+                # Limpiar claves temporales inyectadas por complete_info
+                for k in ('sport_name', 'sport_id', 'league_name'):
+                    league_info.pop(k, None)
+
                 save_check_point(li_file, leagues_info_json)
+
+            except Exception as e:
+                # Marcar error — extract queda True para reintento en siguiente ejecución
+                league_info[extract_key]['status'] = 'error'
+                for k in ('sport_name', 'sport_id', 'league_name'):
+                    league_info.pop(k, None)
+                save_check_point(li_file, leagues_info_json)
+                print(f'[ERROR] {league_name}: {e}')
+                raise
 
             finally:
                 release_league(league_id, name_section)

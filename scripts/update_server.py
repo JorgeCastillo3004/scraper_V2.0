@@ -28,7 +28,7 @@ REMOTE_BASE = SERVER_PATH
 ROOT_EXCLUDE = {
     '__pycache__', '.ipynb_checkpoints', 'claude_memory',
     'prueba', 'diagramas', 'docs', 'images', 'logs',
-    'main_depuracion.ipynb', 'env',
+    'main_depuracion.ipynb', 'env', 'scraper_V2.0',
 }
 
 # Carpetas excluidas dentro de api_service
