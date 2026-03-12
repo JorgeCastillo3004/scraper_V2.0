@@ -6,8 +6,11 @@ Script para sincronizar código local → servidor remoto.
 
 Uso:
   source /home/you/env/sports_env/bin/activate
-  python /home/you/work_2026/update_server.py               # sync completo
-  python /home/you/work_2026/update_server.py leagues_info  # solo leagues_info.json
+  python scripts/update_server.py                              # sync completo
+  python scripts/update_server.py leagues_info                 # solo leagues_info.json
+  python scripts/update_server.py milestone4.py               # archivo raíz
+  python scripts/update_server.py src/milestone4.py           # con subcarpeta
+  python scripts/update_server.py milestone4.py paralel_execution.py src/data_base.py
 """
 
 import paramiko
@@ -126,8 +129,32 @@ def upload_leagues_info():
     print('=== leagues_info.json actualizado en servidor ✓ ===\n')
 
 
+def upload_specific(files):
+    """Sube archivos específicos manteniendo la estructura de carpetas."""
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(HOST, username=USER, password=PASS)
+    sftp = client.open_sftp()
+
+    for f in files:
+        local_path  = os.path.join(LOCAL_BASE, f)
+        remote_path = REMOTE_BASE + '/' + f.replace(os.sep, '/')
+        if not os.path.isfile(local_path):
+            print(f'  [skip] No encontrado: {local_path}')
+            continue
+        remote_makedirs(sftp, os.path.dirname(remote_path))
+        upload_file(sftp, local_path, remote_path)
+
+    sftp.close()
+    client.close()
+    print('=== Archivos subidos ✓ ===')
+
+
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'leagues_info':
+    args = sys.argv[1:]
+    if not args:
+        main()
+    elif args[0] == 'leagues_info':
         upload_leagues_info()
     else:
-        main()
+        upload_specific(args)
