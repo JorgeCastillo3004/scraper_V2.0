@@ -6,6 +6,8 @@ Multi-sport data aggregation system that scrapes **FlashScore.com** using Seleni
 
 ## Architecture
 
+![Arquitectura y Flujo del Sistema](git_images/Arquitectura%20y%20flujo.png)
+
 ```
 ├── main.py                  # Entry point — launches 2 concurrent threads
 ├── main1.py                 # Scheduled scraping (news, leagues, teams, results, fixtures, players)
