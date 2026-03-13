@@ -17,3 +17,4 @@ check_points/
 __pycache__/
 *.pyc
 .check_points/
+config.py
