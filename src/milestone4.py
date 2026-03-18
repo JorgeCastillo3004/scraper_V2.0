@@ -15,9 +15,12 @@ import shutil
 RETRY_EXCEPTIONS = (TimeoutException, StaleElementReferenceException,
                     WebDriverException, NoSuchElementException)
 
-MATCH_MAX_ATTEMPTS  = 3   # intentos por match
-LEAGUE_MAX_RETRIES  = 2   # reintentos por liga ante fallo grave
-RETRY_BASE_DELAY    = 5   # segundos base (se multiplica por intento)
+MATCH_MAX_ATTEMPTS           = 3   # intentos por match
+LEAGUE_MAX_RETRIES           = 2   # reintentos ante RETRY_EXCEPTIONS en get_complete_match_info
+LEAGUE_NAV_RETRIES           = 3   # reintentos para navegación + creación de rondas
+RETRY_BASE_DELAY             = 5   # segundos base (se multiplica por intento)
+INIT_MAX_RETRIES             = 3   # reintentos para inicialización (DB/archivo al arrancar)
+LEAGUE_MAX_CONSECUTIVE_FAILS = 4   # ligas fallidas consecutivas → warning de driver roto
 
 from common_functions import *
 
@@ -44,7 +47,7 @@ def retry_match(driver, url, fn, max_attempts=MATCH_MAX_ATTEMPTS, base_delay=RET
                 print(f'[ERROR] Match fallido tras {max_attempts} intentos: {e}')
                 return None
     return None
-from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues
+from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues, update_league_checkpoint, get_league_checkpoint
 from milestone6 import *
 
 local_time_naive = datetime.now()
@@ -371,13 +374,13 @@ def match_creation_save(event_info, team_id_home, team_id_visitor, section):
     if len(match_duplicate) != 0:
         print(f"[DUP] Match duplicado: {event_info['name']}")
     if len(match_created) == 0 and len(match_duplicate) == 0:
-        print(f"[OK ] Match creado: {event_info['name']}")
+        
         if section =="results":
             # SET EVENT STATE
-            event_info['status'] = 'completed'
+            event_info['status'] = 'COMPLETED'
         elif section =="fixtures":
             # SET EVENT STATE
-            event_info['status'] = 'schedule'
+            event_info['status'] = 'SCHEDULED'
         save_math_info(event_info)
         save_details_math_info(dict_home)
         save_details_math_info(dict_visitor)
@@ -387,6 +390,7 @@ def match_creation_save(event_info, team_id_home, team_id_visitor, section):
             dict_visitor['points'] = -1
         save_score_info(dict_home)
         save_score_info(dict_visitor)
+        print(f"[OK ] Match creado: {event_info['name']}")
 
 def wait_load_details(driver, url_details):
     wait = WebDriverWait(driver, 10)
@@ -520,22 +524,21 @@ def save_participants_info(driver, player_links, sport_id, league_id, season_id,
     return dict_players_ready, team_name
 #             save_check_point('check_points/players_ready.json', dict_players_ready)
 
-def get_complete_match_info(driver, league_info, dict_country_league_season, league_checkpoint, leagues_info_json, section='results', li_file='check_points/leagues_info.json'):
+def get_complete_match_info(driver, league_info, dict_country_league_season,
+                            checkpoint_round, checkpoint_match,
+                            section='results'):
     league_name = league_info['league_name']
-    sport_name = league_info['sport_name']
-    league_id = league_info['league_id']
-    season_id = league_info['season_id']
-    checkpoint_round = league_checkpoint['round']
-    checkpoint_match = league_checkpoint['match']
-    skip_round = bool(checkpoint_round)
-    skip_match = bool(checkpoint_match)
+    sport_name  = league_info['sport_name']
+    league_id   = league_info['league_id']
+    season_id   = league_info['season_id']
 
-    match_issues = load_check_point('check_points/issues/issues_match.json')
+    skip_round  = bool(checkpoint_round)
+    skip_match  = bool(checkpoint_match)
+    checkpoint_match_found = not bool(checkpoint_match)  # si no hay checkpoint, ya "encontrado"
+
+    match_issues  = load_check_point('check_points/issues/issues_match.json')
     league_folder = 'check_points/{}/{}/'.format(section, league_name)
-    if os.path.exists(league_folder):
-        round_files = sorted(os.listdir(league_folder))
-    else:
-        round_files = []
+    round_files   = sorted(os.listdir(league_folder)) if os.path.exists(league_folder) else []
 
     league_fully_processed = True
 
@@ -544,15 +547,22 @@ def get_complete_match_info(driver, league_info, dict_country_league_season, lea
             if round_file != checkpoint_round:
                 continue
             skip_round = False
+        else:
+            # Rounds posteriores al checkpoint: procesar todos los matches sin excepción
+            skip_match = False
 
-        file_path = os.path.join(league_folder, round_file)
+        file_path  = os.path.join(league_folder, round_file)
         round_info = load_json(file_path)
 
         for match_key, event_info in round_info.items():
             if skip_match:
                 if event_info['name'] != checkpoint_match:
                     continue
-                skip_match = False
+                # Match del checkpoint encontrado — marcarlo y saltarlo
+                # (ya fue procesado y guardado antes de la interrupción)
+                skip_match             = False
+                checkpoint_match_found = True
+                continue  # no re-procesar
 
             url_details = event_info['link_details']
             print(f"[INFO] Cargando detalles: {event_info['name']}")
@@ -578,34 +588,31 @@ def get_complete_match_info(driver, league_info, dict_country_league_season, lea
 
             event_info.update(result)
             event_info['tournament_id'] = ''
-            event_info['league_id'] = league_id
-            event_info['season_id'] = season_id
-            date_copy = event_info['match_date']
+            event_info['league_id']     = league_id
+            event_info['season_id']     = season_id
             event_info['match_date'], event_info['start_time'] = get_time_date_format(event_info['match_date'])
             event_info['end_time'] = event_info['start_time']
-            event_info['rounds'] = round_file.replace('.json', '')
+            event_info['rounds']   = round_file.replace('.json', '')
             try:
-                team_id_home = dict_country_league_season[event_info['home']]['team_id']
+                team_id_home    = dict_country_league_season[event_info['home']]['team_id']
                 team_id_visitor = dict_country_league_season[event_info['visitor']]['team_id']
             except KeyError as e:
                 print(f"[WARN] Team no encontrado en archivos: {e}")
-                team_id_home = get_team_id_db(event_info['home'], league_id, season_id)
+                team_id_home    = get_team_id_db(event_info['home'], league_id, season_id)
                 team_id_visitor = get_team_id_db(event_info['visitor'], league_id, season_id)
 
             create_stadium(dict_country_league_season, event_info, league_info, team_id_home)
             match_creation_save(event_info, team_id_home, team_id_visitor, section)
-            league_checkpoint['round'] = round_file
-            league_checkpoint['match'] = event_info['name']
-            save_check_point(li_file, leagues_info_json)
 
+            # Guardar checkpoint en DB después de cada match exitoso
+            update_league_checkpoint(league_id, section, round_file, event_info['name'])
 
-    if league_fully_processed:
-        league_checkpoint['round'] = ''
-        league_checkpoint['match'] = ''
-        league_checkpoint['status'] = 'completed'
-        save_check_point(li_file, leagues_info_json)
-        if os.path.exists(league_folder):
-            shutil.rmtree(league_folder)
+    if not checkpoint_match_found:
+        print(f'[WARN] Checkpoint match "{checkpoint_match}" no encontrado en '
+              f'"{checkpoint_round}". Algunos matches pudieron haberse saltado. '
+              f'Liga: {league_name}')
+
+    return league_fully_processed
 
 def save_team_player_single(driver, player_link , league_info):
     # LOAD PLAYER URL    
@@ -737,10 +744,10 @@ def get_complete_match_info_tennis(driver, league_info, section='results'):
 
             if section =="results" and not '-' in event_info['home_result']:
                 # SET EVENT STATE
-                event_info['status'] = 'R'
+                event_info['status'] = 'COMPLETED'
             elif section =="fixtures" or '-' in event_info['home_result']:
                 # SET EVENT STATE
-                event_info['status'] = 'P'
+                event_info['status'] = 'SCHEDULED'
                 # CHECK STATUS IS PENDING REPLACE RESULTS BY -1
                 event_info['home_result'] = -1
                 event_info['visitor_result'] = -1
@@ -825,9 +832,10 @@ def get_complete_match_info_tennis(driver, league_info, section='results'):
         # dict_leagues_ready[country_league] = list_rounds_ready
         # dict_country_league_check_point[sport_id] = dict_leagues_ready
         # save_check_point('check_points/country_leagues_results_ready.json', dict_country_league_check_point)
-    if os.path.exists(league_folder):
-        print("folder_path to delete: ", league_folder)
-        shutil.rmtree(league_folder)
+    # Carpeta de rounds conservada — no eliminar (necesaria para checkpoint/resume)
+    # if os.path.exists(league_folder):
+    #     print("folder_path to delete: ", league_folder)
+    #     shutil.rmtree(league_folder)
 
 def pending_to_process(dict_country_league_check_point, sport_id, country_league):
     list_sports = list(dict_country_league_check_point.keys())
@@ -871,31 +879,53 @@ def results_fixtures_extraction(driver, list_sports, name_section='results',
                 if not league_info.get(extract_key, {}).get('extract', False):
                     continue
 
-            if league_info.get(extract_key, {}).get('running', False):
+            league_id = league_info.get('league_id', '')
+
+            # Claim en DB — reemplaza el flag 'running' del JSON
+            if not claim_league(league_id, name_section):
+                print(f'[INFO] Liga en uso: {league_name}')
                 continue
 
-            league_info[extract_key]['running'] = True
-            save_check_point(li_file, leagues_info_json)
+            league_final_status = 'interrupted'
 
-            complete_info(league_info, league_name, sport_name, dict_sport_id)
+            try:
+                complete_info(league_info, league_name, sport_name, dict_sport_id)
 
-            match_number = get_match_by_league_id(league_info['league_id'])
-            path_league_info = 'check_points/leagues_season/{}/{}.json'.format(sport_name, league_name)
-            dict_league = load_check_point(path_league_info)
+                # Leer checkpoint desde DB
+                cp_round, cp_match, cp_status = get_league_checkpoint(league_id, name_section)
+                if cp_status == 'interrupted' and (cp_round or cp_match):
+                    print(f'[INFO] Retomando desde checkpoint: round={cp_round} match={cp_match}')
 
-            if name_section in list(league_info.keys()):
-                wait_update_page(driver, league_info[name_section], "container__heading")
-                if not round_files_exist(sport_name, league_name, name_section):
-                    navigate_through_rounds(driver, league_info, section_name = name_section)
+                match_number     = get_match_by_league_id(league_info['league_id'])
+                path_league_info = 'check_points/leagues_season/{}/{}.json'.format(sport_name, league_name)
+                dict_league      = load_check_point(path_league_info)
 
-                league_checkpoint = league_info[extract_key]
-                get_complete_match_info(driver, league_info, dict_league, league_checkpoint, leagues_info_json, section=name_section, li_file=li_file)
+                league_fully_processed = True
 
-            match_number = get_match_by_league_id(league_info['league_id'])
-            league_info['matches'] = match_number
-            league_info[extract_key]['extract']  = False
-            league_info[extract_key]['running']  = False
-            save_check_point(li_file, leagues_info_json)
+                if name_section in list(league_info.keys()):
+                    wait_update_page(driver, league_info[name_section], "container__heading")
+                    if not round_files_exist(sport_name, league_name, name_section):
+                        navigate_through_rounds(driver, league_info, section_name=name_section)
+
+                    league_fully_processed = get_complete_match_info(
+                        driver, league_info, dict_league,
+                        cp_round, cp_match,
+                        section=name_section
+                    )
+
+                match_number = get_match_by_league_id(league_info['league_id'])
+                league_info['matches'] = match_number
+                league_info[extract_key]['extract'] = False
+                save_check_point(li_file, leagues_info_json)
+
+                league_final_status = 'completed' if league_fully_processed else 'interrupted'
+
+            except Exception as e:
+                print(f'[ERROR] {league_name}: {type(e).__name__}: {e}')
+                raise
+
+            finally:
+                release_league(league_id, name_section, league_final_status)
 
 
 def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
@@ -913,70 +943,136 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
         'Hockey': 'HOCKEY', 'Tennis': 'TENNIS', 'Golf': 'GOLF',
         'Boxing': 'BOXING', 'American Football': 'AM._FOOTBALL',
     }
-    dict_sport_id    = {sport_name_map.get(k, k.upper()): v for k, v in get_dict_sport_id().items()}
-    li_file          = 'check_points/leagues_info.json'
-    leagues_info_json = load_check_point(li_file)
-    extract_key      = 'extract_results' if name_section == 'results' else 'extract_fixtures'
+    li_file     = 'check_points/leagues_info.json'
+    extract_key = 'extract_results' if name_section == 'results' else 'extract_fixtures'
 
     SUPPORTED_SPORTS = ['FOOTBALL', 'BASKETBALL', 'BASEBALL', 'AM._FOOTBALL', 'HOCKEY']
+
+    # ── INICIALIZACIÓN CON RETRY ──────────────────────────────────────────────
+    # get_dict_sport_id() y load_check_point() hacen I/O (DB y disco).
+    # Si fallan en el primer intento (DB transitoriamente caída, archivo bloqueado),
+    # se reintenta con backoff antes de abortar todo el worker.
+    dict_sport_id     = None
+    leagues_info_json = None
+    for _init_attempt in range(INIT_MAX_RETRIES):
+        try:
+            dict_sport_id     = {sport_name_map.get(k, k.upper()): v for k, v in get_dict_sport_id().items()}
+            leagues_info_json = load_check_point(li_file)
+            break
+        except Exception as e:
+            if _init_attempt == INIT_MAX_RETRIES - 1:
+                print(f'[ERROR] Inicialización fallida tras {INIT_MAX_RETRIES} intentos: {e}')
+                raise
+            delay = 15 * (_init_attempt + 1)
+            print(f'[WARN] Error de inicialización (intento {_init_attempt + 1}/{INIT_MAX_RETRIES}), reintentando en {delay}s: {e}')
+            time.sleep(delay)
+
+    consecutive_fails = 0  # contador de ligas fallidas consecutivas (señal de driver roto)
 
     for sport_name, league_list in sport_leagues_dict.items():
         if sport_name not in SUPPORTED_SPORTS:
             continue
 
         for league_name in league_list:
+
+            # ── RECARGAR leagues_info DESDE DISCO ────────────────────────────
+            # Garantiza que ligas ya marcadas extract=False por otro worker o
+            # por una iteración anterior no sean reprocesadas.
+            try:
+                leagues_info_json = load_check_point(li_file)
+            except Exception as e:
+                print(f'[WARN] No se pudo recargar leagues_info ({league_name}): {e} — usando copia en memoria')
+
             league_info = leagues_info_json.get(sport_name, {}).get(league_name)
             if not league_info:
+                print(f'[WARN] Liga no encontrada en leagues_info: {sport_name}/{league_name}')
+                continue
+
+            # ── SKIP SI YA FUE PROCESADA ─────────────────────────────────────
+            if not league_info.get(extract_key, {}).get('extract', False):
+                print(f'[INFO] Liga ya procesada (extract=False): {league_name}')
                 continue
 
             league_id = league_info.get('league_id', '')
 
-            # Claim atómico en DB — evita doble procesamiento entre procesos/máquinas
-            if not claim_league(league_id, name_section):
-                print(f'[INFO] Liga en uso (otro worker): {league_name}')
+            # ── CLAIM CON PROTECCIÓN ──────────────────────────────────────────
+            # claim_league hace una escritura en DB; si la DB está transitoriamente
+            # caída lanza excepción. Sin este try/except propagaría y mataría todo.
+            try:
+                if not claim_league(league_id, name_section):
+                    print(f'[INFO] Liga en uso (otro worker): {league_name}')
+                    continue
+            except Exception as e:
+                print(f'[WARN] Error al reclamar liga {league_name}: {type(e).__name__}: {e} — saltando')
                 continue
 
+            league_final_status = 'interrupted'  # default si algo falla
+
             try:
-                # Notificar liga activa al dashboard (capturado por paralel_execution)
                 print(f'[LIGA] {sport_name} / {league_name}')
 
-                # Marcar como en ejecución
-                league_info[extract_key]['status'] = 'running'
-                save_check_point(li_file, leagues_info_json)
-
                 complete_info(league_info, league_name, sport_name, dict_sport_id)
+
+                # Leer checkpoint desde DB (resume si fue interrumpida)
+                cp_round, cp_match, cp_status = get_league_checkpoint(league_id, name_section)
+                if cp_status == 'interrupted' and (cp_round or cp_match):
+                    print(f'[INFO] Retomando desde checkpoint: round={cp_round} match={cp_match}')
 
                 prev_match_number = get_match_by_league_id(league_id)
                 path_league_info  = 'check_points/leagues_season/{}/{}.json'.format(sport_name, league_name)
                 dict_league       = load_check_point(path_league_info)
 
+                league_fully_processed = True
+
                 if name_section in list(league_info.keys()):
-                    wait_update_page(driver, league_info[name_section], "container__heading")
+
+                    # ── NIVEL A: retry de navegación inicial ──────────────────
+                    # wait_update_page y navigate_through_rounds pueden fallar por
+                    # timeout o elemento stale; se reintenta antes de abortar la liga.
+                    for nav_attempt in range(LEAGUE_NAV_RETRIES):
+                        try:
+                            wait_update_page(driver, league_info[name_section], "container__heading")
+                            break
+                        except RETRY_EXCEPTIONS as e:
+                            if nav_attempt == LEAGUE_NAV_RETRIES - 1:
+                                raise
+                            print(f'[WARN] Error de navegación (intento {nav_attempt + 1}/{LEAGUE_NAV_RETRIES}): {e}')
+                            time.sleep(5 * (nav_attempt + 1))
+
                     if not round_files_exist(sport_name, league_name, name_section):
-                        navigate_through_rounds(driver, league_info, section_name=name_section)
+                        # ── NIVEL B: retry de creación de rondas ──────────────
+                        for nav_attempt in range(LEAGUE_NAV_RETRIES):
+                            try:
+                                navigate_through_rounds(driver, league_info, section_name=name_section)
+                                break
+                            except RETRY_EXCEPTIONS as e:
+                                if nav_attempt == LEAGUE_NAV_RETRIES - 1:
+                                    raise
+                                print(f'[WARN] Error creando rondas (intento {nav_attempt + 1}/{LEAGUE_NAV_RETRIES}): {e}')
+                                time.sleep(5 * (nav_attempt + 1))
+                                driver.get(league_info[name_section])
 
-                    league_checkpoint = league_info[extract_key]
-
-                    # ── NIVEL C: retry de liga ante fallo grave ───────
+                    # ── NIVEL C: retry de extracción completa ─────────────────
                     for league_attempt in range(LEAGUE_MAX_RETRIES + 1):
                         try:
-                            get_complete_match_info(driver, league_info, dict_league,
-                                                    league_checkpoint, leagues_info_json,
-                                                    section=name_section, li_file=li_file)
+                            league_fully_processed = get_complete_match_info(
+                                driver, league_info, dict_league,
+                                cp_round, cp_match,
+                                section=name_section
+                            )
                             break  # éxito → salir del retry
                         except RETRY_EXCEPTIONS as e:
                             if league_attempt == LEAGUE_MAX_RETRIES:
-                                raise  # agota reintentos → sube al except de liga
+                                raise
                             delay = 10 * (league_attempt + 1)
                             print(f'[WARN] Error en liga {league_name}, reintento {league_attempt + 1}/{LEAGUE_MAX_RETRIES} en {delay}s')
                             time.sleep(delay)
-                            # Recargar URL de liga — checkpoint retoma desde último match guardado
                             driver.get(league_info[name_section])
-                    # ─────────────────────────────────────────────────
+                            # Re-leer checkpoint de DB (puede haberse actualizado en este intento)
+                            cp_round, cp_match, _ = get_league_checkpoint(league_id, name_section)
 
                 new_match_number = get_match_by_league_id(league_id)
-                league_info[extract_key]['extract']  = False
-                league_info[extract_key]['status']   = 'completed'
+                league_info[extract_key]['extract'] = False
                 if new_match_number != prev_match_number:
                     league_info['matches'] = new_match_number
 
@@ -984,19 +1080,52 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
                 for k in ('sport_name', 'sport_id', 'league_name'):
                     league_info.pop(k, None)
 
-                save_check_point(li_file, leagues_info_json)
+                # ── GUARDAR CON PROTECCIÓN ────────────────────────────────────
+                # Si falla el guardado, extract=False queda solo en memoria.
+                # Se loguea pero no se relanza — la liga ya fue procesada.
+                try:
+                    save_check_point(li_file, leagues_info_json)
+                except Exception as e:
+                    print(f'[WARN] No se pudo persistir leagues_info tras {league_name}: {e}')
+
+                league_final_status = 'completed' if league_fully_processed else 'interrupted'
+                consecutive_fails   = 0  # reset: procesamiento exitoso
 
             except Exception as e:
-                # Marcar error — extract queda True para reintento en siguiente ejecución
-                league_info[extract_key]['status'] = 'error'
+                consecutive_fails += 1
                 for k in ('sport_name', 'sport_id', 'league_name'):
                     league_info.pop(k, None)
-                save_check_point(li_file, leagues_info_json)
-                print(f'[ERROR] {league_name}: {e}')
-                raise
+                print(f'[ERROR] {league_name} (fallo #{consecutive_fails}): {type(e).__name__}: {e}')
+
+                # Screenshot al fallar la liga
+                try:
+                    ss_dir = os.path.join(
+                        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        'logs', 'parallel', 'screenshots'
+                    )
+                    os.makedirs(ss_dir, exist_ok=True)
+                    ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+                    safe_name = league_name.replace('/', '_').replace(' ', '_')
+                    ss_path = os.path.join(ss_dir, f'league_error_{safe_name}_{ts}.png')
+                    driver.save_screenshot(ss_path)
+                    print(f'[WARN] Screenshot guardado: {ss_path}')
+                except Exception:
+                    pass
+
+                # Alerta si hay demasiados fallos seguidos (posible driver roto)
+                if consecutive_fails >= LEAGUE_MAX_CONSECUTIVE_FAILS:
+                    print(f'[ERROR] {consecutive_fails} ligas fallidas consecutivas — posible driver roto o sitio caído')
+
+                # NO raise — siempre continuar con la siguiente liga
 
             finally:
-                release_league(league_id, name_section)
+                # ── RELEASE CON PROTECCIÓN ────────────────────────────────────
+                # Si release_league lanza (DB caída), sin este try/except la excepción
+                # del finally reemplazaría la del except y el worker colapsaría.
+                try:
+                    release_league(league_id, name_section, league_final_status)
+                except Exception as e:
+                    print(f'[WARN] No se pudo liberar liga {league_name} en DB: {e}')
 
 
 def build_detail_score_dict(racer, dict_match):
@@ -1025,12 +1154,12 @@ def build_match_dict(driver, block_match, season_year, category):
 
     if 'Finished' in date_time:
         match_date, start_time = get_first_date_with_year(date_time)
-        status = 'R'        
+        status = 'COMPLETED'
         place = clean_text(place)
         descr = clean_text(descr)
     else:
         match_date, start_time = get_time_date_format(date_time, section ='results')
-        status = 'P'         
+        status = 'SCHEDULED'         
     
     place = clean_text(place)
     descr = clean_text(descr)
@@ -1131,19 +1260,19 @@ def get_match_link(driver, match):
 def get_result_boxig(driver):
     home_result = -1
     away_result = -1
-    status = 'P'
+    status = 'SCHEDULED'
     try:
         home_participant = driver.find_element(By.CLASS_NAME, 'duelParticipant__home.duelParticipant--winner').text
         home_result = 1
         away_result = 0
-        status = 'R'
+        status = 'COMPLETED'
     except:
         home_participant = driver.find_element(By.CLASS_NAME, 'duelParticipant__home').text
-    try:    
+    try:
         away_participant = driver.find_element(By.CLASS_NAME, 'duelParticipant__away.duelParticipant--winner').text
         home_result = 0
         away_result = 1
-        status = 'R'
+        status = 'COMPLETED'
     except:
         away_participant = driver.find_element(By.CLASS_NAME, 'duelParticipant__away').text
     match_id = generate_uuid()
@@ -1268,10 +1397,10 @@ def get_tournament(driver, league_info, event_block):
     print(date_time)
     if 'Finished' in date_time:
         dict_match['match_date'], dict_match['start_time'] = get_first_date_with_year(statistic_dict['Dates'])
-        dict_match['status'] = 'R'
+        dict_match['status'] = 'COMPLETED'
     else:
         dict_match['match_date'], dict_match['start_time'] = get_time_date_format(date_time, section ='results')
-        dict_match['status'] = 'P'    
+        dict_match['status'] = 'SCHEDULED'    
     
     dict_match['match_id'] = generate_uuid()
     dict_match['match_country'] = ''

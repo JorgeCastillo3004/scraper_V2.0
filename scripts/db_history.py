@@ -29,26 +29,28 @@ def get_snapshot():
         GROUP BY sp.name, l.league_name
     """)
     rows = cur.fetchall()
-    cur.close()
-    conn.close()
 
     leagues = {}
     for sport, league, count in rows:
         sport = sport.upper()
         leagues.setdefault(sport, {})[league] = count
 
-    total     = sum(c for s in leagues.values() for c in s.values())
-    teams_cur = sum(1 for _ in leagues)  # placeholder — se obtiene aparte si se necesita
+    total = sum(c for s in leagues.values() for c in s.values())
 
-    cur2 = psycopg2.connect(host='96.30.195.40', dbname='sports_db', user='wohhu', password='caracas123').cursor()
-    cur2.execute("SELECT COUNT(*) FROM team")
-    teams = cur2.fetchone()[0]
-    cur2.connection.close()
+    cur.execute("SELECT COUNT(*) FROM team")
+    teams = cur.fetchone()[0]
+
+    cur.execute("SELECT COUNT(*) FROM news")
+    news_count = cur.fetchone()[0]
+
+    cur.close()
+    conn.close()
 
     return {
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M'),
         'total_matches': total,
         'total_teams': teams,
+        'total_news': news_count,
         'leagues': leagues,
     }
 
@@ -72,6 +74,7 @@ def show_comparison(prev, curr):
     print(f"{'='*60}")
     print(f"  Total partidos : {curr['total_matches']:>6}  (Δ {curr['total_matches'] - prev['total_matches']:+})")
     print(f"  Total equipos  : {curr['total_teams']:>6}  (Δ {curr['total_teams'] - prev['total_teams']:+})")
+    print(f"  Total noticias : {curr['total_news']:>6}  (Δ {curr['total_news'] - prev.get('total_news', 0):+})")
     print(f"\n  Cambios por liga (vs {prev['timestamp']}):")
     print(f"  {'-'*56}")
 
@@ -101,7 +104,7 @@ def show_list(history):
     print(f"  HISTORIAL DE SNAPSHOTS ({len(history)} entradas)")
     print(f"{'='*50}")
     for i, h in enumerate(history):
-        print(f"  [{i:02d}] {h['timestamp']}  partidos={h['total_matches']}  equipos={h['total_teams']}")
+        print(f"  [{i:02d}] {h['timestamp']}  partidos={h['total_matches']}  equipos={h['total_teams']}  noticias={h.get('total_news', '?')}")
     print(f"{'='*50}\n")
 
 
@@ -123,6 +126,7 @@ def main():
         print(f"\nPrimer snapshot guardado: {snapshot['timestamp']}")
         print(f"  Total partidos : {snapshot['total_matches']}")
         print(f"  Total equipos  : {snapshot['total_teams']}")
+        print(f"  Total noticias : {snapshot['total_news']}")
 
     history.append(snapshot)
     save_history(history)

@@ -317,12 +317,15 @@ def wait_load_detailed_news(driver, url_news):
 
 def get_mentions(driver):
     mention_list = ''
-    mentions = driver.find_elements(By.XPATH, '//div[@class="fsNewsArticle__mentions"]/a')
+    mentions = driver.find_elements(By.XPATH, '//article//div[contains(@class,"wcl-group")]//a')
     for mention in mentions:
+        text = mention.text.strip()
+        if not text:
+            continue
         if mention_list == '':
-            mention_list = mention.text
+            mention_list = text
         else:
-            mention_list = mention_list +', '+mention.text
+            mention_list = mention_list + ', ' + text
     return mention_list
 
 def save_image(driver, image_url, image_path):

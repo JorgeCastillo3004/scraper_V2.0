@@ -9,9 +9,22 @@ import hashlib
 import pycountry
 
 def getdb():
-    return psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
+    return psycopg2.connect(
+        host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS,
+        connect_timeout=10,          # falla rápido si el servidor no responde al conectar
+        keepalives=1,                # activa TCP keepalive a nivel de socket
+        keepalives_idle=30,          # envía keepalive tras 30 s sin actividad
+        keepalives_interval=5,       # reenvía cada 5 s si no hay respuesta
+        keepalives_count=3,          # 3 fallos consecutivos → conexión muerta
+        options="-c statement_timeout=30000"  # cualquier query >30 s lanza error
+    )
 
 def ensure_connection():
+    """
+    Verifica que la conexión global esté activa y la regenera si falló.
+    Con statement_timeout=30s y keepalives cortos, el SELECT 1 ya no cuelga:
+    detecta conexiones half-open en ~45 s (30 idle + 3×5 s keepalive).
+    """
     global con
     try:
         con.cursor().execute("SELECT 1")
@@ -669,49 +682,85 @@ def get_match_by_league_id(league_id):
 
 def claim_league(league_id, section, host=None):
     """
-    Intenta reclamar una liga para procesarla.
-    Retorna True si el claim fue exitoso (nadie más la está procesando).
-    Retorna False si ya está siendo procesada por otro worker/máquina.
-    Usa INSERT ... ON CONFLICT DO NOTHING para garantizar atomicidad.
+    Reclama una liga para procesarla. Retorna True si el claim fue exitoso.
+    - Nueva liga:         INSERT con status='running'
+    - Liga 'interrupted': retoma desde el último checkpoint (resume)
+    - Liga 'completed':   reinicia desde cero (re-ejecución habilitada)
+    - Liga 'running':     otro worker la tiene → False
     """
     import socket
     ensure_connection()
     host = host or socket.gethostname()
     with con.cursor() as cur:
         cur.execute("""
-            INSERT INTO running_leagues (league_id, section, host, started_at)
-            VALUES (%s, %s, %s, NOW())
-            ON CONFLICT (league_id, section) DO NOTHING
+            INSERT INTO running_leagues (league_id, section, host, started_at, status, current_round, current_match)
+            VALUES (%s, %s, %s, NOW(), 'running', '', '')
+            ON CONFLICT (league_id, section) DO UPDATE
+                SET status        = 'running',
+                    host          = EXCLUDED.host,
+                    started_at    = NOW(),
+                    current_round = CASE WHEN running_leagues.status = 'completed' THEN '' ELSE running_leagues.current_round END,
+                    current_match = CASE WHEN running_leagues.status = 'completed' THEN '' ELSE running_leagues.current_match END
+            WHERE running_leagues.status != 'running'
         """, (league_id, section, host))
         con.commit()
         return cur.rowcount == 1
 
 
-def release_league(league_id, section):
-    """Libera el claim de una liga al terminar su procesamiento."""
+def release_league(league_id, section, status='completed'):
+    """Actualiza el status de la liga al finalizar ('completed' o 'interrupted')."""
     ensure_connection()
     with con.cursor() as cur:
         cur.execute(
-            "DELETE FROM running_leagues WHERE league_id = %s AND section = %s",
-            (league_id, section)
+            "UPDATE running_leagues SET status = %s WHERE league_id = %s AND section = %s",
+            (status, league_id, section)
         )
         con.commit()
 
 
+def update_league_checkpoint(league_id, section, current_round, current_match):
+    """Actualiza el checkpoint de la liga tras procesar un match exitosamente."""
+    ensure_connection()
+    with con.cursor() as cur:
+        cur.execute("""
+            UPDATE running_leagues
+            SET current_round = %s, current_match = %s
+            WHERE league_id = %s AND section = %s
+        """, (current_round, current_match, league_id, section))
+        con.commit()
+
+
+def get_league_checkpoint(league_id, section):
+    """
+    Retorna (current_round, current_match, status) de la liga.
+    Si no existe fila, retorna ('', '', None).
+    """
+    ensure_connection()
+    with con.cursor() as cur:
+        cur.execute(
+            "SELECT current_round, current_match, status FROM running_leagues WHERE league_id = %s AND section = %s",
+            (league_id, section)
+        )
+        row = cur.fetchone()
+        return (row[0], row[1], row[2]) if row else ('', '', None)
+
+
 def cleanup_stale_leagues(timeout_minutes=120):
     """
-    Elimina claims huérfanos (worker caído) con más de timeout_minutes minutos.
-    Llamar al inicio de cada ejecución paralela.
+    Marca como 'interrupted' los claims huérfanos (worker caído) con más de
+    timeout_minutes minutos. Preserva current_round y current_match para resume.
     """
     ensure_connection()
     with con.cursor() as cur:
         cur.execute("""
-            DELETE FROM running_leagues
-            WHERE started_at < NOW() - INTERVAL '%s minutes'
+            UPDATE running_leagues
+            SET status = 'interrupted'
+            WHERE status = 'running'
+            AND started_at < NOW() - INTERVAL '%s minutes'
         """, (timeout_minutes,))
-        deleted = cur.rowcount
+        updated = cur.rowcount
         con.commit()
-    return deleted
+    return updated
 
 
 con = getdb()
