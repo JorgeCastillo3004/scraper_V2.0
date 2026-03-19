@@ -463,4 +463,30 @@ if __name__ == '__main__':
     n_sessions   = int(sys.argv[1]) if len(sys.argv) > 1 else 2
     name_section = sys.argv[2]      if len(sys.argv) > 2 else 'results'
     confirm      = '--no-confirm' not in sys.argv
-    run_parallel(n_sessions, name_section, confirm=confirm)
+
+    console = Console()
+    cycle   = 0
+
+    while True:
+        cycle += 1
+        enabled = get_enabled_leagues(name_section)
+        if not enabled:
+            console.print(f'\n[green]✔ Extracción completa — no quedan ligas pendientes en [{name_section.upper()}].[/green]')
+            console.print('[dim]Ejecuta: python scripts/db_status.py para el reporte final.[/dim]\n')
+            break
+
+        console.print(f'\n[cyan]━━━ Ciclo {cycle} — {len(enabled)} ligas pendientes [{name_section.upper()}] ━━━[/cyan]')
+
+        # Solo pedir confirmación en el primer ciclo
+        run_parallel(n_sessions, name_section, confirm=(confirm and cycle == 1))
+
+        if _stop_event.is_set():
+            console.print('[yellow]  Stop solicitado — saliendo del loop.[/yellow]')
+            break
+
+        # Limpiar stale antes del siguiente ciclo
+        stale = cleanup_stale_leagues(timeout_minutes=120)
+        if stale:
+            console.print(f'[dim]  {stale} claims huérfanos limpiados antes del ciclo {cycle + 1}[/dim]')
+
+        time.sleep(5)

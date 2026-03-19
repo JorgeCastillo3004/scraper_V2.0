@@ -1,20 +1,19 @@
-api_service/
-logs/
-docs/
-images/
-diagramas/
 
+agents/
+api_service/
+.check_points/
+check_points/
+# Checkpoints y Jupyter
 # Claude
 CLAUDE.md
-SKILL.md
 claude_memory/
-
-# Checkpoints y Jupyter
-check_points/
-.ipynb_checkpoints/
-
-# Python
-__pycache__/
-*.pyc
-.check_points/
 config.py
+diagramas/
+docs/
+images/
+.ipynb_checkpoints/
+logs/
+*.pyc
+__pycache__/
+# Python
+SKILL.md

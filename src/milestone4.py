@@ -1011,6 +1011,17 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
             try:
                 print(f'[LIGA] {sport_name} / {league_name}')
 
+                # Verificar sesión activa — re-login si el botón LOGIN es visible
+                try:
+                    from config import FS_EMAIL, FS_PASSWORD
+                    login_btn = driver.find_elements(By.XPATH, '//*[contains(@class,"login") or text()="LOGIN" or text()="Login"]')
+                    if login_btn:
+                        print(f'[WARN] Sesión expirada detectada — re-login...')
+                        login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)
+                        dismiss_cookies(driver)
+                except Exception as _login_err:
+                    print(f'[WARN] Error en verificación de sesión: {_login_err}')
+
                 complete_info(league_info, league_name, sport_name, dict_sport_id)
 
                 # Leer checkpoint desde DB (resume si fue interrumpida)
@@ -1032,6 +1043,7 @@ def extraction_by_dict(driver, sport_leagues_dict, name_section='results'):
                     for nav_attempt in range(LEAGUE_NAV_RETRIES):
                         try:
                             wait_update_page(driver, league_info[name_section], "container__heading")
+                            dismiss_cookies(driver)
                             break
                         except RETRY_EXCEPTIONS as e:
                             if nav_attempt == LEAGUE_NAV_RETRIES - 1:
