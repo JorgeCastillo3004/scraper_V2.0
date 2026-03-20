@@ -159,64 +159,42 @@ def live_games(driver, list_sports):
 		start_time = time.time()
 		print("start_time: ", start_time)
 		for sport_name in list_sports:
-			clear_output(wait=True)
-			print_section("LIVE SECTION: " + sport_name, space_ = 50)
+			try:
+				print_section("LIVE SECTION: " + sport_name, space_ = 50)
 
-			#################################################
-			# LOAD SPORT LINK
-			wait_update_page(driver, dict_sports_url[sport_name], "container__heading")
+				wait_update_page(driver, dict_sports_url[sport_name], "container__heading")
+				dismiss_cookies(driver)
 
-			###################### LIVE SECTION ############################################
-			# CLICK ON LIVE BUTTON
+				live_games_found = give_click_on_live(driver, sport_name)
 
-			live_games_found = give_click_on_live(driver, sport_name)
-			###############################################################################
-			# count = 0 # COMENT
-			# while count < 1000: # COMENT
-			if live_games_found:
+				if live_games_found:
+					list_live_match = get_live_match(driver, sport_name=sport_name)
+					print("Total math found: ", len(list_live_match))
+					print_section("SEARCHING LIVE MATCH", space_=50)
+					for match_info in list_live_match:
+						try:
+							print(match_info)
+							match_id = get_match_id(match_info['league_country'],
+								match_info['league_name'], current_date, match_info['name'])
+							print("Match id: ", match_id)
+							if match_id:
+								dict_match_detail_id = get_math_details_ids(match_id)
+								print_section("MATCH FOUND PROCCED TO UPDATE VALUES.")
+								for match_detail_id, home_flag in dict_match_detail_id.items():
+									if home_flag:
+										update_score({'match_detail_id': match_detail_id, 'points': match_info['home_result']})
+									else:
+										update_score({'match_detail_id': match_detail_id, 'points': match_info['visitor_result']})
+								update_match_status({'match_id': match_info['match_id'], 'status': match_info['status']})
+								print("Updated")
+						except Exception as e:
+							print(f'[WARN] Error actualizando match {match_info.get("name","?")}: {e}')
+							continue
+			except Exception as e:
+				print(f'[WARN] Error en live section {sport_name}: {type(e).__name__}: {e} — continuando con siguiente deporte')
+				continue
 
-				list_live_match = get_live_match(driver, sport_name=sport_name)
-				print("Total math found: ",len(list_live_match))
-				print_section("SEARCHING LIVE MATCH", space_ = 50)
-				for match_info in list_live_match:
-					# check if match is in database.
-					# match_info = {'match_id': '3e18306d-f3b6-4787-a7f7-d49d3cee2de5', 'match_date': '', 'start_time': '', 'end_time': '',
-					# 			'name': 'Genk~Club Brugge KV', 'home': 'Genk', 'visitor': 'Club Brugge KV', 'home_result': '3',
-					# 				'visitor_result': '4', 'place': '', 'league_name': 'Jupiler Pro League', 'league_country': 'BELGIUM',
-					# 				'status':'in progress'} # DELETE
-					print(match_info)
-					match_id = get_match_id(match_info['league_country'],
-						match_info['league_name'], current_date, match_info['name']) # query to data base
-					
-					# match_id = '616126asd'
-					print("Match id: ", match_id)
-					# stop_validate2("SECCION MATCH INFO LOOP")
-					# If match found proced to update values in database.
-					if match_id:
-						dict_match_detail_id = get_math_details_ids(match_id) # UNCOMENT
-						print_section("MATCH FOUND PROCCED TO UPDATE VALUES.")
-						print(dict_match_detail_id)
-						# print("dict_match_detail_id: ", dict_match_detail_id)
-						# dict_match_detail_id = {'KAFHD3536':True, 'dkdfkd': False}
-
-						for match_detail_id, home_flag in dict_match_detail_id.items():
-							if home_flag:
-								print("Update home score")
-								params = {'match_detail_id': match_detail_id,
-										'points': match_info['home_result'] }
-								update_score(params)# UNCOMENT
-							else:
-								print("Update visitor score")
-								params = {'match_detail_id': match_detail_id,
-										'points': match_info['visitor_result'] }
-								update_score(params)# UNCOMENT
-						update_match_status({'match_id':match_info['match_id'], 'status':match_info['status']}) # UNCOMENT
-						print("Updated") # COMENT
-					# count += 1
-					# time.sleep(15)
-			# stop_validate("PASSING TO NEXT SPORT: ")
 		end_time = time.time()
 		elapsed_time = end_time - start_time
 		print("Complete time: ", elapsed_time)
-			###################### LOOP OVER LIVE MATCHS #######################	
 		display_dynamic_value(60)

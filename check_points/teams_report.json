@@ -1,0 +1,659 @@
+{
+    "AMERICAN FOOTBALL": {
+        "CANADA_CFL": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 9,
+            "matches": 0
+        },
+        "USA_NFL": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        }
+    },
+    "BASEBALL": {
+        "DOMINICAN REPUBLIC_LIDOM": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 6,
+            "matches": 52
+        },
+        "JAPAN_NPB": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 12,
+            "matches": 1
+        },
+        "MEXICO_LMB": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 0
+        },
+        "PUERTO RICO_LBPRC": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 6,
+            "matches": 43
+        },
+        "SOUTH KOREA_KBO": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 10,
+            "matches": 0
+        },
+        "USA_MLB": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 30,
+            "matches": 67
+        },
+        "VENEZUELA_LVBP": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 9,
+            "matches": 0
+        },
+        "WORLD_World Baseball Classic": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 40
+        }
+    },
+    "BASKETBALL": {
+        "ARGENTINA_Liga A": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 8,
+            "matches": 0
+        },
+        "BRAZIL_NBB": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "CHINA_CBA": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "EUROPE_Champions League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 32,
+            "matches": 72
+        },
+        "EUROPE_EuroBasket": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 10,
+            "matches": 4
+        },
+        "EUROPE_Eurocup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 129
+        },
+        "EUROPE_Euroleague": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 210
+        },
+        "FRANCE_LNB": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ITALY_Lega A": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "SPAIN_ACB": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "TURKEY_Super Lig": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "USA_NBA": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "VENEZUELA_Superliga": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "WORLD_World Cup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 64,
+            "matches": 96
+        }
+    },
+    "BOXING": {},
+    "FOOTBALL": {
+        "AFRICA_Africa Cup of Nations": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "AFRICA_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 25,
+            "matches": 0
+        },
+        "ARGENTINA_Copa de la Liga Profesional": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 56,
+            "matches": 0
+        },
+        "ARGENTINA_Liga Profesional": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 30,
+            "matches": 0
+        },
+        "ARGENTINA_Torneo Betano": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 30,
+            "matches": 45
+        },
+        "ASIA_Asian Cup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 25,
+            "matches": 30
+        },
+        "ASIA_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 54,
+            "matches": 1
+        },
+        "AUSTRALIA & OCEANIA_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 54,
+            "matches": 1
+        },
+        "BELGIUM_Jupiler Pro League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 197
+        },
+        "BOLIVIA_Division Profesional": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 0
+        },
+        "BRAZIL_Serie A Betano": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 139
+        },
+        "CHILE_Liga de Primera": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 17,
+            "matches": 1
+        },
+        "CHINA_Super League": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 0
+        },
+        "COLOMBIA_Primera A": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 21,
+            "matches": 21
+        },
+        "COSTA RICA_Primera Division": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 10,
+            "matches": 0
+        },
+        "ECUADOR_Liga Pro": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 4,
+            "matches": 9
+        },
+        "ENGLAND_Premier League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 274
+        },
+        "EUROPE_Champions League": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 67,
+            "matches": 7
+        },
+        "EUROPE_Conference League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 36,
+            "matches": 87
+        },
+        "EUROPE_Euro": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 25,
+            "matches": 0
+        },
+        "EUROPE_Europa League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 36,
+            "matches": 96
+        },
+        "EUROPE_UEFA Nations League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "EUROPE_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 55,
+            "matches": 10
+        },
+        "FRANCE_Ligue 1": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 18,
+            "matches": 176
+        },
+        "GERMANY_Bundesliga": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 18,
+            "matches": 242
+        },
+        "ITALY_Serie A": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 350
+        },
+        "MEXICO_Liga MX": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 18,
+            "matches": 0
+        },
+        "NETHERLANDS_Eredivisie": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 19,
+            "matches": 0
+        },
+        "NORTH & CENTRAL AMERICA_CONCACAF Champions Cup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "NORTH & CENTRAL AMERICA_Gold Cup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 30
+        },
+        "NORTH & CENTRAL AMERICA_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 54,
+            "matches": 1
+        },
+        "PANAMA_LPF": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 12,
+            "matches": 43
+        },
+        "PARAGUAY_Copa de Primera": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 12,
+            "matches": 134
+        },
+        "PERU_Liga 1": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 19,
+            "matches": 150
+        },
+        "QATAR_QSL": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 12,
+            "matches": 36
+        },
+        "RUSSIA_Premier League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 153
+        },
+        "SOUTH AMERICA_Copa América": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 17,
+            "matches": 13
+        },
+        "SOUTH AMERICA_Copa Libertadores": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "SOUTH AMERICA_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 55,
+            "matches": 0
+        },
+        "SPAIN_Copa del Rey": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "SPAIN_Copa Federacion": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "SPAIN_LaLiga": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 20,
+            "matches": 193
+        },
+        "SPAIN_Super Cup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "TURKEY_Super Lig": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 18,
+            "matches": 275
+        },
+        "UNITED ARAB EMIRATES_UAE League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 28,
+            "matches": 74
+        },
+        "URUGUAY_Liga AUF Uruguaya": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 137
+        },
+        "USA_MLS": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 30,
+            "matches": 0
+        },
+        "VENEZUELA_Liga FUTVE": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 14,
+            "matches": 0
+        },
+        "WORLD_World Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 55,
+            "matches": 0
+        }
+    },
+    "GOLF": {
+        "PGA TOUR_Masters Tournament": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_PGA Championship": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_The Open Championship": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_The Players Championship": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_US Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_WGC-Dell Technologies Match Play": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_WGC-FedEx St. Jude Invitational": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_WGC-HSBC Champions": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "PGA TOUR_WGC-Workday Championship": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        }
+    },
+    "HOCKEY": {
+        "CZECH REPUBLIC_Extraliga": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 14,
+            "matches": 321
+        },
+        "EUROPE_Champions League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "EUROPE_Continental Cup": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 6,
+            "matches": 0
+        },
+        "EUROPE_European Cup of Nations": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 18,
+            "matches": 36
+        },
+        "EUROPE_Finnish Ice Hockey Games": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 4,
+            "matches": 0
+        },
+        "EUROPE_Germany Cup": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "EUROPE_Spengler Cup (Davos)": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "FINLAND_Liiga": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 25,
+            "matches": 90
+        },
+        "GERMANY_DEL": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 14,
+            "matches": 52
+        },
+        "SWEDEN_SHL": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 14,
+            "matches": 114
+        },
+        "SWITZERLAND_National League": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 14,
+            "matches": 250
+        },
+        "USA_NHL": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 32,
+            "matches": 8
+        },
+        "WORLD_WCH U20": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 10,
+            "matches": 8
+        },
+        "WORLD_World Championship": {
+            "extract": "true",
+            "date": "2026-03-09 23:34:30",
+            "teams": 16,
+            "matches": 0
+        }
+    },
+    "TENNIS": {
+        "ATP - SINGLES_ATP Australian Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ATP - SINGLES_ATP Barcelona": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ATP - SINGLES_ATP French Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ATP - SINGLES_ATP Madrid": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ATP - SINGLES_ATP Monte Carlo": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ATP - SINGLES_ATP US Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "ATP - SINGLES_ATP Wimbledon": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "WTA - SINGLES_WTA Australian Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "WTA - SINGLES_WTA French Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "WTA - SINGLES_WTA US Open": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        },
+        "WTA - SINGLES_WTA Wimbledon": {
+            "extract": "false",
+            "date": "2026-03-09 23:34:30",
+            "teams": 0,
+            "matches": 0
+        }
+    }
+}

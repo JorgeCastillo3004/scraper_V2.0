@@ -184,20 +184,12 @@ def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
     """
     Login robusto en FlashScore.
     - Reintenta hasta max_attempts veces si cualquier paso falla
-    - Envía ESC antes de cada intento para cerrar modales/overlays
     - Usa JS click como fallback si el click normal está bloqueado
     - Recarga la página entre intentos para partir de estado limpio
     - Verifica que la sesión quedó activa al final
     """
     wait = WebDriverWait(driver, 15)
-    wait_short = WebDriverWait(driver, 8)
-
-    def esc_and_wait(seconds=2):
-        try:
-            webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
-        except Exception:
-            pass
-        time.sleep(seconds)
+    wait_short = WebDriverWait(driver, 10)
 
     def safe_click(element):
         """Click normal con fallback a JavaScript si hay overlay bloqueando."""
@@ -206,22 +198,25 @@ def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
         except Exception:
             driver.execute_script("arguments[0].click();", element)
 
+    def send_esc():
+        try:
+            webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+        except Exception:
+            pass
+
     for attempt in range(1, max_attempts + 1):
         try:
             print(f"  [Login] Intento {attempt}/{max_attempts}...")
 
-            # ESC al inicio — cierra cualquier modal/popup abierto
-            esc_and_wait(2)
-
-            # Aceptar cookies si aparece el banner
+            # Aceptar cookies si aparece el banner (timeout corto para no bloquear)
             try:
-                accept_btn = WebDriverWait(driver, 5).until(
+                accept_btn = WebDriverWait(driver, 3).until(
                     EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler"))
                 )
                 safe_click(accept_btn)
-                time.sleep(1)
+                time.sleep(0.5)
             except Exception:
-                print("  [Login] Cookies: ya aceptadas o no aparecieron")
+                pass  # Banner ya aceptado o no apareció
 
             # Click en LOGIN
             login_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[text()='LOGIN']")))
@@ -233,49 +228,48 @@ def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
             ))
             safe_click(continue_email)
 
-            # Email — clear + pequeña pausa + send_keys
+            # Email
             email_field = wait.until(EC.visibility_of_element_located((By.ID, 'email')))
             email_field.clear()
-            time.sleep(0.5)
             email_field.send_keys(email_.strip())
 
-            # Password — clear + pequeña pausa + send_keys
+            # Password
             passwd_field = wait.until(EC.visibility_of_element_located((By.ID, 'passwd')))
             passwd_field.clear()
-            time.sleep(0.5)
             passwd_field.send_keys(password_)
 
-            # Click en Log In — opcional si \n ya envió el formulario
+            # Enviar formulario: primero intenta click en el botón, luego Enter como fallback
             try:
-                login_btn = WebDriverWait(driver, 4).until(EC.element_to_be_clickable(
-                    (By.XPATH, '//button[contains(., "Log In")]')
+                login_btn = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
+                    (By.XPATH, '//button[contains(translate(., "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "LOG IN")]')
                 ))
                 safe_click(login_btn)
             except Exception:
-                pass  # \n ya envió el formulario
+                passwd_field.send_keys(Keys.RETURN)
 
             # Verificar sesión activa — header__text--loggedIn aparece si el login fue exitoso
             try:
                 wait_short.until(EC.presence_of_element_located((By.XPATH, '//*[contains(@class,"header__text--loggedIn")]')))
                 print(f"  [Login] Exitoso en intento {attempt}\n")
                 driver.execute_script("document.body.style.zoom='50%'")
-                esc_and_wait(1)
+                send_esc()
+                time.sleep(0.5)
                 return  # ← login OK, salir
             except Exception:
                 error_els = driver.find_elements(
                     By.XPATH, '//*[contains(@class,"error") or contains(@class,"alert")]'
                 )
                 error_text = ' | '.join([e.text for e in error_els if e.text.strip()])
-                raise Exception(f"Sesión no activa tras click. Mensaje: {error_text or 'sin detalle'}")
+                raise Exception(f"Sesión no activa tras submit. Mensaje: {error_text or 'sin detalle'}")
 
         except Exception as e:
             print(f"  [Login] Intento {attempt} fallido: {e}")
             if attempt < max_attempts:
-                print(f"  [Login] Enviando ESC y recargando página antes de reintentar...")
-                esc_and_wait(3)
+                print(f"  [Login] Recargando página antes de reintentar...")
+                send_esc()
                 try:
                     driver.get('https://www.flashscore.com')
-                    time.sleep(4)
+                    time.sleep(3)
                 except Exception:
                     pass
             else:

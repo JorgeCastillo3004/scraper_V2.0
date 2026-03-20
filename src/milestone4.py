@@ -579,9 +579,23 @@ def get_complete_match_info(driver, league_info, dict_country_league_season,
             if result is None:
                 # Todos los intentos fallaron → registrar y saltar match
                 match_issues[event_info.get('name', url_details)] = {
-                    'url': url_details, 'round': round_file
+                    'league_name': league_name,
+                    'league_id':   league_id,
+                    'season_id':   season_id,
+                    'url':         url_details,
+                    'round':       round_file,
+                    'timestamp':   datetime.now().isoformat(),
                 }
                 save_check_point('check_points/issues/issues_match.json', match_issues)
+                # Log de texto para revisión posterior
+                os.makedirs('logs/failed_matches', exist_ok=True)
+                with open('logs/failed_matches/failed_matches.log', 'a', encoding='utf-8') as _flog:
+                    _flog.write(
+                        f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] "
+                        f"league={league_name} | league_id={league_id} | season_id={season_id} | "
+                        f"match={event_info.get('name','?')} | round={round_file} | url={url_details}\n"
+                    )
+                print(f'[WARN] Match saltado tras {MATCH_MAX_ATTEMPTS} intentos — registrado en logs/failed_matches/failed_matches.log')
                 league_fully_processed = False
                 continue
             # ─────────────────────────────────────────────────────────

@@ -1,0 +1,16 @@
+{
+    "FOOTBALL": {
+        "ARGENTINA_Liga Profesional": {
+            "number_matches": 334,
+            "date": "2026-03-10",
+            "number_teams": 30,
+            "enable": false
+        },
+        "ARGENTINA_Copa de la Liga Profesional": {
+            "number_matches": 0,
+            "date": "2026-03-10",
+            "number_teams": 28,
+            "enable": false
+        }
+    }
+}

@@ -90,7 +90,7 @@ python paralel_execution.py 3 results
 - Guarda equipos en DB + genera `league_team_entity`
 - **Checkpoint:** `check_points/leagues_season/{SPORT}/{league}.json` (campo `teams_ready`)
 
-### 4.4 `milestone4.py` — Results y Fixtures (módulo más grande: ~1450 líneas)
+### 4.4 `milestone4.py` — Results y Fixtures (módulo más grande: ~1470 líneas)
 - **Función principal:** `results_fixtures_extraction(driver, list_sports, name_section)`
 - **Función para paralel:** `extraction_by_dict(driver, sport_leagues_dict, name_section)`
 - Itera rondas → partidos → extrae resultado/fixture por partido
@@ -103,6 +103,9 @@ python paralel_execution.py 3 results
   LEAGUE_MAX_CONSECUTIVE_FAILS = 4 # warning si supera
   ```
 - Deportes especiales: Tennis (`get_complete_match_info_tennis`), Golf, Boxing, F1
+- **Fixes aplicados (2026-03-19):**
+  - `dismiss_cookies(driver)` se llama después de `wait_update_page()` al navegar a cada liga — evita que el banner de cookies bloquee la extracción cuando reaparece mid-session
+  - Verificación de sesión activa antes de cada liga — si FlashScore muestra el botón LOGIN, ejecuta re-login automático antes de continuar
 
 ### 4.5 `milestone6.py` — Jugadores
 - **Función principal:** `players(driver, list_sports)`
@@ -258,38 +261,47 @@ cleanup_stale_leagues()  →  marca 'interrupted' → disponible para retry
 
 ## 8. `paralel_execution.py` — Motor de ejecución paralela
 
-### Flujo completo:
+### Flujo completo (con loop continuo):
 ```
-python paralel_execution.py 3 results
+python paralel_execution.py 3 results [--no-confirm]
     │
-    ├─ get_enabled_leagues('results')     # Lee leagues_info.json
-    ├─ split_into_dicts(leagues, N=3)     # Round-robin entre 3 workers
-    ├─ _show_distribution()               # Muestra tabla + pide confirmación
-    │
-    └─ ThreadPoolExecutor(max_workers=3)
+    └─ WHILE pending_leagues > 0:          ← loop continuo hasta completar todo
          │
-         ├─ worker(0, dict_w0, 'results')
-         ├─ worker(1, dict_w1, 'results')
-         └─ worker(2, dict_w2, 'results')
-              │
-              ├─ launch_navigator()       # Abre Firefox headless
-              ├─ login()
-              ├─ extraction_by_dict()     # milestone4.py
-              └─ retry logic (MAX=8, backoff exponencial)
+         ├─ get_enabled_leagues('results') # Lee leagues_info.json
+         ├─ split_into_dicts(leagues, N=3) # Round-robin entre 3 workers
+         ├─ _show_distribution()           # Muestra tabla (solo ciclo 1 si confirm=True)
+         │
+         ├─ ThreadPoolExecutor(max_workers=3)
+         │    ├─ worker(0, dict_w0, 'results')
+         │    ├─ worker(1, dict_w1, 'results')
+         │    └─ worker(2, dict_w2, 'results')
+         │         ├─ launch_navigator()   # Abre Firefox headless
+         │         ├─ login()
+         │         ├─ extraction_by_dict() # milestone4.py
+         │         └─ retry (MAX=8, backoff: 30s→300s)
+         │
+         ├─ cleanup_stale_leagues(120min)  # limpia antes del siguiente ciclo
+         └─ sleep(5) → siguiente ciclo
+
+    EXIT cuando pending_leagues == 0
 ```
+
+**Importante:** El loop sólo sale si `_stop_event` es activado (señal de parada) o si no quedan ligas pendientes. Las ligas `interrupted` son retomadas automáticamente en el siguiente ciclo gracias al claim/release en DB.
 
 ### Estado global en paralel_execution:
 ```python
 _file_lock     # Lock para escritura en leagues_info.json
 _state_lock    # Lock para estado de workers
 _worker_status # worker_id → 'running'|'done'|'error'|'retrying'
-_stop_event    # señal global de parada
+_stop_event    # señal global de parada (también detiene el loop externo)
 _pause_event   # señal global de pausa
 ```
 
 ### UI en terminal (Rich):
 - Panel por worker con logs en tiempo real
 - Intercepta prints de milestone4 via `_patched_print()`
+- Estado persistido en `logs/run_status_{section}.json` (legible por dashboard)
+- Control externo via `logs/run_control_{section}.json` (comandos: stop/pause/resume)
 
 ---
 
@@ -411,7 +423,30 @@ python scripts/update_server.py py
 
 ---
 
-## 14. Patrones de código a conocer
+## 14. Sistema de agentes (`agents/`)
+
+Carpeta con prompts para agentes especializados en diagnóstico y mejora del código. **No se sube al repositorio** (en `.gitignore`).
+
+| Agente | Archivo | Rol |
+|---|---|---|
+| Orquestador | `orquestator.md` | Coordina los demás agentes según el estado del sistema |
+| Scraper | `scraper_agent.md` | Detecta selectores frágiles y errores Selenium en milestones |
+| DB | `db_agent.md` | Detecta problemas en `data_base.py` (duplicados, conexiones, race conditions) |
+| Checkpoint | `checkpoint_agent.md` | Detecta ligas stuck, inconsistencias JSON↔DB |
+| Parallel | `parallel_agent.md` | Analiza race conditions y resource leaks en `paralel_execution.py` |
+| Validator | `validator_agent.md` | Watchdog — monitorea y relanza extracción hasta que todo esté completo |
+| Developer | `developer_agent.md` | Implementa los fixes aprobados, uno a la vez |
+
+**Comando para iniciar:**
+```bash
+claude --system-prompt "$(cat agents/orquestator.md)"
+# O directamente un agente específico:
+claude --system-prompt "$(cat agents/parallel_agent.md)"
+```
+
+---
+
+## 15. Patrones de código a conocer
 
 ### Retry wrapper (milestone4):
 ```python
@@ -434,6 +469,22 @@ if claim_league(league_id, section):
         update_league_checkpoint(league_id, section, current_round, current_match)
     finally:
         release_league(league_id, section, 'completed')
+```
+
+### Re-login automático en milestone4 (fix 2026-03-19):
+```python
+# Antes de procesar cada liga, verifica si la sesión expiró
+login_btn = driver.find_elements(By.XPATH, '//*[contains(@class,"login") or text()="LOGIN"]')
+if login_btn:
+    login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)
+    dismiss_cookies(driver)
+```
+
+### Cookie banner mid-session (fix 2026-03-19):
+```python
+# Después de navegar a la liga, siempre dismissear cookies
+wait_update_page(driver, league_url, "container__heading")
+dismiss_cookies(driver)   # ← añadido — el banner puede reaparecer
 ```
 
 ### Notebook dev setup:

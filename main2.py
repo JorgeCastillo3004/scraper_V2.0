@@ -27,38 +27,33 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import FS_EMAIL, FS_PASSWORD
 
 def main_live():
-	driver = launch_navigator('https://www.flashscore.com', headless = True)
-	login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)	
-	print("Section live...")
-	day_execution_s7 = -1
-	execute_ready_s7 = False
+    print("Section live — iniciando loop continuo...")
+    retry_count = 0
+    MAX_RETRIES = 10
+    RETRY_DELAY = 30  # segundos entre reinicios
 
-	list_s7 = []
-
-	old_execution_schedule_s7 = '*'
-	section_schedule = update_data()
-	# while True:
-
-		# new_execution_schedule_s7 = section_schedule['LIVE_SECTION']['TIME']
-		# print("Main live time: ", new_execution_schedule_s7)
-		# if new_execution_schedule_s7 != old_execution_schedule_s7:
-		# 	execution_schedule_s7 = new_execution_schedule_s7
-		# 	old_execution_schedule_s7 = execution_schedule_s7
-		# 	day_execution_s7 = -1
-		# enable_execution_s7, day_execution_s7, execute_ready_s7, execution_schedule_s7 = execute_section(execution_schedule_s7, day_execution_s7, execute_ready_s7)
-		# if enable_execution_s7:
-		# live_games(driver, section_schedule['LIVE_SECTION']['SPORTS'])
-		# print("Lives section: ")
-		# update_lives_matchs(driver)
-	live_games(driver, ["FOOTBALL"])
-		# list_s7.append(datetime.now().time().strftime('%H:%M:%S'))
-		# print(list_s7, '\n')
-
-		# section_schedule = update_data()
-		# print("l-", end='')
-		# # print(stop)
-		# time.sleep(1)	
-	# driver.quit()
+    while True:
+        driver = None
+        try:
+            driver = launch_navigator('https://www.flashscore.com', headless=True)
+            login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)
+            retry_count = 0  # reset al conectar exitosamente
+            section_schedule = update_data()
+            live_games(driver, section_schedule.get('LIVE_SECTION', {}).get('SPORTS', ['FOOTBALL']))
+        except Exception as e:
+            retry_count += 1
+            print(f'[ERROR] main_live crash (intento {retry_count}/{MAX_RETRIES}): {type(e).__name__}: {e}')
+            if retry_count >= MAX_RETRIES:
+                print(f'[ERROR] main_live detenido tras {MAX_RETRIES} crashes consecutivos.')
+                break
+            print(f'[INFO] Reiniciando en {RETRY_DELAY}s...')
+            time.sleep(RETRY_DELAY)
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except Exception:
+                    pass
 
 if __name__ == "__main__":	
 	main_live()

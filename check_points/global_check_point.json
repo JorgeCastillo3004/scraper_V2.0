@@ -1,0 +1,24 @@
+{
+    "FOOTBALL": {
+        "M3": {
+            "sport": "FOOTBALL",
+            "league": "AFRICA_World Cup",
+            "team_name": "New Zealand"
+        },
+        "M4": {
+            "results": {
+                "league": "EUROPE_Euro",
+                "round": "",
+                "match_name": ""
+            },
+            "fixtures": {
+                "league": "EUROPE_Euro",
+                "round": "",
+                "match_name": ""
+            }
+        }
+    },
+    "BASKETBALL": {},
+    "BASEBALL": {},
+    "AM._FOOTBALL": {}
+}
