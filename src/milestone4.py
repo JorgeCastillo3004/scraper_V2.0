@@ -23,6 +23,8 @@ INIT_MAX_RETRIES             = 3   # reintentos para inicialización (DB/archivo
 LEAGUE_MAX_CONSECUTIVE_FAILS = 4   # ligas fallidas consecutivas → warning de driver roto
 
 from common_functions import *
+from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues, update_league_checkpoint, get_league_checkpoint
+from milestone6 import *
 
 
 def retry_match(driver, url, fn, max_attempts=MATCH_MAX_ATTEMPTS, base_delay=RETRY_BASE_DELAY):
@@ -47,8 +49,7 @@ def retry_match(driver, url, fn, max_attempts=MATCH_MAX_ATTEMPTS, base_delay=RET
                 print(f'[ERROR] Match fallido tras {max_attempts} intentos: {e}')
                 return None
     return None
-from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues, update_league_checkpoint, get_league_checkpoint
-from milestone6 import *
+
 
 local_time_naive = datetime.now()
 utc_time_naive = datetime.utcnow()

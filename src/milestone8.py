@@ -166,7 +166,7 @@ def update_lives_matchs(driver):
 							if match_status !='Finished':
 								status = 'in progress'
 							elif match_status =='Finished':
-								status = 'completed'
+								status = 'COMPLETED'
 								dict_pending_copy[sport_name].pop(name)
 								print("Match Finished delteted: ", name)
 							# except:

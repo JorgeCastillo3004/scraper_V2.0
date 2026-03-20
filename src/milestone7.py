@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import InvalidSessionIdException, WebDriverException
 import time
 import psycopg2
 import shutil
@@ -139,7 +140,7 @@ def update_status(row, max_count = 10):
 	if match_status !='Finished':
 		status = 'in progress'
 	elif match_status =='Finished':
-		status = 'completed'
+		status = 'COMPLETED'
 	return status
 		
 # def give_click_on_live_golf(driver):
@@ -190,6 +191,8 @@ def live_games(driver, list_sports):
 						except Exception as e:
 							print(f'[WARN] Error actualizando match {match_info.get("name","?")}: {e}')
 							continue
+			except (InvalidSessionIdException, WebDriverException) as e:
+				raise
 			except Exception as e:
 				print(f'[WARN] Error en live section {sport_name}: {type(e).__name__}: {e} — continuando con siguiente deporte')
 				continue
