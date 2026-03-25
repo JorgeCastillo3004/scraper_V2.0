@@ -34,8 +34,9 @@ from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
 SUPPORTED_SPORTS = ['FOOTBALL', 'BASKETBALL', 'BASEBALL', 'AM._FOOTBALL', 'HOCKEY']
 
 # ── Credenciales del dashboard ─────────────────────────────────────────────────
-DASH_USER = os.environ.get('DASH_USER', 'admin')
-DASH_PASS = os.environ.get('DASH_PASS', 'scraper2026')
+DASH_USER         = os.environ.get('DASH_USER', 'admin')
+DASH_PASS         = os.environ.get('DASH_PASS', 'scraper2026')
+DASH_DEV_SKIP_AUTH = os.environ.get('DASH_DEV_SKIP_AUTH', 'false').lower() == 'true'
 SPORT_ICONS      = {
     'FOOTBALL': '⚽', 'BASKETBALL': '🏀', 'BASEBALL': '⚾',
     'AM._FOOTBALL': '🏈', 'HOCKEY': '🏒',
@@ -116,8 +117,8 @@ def make_log_viewer():
     """Devuelve (ListView, append_fn). append_fn(line, page) inserta línea y hace scroll."""
     lv = ft.ListView(expand=True, spacing=1, auto_scroll=True)
 
-    def append(line: str, page: ft.Page):
-        clean = re.sub(r'\x1b\[[0-9;]*[mK]', '', line).rstrip()
+    def append(line: str, page: ft.Page, flush: bool = True):
+        clean = re.sub(r'\x1b\[[0-9;?]*[mKlhJH]', '', line).rstrip()  # ANSI + bracketed paste
         if not clean:
             return
         if len(lv.controls) >= MAX_LOG_LINES:
@@ -133,20 +134,50 @@ def make_log_viewer():
             ft.Text(clean, size=11, color=color, selectable=True,
                     font_family='Courier New')
         )
-        page.update()
+        if flush:
+            try:
+                page.update()  # flush directo — el caller puede usar _safe_update en su lugar
+            except Exception:
+                pass
 
     return lv, append
 
 
 def stream_process(proc, append_fn, page: ft.Page, on_done=None):
-    """Lee stdout en un hilo y lo vuelca al log viewer."""
-    def _run():
+    """Lee stdout en un hilo con batching cada 250ms para no saturar page.update()."""
+    _buf = []
+    _lock = threading.Lock()
+
+    def _reader():
         for line in proc.stdout:
-            append_fn(line, page)
+            with _lock:
+                _buf.append(line)
         proc.wait()
+        # Vaciar buffer restante
+        with _lock:
+            remaining = _buf[:]
+            _buf.clear()
+        for l in remaining:
+            append_fn(l, page, flush=True)
         if on_done:
             on_done(proc.returncode, page)
-    threading.Thread(target=_run, daemon=True).start()
+
+    def _flusher():
+        while proc.poll() is None:
+            time.sleep(0.25)
+            with _lock:
+                lines = _buf[:]
+                _buf.clear()
+            if lines:
+                for l in lines:
+                    append_fn(l, page, flush=False)
+                try:
+                    page.update()
+                except Exception:
+                    pass
+
+    threading.Thread(target=_reader,  daemon=True).start()
+    threading.Thread(target=_flusher, daemon=True).start()
 
 
 def log_container(lv: ft.ListView) -> ft.Container:
@@ -211,7 +242,7 @@ def build_header(page: ft.Page) -> ft.Container:
 
 def build_ligas_tab(page: ft.Page) -> ft.Control:
     leagues_data: dict = {}   # sport → {league → {results, fixtures, season_id, league_id}}
-    stat_refs:    dict = {}   # (sport, league) → {teams, completed, scheduled, live} Text controls
+    data_tables:  dict = {}   # sport → ft.DataTable (para rebuild de rows en apply_stats)
 
     # ── 1. Carga ──────────────────────────────────────────────────────────────
     def load_data():
@@ -251,17 +282,17 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
     # ── 3. Stats DB ───────────────────────────────────────────────────────────
     def fetch_league_stats() -> dict:
         """Retorna {(sport, league): {teams, completed, scheduled, live}}"""
-        season_map = {}   # season_id → (sport, league)
+        league_id_map = {}
         for sport, leagues in leagues_data.items():
             for lg, info in leagues.items():
-                sid = info.get('season_id')
-                if sid:
-                    season_map[sid] = (sport, lg)
+                lid = info.get('league_id')
+                if lid:
+                    league_id_map[lid] = (sport, lg)
 
-        if not season_map:
+        if not league_id_map:
             return {}
 
-        season_ids = list(season_map.keys())
+        league_ids = list(league_id_map.keys())
         result = {}
         try:
             conn = psycopg2.connect(
@@ -270,29 +301,32 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
             )
             cur = conn.cursor()
 
+            # Partidos por status agrupados por league_id
             cur.execute("""
-                SELECT season_id,
-                    COUNT(*) FILTER (WHERE status = 'COMPLETED')   AS completed,
-                    COUNT(*) FILTER (WHERE status = 'SCHEDULED')   AS scheduled,
-                    COUNT(*) FILTER (WHERE status = 'IN_PROGRESS') AS live
+                SELECT league_id,
+                    COUNT(*) FILTER (WHERE status = 'COMPLETED')    AS completed,
+                    COUNT(*) FILTER (WHERE status = 'SCHEDULED')    AS scheduled,
+                    COUNT(*) FILTER (WHERE status = 'IN PROGRESS')  AS live
                 FROM match
-                WHERE season_id = ANY(%s)
-                GROUP BY season_id
-            """, (season_ids,))
-            for sid, completed, scheduled, live in cur.fetchall():
-                key = season_map.get(sid)
+                WHERE league_id = ANY(%s)
+                GROUP BY league_id
+            """, (league_ids,))
+            for lid, completed, scheduled, live in cur.fetchall():
+                key = league_id_map.get(lid)
                 if key:
                     result[key] = {'teams': 0, 'completed': completed,
                                    'scheduled': scheduled, 'live': live}
 
+            # Equipos por league_id (merge league_team + team)
             cur.execute("""
-                SELECT season_id, COUNT(DISTINCT team_id) AS teams
-                FROM league_team
-                WHERE season_id = ANY(%s)
-                GROUP BY season_id
-            """, (season_ids,))
-            for sid, teams in cur.fetchall():
-                key = season_map.get(sid)
+                SELECT lt.league_id, COUNT(DISTINCT lt.team_id) AS teams
+                FROM league_team lt
+                JOIN team t ON lt.team_id = t.team_id
+                WHERE lt.league_id = ANY(%s)
+                GROUP BY lt.league_id
+            """, (league_ids,))
+            for lid, teams in cur.fetchall():
+                key = league_id_map.get(lid)
                 if key:
                     result.setdefault(key, {'completed': 0, 'scheduled': 0, 'live': 0})
                     result[key]['teams'] = teams
@@ -304,16 +338,30 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
         return result
 
     def apply_stats(stats: dict):
-        for (sp, lg), refs in stat_refs.items():
-            data = stats.get((sp, lg), {})
-            refs['teams'].value     = str(data.get('teams',     0))
-            refs['completed'].value = str(data.get('completed', 0))
-            refs['scheduled'].value = str(data.get('scheduled', 0))
-            refs['live'].value      = str(data.get('live',      0))
+        for sport, dt in data_tables.items():
+            dt.rows = build_sport_rows(sport, stats)
         page.update()
 
+    def save_stats_to_leagues_info(stats: dict):
+        """Actualiza teams y matches en leagues_info.json con los datos obtenidos de DB."""
+        try:
+            with open(LEAGUES_FILE, encoding='utf-8') as f:
+                raw = json.load(f)
+            changed = False
+            for (sp, lg), data in stats.items():
+                if sp in raw and lg in raw[sp]:
+                    total_matches = data.get('completed', 0) + data.get('scheduled', 0) + data.get('live', 0)
+                    raw[sp][lg]['teams']   = data.get('teams', 0)
+                    raw[sp][lg]['matches'] = total_matches
+                    changed = True
+            if changed:
+                with open(LEAGUES_FILE, 'w', encoding='utf-8') as f:
+                    json.dump(raw, f, ensure_ascii=False, indent=4)
+        except Exception:
+            pass
+
     # ── 4. Tabla por deporte ──────────────────────────────────────────────────
-    def build_sport_rows(sport: str) -> list:
+    def build_sport_rows(sport: str, stats: dict = None) -> list:
         rows = []
         for league in sorted(leagues_data.get(sport, {})):
             vals = leagues_data[sport][league]
@@ -330,28 +378,28 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
                 sw.on_change = on_change
                 return sw
 
-            t_teams = ft.Text('...', size=11, color=ft.Colors.GREY_400,  text_align=ft.TextAlign.RIGHT)
-            t_comp  = ft.Text('...', size=11, color=ft.Colors.GREEN_300, text_align=ft.TextAlign.RIGHT)
-            t_sched = ft.Text('...', size=11, color=ft.Colors.BLUE_200,  text_align=ft.TextAlign.RIGHT)
-            t_live  = ft.Text('...', size=11, color=ft.Colors.RED_300,   text_align=ft.TextAlign.RIGHT)
-            stat_refs[(sport, league)] = {
-                'teams': t_teams, 'completed': t_comp,
-                'scheduled': t_sched, 'live': t_live,
-            }
+            if stats is not None:
+                data    = stats.get((sport, league), {})
+                s_teams = str(data.get('teams',     0))
+                s_comp  = str(data.get('completed', 0))
+                s_sched = str(data.get('scheduled', 0))
+                s_live  = str(data.get('live',      0))
+            else:
+                s_teams = s_comp = s_sched = s_live = '...'
 
             rows.append(ft.DataRow(cells=[
                 ft.DataCell(ft.Text(league, size=12)),
-                ft.DataCell(t_teams),
-                ft.DataCell(t_comp),
-                ft.DataCell(t_sched),
-                ft.DataCell(t_live),
+                ft.DataCell(ft.Text(s_teams, size=11, color=ft.Colors.GREY_400,  text_align=ft.TextAlign.RIGHT)),
+                ft.DataCell(ft.Text(s_comp,  size=11, color=ft.Colors.GREEN_300, text_align=ft.TextAlign.RIGHT)),
+                ft.DataCell(ft.Text(s_sched, size=11, color=ft.Colors.BLUE_200,  text_align=ft.TextAlign.RIGHT)),
+                ft.DataCell(ft.Text(s_live,  size=11, color=ft.Colors.RED_300,   text_align=ft.TextAlign.RIGHT)),
                 ft.DataCell(make_switch(sport, league, 'results',  vals['results'])),
                 ft.DataCell(make_switch(sport, league, 'fixtures', vals['fixtures'])),
             ]))
         return rows
 
     def build_data_table(sport: str) -> ft.DataTable:
-        return ft.DataTable(
+        dt = ft.DataTable(
             columns=[
                 ft.DataColumn(ft.Text('Liga',        size=12, weight=ft.FontWeight.BOLD)),
                 ft.DataColumn(ft.Text('Equipos',     size=12, weight=ft.FontWeight.BOLD), numeric=True),
@@ -366,6 +414,8 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
             data_row_max_height=42,
             heading_row_height=40,
         )
+        data_tables[sport] = dt
+        return dt
 
     # ── 5. Tabs por deporte ───────────────────────────────────────────────────
     load_data()
@@ -376,7 +426,7 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
     ], visible=False, spacing=8)
 
     def make_sport_tabs():
-        stat_refs.clear()
+        data_tables.clear()
         sports = [s for s in SUPPORTED_SPORTS if s in leagues_data]
         tab_bar  = ft.TabBar(
             tabs=[ft.Tab(label=f"{SPORT_ICONS.get(s, '🏅')} {s}") for s in sports],
@@ -411,7 +461,13 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
         def _fetch():
             stats = fetch_league_stats()
             apply_stats(stats)
+            save_stats_to_leagues_info(stats)
             loading_row.visible = False
+            n = len(stats)
+            page.snack_bar = ft.SnackBar(
+                ft.Text(f'✔  Stats actualizadas — {n} ligas'),
+                bgcolor=ft.Colors.TEAL_800)
+            page.snack_bar.open = True
             page.update()
         threading.Thread(target=_fetch, daemon=True).start()
 
@@ -438,7 +494,7 @@ def build_ligas_tab(page: ft.Page) -> ft.Control:
         ft.Button('💾 Guardar', on_click=on_save,
                           bgcolor=ft.Colors.GREEN_800, color=ft.Colors.WHITE),
         ft.OutlinedButton('🔄 Recargar', on_click=on_reload),
-        ft.OutlinedButton('📊 Stats DB', on_click=refresh_stats),
+        ft.OutlinedButton('🔄 Actualizar desde DB', on_click=refresh_stats),
         ft.Container(expand=True),
         loading_row,
         lbl_count,
@@ -582,14 +638,90 @@ def _write_control(section: str, command: str):
         pass
 
 
+def _get_league_distribution(section: str, n_workers: int) -> list[dict]:
+    """
+    Lee leagues_info.json y devuelve la misma distribución que haría
+    paralel_execution.py: lista de n_workers dicts {sport: [leagues]}.
+    """
+    extract_key = 'extract_results' if section == 'results' else 'extract_fixtures'
+    try:
+        with open(LEAGUES_FILE, encoding='utf-8') as f:
+            raw = json.load(f)
+    except Exception:
+        return []
+    enabled = []
+    for sport in SUPPORTED_SPORTS:
+        for lg, info in raw.get(sport, {}).items():
+            if info.get(extract_key, {}).get('extract', False):
+                enabled.append((sport, lg))
+    dicts = [{} for _ in range(max(n_workers, 1))]
+    for i, (sport, lg) in enumerate(enabled):
+        dicts[i % n_workers].setdefault(sport, []).append(lg)
+    return dicts
+
+
+def _build_distribution_dialog(page: ft.Page, section: str, n_workers: int,
+                                on_confirm) -> ft.AlertDialog:
+    """Diálogo que muestra la distribución de ligas y pide confirmación."""
+    dist = _get_league_distribution(section, n_workers)
+    worker_colors = [
+        ft.Colors.CYAN_300, ft.Colors.YELLOW_300, ft.Colors.GREEN_300,
+        ft.Colors.PURPLE_200, ft.Colors.BLUE_300, ft.Colors.RED_300,
+        ft.Colors.WHITE, ft.Colors.TEAL_300,
+    ]
+    rows = []
+    for idx, d in enumerate(dist):
+        color = worker_colors[idx % len(worker_colors)]
+        n_l   = sum(len(v) for v in d.values())
+        leagues_flat = [f"{s} / {lg}" for s, lgs in d.items() for lg in lgs]
+        rows.append(ft.DataRow(cells=[
+            ft.DataCell(ft.Text(f'W{idx}', size=11, color=color, weight=ft.FontWeight.BOLD)),
+            ft.DataCell(ft.Text(str(n_l), size=11, color=color)),
+            ft.DataCell(ft.Text('\n'.join(leagues_flat), size=10, color=ft.Colors.GREY_300)),
+        ]))
+
+    total = sum(sum(len(v) for v in d.values()) for d in dist)
+    table = ft.DataTable(
+        columns=[
+            ft.DataColumn(ft.Text('Worker', size=11, weight=ft.FontWeight.BOLD)),
+            ft.DataColumn(ft.Text('Ligas', size=11, weight=ft.FontWeight.BOLD), numeric=True),
+            ft.DataColumn(ft.Text('Asignaciones', size=11, weight=ft.FontWeight.BOLD)),
+        ],
+        rows=rows,
+        column_spacing=16,
+        data_row_max_height=None,
+        heading_row_height=36,
+    )
+
+    dlg = ft.AlertDialog(
+        modal=True,
+        title=ft.Text(f'Distribución de ligas — {section.upper()}  ({total} ligas)'),
+        content=ft.Container(
+            content=ft.Column([table], scroll=ft.ScrollMode.AUTO),
+            width=540, height=380,
+        ),
+        actions=[
+            ft.TextButton('Cancelar', on_click=lambda e: _close_dialog(page, dlg)),
+            ft.FilledButton('▶  Iniciar', on_click=lambda e: (_close_dialog(page, dlg), on_confirm())),
+        ],
+        actions_alignment=ft.MainAxisAlignment.END,
+    )
+    return dlg
+
+
+def _close_dialog(page: ft.Page, dlg: ft.AlertDialog):
+    dlg.open = False
+    page.update()
+
+
 def build_section_panel(page: ft.Page, section: str) -> ft.Control:
     """Panel de control para una sección (results o fixtures)."""
     color  = SECTION_COLORS.get(section, ft.Colors.PRIMARY)
     pm_key = f'partidos_{section}'
 
     dd_workers = ft.Dropdown(
-        label='Workers', width=100, value='2',
-        options=[ft.dropdown.Option(str(i)) for i in range(1, 5)],
+        label='Workers', width=100, value='4',
+        options=[ft.dropdown.Option(str(i)) for i in range(1, 9)],
     )
 
     lbl_state   = ft.Text('⬤  inactivo', size=12, color=ft.Colors.GREY_500)
@@ -640,7 +772,6 @@ def build_section_panel(page: ft.Page, section: str) -> ft.Control:
 
     def _update_ui_from_status(status: dict):
         state     = status.get('state', '')
-        n_workers = status.get('n_workers', 0)
         updated   = status.get('updated_at', '')[:19].replace('T', ' ')
 
         # Labels
@@ -710,8 +841,8 @@ def build_section_panel(page: ft.Page, section: str) -> ft.Control:
     if initial:
         _update_ui_from_status(initial)
 
-    def on_start(e):
-        n = dd_workers.value or '2'
+    def _do_start():
+        n = dd_workers.value or '4'
         proc = PM.start(pm_key, [
             'python3', 'paralel_execution.py', n, section, '--no-confirm'
         ])
@@ -727,6 +858,21 @@ def build_section_panel(page: ft.Page, section: str) -> ft.Control:
         btn_pause.disabled  = False
         lbl_state.value     = '▶  iniciando...'
         lbl_state.color     = ft.Colors.BLUE_400
+        page.update()
+        # Consumir stdout para evitar bloqueo de buffer
+        def _drain():
+            try:
+                for _ in proc.stdout:
+                    pass
+            except Exception:
+                pass
+        threading.Thread(target=_drain, daemon=True).start()
+
+    def on_start(e):
+        n = int(dd_workers.value or '4')
+        dlg = _build_distribution_dialog(page, section, n, _do_start)
+        page.overlay.append(dlg)
+        dlg.open = True
         page.update()
 
     def on_stop(e):
@@ -805,16 +951,460 @@ def build_partidos_tab(page: ft.Page) -> ft.Control:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  PLACEHOLDERS
+#  TAB: JUGADORES
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def placeholder_tab(label: str) -> ft.Control:
+def build_jugadores_tab(page: ft.Page) -> ft.Control:
+    """Panel de control para extracción de jugadores (milestone6 vía main_manual_adjust.py)."""
+    log_view, log_append = make_log_viewer()
+    lbl_status = ft.Text('Estado: inactivo', size=12, color=ft.Colors.GREY_400)
+    btn_start  = ft.Button('▶  Iniciar extracción', bgcolor=ft.Colors.GREEN_800,
+                                   color=ft.Colors.WHITE)
+    btn_stop   = ft.Button('■  Detener', bgcolor=ft.Colors.RED_800,
+                                   color=ft.Colors.WHITE, disabled=True)
+
+    # Stats de jugadores en DB
+    lbl_stats = ft.Text('', size=12, color=ft.Colors.BLUE_200, font_family='Courier New')
+
+    def load_player_stats():
+        try:
+            conn = psycopg2.connect(
+                host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS,
+                connect_timeout=5, options="-c statement_timeout=5000",
+            )
+            cur = conn.cursor()
+            cur.execute("SELECT COUNT(*) FROM player")
+            n_players = cur.fetchone()[0]
+            cur.execute("""
+                SELECT l.league_name, COUNT(DISTINCT tp.player_id) AS n
+                FROM team_players_entity tp
+                JOIN league_team lt ON lt.team_id = tp.team_id
+                JOIN league l ON l.league_id = lt.league_id
+                GROUP BY l.league_name
+                ORDER BY n DESC
+                LIMIT 10
+            """)
+            rows = cur.fetchall()
+            cur.close(); conn.close()
+            lines = [f'  Total jugadores: {n_players}', '', '  Top 10 ligas por jugadores:']
+            for league, n in rows:
+                lines.append(f'    {league:<35} {n:>5}')
+            lbl_stats.value = '\n'.join(lines)
+        except Exception as ex:
+            lbl_stats.value = f'  Error consultando DB: {ex}'
+        page.update()
+
+    def on_done(returncode, p):
+        btn_start.disabled = False
+        btn_stop.disabled  = True
+        lbl_status.value   = f'Estado: finalizado (código {returncode})'
+        lbl_status.color   = ft.Colors.GREEN_400 if returncode == 0 else ft.Colors.RED_400
+        load_player_stats()
+        p.update()
+
+    def on_start(e):
+        proc = PM.start('jugadores', ['python3', 'main_manual_adjust.py', '--players-only'])
+        if proc is None:
+            log_append('⚠  Ya hay una extracción de jugadores en curso', page)
+            return
+        btn_start.disabled = True
+        btn_stop.disabled  = False
+        lbl_status.value   = 'Estado: ejecutando...'
+        lbl_status.color   = ft.Colors.YELLOW_400
+        page.update()
+        stream_process(proc, log_append, page, on_done=on_done)
+
+    def on_stop(e):
+        PM.stop('jugadores')
+        btn_stop.disabled  = True
+        btn_start.disabled = False
+        lbl_status.value   = 'Estado: detenido por usuario'
+        lbl_status.color   = ft.Colors.ORANGE_400
+        page.update()
+
+    btn_start.on_click = on_start
+    btn_stop.on_click  = on_stop
+
+    # Carga stats al abrir
+    threading.Thread(target=load_player_stats, daemon=True).start()
+
     return ft.Container(
         content=ft.Column([
-            ft.Icon(ft.Icons.CONSTRUCTION_ROUNDED, size=52, color=ft.Colors.GREY_700),
-            ft.Text(f'{label} — próximamente', size=14, color=ft.Colors.GREY_500),
-        ], horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-           alignment=ft.MainAxisAlignment.CENTER),
+            ft.Text('👤  Extracción de Jugadores', size=14, weight=ft.FontWeight.BOLD,
+                    color=ft.Colors.PURPLE_300),
+            ft.Divider(height=6),
+            ft.Container(
+                content=ft.Column([
+                    ft.Text('Jugadores en DB:', size=12, weight=ft.FontWeight.BOLD),
+                    lbl_stats,
+                ]),
+                bgcolor=ft.Colors.with_opacity(0.08, ft.Colors.PRIMARY),
+                padding=12, border_radius=8,
+            ),
+            ft.Divider(height=8),
+            ft.Row([btn_start, btn_stop, lbl_status], spacing=12,
+                   vertical_alignment=ft.CrossAxisAlignment.CENTER),
+            ft.Divider(height=6),
+            ft.Text('Log de ejecución:', size=12, weight=ft.FontWeight.BOLD),
+            log_container(log_view),
+        ], expand=True),
+        padding=16,
+        expand=True,
+    )
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+#  TAB: EN VIVO
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_envivo_tab(page: ft.Page) -> ft.Control:
+    """Panel de control para el scraper en vivo via sesión tmux 'live'."""
+    log_view, log_append = make_log_viewer()
+    lbl_status = ft.Text('Estado: inactivo', size=12, color=ft.Colors.GREY_400)
+    lbl_tmux   = ft.Text('🔴 tmux:live no existe', size=11, color=ft.Colors.RED_400)
+
+    # Lock + evento de desconexión — evita RuntimeError y WebSocketDisconnect
+    _ui_lock      = threading.Lock()
+    _disconnected = threading.Event()
+
+    def _safe_update():
+        if _disconnected.is_set():
+            return
+        with _ui_lock:
+            try:
+                page.update()
+            except Exception:
+                _disconnected.set()   # cualquier error = cliente desconectado, parar
+
+    def _on_disconnect(e=None):
+        _disconnected.set()
+
+    page.on_disconnect = _on_disconnect
+
+    TMUX_SESSION      = 'live'
+    LIVE_LOG_FILE     = os.path.join(BASE_DIR, 'dashboard', 'live_output.log')
+    LIVE_CONTROL_FILE = os.path.join(LOGS_DIR, 'run_control_live.json')
+    LIVE_STATUS_FILE  = os.path.join(LOGS_DIR, 'run_status_live.json')
+    VENV_PYTHON       = '/home/you/env/sports_env/bin/python'
+    VENV_ACTIVATE     = 'source /home/you/env/sports_env/bin/activate'
+
+    # ── Helpers tmux ──────────────────────────────────────────────────────────
+    def _tmux_run(args: list) -> bool:
+        try:
+            r = subprocess.run(['tmux'] + args, capture_output=True, text=True)
+            return r.returncode == 0
+        except Exception:
+            return False
+
+    def _tmux_session_exists() -> bool:
+        return _tmux_run(['has-session', '-t', TMUX_SESSION])
+
+    def _tmux_ensure_session():
+        """Crea la sesión si no existe con venv activado y pipe-pane al log file."""
+        if not _tmux_session_exists():
+            _tmux_run(['new-session', '-d', '-s', TMUX_SESSION])
+            time.sleep(0.4)
+            _tmux_run(['send-keys', '-t', TMUX_SESSION, VENV_ACTIVATE, 'Enter'])
+            time.sleep(0.6)
+        # Reiniciar pipe-pane de forma idempotente:
+        # 1) Detener cualquier pipe-pane activo (sin arg = stop; no-op si no había)
+        _tmux_run(['pipe-pane', '-t', TMUX_SESSION])
+        time.sleep(0.1)
+        # 2) Iniciar sin -o para que SIEMPRE se active (no condicional)
+        _tmux_run(['pipe-pane', '-t', TMUX_SESSION,
+                   f'cat >> {LIVE_LOG_FILE}'])
+
+    def _tmux_send(keys: str):
+        _tmux_run(['send-keys', '-t', TMUX_SESSION, keys, 'Enter'])
+
+    def _tmux_interrupt():
+        """Envía Ctrl+C a la sesión tmux."""
+        _tmux_run(['send-keys', '-t', TMUX_SESSION, 'C-c'])
+
+    # ── Control JSON ──────────────────────────────────────────────────────────
+    def _write_live_control(command: str):
+        os.makedirs(LOGS_DIR, exist_ok=True)
+        try:
+            with open(LIVE_CONTROL_FILE, 'w', encoding='utf-8') as f:
+                json.dump({'command': command}, f)
+        except Exception:
+            pass
+
+    def _read_live_status() -> dict:
+        try:
+            with open(LIVE_STATUS_FILE, encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return {}
+
+    def _is_process_running() -> bool:
+        return _read_live_status().get('state') in ('running', 'paused')
+
+    # ── Widgets ───────────────────────────────────────────────────────────────
+    sport_checks = {s: ft.Checkbox(label=f'{SPORT_ICONS.get(s,"")} {s}', value=(s == 'FOOTBALL'))
+                    for s in SUPPORTED_SPORTS}
+
+    INTERVAL_OPTIONS = [
+        ('30 seg',  '30'),
+        ('1 min',   '60'),
+        ('2 min',  '120'),
+        ('5 min',  '300'),
+        ('10 min', '600'),
+    ]
+    dd_interval = ft.Dropdown(
+        label='Intervalo entre ciclos', width=180, value='60',
+        options=[ft.dropdown.Option(key=v, text=lbl) for lbl, v in INTERVAL_OPTIONS],
+    )
+
+    spinner    = ft.ProgressRing(width=16, height=16, stroke_width=2,
+                                  color=ft.Colors.RED_400, visible=False)
+    btn_toggle = ft.Button('▶  Iniciar', bgcolor=ft.Colors.RED_800, color=ft.Colors.WHITE)
+    btn_stop   = ft.Button('■  Detener', bgcolor=ft.Colors.GREY_800, color=ft.Colors.WHITE, disabled=True)
+
+    # Estado del proceso: 'stopped' | 'running' | 'paused'
+    _state      = ['stopped']
+    _state_lock = threading.Lock()
+
+    def _set_state(val: str):
+        with _state_lock:
+            _state[0] = val
+
+    def _get_state() -> str:
+        with _state_lock:
+            return _state[0]
+
+    def _apply_toggle_look():
+        s = _get_state()
+        if s in ('stopped', 'stopping'):
+            btn_toggle.text    = '▶  Iniciar'
+            btn_toggle.bgcolor = ft.Colors.RED_800
+            btn_stop.disabled  = True
+        elif s == 'running':
+            btn_toggle.text    = '⏸  Pausar'
+            btn_toggle.bgcolor = ft.Colors.ORANGE_700
+            btn_stop.disabled  = False
+        elif s == 'paused':
+            btn_toggle.text    = '▶  Reanudar'
+            btn_toggle.bgcolor = ft.Colors.GREEN_700
+            btn_stop.disabled  = False
+
+    # ── Tail del log file — siempre activo ────────────────────────────────────
+    _ANSI_RE = re.compile(r'\x1b\[[0-9;?]*[a-zA-Z]|\r')
+
+    def _tail_log():
+        """Sigue LIVE_LOG_FILE desde que se abre el tab. Para al desconectar."""
+        while not _disconnected.is_set() and not os.path.exists(LIVE_LOG_FILE):
+            time.sleep(1)
+        if _disconnected.is_set():
+            return
+
+        def _open_at_end():
+            fh = open(LIVE_LOG_FILE, 'r', encoding='utf-8', errors='replace')
+            fh.seek(0, 2)
+            return fh, os.fstat(fh.fileno()).st_ino
+
+        f, current_inode = _open_at_end()
+        try:
+            while not _disconnected.is_set():
+                line = f.readline()
+                if line:
+                    clean = _ANSI_RE.sub('', line).strip()
+                    if clean:
+                        log_append(clean, page, flush=False)
+                        _safe_update()
+                else:
+                    time.sleep(0.3)
+                    try:
+                        if os.stat(LIVE_LOG_FILE).st_ino != current_inode:
+                            f.close()
+                            f, current_inode = _open_at_end()
+                            log_append('[INFO] log file recreado — reconectado', page, flush=False)
+                            _safe_update()
+                    except FileNotFoundError:
+                        pass
+        finally:
+            f.close()
+
+    threading.Thread(target=_tail_log, daemon=True).start()
+
+    # ── Pipe-pane init — activar desde el arranque del tab ────────────────────
+    def _init_pipe():
+        """Activa pipe-pane si la sesión ya existe al abrir el tab."""
+        time.sleep(1)
+        if _tmux_session_exists():
+            _tmux_run(['pipe-pane', '-t', TMUX_SESSION])
+            time.sleep(0.1)
+            _tmux_run(['pipe-pane', '-t', TMUX_SESSION, '-o', f'cat >> {LIVE_LOG_FILE}'])
+
+    threading.Thread(target=_init_pipe, daemon=True).start()
+
+    # ── Polling de estado via status JSON ─────────────────────────────────────
+    def _poll_status():
+        last_state = ''
+        while not _disconnected.is_set():
+            time.sleep(2)
+            if _disconnected.is_set():
+                break
+
+            # Indicador sesión tmux
+            tmux_ok        = _tmux_session_exists()
+            lbl_tmux.value = '🟢 tmux:live activa' if tmux_ok else '🔴 tmux:live no existe'
+            lbl_tmux.color = ft.Colors.GREEN_400    if tmux_ok else ft.Colors.RED_400
+
+            # Sincronizar estado desde status JSON
+            # Si la UI está en 'stopping', no sobreescribir con 'running' del JSON
+            # (el proceso aún no procesó el comando stop)
+            st    = _read_live_status()
+            state = st.get('state', '')
+            if state != last_state:
+                last_state = state
+                if state == 'running' and _get_state() == 'stopping':
+                    pass  # esperar a que main2.py confirme el stop
+                elif state == 'running':
+                    sports_active    = ', '.join(st.get('sports', []))
+                    lbl_status.value = f'Estado: ejecutando — {sports_active}'
+                    lbl_status.color = ft.Colors.RED_400
+                    spinner.visible  = False
+                    _set_state('running')
+                    _apply_toggle_look()
+                elif state == 'paused':
+                    lbl_status.value = 'Estado: pausado'
+                    lbl_status.color = ft.Colors.ORANGE_400
+                    spinner.visible  = False
+                    _set_state('paused')
+                    _apply_toggle_look()
+                elif state in ('stopped', 'error'):
+                    lbl_status.value = 'Estado: detenido' if state == 'stopped' else 'Estado: error'
+                    lbl_status.color = ft.Colors.GREY_400 if state == 'stopped' else ft.Colors.RED_400
+                    spinner.visible  = False
+                    _set_state('stopped')
+                    _apply_toggle_look()
+            _safe_update()
+
+    threading.Thread(target=_poll_status, daemon=True).start()
+
+    # ── Handler botón toggle (Iniciar / Pausar / Reanudar) ───────────────────
+    def on_toggle(e):
+        s = _get_state()
+
+        if s == 'stopped':
+            selected = [sp for sp, cb in sport_checks.items() if cb.value]
+            if not selected:
+                log_append('⚠  Selecciona al menos un deporte', page, flush=False)
+                _safe_update()
+                return
+            interval_val = dd_interval.value or '60'
+            _set_state('running')
+            spinner.visible  = True
+            lbl_status.value = f'Estado: iniciando — {", ".join(selected)}  |  intervalo: {interval_val}s'
+            lbl_status.color = ft.Colors.RED_400
+            _apply_toggle_look()
+            log_append(f'[INFO] Iniciando — deportes: {", ".join(selected)}  intervalo: {interval_val}s', page, flush=False)
+            _safe_update()
+
+            def _start_bg():
+                _write_live_control('none')
+                _tmux_ensure_session()
+                sports_arg = ' '.join(selected)
+                cmd = f'cd {BASE_DIR} && {VENV_PYTHON} main2.py --interval {interval_val} --sports {sports_arg}'
+                _tmux_send(cmd)
+                log_append(f'[INFO] Comando enviado: {cmd}', page, flush=False)
+                _safe_update()
+            threading.Thread(target=_start_bg, daemon=True).start()
+
+        elif s == 'running':
+            _set_state('paused')
+            lbl_status.value = 'Estado: pausando...'
+            lbl_status.color = ft.Colors.ORANGE_300
+            _apply_toggle_look()
+            log_append('[INFO] Comando pause enviado', page, flush=False)
+            _safe_update()
+            threading.Thread(target=_write_live_control, args=('pause',), daemon=True).start()
+
+        elif s == 'paused':
+            _set_state('running')
+            lbl_status.value = 'Estado: reanudando...'
+            lbl_status.color = ft.Colors.RED_400
+            _apply_toggle_look()
+            log_append('[INFO] Comando resume enviado', page, flush=False)
+            _safe_update()
+            threading.Thread(target=_write_live_control, args=('resume',), daemon=True).start()
+
+    # ── Handler botón Detener ─────────────────────────────────────────────────
+    def on_stop(e):
+        _set_state('stopping')   # estado intermedio: bloquea el poll de sobreescribir
+        spinner.visible  = False
+        lbl_status.value = 'Estado: deteniendo...'
+        lbl_status.color = ft.Colors.ORANGE_400
+        _apply_toggle_look()
+        log_append('[INFO] Comando stop enviado', page, flush=False)
+        _safe_update()
+
+        def _stop_bg():
+            _write_live_control('stop')
+            time.sleep(4)
+            _tmux_interrupt()
+        threading.Thread(target=_stop_bg, daemon=True).start()
+
+    # ── Botón Ver sesión tmux ────────────────────────────────────────────────
+    dlg_tmux = ft.AlertDialog(
+        title=ft.Text('Conectar a sesión tmux'),
+        content=ft.Column([
+            ft.Text('Ejecuta este comando en una terminal del servidor:',
+                    size=12, color=ft.Colors.GREY_400),
+            ft.Container(
+                content=ft.Text(f'tmux attach -t live', size=13,
+                                font_family='monospace', selectable=True,
+                                color=ft.Colors.GREEN_300),
+                bgcolor=ft.Colors.with_opacity(0.12, ft.Colors.PRIMARY),
+                padding=ft.padding.symmetric(horizontal=12, vertical=8),
+                border_radius=6,
+            ),
+            ft.Text('Para desconectarte sin matar la sesión: Ctrl+B  D',
+                    size=11, color=ft.Colors.GREY_500),
+        ], tight=True, spacing=10),
+        actions=[ft.TextButton('Cerrar', on_click=lambda e: setattr(dlg_tmux, 'open', False) or page.update())],
+    )
+
+    def on_ver_tmux(e):
+        page.overlay.append(dlg_tmux)
+        dlg_tmux.open = True
+        page.update()
+
+    btn_ver_tmux = ft.OutlinedButton('🖥  Ver sesión tmux', on_click=on_ver_tmux)
+
+    btn_toggle.on_click = on_toggle
+    btn_stop.on_click   = on_stop
+
+    return ft.Container(
+        content=ft.Column([
+            ft.Row([
+                ft.Text('🔴  En Vivo — tmux:live', size=14, weight=ft.FontWeight.BOLD,
+                        color=ft.Colors.RED_400),
+                lbl_tmux,
+            ], spacing=16, vertical_alignment=ft.CrossAxisAlignment.CENTER),
+            ft.Divider(height=6),
+            # ── Selector de deportes + intervalo ──────────────────────
+            ft.Container(
+                content=ft.Column([
+                    ft.Text('Deportes activos:', size=12, weight=ft.FontWeight.BOLD),
+                    ft.Row(list(sport_checks.values()), spacing=16, wrap=True),
+                    ft.Divider(height=8),
+                    ft.Row([dd_interval], spacing=12),
+                ]),
+                bgcolor=ft.Colors.with_opacity(0.08, ft.Colors.PRIMARY),
+                padding=12, border_radius=8,
+            ),
+            ft.Divider(height=8),
+            # ── Controles ─────────────────────────────────────────────
+            ft.Row([btn_toggle, btn_stop, btn_ver_tmux], spacing=8),
+            ft.Row([spinner, lbl_status], spacing=10,
+                   vertical_alignment=ft.CrossAxisAlignment.CENTER),
+            ft.Divider(height=6),
+            ft.Text('Output tmux live:', size=12, weight=ft.FontWeight.BOLD),
+            log_container(log_view),
+        ], expand=True),
+        padding=16,
         expand=True,
     )
 
@@ -869,13 +1459,13 @@ def build_dashboard(page: ft.Page):
 
     header = build_header(page)
 
-    tab_labels   = ['📰  Noticias','🏆  Ligas', '⚽  Partidos', '👤  Jugadores', '🔴  En Vivo']
+    tab_labels   = ['📰  Noticias', '🏆  Ligas', '⚽  Partidos', '👤  Jugadores', '🔴  En Vivo']
     tab_contents = [
         build_noticias_tab(page),
         build_ligas_tab(page),
         build_partidos_tab(page),
-        placeholder_tab('Jugadores'),
-        placeholder_tab('En Vivo'),
+        build_jugadores_tab(page),
+        build_envivo_tab(page),
     ]
     tab_bar  = ft.TabBar(tabs=[ft.Tab(label=lbl) for lbl in tab_labels])
     tab_view = ft.TabBarView(controls=tab_contents, expand=True)
@@ -923,11 +1513,13 @@ def main(page: ft.Page):
     page.bgcolor    = ft.Colors.SURFACE
     page.padding    = 0
 
-    if page.session.store.contains_key('authenticated'):
+    if DASH_DEV_SKIP_AUTH or page.session.store.contains_key('authenticated'):
         build_dashboard(page)
     else:
         page.add(build_login_view(page, lambda: build_dashboard(page)))
 
 
 if __name__ == '__main__':
-    ft.run(main, view=ft.AppView.WEB_BROWSER, port=8502)
+    # FLET_NO_BROWSER=1 → solo servidor web, sin abrir pestaña (usado por run_dev.py en reinicios)
+    no_browser = os.environ.get('FLET_NO_BROWSER', '0') == '1'
+    ft.run(main, view=None if no_browser else ft.AppView.WEB_BROWSER, port=8502)

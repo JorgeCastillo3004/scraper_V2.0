@@ -138,14 +138,14 @@ def update_status(row, max_count = 10):
 			time.sleep(1)
 			count += 1
 	if match_status !='Finished':
-		status = 'in progress'
+		status = 'IN PROGRESS'
 	elif match_status =='Finished':
 		status = 'COMPLETED'
 	return status
 		
 # def give_click_on_live_golf(driver):
 
-def live_games(driver, list_sports):
+def live_games(driver, list_sports, interval=60, check_control=None):
 	dict_sports_url = load_json('check_points/sports_url_m2.json')
 
 	while True:
@@ -186,7 +186,7 @@ def live_games(driver, list_sports):
 										update_score({'match_detail_id': match_detail_id, 'points': match_info['home_result']})
 									else:
 										update_score({'match_detail_id': match_detail_id, 'points': match_info['visitor_result']})
-								update_match_status({'match_id': match_info['match_id'], 'status': match_info['status']})
+								update_match_status({'match_id': match_id, 'status': match_info['status']})
 								print("Updated")
 						except Exception as e:
 							print(f'[WARN] Error actualizando match {match_info.get("name","?")}: {e}')
@@ -200,4 +200,13 @@ def live_games(driver, list_sports):
 		end_time = time.time()
 		elapsed_time = end_time - start_time
 		print("Complete time: ", elapsed_time)
-		display_dynamic_value(60)
+		# Esperar 'interval' segundos verificando pause/stop cada 2s
+		_check = check_control if callable(check_control) else (lambda d=None: None)
+		remaining = max(0, interval - elapsed_time)
+		waited = 0
+		while waited < remaining:
+			slice_ = min(2, remaining - waited)
+			time.sleep(slice_)
+			waited += slice_
+			_check(driver)
+			print(f'[INFO] Esperando siguiente ciclo: {remaining - waited:.0f}s restantes')

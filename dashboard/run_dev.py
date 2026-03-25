@@ -16,13 +16,38 @@ import subprocess
 import sys
 import os
 import time
+import socket
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 WATCH_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP_CMD   = [sys.executable, os.path.join(os.path.dirname(__file__), 'app.py')]
+APP_PORT  = 8502
 
 COOLDOWN = 1.5   # segundos entre reinicios (evita recargas múltiples al guardar)
+
+
+def _kill_port(port: int):
+    """Mata cualquier proceso que esté usando el puerto dado."""
+    try:
+        result = subprocess.run(
+            ['fuser', '-k', f'{port}/tcp'],
+            capture_output=True
+        )
+    except FileNotFoundError:
+        pass  # fuser no disponible, ignorar
+
+
+def _wait_port_free(port: int, timeout: float = 8.0):
+    """Espera hasta que el puerto quede libre o se agote el timeout."""
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            if s.connect_ex(('127.0.0.1', port)) != 0:
+                return True   # puerto libre
+        time.sleep(0.3)
+    return False  # timeout
 
 
 class RestartHandler(FileSystemEventHandler):
@@ -43,13 +68,22 @@ class RestartHandler(FileSystemEventHandler):
 
 
 def run():
-    proc = [None]
+    proc        = [None]
+    first_start = [True]
 
     def start():
         if proc[0] and proc[0].poll() is None:
             proc[0].terminate()
             proc[0].wait()
-        proc[0] = subprocess.Popen(APP_CMD, cwd=WATCH_DIR)
+        # Matar cualquier proceso huérfano en el puerto y esperar que quede libre
+        _kill_port(APP_PORT)
+        if not _wait_port_free(APP_PORT):
+            print(f'[DEV] ⚠  Puerto {APP_PORT} sigue ocupado tras 8s — forzando arranque')
+        env = os.environ.copy()
+        if not first_start[0]:
+            env['FLET_NO_BROWSER'] = '1'   # reinicios: no abrir nueva pestaña
+        first_start[0] = False
+        proc[0] = subprocess.Popen(APP_CMD, cwd=WATCH_DIR, env=env)
 
     def restart():
         start()

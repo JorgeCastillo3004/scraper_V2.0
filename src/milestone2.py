@@ -493,9 +493,9 @@ def save_racer_team(dict_racer, season_id):
 def create_leagues(driver, list_sports):
     print_section("Filling country table", space_ = 50)
     # Get country list
-    country_list = get_country_list()
+    # country_list = get_country_list() # VERIFICAR DELETE COUNTRY
     # Insert countries in table country
-    insert_countries_to_db(country_list)
+    # insert_countries_to_db(country_list) # VERIFICAR DELETE COUNTRY
     ################################################################################
     #                           DRIVER CREATION AND LOGIN                          #
     ################################################################################

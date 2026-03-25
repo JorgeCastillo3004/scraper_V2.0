@@ -23,7 +23,7 @@ INIT_MAX_RETRIES             = 3   # reintentos para inicialización (DB/archivo
 LEAGUE_MAX_CONSECUTIVE_FAILS = 4   # ligas fallidas consecutivas → warning de driver roto
 
 from common_functions import *
-from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues, update_league_checkpoint, get_league_checkpoint
+from data_base import get_match_by_league_id, get_stadium_id, check_stadium, get_match_ready, check_match_duplicate, get_team_id_pilot, get_team_id_db, check_player_duplicates, check_player_duplicates_id, check_team_duplicates, check_team_duplicates_id, check_team_season_duplicates, save_player_info, save_team_info, save_team_players_entity, save_league_team_entity, save_math_info, save_details_math_info, save_score_info, save_stadium_in_db, get_dict_sport_id, claim_league, release_league, cleanup_stale_leagues, update_league_checkpoint, get_league_checkpoint, get_math_details_ids, get_score_by_match_detail_id
 from milestone6 import *
 
 
@@ -349,13 +349,61 @@ def create_stadium(dict_country_league_season, event_info, league_info, team_id_
 
         dict_stadium = {'stadium_id':event_info['stadium_id'],'country':event_info['match_country'],\
                         'capacity':capacity,'desc_i18n':'', 'name':name_stadium, 'photo':''}
-
+        print_section("STADIUM INFO")
+        print(dict_stadium)
         if event_info['home'] not in dict_country_league_season:
             dict_country_league_season[event_info['home']] = {'team_id': team_id_home, 'team_url': '', 'stadium_id': ''}
         dict_country_league_season[event_info['home']]['stadium_id'] = event_info['stadium_id']
         json_name = 'check_points/leagues_season/{}/{}.json'.format(sport_name, league_name)
         save_check_point(json_name, dict_country_league_season)
         save_stadium_in_db(dict_stadium)
+
+def _complete_match_if_partial(event_info, dict_home, dict_visitor, section):
+    """
+    Verifica si un match que ya existe en DB tiene sus registros de
+    match_detail y score_entity completos. Si faltan, los crea.
+
+    Escenario típico: ejecución anterior insertó el match (save_math_info)
+    pero fue interrumpida antes de guardar match_detail o score_entity,
+    y el checkpoint no se actualizó, por lo que el match se vuelve a intentar.
+
+    Estructura esperada por match:
+      - 2 registros en match_detail  (home=True y home=False)
+      - 1 registro en score_entity   por cada match_detail
+    """
+    match_id         = event_info['match_id']
+    existing_details = get_math_details_ids(match_id)  # {match_detail_id: home_flag}
+
+    home_detail_id    = next((mid for mid, h in existing_details.items() if h),     None)
+    visitor_detail_id = next((mid for mid, h in existing_details.items() if not h), None)
+
+    print(f"  [CHECK] match_detail encontrados: {len(existing_details)}/2")
+
+    # Ajustar puntos para fixtures (mismo criterio que match_creation_save)
+    if section != "results":
+        dict_home['points']    = -1
+        dict_visitor['points'] = -1
+
+    for label, d, existing_detail_id in [
+        ('home',    dict_home,    home_detail_id),
+        ('visitor', dict_visitor, visitor_detail_id),
+    ]:
+        if existing_detail_id is None:
+            # Falta el match_detail completo → crear match_detail + score_entity
+            save_details_math_info(d)
+            save_score_info(d)
+            print(f"  [FIX ] match_detail + score_entity creados ({label}): {event_info['name']}")
+        else:
+            # match_detail existe → verificar si tiene score_entity
+            score = get_score_by_match_detail_id(existing_detail_id)
+            if score is None:
+                # Falta solo el score_entity → usar el match_detail_id existente
+                d['match_detail_id'] = existing_detail_id
+                save_score_info(d)
+                print(f"  [FIX ] score_entity creado ({label}, match_detail existente): {event_info['name']}")
+            else:
+                print(f"  [OK  ] {label}: completo (match_detail + score_entity)")
+
 
 def match_creation_save(event_info, team_id_home, team_id_visitor, section):
     match_detail_id = generate_uuid()
@@ -372,6 +420,10 @@ def match_creation_save(event_info, team_id_home, team_id_visitor, section):
     
     # CHECK IF MATCH WAS CREATED PREVIOUSLY
     match_duplicate = check_match_duplicate(event_info['league_id'], event_info['match_date'], event_info['name'])
+    if len(match_created) != 0:
+        print(f"[SKIP] Match ya existe en DB (match_id={event_info['match_id']}): {event_info['name']}")
+        _complete_match_if_partial(event_info, dict_home, dict_visitor, section)
+        return
     if len(match_duplicate) != 0:
         print(f"[DUP] Match duplicado: {event_info['name']}")
     if len(match_created) == 0 and len(match_duplicate) == 0:
@@ -391,7 +443,12 @@ def match_creation_save(event_info, team_id_home, team_id_visitor, section):
             dict_visitor['points'] = -1
         save_score_info(dict_home)
         save_score_info(dict_visitor)
-        print(f"[OK ] Match creado: {event_info['name']}")
+        # verificar que realmente se creó en la DB
+        match_verified = get_match_ready(event_info['match_id'])
+        if match_verified:
+            print(f"[OK ] Match creado y verificado: {event_info['name']}")
+        else:
+            print(f"[WARN] Match NO encontrado en DB tras INSERT: {event_info['name']}")
 
 def wait_load_details(driver, url_details):
     wait = WebDriverWait(driver, 10)
@@ -573,6 +630,7 @@ def get_complete_match_info(driver, league_info, dict_country_league_season,
                 wait_load_details(driver, url_details)
                 info = get_match_info(driver, event_info)
                 info['statistic'] = get_statistics_game(driver)
+                print(info)
                 return info
 
             result = retry_match(driver, url_details, _extract)
@@ -618,9 +676,10 @@ def get_complete_match_info(driver, league_info, dict_country_league_season,
 
             create_stadium(dict_country_league_season, event_info, league_info, team_id_home)
             match_creation_save(event_info, team_id_home, team_id_visitor, section)
-
+            print("MATCH CREATION EXECUTED")
             # Guardar checkpoint en DB después de cada match exitoso
             update_league_checkpoint(league_id, section, round_file, event_info['name'])
+            print("UPDATE CHECKPOINT EXECUTED")
 
     if not checkpoint_match_found:
         print(f'[WARN] Checkpoint match "{checkpoint_match}" no encontrado en '

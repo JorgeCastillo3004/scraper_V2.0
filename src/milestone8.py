@@ -62,7 +62,7 @@ def update_match_score(match_element, match_id):
 def find_element_match(driver, name):
 	wait = WebDriverWait(driver, 10)
 	row = wait.until(EC.presence_of_all_elements_located((By.XPATH, '//*[@title="Click for match detail!"]')))
-	team1, team2 = name.split('-')
+	team1, team2 = name.split('~')
 	# xpath_expression = f'//*[@title="Click for match detail!" and contains(.,"{team1}") and contains(.,"{team2}")] '
 	xpath_expression = f'//div[contains(@class, "match--live") and contains(.,"{team1}") and contains(.,"{team2}")]'
 	print("xpath_expression: ",xpath_expression)
@@ -107,13 +107,16 @@ def give_click_on_live(driver, sport_name,section = "LIVE"):
 	else:
 		return False
 
-def update_lives_matchs(driver):
-	
+def update_lives_matchs(driver, list_sports=None, interval=None, check_control=None):
+
 	while True:
 		dict_sports_url = load_json('check_points/sports_url_m2.json')
 		# All that in infine loop, controlled by execution control file.
 		results = get_match_by_day() # get match for current date.
 		dict_pending = build_dict_match(results) # buil dict_pending, by sport and match
+		if list_sports:
+			_sports_upper = [s.upper() for s in list_sports]
+			dict_pending = {k: v for k, v in dict_pending.items() if k.upper() in _sports_upper}
 		print("Sports keys: ", dict_pending.keys())		
 		dict_finished = {}
 		local_time_naive = datetime.now()
@@ -130,18 +133,24 @@ def update_lives_matchs(driver):
 			# Record the start time
 			start_time = time.time()
 			dict_pending_copy = copy.deepcopy(dict_pending)
-			
+			if callable(check_control):
+				check_control(driver)
+
 			for sport_name, dict_matchs in dict_pending.items():			
 
 				print("Match pending: ", len(dict_pending[sport_name]), '/', dict_pending_len[sport_name])
 				print(dict_pending[sport_name])
 
 				print_section(sport_name, space_= 10)
-				# LOAD SPORT LINK
-				wait_update_page(driver, dict_sports_url[sport_name], "container__heading")
+				# LOAD SPORT LINK — normalizar a mayúsculas para buscar en dict_sports_url
+				sport_key = sport_name.upper()
+				if sport_key not in dict_sports_url:
+					print(f"[WARN] Sport '{sport_name}' no encontrado en sports_url_m2.json — saltando")
+					continue
+				wait_update_page(driver, dict_sports_url[sport_key], "container__heading")
 
-				###################### LIVE SECTION ############################################    
-				live_games_found = give_click_on_live(driver, sport_name)
+				###################### LIVE SECTION ############################################
+				live_games_found = give_click_on_live(driver, sport_key)
 				############################################################################### 
 				utc_time_naive = datetime.utcnow()
 				for name, match in dict_matchs.items(): # navigate on matchs by sport
@@ -188,11 +197,14 @@ def update_lives_matchs(driver):
 				if len(dict_pending_copy[sport_name]) == 0:
 					dict_pending_copy.pop(sport_name)
 				# stop_validate()
-			#================= Load frecuency update live results==============#
-			section_schedule = update_data()
-			new_execution_schedule = section_schedule['LIVE_SECTION']['TIME']
-			print("new_execution_schedule: ", new_execution_schedule)
-			duration = int(new_execution_schedule.split('|')[1])
+			#================= Frecuencia de actualización ====================#
+			if interval is not None:
+				duration = interval
+			else:
+				section_schedule = update_data()
+				new_execution_schedule = section_schedule['LIVE_SECTION']['TIME']
+				print("new_execution_schedule: ", new_execution_schedule)
+				duration = int(new_execution_schedule.split('|')[1])
 			print("Duration: ", duration)
 			#==================================================================#
 				

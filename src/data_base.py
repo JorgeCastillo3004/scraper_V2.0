@@ -410,6 +410,13 @@ def save_stadium_in_db(dict_match):
     cur = con.cursor()
     cur.execute(query, dict_match)
     con.commit()
+    # verificar que realmente se creó
+    cur.execute("SELECT stadium_id FROM stadium WHERE stadium_id = %s", (dict_match['stadium_id'],))
+    if cur.fetchone():
+        print(f"[OK ] Stadium creado y verificado: {dict_match.get('name', dict_match['stadium_id'])}")
+        return True
+    print(f"[WARN] Stadium NO encontrado en DB tras INSERT: {dict_match.get('name', dict_match['stadium_id'])}")
+    return False
 
 def get_rounds_ready(league_id, season_id):
     ensure_connection()
@@ -590,6 +597,14 @@ def check_stadium(stadium_id):
     results = [row[0] for row in cur.fetchall()]
     return results
 
+def get_score_by_match_detail_id(match_detail_id):
+    """Retorna el score_id si existe un registro en score_entity para el match_detail_id dado."""
+    ensure_connection()
+    cur = con.cursor()
+    cur.execute("SELECT score_id FROM score_entity WHERE match_detail_id = %s", (match_detail_id,))
+    row = cur.fetchone()
+    return row[0] if row else None
+
 def update_score(params):
     ensure_connection()
     query = "UPDATE score_entity SET points = %(points)s WHERE match_detail_id = %(match_detail_id)s"
@@ -609,12 +624,13 @@ def get_match_by_day():
     ensure_connection()
     # Query to retrieve pending matches for updating.
     query = """
-        SELECT sport.name, league.league_name,\
+        SELECT sport.name, league.league_name, country.country_name,\
         match.match_date, match.start_time, match.name, match.match_id \
-        FROM MATCH 
+        FROM MATCH
         JOIN LEAGUE ON MATCH.LEAGUE_ID = LEAGUE.LEAGUE_ID
         JOIN SPORT ON SPORT.SPORT_ID = LEAGUE.SPORT_ID
-        WHERE MATCH.MATCH_DATE = CURRENT_DATE       
+        JOIN COUNTRY ON COUNTRY.COUNTRY_ID = LEAGUE.COUNTRY_ID
+        WHERE MATCH.MATCH_DATE = CURRENT_DATE
         """
     # AND MATCH.STATUS = 'P' 
     cur = con.cursor()
@@ -728,6 +744,11 @@ def update_league_checkpoint(league_id, section, current_round, current_match):
             WHERE league_id = %s AND section = %s
         """, (current_round, current_match, league_id, section))
         con.commit()
+        # verificar que el UPDATE afectó algún registro
+        if cur.rowcount == 0:
+            print(f"[WARN] update_league_checkpoint: ningún registro actualizado (league_id={league_id}, section={section})")
+            return False
+        return True
 
 
 def get_league_checkpoint(league_id, section):
