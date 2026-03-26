@@ -1,0 +1,142 @@
+{
+    "River Plate": {
+        "team_id": "2b0d2c6a-c6bb-4878-a9dd-ce5021d61d65",
+        "team_url": "https://www.flashscore.com/team/river-plate/EVqSBe2f/",
+        "stadium_id": "207c6b82-7165-4e75-afcc-93a395241f37"
+    },
+    "Argentinos Jrs": {
+        "team_id": "a12efac6-1ac1-479c-ace9-8ba1b60b832e",
+        "team_url": "https://www.flashscore.com/team/argentinos-jrs/QuxS0ahA/",
+        "stadium_id": "e9cd34f1-7a0b-40f0-88c1-4f2c20106a18"
+    },
+    "Barracas Central": {
+        "team_id": "6646d1fc-07b8-49a7-837a-a9e3cd4883ed",
+        "team_url": "https://www.flashscore.com/team/barracas-central/hW08cP6J/",
+        "stadium_id": "9845b668-2c84-4170-b23b-4c784ec5df16"
+    },
+    "Velez Sarsfield": {
+        "team_id": "6482389e-b065-473c-9a58-e5ebf6ebbee9",
+        "team_url": "https://www.flashscore.com/team/velez-sarsfield/UsCR8gFd/",
+        "stadium_id": "4acf7564-b345-4bc7-a810-c5ec8fec2c11"
+    },
+    "Talleres Cordoba": {
+        "team_id": "4a3c2a29-6f70-4229-9e73-b0627d705d6e",
+        "team_url": "https://www.flashscore.com/team/talleres-cordoba/bkDdeAvA/",
+        "stadium_id": "d68093dc-3419-4299-bb0c-5d92d9d80eef"
+    },
+    "Independiente": {
+        "team_id": "29da725b-3a67-4b98-b2c5-7003fc5f2b91",
+        "team_url": "https://www.flashscore.com/team/independiente/UVatI5Y2/",
+        "stadium_id": "04192187-4a90-4759-bb54-bf070694e3e3"
+    },
+    "Instituto": {
+        "team_id": "85c4abf2-76f0-4e8a-91f7-e388a4a99950",
+        "team_url": "https://www.flashscore.com/team/instituto/8G45bXRA/",
+        "stadium_id": "13b082e0-eba0-4865-8e15-ed743f2eee7b"
+    },
+    "Banfield": {
+        "team_id": "4401f126-56f5-4462-b3c2-8e8ce601e7c0",
+        "team_url": "https://www.flashscore.com/team/banfield/GIb40wNM/",
+        "stadium_id": "55583766-ac66-4625-b63a-f731e4643a44"
+    },
+    "Huracan": {
+        "team_id": "37107bf5-a221-46c1-8180-c347e04a9e2e",
+        "team_url": "https://www.flashscore.com/team/huracan/xd3lGq3F/",
+        "stadium_id": "e595a173-290e-4e14-90ab-9ca94f8a95cb"
+    },
+    "Gimnasia L.P.": {
+        "team_id": "4e8b8d49-491e-43b2-b46b-00ae78c403ce",
+        "team_url": "https://www.flashscore.com/team/gimnasia-l-p/jiDN9Zaj/",
+        "stadium_id": "f0392d83-35b3-415f-bfb9-8d86682d0c5e"
+    },
+    "Rosario Central": {
+        "team_id": "d67fe902-e5b8-4604-aec5-af7688832734",
+        "team_url": "https://www.flashscore.com/team/rosario-central/4QmJ2LNc/",
+        "stadium_id": "3173700f-4bd7-478f-a11f-2ae69805bfa7"
+    },
+    "Dep. Riestra": {
+        "team_id": "d4cf7722-85f1-43d1-bda5-e97abeb57381",
+        "team_url": "https://www.flashscore.com/team/deportivo-riestra/2iZ4q0z6/",
+        "stadium_id": "5eda1ee7-09de-4e5a-82d0-fe0302f1e71c"
+    },
+    "Atl. Tucuman": {
+        "team_id": "6a70ca6f-1cb3-4106-b109-37e4a8bb0fc8",
+        "team_url": "https://www.flashscore.com/team/atl-tucuman/KpqpxWko/",
+        "stadium_id": "0b4e7334-d810-4f6b-ac85-af1f59cd1d23"
+    },
+    "Ind. Rivadavia": {
+        "team_id": "2d1c555d-bdd6-452b-aa13-b458819c580d",
+        "team_url": "https://www.flashscore.com/team/ind-rivadavia/Eg51aDC4/",
+        "stadium_id": "322a8aad-d811-43b7-8a70-c2d490ee7949"
+    },
+    "Godoy Cruz": {
+        "team_id": "6b831c5d-4a8d-4b4a-8d55-d36eae025f6f",
+        "team_url": "https://www.flashscore.com/team/godoy-cruz/tUAxIm6l/",
+        "stadium_id": "89e1e43e-eb38-4afe-a563-b7bea4001f17"
+    },
+    "Estudiantes L.P.": {
+        "team_id": "8cf76691-b3c0-4238-b175-81b0312223d0",
+        "team_url": "https://www.flashscore.com/team/estudiantes-l-p/p2SkCHXs/",
+        "stadium_id": "258031ba-9fe8-4e1e-a85b-4172c91a091e"
+    },
+    "Defensa y Justicia": {
+        "team_id": "486d60fd-3c94-404b-b612-8c92839fe85a",
+        "team_url": "https://www.flashscore.com/team/defensa-y-justicia/Gdfv0Zsh/",
+        "stadium_id": "f6e9afc4-d0ab-4932-85fe-c44c9f95d072"
+    },
+    "Boca Juniors": {
+        "team_id": "c672e03c-c2a2-438d-b495-08ead0ef6c32",
+        "team_url": "https://www.flashscore.com/team/boca-juniors/hMrWAFH0/",
+        "stadium_id": "9516b165-2e82-4c6b-910c-582f76fd26ae"
+    },
+    "Racing Club": {
+        "team_id": "043be9ef-9996-4326-ba41-0ac7844d6611",
+        "team_url": "https://www.flashscore.com/team/racing-club/OhapHPm9/",
+        "stadium_id": "8260f64e-e642-416b-8dda-9671042e8f0e"
+    },
+    "Lanus": {
+        "team_id": "a5c7925e-a428-4cef-b6d3-e94be80a22a3",
+        "team_url": "https://www.flashscore.com/team/lanus/Y9yh1J7G/",
+        "stadium_id": "c48564f1-6be7-47aa-9f41-b806b066ac0c"
+    },
+    "Newells Old Boys": {
+        "team_id": "584de552-42c4-42cf-a4ae-deda24c6eb70",
+        "team_url": "https://www.flashscore.com/team/newells-old-boys/6gMiRHVj/",
+        "stadium_id": "d39f1b92-0b34-499c-b423-4cf0ff878387"
+    },
+    "Union de Santa Fe": {
+        "team_id": "234af1d9-54ec-4060-aa30-ed23c89193c7",
+        "team_url": "https://www.flashscore.com/team/union-de-santa-fe/lr2YMkTK/",
+        "stadium_id": "55562ba7-26d4-41fa-807c-709ede845231"
+    },
+    "Platense": {
+        "team_id": "fddd30b6-445a-4cf9-a7b8-e78db1f3f36f",
+        "team_url": "https://www.flashscore.com/team/platense/80MMdBdN/",
+        "stadium_id": "e5e667e5-c271-4dad-a85f-c64ef0041472"
+    },
+    "San Lorenzo": {
+        "team_id": "a3ecaa9a-f2de-4ade-9d6d-2e98115e339a",
+        "team_url": "https://www.flashscore.com/team/san-lorenzo/ju1xJoJd/",
+        "stadium_id": "b22e795a-fc8c-439f-9f69-b80aaa534baf"
+    },
+    "Belgrano": {
+        "team_id": "53e30b08-68cb-4d31-8797-5a1061eae48d",
+        "team_url": "https://www.flashscore.com/team/ca-belgrano-de-cordoba/Amzaty2s/",
+        "stadium_id": "f995a72d-4403-4e83-93df-fe79fca70c54"
+    },
+    "Central Cordoba": {
+        "team_id": "66c8a443-b37b-4339-9921-95939e7df3ee",
+        "team_url": "https://www.flashscore.com/team/central-cordoba-santiago-del-estero/0dHZReql/",
+        "stadium_id": "d4a853e7-5a00-4d34-ba6f-b754c9d13c28"
+    },
+    "Sarmiento Junin": {
+        "team_id": "8b882d9c-83fd-4c10-9215-0257bcdffa2e",
+        "team_url": "https://www.flashscore.com/team/sarmiento-junin/KQ6kGfyc/",
+        "stadium_id": "ecb23945-7f0c-4893-8254-d9b9353b70b7"
+    },
+    "Tigre": {
+        "team_id": "9604a292-a284-4eae-ab9d-059171296fba",
+        "team_url": "https://www.flashscore.com/team/tigre/nkwO1uw4/",
+        "stadium_id": "7c071357-5bb6-4cdb-ba05-9969b2a315c0"
+    }
+}

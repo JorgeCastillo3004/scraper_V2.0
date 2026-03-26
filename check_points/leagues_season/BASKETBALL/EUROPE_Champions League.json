@@ -1,0 +1,187 @@
+{
+    "Rytas": {
+        "team_id": "0a03b527-a107-41d4-930a-633e3d571c13",
+        "team_url": "",
+        "stadium_id": "af754f8e-1f6e-4f82-b15a-61e42d1fc58a"
+    },
+    "Promitheas": {
+        "team_id": "4a2e0a92-4ede-4045-9268-279b2b2c6dc6",
+        "team_url": "",
+        "stadium_id": "9e57a236-ce9f-4998-8cd6-7ad1f5688765"
+    },
+    "Legia": {
+        "team_id": "c2f7c9a7-7277-4689-8d89-fba22817d41a",
+        "team_url": "",
+        "stadium_id": "d617d26b-e941-45df-a26e-98cf67bfc5b7"
+    },
+    "Heidelberg": {
+        "team_id": "70774fa9-9c43-43b8-8e17-1d5303d2df41",
+        "team_url": "",
+        "stadium_id": "58b61ab4-6575-423a-ae83-3993ab3f50bb"
+    },
+    "Chalon/Saone": {
+        "team_id": "0b50a0b7-2794-4cc4-bb78-61c6e2e75cbf",
+        "team_url": "",
+        "stadium_id": "f2e7c092-e687-4790-b8d8-0daa3af3317b"
+    },
+    "Alba Berlin": {
+        "team_id": "4a53f5cc-afa1-4208-b49c-2d99157747ac",
+        "team_url": "",
+        "stadium_id": "41abeb6e-4d33-49a4-a4f3-01767cc69b06"
+    },
+    "Nymburk": {
+        "team_id": "7220e115-106a-42ce-aa27-2286a72f5c55",
+        "team_url": "",
+        "stadium_id": "454e4da4-26eb-4b61-8075-8198b6faad49"
+    },
+    "Sabah Baku": {
+        "team_id": "80d3f3a3-55bc-4724-80f0-44a347cb9556",
+        "team_url": "",
+        "stadium_id": "e4cf1c00-91ca-44f4-b95b-0a114f71078c"
+    },
+    "Joventut Badalona": {
+        "team_id": "bb8a40ed-9474-45de-8677-102dd52cfda9",
+        "team_url": "",
+        "stadium_id": "42a69e05-5f93-42f7-9fde-c03e7fe4d62c"
+    },
+    "Cholet": {
+        "team_id": "651cad4c-9b72-4925-8865-559fea50b255",
+        "team_url": "",
+        "stadium_id": "d87c683a-55ae-4b04-8328-73c34f7caf1d"
+    },
+    "Hapoel Holon": {
+        "team_id": "8fc86aeb-de81-4634-9ddc-42807306b9d5",
+        "team_url": "",
+        "stadium_id": "a909bc7e-f0ab-45a9-8aef-d3f6bd7765b5"
+    },
+    "Bursaspor": {
+        "team_id": "770f2335-db5e-4197-a493-b9cf295b7cc3",
+        "team_url": "",
+        "stadium_id": "e6c0a29c-9a89-4ba6-be71-031ede1f1a26"
+    },
+    "Tenerife": {
+        "team_id": "a5567e8e-c404-4b53-b5df-a44e6f838352",
+        "team_url": "",
+        "stadium_id": "6777d09a-7e74-4ce7-aec7-2541451f9622"
+    },
+    "Tofas": {
+        "team_id": "37230cf8-a7bd-4c28-b8b9-9a33bf2c8df6",
+        "team_url": "",
+        "stadium_id": "19a27d53-3f80-4713-b37b-52dba1647b76"
+    },
+    "Trapani": {
+        "team_id": "e59b6cd4-315d-4450-a793-621f1ba04fa6",
+        "team_url": "",
+        "stadium_id": "5dc90267-0934-40fd-944e-aba1e0c69211"
+    },
+    "Bnei Herzliya": {
+        "team_id": "36b46cb2-cb7f-4e12-91bf-514e9a1b994c",
+        "team_url": "",
+        "stadium_id": "75688863-46f5-4182-ac9a-085c9f36f43a"
+    },
+    "Galatasaray": {
+        "team_id": "929d14cd-1de5-459d-8532-43192faecd24",
+        "team_url": "",
+        "stadium_id": "1a165277-b2d1-4b61-afd5-6d73a632071b"
+    },
+    "Wurzburg": {
+        "team_id": "c29059e5-a321-487a-87ff-a2960231e650",
+        "team_url": "",
+        "stadium_id": "2605ff12-6fca-476f-838b-81a5aeb6bf00"
+    },
+    "Trieste": {
+        "team_id": "5f4a6a5d-acde-4f36-9a64-913c4b5d4bb0",
+        "team_url": "",
+        "stadium_id": "afd3498f-8016-409b-a8dc-1b378d31b9f5"
+    },
+    "Igokea": {
+        "team_id": "7d47e9cc-820a-47ae-8078-34c63294e62f",
+        "team_url": "",
+        "stadium_id": "a750c5b9-e8ba-4406-86f5-9f4ae9991694"
+    },
+    "AEK Athens": {
+        "team_id": "23413dd3-55e3-411c-aafa-79ede1a0604b",
+        "team_url": "",
+        "stadium_id": "f9e184c9-f10e-438f-8aac-90d306a8a357"
+    },
+    "Szolnoki Olaj": {
+        "team_id": "f242e18d-2fc4-47d9-aaa7-f4156cfc527e",
+        "team_url": "",
+        "stadium_id": "7dc5edd0-f36b-44b8-a7b6-dd42d79263ab"
+    },
+    "Levice": {
+        "team_id": "823f5f40-28bb-4c6a-bcf8-d0a675f8471e",
+        "team_url": "",
+        "stadium_id": "103251b4-9fa5-417a-a3c5-384b9ae20a4f"
+    },
+    "VEF Riga": {
+        "team_id": "dbdb3eae-83b5-47ea-ae09-a6c1de482aa6",
+        "team_url": "",
+        "stadium_id": "93558eb2-cda0-4d6e-bf8f-06f05fee3259"
+    },
+    "Unicaja": {
+        "team_id": "2775acf2-faa1-452b-b1f8-d4547cc0c66b",
+        "team_url": "",
+        "stadium_id": "4518118b-f3dd-4573-954b-86ef54d395c0"
+    },
+    "Mersin SK": {
+        "team_id": "25679e3a-e340-434d-8f4c-51a7b1b9ecf8",
+        "team_url": "",
+        "stadium_id": "9790c63c-9d68-4fcf-b90a-4618694fc6c2"
+    },
+    "AS Karditsas": {
+        "team_id": "1df26d4e-d8a3-4e5c-a4cb-d9b1c644245b",
+        "team_url": "",
+        "stadium_id": "1803628c-475e-43d1-8f9f-b0a02196e08a"
+    },
+    "Oostende": {
+        "team_id": "b348cd2e-cc31-45e2-9df9-a9bb5e77d8de",
+        "team_url": "",
+        "stadium_id": "f4c388da-7b25-4620-a97c-4fed565b2c45"
+    },
+    "Gran Canaria": {
+        "team_id": "efe593f1-0aa4-4e86-809b-98d0f30bd6a4",
+        "team_url": "",
+        "stadium_id": "e20c4908-e5cd-4f01-8ff9-ebe41ef649a5"
+    },
+    "Spartak Subotica": {
+        "team_id": "5a993914-494e-491d-ab69-9933fdd4de04",
+        "team_url": "",
+        "stadium_id": "bbaa3fa7-cba4-4ade-81e2-250990cb9769"
+    },
+    "Le Mans": {
+        "team_id": "71178e4c-77fd-4449-b3be-fb7baca76edb",
+        "team_url": "",
+        "stadium_id": "735ed212-525e-42f5-9ab8-7030c688fb75"
+    },
+    "Benfica": {
+        "team_id": "4da3e8a8-2124-4cfd-a729-bfe5ad0ec3fd",
+        "team_url": "",
+        "stadium_id": "8d8c472d-f099-4bd8-b6b5-4b2978e1f274"
+    },
+    "Murcia": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "200a7954-85e9-469b-aa41-7a56c54d04a6"
+    },
+    "Antwerp Giants": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "5b7f18e0-b9e4-4bfa-a35e-b2c0ef9730b5"
+    },
+    "Den Bosch": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "1efc56bc-8ba2-4612-9b2e-27be3a44d407"
+    },
+    "Bakken Bears": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "9c819b17-33ba-4d86-a7ec-16aca8f9c590"
+    },
+    "BC Kalev/Cramo": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "07c535a3-3818-4924-a30b-e1d7d72e1661"
+    }
+}

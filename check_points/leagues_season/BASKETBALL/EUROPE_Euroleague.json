@@ -1,0 +1,102 @@
+{
+    "Hapoel Tel-Aviv": {
+        "team_id": "3fff0d4e-b1d2-4c84-9c96-a755fb42926b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Olympiacos": {
+        "team_id": "f7931202-b8d8-49e2-9198-907c44a3a65a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Crvena zvezda": {
+        "team_id": "dd160f7a-85d1-4933-86f5-3b6d661fbf34",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Panathinaikos": {
+        "team_id": "d61a406d-997c-4eb7-94d5-489b2d00b28f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Zalgiris Kaunas": {
+        "team_id": "f642c4db-201a-4885-8b26-624243488c33",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Monaco": {
+        "team_id": "ec74d398-d41d-4982-96b0-39ddad6ddf04",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Valencia": {
+        "team_id": "7668befb-ff0d-4ce5-8ad1-4697fd220142",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Fenerbahce": {
+        "team_id": "2f3e73fe-04c4-4333-9bd5-3dacb2b6cd7c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Barcelona": {
+        "team_id": "a936659f-2b04-4169-ae9a-668ba0e23b2a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Real Madrid": {
+        "team_id": "42d64a49-be73-4953-a62a-8170808877ea",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Olimpia Milano": {
+        "team_id": "f115cb0e-db08-412b-a86b-1f4c7cc30eb0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Virtus Bologna": {
+        "team_id": "ea47006f-d368-49e9-a3ae-20277a9ee35b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Dubai": {
+        "team_id": "4b76c161-9a64-44d9-b083-e29357ef3ff9",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Anadolu Efes": {
+        "team_id": "1bc3a81b-4eea-419a-bf06-310ec20deb43",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bayern": {
+        "team_id": "27f4c739-dbde-4ba3-ada5-ec9992eebf61",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Paris": {
+        "team_id": "935a0ac2-d73e-42cf-8e71-6bbd4c424492",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Baskonia": {
+        "team_id": "efeda1ed-4e97-4bd8-9887-a50647398938",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Partizan Mozzart Bet": {
+        "team_id": "3c303283-5e2e-4c6a-bf09-ba31034e3ee6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Maccabi Tel Aviv": {
+        "team_id": "5aa6b84d-3d82-4600-862f-299d49982372",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lyon-Villeurbanne": {
+        "team_id": "41bd0af9-7e91-4139-a930-bccdbc523f1a",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

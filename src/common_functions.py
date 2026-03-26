@@ -397,6 +397,10 @@ def random_id_text(textinput):
     # return unique_code
     return str(uuid.uuid4())
 
+def generate_uuid_text(textinput):
+    """Deterministic UUID from text using UUID5 (NAMESPACE_DNS)."""
+    return str(uuid.uuid5(uuid.NAMESPACE_DNS, str(textinput)))
+
 def random_id_short():
     rand_id = ''.join(random.choice(string.ascii_lowercase) for i in range(4))
     digits = ''.join([str(random.randint(0, 9)) for i in range(4)])

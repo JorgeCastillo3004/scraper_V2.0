@@ -1,0 +1,82 @@
+{
+    "Penarol": {
+        "team_id": "2af49c47-5b6e-46b1-be8f-31f76ea5c100",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Nacional": {
+        "team_id": "a9b2fc91-eef1-4cc7-ab89-4b332f67b0bf",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Liverpool M.": {
+        "team_id": "317ce20a-27fb-4f54-9b6c-3be1ea617a1a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Defensor Sp.": {
+        "team_id": "624a29db-2775-41d9-9fdc-8044370d9f0a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Boston River": {
+        "team_id": "6bf4a99e-8880-446a-9ace-58d7063ffd0a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Montevideo City": {
+        "team_id": "587b346d-2527-4433-8beb-b7d17d85871a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "CA Cerro": {
+        "team_id": "b0abd1f9-7b60-4e1c-9017-5a9692335a53",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Cerro Largo": {
+        "team_id": "17c7eee0-3b06-4d28-9ea7-4243b3158824",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Progreso": {
+        "team_id": "643811d3-adc6-47e5-8679-34101484ad37",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Danubio": {
+        "team_id": "4400acef-a8c9-4a0d-b33e-4d57c3a20668",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Racing Montevideo": {
+        "team_id": "c1cb4c6f-e276-49fa-9cfc-91cb8043d7be",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Miramar": {
+        "team_id": "fee47986-5f34-4a22-ad75-ade320a21e8f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Juventud": {
+        "team_id": "31825a89-8663-433e-9ad5-12971bf95997",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "River Plate": {
+        "team_id": "aab356f8-0a3c-405c-a94a-57719009b0cf",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Wanderers": {
+        "team_id": "3e820b37-6a26-44f5-b883-d7148021a324",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Plaza Colonia": {
+        "team_id": "1b4566f0-871d-46aa-90d1-423236805125",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

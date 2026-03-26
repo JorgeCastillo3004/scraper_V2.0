@@ -1,0 +1,72 @@
+{
+    "Sparta Prague": {
+        "team_id": "03416720-c8f5-464d-a5fb-de40366c5e0b",
+        "team_url": "https://www.flashscore.com/team/sparta-prague/zcG9U7N6/",
+        "stadium_id": "040118e1-facb-41e0-92d3-4d9d61d4b856"
+    },
+    "Pardubice": {
+        "team_id": "dca17d84-0d4a-41f1-b38f-d1bff2d97d46",
+        "team_url": "https://www.flashscore.com/team/pardubice/UDlHJ9wl/",
+        "stadium_id": "723eb0e3-eef4-4b55-9778-a51accb4d47e"
+    },
+    "Trinec": {
+        "team_id": "697d6378-3809-4fa4-b061-4d1669a31a16",
+        "team_url": "https://www.flashscore.com/team/trinec/UJFDTRxD/",
+        "stadium_id": "3b4eeed1-5935-4f30-a1ba-a739c7e2c179"
+    },
+    "Liberec": {
+        "team_id": "396a9aba-6ab9-4e1e-a58a-bd37917a7493",
+        "team_url": "https://www.flashscore.com/team/liberec/tp8PNVFQ/",
+        "stadium_id": "52c36ec9-a795-4b3c-b50d-6d65ca38175a"
+    },
+    "Mountfield HK": {
+        "team_id": "f9d31c2f-0391-471a-9858-812b27f512af",
+        "team_url": "https://www.flashscore.com/team/mountfield-hk/xdNp4YNk/",
+        "stadium_id": "632db8bb-2ec5-40e9-8a60-806dfac1510c"
+    },
+    "Kometa Brno": {
+        "team_id": "c5136cf8-db1e-4443-9615-f9a18c0001cd",
+        "team_url": "https://www.flashscore.com/team/kometa-brno/AusK09zk/",
+        "stadium_id": "37fc952d-a1f9-4b6a-9b28-264f5bb41f8c"
+    },
+    "Vitkovice": {
+        "team_id": "f7efda38-d34c-485a-ad82-1cd30ba83798",
+        "team_url": "https://www.flashscore.com/team/vitkovice/QDufxqpt/",
+        "stadium_id": "46805acc-3f5b-4fc9-9732-f92329315a4e"
+    },
+    "Plzen": {
+        "team_id": "582ca351-06d8-4e07-864f-8e0358fd89ce",
+        "team_url": "https://www.flashscore.com/team/plzen/CMBTIThf/",
+        "stadium_id": "5e976fb7-3290-44fb-a863-756697eb3e2d"
+    },
+    "Ceske Budejovice": {
+        "team_id": "7fd3b5db-074f-4394-8851-4b6d199323c2",
+        "team_url": "https://www.flashscore.com/team/ceske-budejovice/UTfYWeKA/",
+        "stadium_id": "933f5eb5-d44c-4eb3-8974-0216c8672e50"
+    },
+    "Karlovy Vary": {
+        "team_id": "c8d7ac6e-a856-4fc0-91f5-b460b77fb9e7",
+        "team_url": "https://www.flashscore.com/team/karlovy-vary/pIEGPioE/",
+        "stadium_id": "8fbda900-408a-4450-b4f0-3dd3bb37d4c9"
+    },
+    "Olomouc": {
+        "team_id": "e7aad73d-5862-4963-9bab-9e823f685c52",
+        "team_url": "https://www.flashscore.com/team/olomouc/zVrB6irF/",
+        "stadium_id": "7448f928-d091-4e1c-a2f0-3a84bbe1a1d8"
+    },
+    "Mlada Boleslav": {
+        "team_id": "9778711d-f3f0-4b2b-a062-983640199eaf",
+        "team_url": "https://www.flashscore.com/team/mlada-boleslav/YeGlkuUb/",
+        "stadium_id": "debe58a3-eeb6-4cd7-8781-68e040aeb7b4"
+    },
+    "Kladno": {
+        "team_id": "8fd34491-0a3b-47d1-a594-2d84ff4dac14",
+        "team_url": "https://www.flashscore.com/team/kladno/bLIKOB0K/",
+        "stadium_id": "c710b650-dc1c-4178-a808-2618656e30a7"
+    },
+    "Litvinov": {
+        "team_id": "fab787fc-4cf8-44f3-974e-8956827ee254",
+        "team_url": "https://www.flashscore.com/team/litvinov/rgfiJkOs/",
+        "stadium_id": "4313fed2-0c66-4406-8fdd-3e72e6e82b9c"
+    }
+}

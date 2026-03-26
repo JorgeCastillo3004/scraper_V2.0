@@ -1,0 +1,182 @@
+{
+    "PSG": {
+        "team_id": "6c040b03-5dab-4a08-a235-c2aa8c9af937",
+        "team_url": "",
+        "stadium_id": "bc53c939-057e-41cf-8b12-9413326be610"
+    },
+    "Bayern Munich": {
+        "team_id": "030921b9-8ce8-4465-8a80-3a41752bd121",
+        "team_url": "",
+        "stadium_id": "7af7f7af-ebe6-4d3c-8b4b-1537af438fd6"
+    },
+    "Inter": {
+        "team_id": "ba62a66a-49b3-4904-bf0f-6c67d83c78d6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Arsenal": {
+        "team_id": "67fdb97a-9b4b-469b-831d-eb54175a1fbf",
+        "team_url": "",
+        "stadium_id": "77a0ec62-57dd-4382-aec7-1d2243c26d6f"
+    },
+    "Real Madrid": {
+        "team_id": "4743eea1-de0f-4754-9d2a-dc622c1755db",
+        "team_url": "",
+        "stadium_id": "437f21cf-611a-41b9-b4b7-0bce75ad87de"
+    },
+    "Dortmund": {
+        "team_id": "49cb44e2-9f12-4699-84bd-7a9a197b05ab",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Manchester City": {
+        "team_id": "b6b18e2f-140c-4b55-a5fe-9a440a2c857d",
+        "team_url": "",
+        "stadium_id": "6a034c2a-b267-4c00-b699-6ba45a4ffce3"
+    },
+    "Newcastle": {
+        "team_id": "3213e151-a552-49fd-bfe4-79c715837867",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Barcelona": {
+        "team_id": "eaf9faac-df02-4d87-82f3-9e39bf94d4b4",
+        "team_url": "",
+        "stadium_id": "34cc763b-e678-4f5e-8d9b-dbb318c63163"
+    },
+    "Liverpool": {
+        "team_id": "37587dcc-2d44-4da9-b40d-8502d5bacf22",
+        "team_url": "",
+        "stadium_id": "9c25292d-fc05-4fad-9a30-066e12e0a47c"
+    },
+    "Chelsea": {
+        "team_id": "166aaacc-5c5a-4284-b910-a053ec8239b9",
+        "team_url": "",
+        "stadium_id": "3909198d-8d6e-4de2-a535-d9274c6543c7"
+    },
+    "Sporting CP": {
+        "team_id": "7f77ef2d-7ede-4106-8ef9-5cf0c33a67a3",
+        "team_url": "",
+        "stadium_id": "34c4677c-5110-4239-9e63-49a9ef779881"
+    },
+    "Qarabag": {
+        "team_id": "f62fc66e-ae74-4cf9-9385-940193636304",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Galatasaray": {
+        "team_id": "01516231-f207-4f08-9a96-ab7182072eaf",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Tottenham": {
+        "team_id": "44baf431-05ec-48ab-9e86-e628e5b7cac1",
+        "team_url": "",
+        "stadium_id": "a096f04e-61ae-4c26-ac3a-ef9e4dbd5b42"
+    },
+    "PSV": {
+        "team_id": "b19b58f1-2df0-4cdc-94a9-8150996cc356",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Atalanta": {
+        "team_id": "c33e778a-785e-4c15-925e-63c9572ba715",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Marseille": {
+        "team_id": "5d793e43-ecec-4491-8685-10ca222d88af",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Atl. Madrid": {
+        "team_id": "71c2b667-0861-4af2-9c2f-df0bdf5aad9a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Club Brugge KV": {
+        "team_id": "3f672073-4c3d-44d9-9e0f-45833de7e02b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ath Bilbao": {
+        "team_id": "c199363b-fa1b-4339-8f60-13c298b04d75",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Eintracht Frankfurt": {
+        "team_id": "2ed98bca-9e3b-4b07-b7c3-4cb70ab04bd0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Napoli": {
+        "team_id": "f68281f9-c89a-4370-97cd-c13d552ab411",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Royale Union SG": {
+        "team_id": "5485ea7f-aaf9-4a26-8dfd-25e84abc9526",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Juventus": {
+        "team_id": "56b67ee1-88d2-4922-818e-9d425342e33a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bodo/Glimt": {
+        "team_id": "f318aa24-5211-46e4-8315-c2bf7638fb46",
+        "team_url": "",
+        "stadium_id": "7295def2-abd5-4e9c-ba20-a07030913f69"
+    },
+    "Monaco": {
+        "team_id": "1b9bdf85-d781-4d00-b426-be60fefdf507",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Slavia Prague": {
+        "team_id": "134bfb5c-b0c3-4c5f-8401-bf6c76c8983c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Pafos": {
+        "team_id": "ebf0ab35-bb41-438e-9499-ebd0a22da3ac",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bayer Leverkusen": {
+        "team_id": "87d1380c-6573-402d-bafd-b7898eacea21",
+        "team_url": "",
+        "stadium_id": "82e71626-c313-485e-bae4-516a89e6b97e"
+    },
+    "Villarreal": {
+        "team_id": "e15fa9ad-50e1-41b2-a20a-d0d9bacd716e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "FC Copenhagen": {
+        "team_id": "ed74cd21-18ad-4b9d-b52a-8ace19544530",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Olympiacos Piraeus": {
+        "team_id": "84f617fc-7d6a-4428-990b-3bffedeb5227",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Kairat Almaty": {
+        "team_id": "d1befed6-1bc0-4311-bc11-4850082750c1",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Benfica": {
+        "team_id": "f8cb634f-3cab-4c97-b894-6acc8ab77a12",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ajax": {
+        "team_id": "d143f17a-82ef-4c4b-833d-f2e8e596eec2",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

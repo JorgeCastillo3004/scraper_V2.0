@@ -1,0 +1,52 @@
+{
+    "Lotte Giants": {
+        "team_id": "68ffe438-2ab5-468b-87e5-a3f0d56669c2",
+        "team_url": "",
+        "stadium_id": "80b0c8e8-bbe8-4bd8-854e-f9fd1a05e8c1"
+    },
+    "NC Dinos": {
+        "team_id": "16d50eb8-dce8-4ec5-bb48-93a6d1d31923",
+        "team_url": "",
+        "stadium_id": "40f70628-9bb4-459b-a217-8a694f16557e"
+    },
+    "SSG Landers": {
+        "team_id": "885ac651-b32b-4846-8748-f0ae5c6cf47f",
+        "team_url": "",
+        "stadium_id": "25c76474-2d4d-4705-9e4e-af31ae20dc44"
+    },
+    "Kiwoom Heroes": {
+        "team_id": "cb06b999-40c7-4fff-a740-06a4c1b0f984",
+        "team_url": "",
+        "stadium_id": "5925a049-e884-4707-8f2b-f673d394027c"
+    },
+    "LG Twins": {
+        "team_id": "484a7b5c-dcc2-448c-b495-843b93aa0a5b",
+        "team_url": "",
+        "stadium_id": "2e806a44-0f33-4057-8936-bbd42939665e"
+    },
+    "Doosan Bears": {
+        "team_id": "adeee232-6d7b-41fe-91c0-3c14ae5852d3",
+        "team_url": "",
+        "stadium_id": "46e3675d-7b10-4dab-921b-3f77c8cced59"
+    },
+    "Samsung Lions": {
+        "team_id": "08f49d4a-1c3b-46b7-9b31-020e3ef63d47",
+        "team_url": "",
+        "stadium_id": "a3e727f6-4570-43be-a7bc-ccadf34aeca3"
+    },
+    "Hanwha Eagles": {
+        "team_id": "14dc77bb-fcd5-4b22-a2e1-144fe2a74c14",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "KIA Tigers": {
+        "team_id": "7340de5e-970f-4f5a-82c8-2b0b865a760a",
+        "team_url": "",
+        "stadium_id": "67589a97-32bc-4568-8976-5f61621f2eeb"
+    },
+    "KT Wiz Suwon": {
+        "team_id": "d42ed695-6097-4d4a-a188-f65a11dcd455",
+        "team_url": "",
+        "stadium_id": "802e4e57-e559-4a86-b4ff-f0eb02f8d562"
+    }
+}

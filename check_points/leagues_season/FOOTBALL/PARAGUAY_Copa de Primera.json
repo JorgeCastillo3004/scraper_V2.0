@@ -1,0 +1,62 @@
+{
+    "Guarani": {
+        "team_id": "098e0067-79b6-4e28-a0e3-21e9921f5214",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Cerro Porteno": {
+        "team_id": "36508610-ad10-4059-a7fd-285a86710f93",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "2 de Mayo": {
+        "team_id": "be416e92-a636-4de1-a0e6-44aa1c2a9ac6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Nacional Asuncion": {
+        "team_id": "3561b4cd-b46d-4dc9-8243-a3390baaf48c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Sportivo Trinidense": {
+        "team_id": "8cbfdfe9-46a7-4044-97ff-2d6efc424ea7",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Recoleta": {
+        "team_id": "39c9f540-44bc-4d2b-a612-de79b9bf8a44",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Sp. Luqueno": {
+        "team_id": "77f2f535-12ba-44d4-bcca-d6828d8d7a13",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "General Caballero JLM": {
+        "team_id": "67617c60-05bd-430f-abb6-5f91543d5d51",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Olimpia Asuncion": {
+        "team_id": "a3a17e4f-175a-4ea0-a067-733ce94ab59f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Libertad Asuncion": {
+        "team_id": "9daac095-3767-4ed3-b7fa-888e7e77b566",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ameliano": {
+        "team_id": "2528f17a-5ba7-416f-8a28-67cf21de2aa5",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Atl. Tembetary": {
+        "team_id": "7aed68db-6426-4426-ba58-d44ad336e3e5",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

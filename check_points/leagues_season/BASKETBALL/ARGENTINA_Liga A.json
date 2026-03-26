@@ -1,0 +1,97 @@
+{
+    "Ferro": {
+        "team_id": "4a6fba1f-6522-40e3-b6fc-37bd19938023",
+        "team_url": "",
+        "stadium_id": "7e4b2e8c-6b3b-4adb-b492-57118ae38aa0"
+    },
+    "La Union": {
+        "team_id": "ff4be6e7-7aa9-4cb8-9a31-a4f88d7647c3",
+        "team_url": "",
+        "stadium_id": "921be939-dbe6-4c38-ac4b-6234aaf475e4"
+    },
+    "Obras Sanitarias": {
+        "team_id": "27464b38-108c-4c4c-b64d-4b90ce12784d",
+        "team_url": "",
+        "stadium_id": "de390a0a-f9b1-41b0-a9a9-2057d2ffc917"
+    },
+    "Penarol": {
+        "team_id": "ac302350-f196-4c77-83ca-893b8dc6705c",
+        "team_url": "",
+        "stadium_id": "e7c15902-a3a7-4ac5-b582-cb218bb6f8ff"
+    },
+    "Regatas": {
+        "team_id": "cf8a37cf-528e-436b-a0af-00452f4cf1fd",
+        "team_url": "",
+        "stadium_id": "644da158-3865-40b5-a71a-58a87698fcb1"
+    },
+    "Obera TC": {
+        "team_id": "0e640d4a-f139-4c2a-a406-282632ed1569",
+        "team_url": "",
+        "stadium_id": "44947b2b-28e3-47de-bf82-919768fd6c69"
+    },
+    "Boca Juniors": {
+        "team_id": "73e904b6-84e5-4a8f-bdce-52bc2ce7c7f6",
+        "team_url": "",
+        "stadium_id": "aec1e22b-00c6-430a-aa31-418695a00e8d"
+    },
+    "Independiente de Oliva": {
+        "team_id": "e3dda994-d837-4662-8768-55739dfc0adb",
+        "team_url": "",
+        "stadium_id": "f20ab5d2-bcc9-47d9-a59d-479070421574"
+    },
+    "Quimsa": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "a6f1a3dd-65f3-43f8-8ef0-aa4a7348acba"
+    },
+    "Atenas": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "42f5e0ce-921b-4181-9c84-8f71904337db"
+    },
+    "San Martin": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "d267007f-0684-4fc0-b6e6-0199e4041d97"
+    },
+    "Instituto de Cordoba": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "067daddf-944d-4ac8-b1c7-40f6fab4f935"
+    },
+    "Argentino": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "273e8bab-8014-4272-9f44-7cbbc01e6925"
+    },
+    "Olimpico": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "40f13929-0a63-43e2-a15f-3107bdd5cdc6"
+    },
+    "Union De Santa Fe": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "4623eda8-dc52-4ebc-b46c-d6e233adb929"
+    },
+    "Gimnasia": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "852670cc-c6c7-4075-85b1-531c997c1314"
+    },
+    "Platense": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "6c9c430a-61a4-42c6-a52b-c021e0a6c410"
+    },
+    "San Lorenzo": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "1795ca69-3952-4d95-ae36-8fa701c1135e"
+    },
+    "Racing de Chivilcoy": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "cf1904ed-0c1e-41c3-a7ba-2a7e4a836e89"
+    }
+}

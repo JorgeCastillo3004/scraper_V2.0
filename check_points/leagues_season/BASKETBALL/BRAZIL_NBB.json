@@ -1,0 +1,62 @@
+{
+    "Brasilia": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "e66b58b2-fc7f-4707-8acc-7b292530b963"
+    },
+    "Cruzeiro": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "3e5e6eaf-2fe1-4ba1-811e-12b70132221b"
+    },
+    "Flamengo": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "6aeb7fb0-fc60-4cd1-ab92-e184bab31e9a"
+    },
+    "Pinheiros": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "03953035-95d3-4a41-a9bc-a0b94f3b4bba"
+    },
+    "Caxias do Sul": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "f4a7677c-7202-4c5d-b02a-f5b3c0f9a7c4"
+    },
+    "Botafogo": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "da93c2b6-d527-4749-984d-eba2cdf0074b"
+    },
+    "Paulistano": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "cf466d06-2f0c-4af8-b3d8-6e945675b6f1"
+    },
+    "Minas": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "7fb2607e-0abf-4ee4-82e0-3c29ea5e11be"
+    },
+    "Osasco": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "e4b473cf-278b-4215-8aa2-56dec8eb11b5"
+    },
+    "Rio Claro": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "eb056f2f-e834-48de-8e4c-e002abd5ea7d"
+    },
+    "Bauru": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "fe4bc154-1416-4c7f-95c8-de7ec9877e9d"
+    },
+    "Vasco": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "900db8ba-665e-4771-a451-7ccd34133fa9"
+    }
+}

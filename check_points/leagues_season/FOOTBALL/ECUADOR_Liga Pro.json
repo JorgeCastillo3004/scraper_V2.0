@@ -1,0 +1,87 @@
+{
+    "Mushuc Runa": {
+        "team_id": "9dcd07d0-31d5-4d58-8b63-5520fb40ea1e",
+        "team_url": "",
+        "stadium_id": "3e3357cb-08dd-4c6b-bcbd-4f903cf2e27b"
+    },
+    "Manta": {
+        "team_id": "ddd09f7a-4f4c-47b2-9f66-1cd91dc65581",
+        "team_url": "",
+        "stadium_id": "245e02f8-645a-4772-8c48-226e3be2ab90"
+    },
+    "Tecnico U.": {
+        "team_id": "7c10c915-1e8d-44f9-99fd-46f14548b0ed",
+        "team_url": "",
+        "stadium_id": "758d982d-b563-491e-97b4-63f889b10dcc"
+    },
+    "Vinotinto": {
+        "team_id": "cea62e49-967f-4131-afcc-2dc2e8b336d7",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Barcelona SC": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "da392a20-f41e-4814-af0f-4389c94cd75b"
+    },
+    "Delfin": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "66387b3c-9925-4dbd-8621-bdff200a0919"
+    },
+    "Dep. Cuenca": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "1e234ad6-af5a-40eb-9a2a-2c470e58f7f1"
+    },
+    "LDU Quito": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "e4ae5693-7728-41ca-9d91-33dfc859d6bb"
+    },
+    "Leones del Norte": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "2982eb68-89d2-468c-ad4e-4abd99e92fdc"
+    },
+    "Libertad": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "d1f3fc0b-e6de-47ef-b121-3703bb5a5e90"
+    },
+    "U. Catolica": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "e036ee7d-c2d0-4fd3-837d-d9b928f94329"
+    },
+    "Aucas": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "301c3233-d6ab-4747-b13d-a2ff7f5681b0"
+    },
+    "Emelec": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "2c5d1e0c-2ded-44d6-9d75-fc73dfbabe07"
+    },
+    "Guayaquil City": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "7d575cf9-41b9-4361-a69c-77ead1e4d828"
+    },
+    "Ind. del Valle": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "536fba93-0d68-4e6d-a517-4715087bae46"
+    },
+    "Macara": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "e8870660-9ccb-42f6-86e0-8f112463b59a"
+    },
+    "Orense": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "b8d925e3-5cbb-4f53-8488-a8dcb40204d6"
+    }
+}

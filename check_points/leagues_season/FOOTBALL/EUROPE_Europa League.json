@@ -1,0 +1,182 @@
+{
+    "Midtjylland": {
+        "team_id": "d5ef1ca1-16bf-4e4b-b566-de371f5f34d6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Braga": {
+        "team_id": "4b9628c8-3d91-4074-8351-159389ac7cc6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lyon": {
+        "team_id": "0d1d1e29-4154-4335-8cc8-76c4f25c2665",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "D. Zagreb": {
+        "team_id": "ae0aece4-dea3-47ac-9c0b-84f30750a3a8",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Plzen": {
+        "team_id": "24aada13-17d4-4dcc-bb30-c6f54e3b27f8",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Freiburg": {
+        "team_id": "dcce6606-0674-4c93-bf88-9925f181e666",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ferencvaros": {
+        "team_id": "3c38037c-7d79-4614-bdc9-55cf76620e48",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Brann": {
+        "team_id": "d89d0f56-35d8-48b0-a5e4-5602ac23bc53",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Celta Vigo": {
+        "team_id": "bd4ff616-41ba-4f55-8ba0-3d3df0295bb6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Aston Villa": {
+        "team_id": "9071c44b-33e1-40d2-9fff-184375eaaa91",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lille": {
+        "team_id": "62a2b454-2fa3-4eb5-9650-3716c23e5fa4",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "G.A. Eagles": {
+        "team_id": "6de64000-e204-46da-a814-8033c03e1ebe",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Young Boys": {
+        "team_id": "33b3fbbb-3ba2-4ea1-a6fb-2f45720c61fe",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Fenerbahce": {
+        "team_id": "ea1758f0-9ccd-4e34-8c23-dba5019886a3",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "FC Porto": {
+        "team_id": "58ae31c2-b24f-4968-8bc1-0b281e52b88a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Betis": {
+        "team_id": "336f9f2d-5a1a-4150-846d-10590d36b015",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Nottingham": {
+        "team_id": "ca2173d5-0c06-49e2-ae3c-2a3e89628553",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bologna": {
+        "team_id": "f3e09497-f2f5-4699-918c-2ec2c005255a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Genk": {
+        "team_id": "4d535818-f580-4e10-8d43-90ba6bb29608",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "PAOK": {
+        "team_id": "72f41229-9e5f-4884-9635-2c49a58ff00e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Celtic": {
+        "team_id": "a6bc5689-70ac-475b-949d-1442f808ed45",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Panathinaikos": {
+        "team_id": "373584cc-7850-4402-8e62-5bb5d4cb59e3",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "AS Roma": {
+        "team_id": "007c3eeb-8217-4be0-892a-a69d3fc9e4fe",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Basel": {
+        "team_id": "67b01603-f7fe-4923-be42-3077f6f7aca7",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Feyenoord": {
+        "team_id": "47b836ec-ab14-453b-84fb-707fd5e69150",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ludogorets": {
+        "team_id": "21c84d1b-77b7-4957-85c5-c479326b3fc5",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Sturm Graz": {
+        "team_id": "564493f2-43bc-4297-8f0f-f677c4f4622e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "FCSB": {
+        "team_id": "a059e96d-4982-4d69-bc47-be324692036f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Stuttgart": {
+        "team_id": "6d179b06-324c-4681-bddb-2cf4dc7b3599",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Crvena zvezda": {
+        "team_id": "4ea624c8-2ad9-479c-b6d5-9390681333f9",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Malmo FF": {
+        "team_id": "f62a4b9d-18a1-45bd-a2e3-ada5f3db465a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Maccabi Tel Aviv": {
+        "team_id": "32f15dfb-d003-4e32-8231-d3b8bfd07b82",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Nice": {
+        "team_id": "d173d221-914f-4659-a838-e944d506fab6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Salzburg": {
+        "team_id": "9dea583d-fc46-478e-80db-db7677069d0c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Utrecht": {
+        "team_id": "3a563379-a3b1-470a-89c9-886ee2b31de0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Rangers": {
+        "team_id": "12a3c2c8-7864-4596-8c80-45daaefcc6dc",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

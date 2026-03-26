@@ -1,0 +1,82 @@
+{
+    "Argentina": {
+        "team_id": "dabd1808-fc2e-4085-8592-5db5ffd5b06d",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Canada": {
+        "team_id": "9b1afb07-f1e2-40ac-ae9c-9c7814e2f261",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Chile": {
+        "team_id": "d988b368-57ae-4513-ae84-b0a129594730",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Peru": {
+        "team_id": "77b0250e-e3c2-4a32-b130-f739e064ba51",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Venezuela": {
+        "team_id": "7d776313-5f4c-429a-934c-59dd9b70d260",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ecuador": {
+        "team_id": "6ba2550d-7bfa-4f69-8888-343acc16b053",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Mexico": {
+        "team_id": "c8773317-3953-41cf-afa6-dc930607e008",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Jamaica": {
+        "team_id": "79bacba3-a93e-4847-8247-cd94becd9d32",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Uruguay": {
+        "team_id": "a824f24f-e63f-4fc6-8a68-53b689e79d57",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Panama": {
+        "team_id": "bda5a475-86f9-4ad1-821a-d0d5d8f1b3e4",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "USA": {
+        "team_id": "75b3258e-3294-41eb-a157-8b313b3ca18f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bolivia": {
+        "team_id": "1e03cba6-0c26-4414-808c-409f23332ba4",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Colombia": {
+        "team_id": "094ff22d-b00b-4388-9b99-053b8dfb538f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Brazil": {
+        "team_id": "c0d78213-41c5-4c74-a1eb-d75bbd39a3ca",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Costa Rica": {
+        "team_id": "5d83f51d-d89d-42ee-bc92-5e475424fab3",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Paraguay": {
+        "team_id": "45d6cb67-2b68-4ee3-8d22-4e05d6e07c36",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

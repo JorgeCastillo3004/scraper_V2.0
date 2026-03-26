@@ -1,0 +1,26 @@
+{
+    "Katowice": {
+        "team_id": "e24366d5-72c2-4a99-a528-3d20ff31bc6f",
+        "team_url": "https://www.flashscore.com/team/gks-katowice/jTgUtc77/"
+    },
+    "Nottingham": {
+        "team_id": "e0567914-9d6a-43f6-94ce-da110765c893",
+        "team_url": "https://www.flashscore.com/team/nottingham/fNGaenH9/"
+    },
+    "Mogo": {
+        "team_id": "d2901b4c-ffda-4b90-bc06-c4a6800a8984",
+        "team_url": "https://www.flashscore.com/team/mogo/hYIeh22p/"
+    },
+    "Herning Blue Fox": {
+        "team_id": "fff91131-5ad7-40c5-a38d-3aeaad2a3f77",
+        "team_url": "https://www.flashscore.com/team/herning-blue-fox/SCGvnHrU/"
+    },
+    "Angers": {
+        "team_id": "6fc49a37-15db-49d8-b635-f93052d3d407",
+        "team_url": "https://www.flashscore.com/team/angers/2udEPMGq/"
+    },
+    "Torpedo": {
+        "team_id": "017c6a5b-da64-4eda-8ad0-7617a801d288",
+        "team_url": "https://www.flashscore.com/team/kazzinc-torpedo/O4OFe0rO/"
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "Coquimbo": {
+        "team_id": "558d5962-d42a-4b39-8aad-db0b6571cce5",
+        "team_url": "",
+        "stadium_id": "2177d1a5-043a-4e77-89f6-4d45c1cc9e78"
+    },
+    "U. Catolica": {
+        "team_id": "040e302c-c243-4300-978d-60546370721d",
+        "team_url": "",
+        "stadium_id": "964552fb-ce84-4529-b5b9-4f1aeace8995"
+    },
+    "O'Higgins": {
+        "team_id": "c6a7c30d-931b-4712-955d-792bdb3ebeac",
+        "team_url": "",
+        "stadium_id": "67b1bae6-a887-4bfe-a288-cf0540251437"
+    },
+    "A. Italiano": {
+        "team_id": "26a43011-8acb-43e1-ae69-8c4abacedfdd",
+        "team_url": "",
+        "stadium_id": "c75b6bcc-afbd-44dd-8b55-0148ce4b738c"
+    },
+    "U. De Chile": {
+        "team_id": "352e3ff9-0610-4ff2-8aaf-f2899339966f",
+        "team_url": "",
+        "stadium_id": "14c60af7-1708-43b6-9ea0-f208a0c0ea89"
+    },
+    "Palestino": {
+        "team_id": "64c03bb8-c85f-4378-b494-83fe67c25fc1",
+        "team_url": "",
+        "stadium_id": "347698b2-c159-4267-ad91-4e6e0db6d143"
+    },
+    "Cobresal": {
+        "team_id": "eda3838a-d3e1-49f6-80fe-7123c604e3f7",
+        "team_url": "",
+        "stadium_id": "060e050f-2a6a-4496-bd00-45a63ed20d0e"
+    },
+    "Colo Colo": {
+        "team_id": "67fc3a1b-56cd-4d3d-b4f8-37eace913371",
+        "team_url": "",
+        "stadium_id": "82b8260a-a982-434c-96e3-b79acda136a6"
+    },
+    "Huachipato": {
+        "team_id": "684ff023-adae-4f6b-9297-6e3fd4a0cd74",
+        "team_url": "",
+        "stadium_id": "358717ab-c785-46f8-b761-832e6da82ca8"
+    },
+    "Nublense": {
+        "team_id": "a98cc9a5-4f39-4b02-b08a-7faa8abaa0f8",
+        "team_url": "",
+        "stadium_id": "ab8f2fb8-6ab3-4a08-b7cc-3bbc57a3b0f4"
+    },
+    "Union La Calera": {
+        "team_id": "58a6a830-9160-49b1-93bd-4f6947deecdc",
+        "team_url": "",
+        "stadium_id": "53291371-d2e5-4482-9273-f27b02f5338f"
+    },
+    "Everton": {
+        "team_id": "b1fca5e5-9268-4c5b-a1e1-f1298fd59092",
+        "team_url": "",
+        "stadium_id": "83965bca-1873-42d2-9235-b65ac6195e1c"
+    },
+    "Limache": {
+        "team_id": "588d851e-bbee-47ee-a32d-f165576780db",
+        "team_url": "",
+        "stadium_id": "63c240b1-14d7-41db-9ac2-e6da0ea98483"
+    },
+    "La Serena": {
+        "team_id": "6d49aa27-acb2-40e8-8e75-a7786d2c953c",
+        "team_url": "",
+        "stadium_id": "3db2b399-5ee8-4c60-8d92-fbe880a3a25d"
+    },
+    "U. Espanola": {
+        "team_id": "96ff19c6-906e-483e-a32d-4e644870f5a1",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Deportes Iquique": {
+        "team_id": "5c7d69c9-7d1b-44ee-8c89-75aaec2f0b98",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "U. De Concepcion": {
+        "team_id": "",
+        "team_url": "",
+        "stadium_id": "ad92f19f-1fb7-4629-882f-facff1bb42ee"
+    },
+    "D. Concepcion": {
+        "team_id": "",
+        "team_url": "",
+        "stadium_id": "db310bb4-f5cb-441b-b851-cac3438b4e4f"
+    },
+    "Nublense\n2": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "5840d54d-55d7-4c75-a93b-e02a683c5318"
+    }
+}

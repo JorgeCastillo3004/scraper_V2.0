@@ -1,0 +1,72 @@
+{
+    "Universidad Central": {
+        "team_id": "cf131933-13ba-46ae-a909-9b78c2f2e886",
+        "team_url": "https://www.flashscore.com/team/universidad-central/bFkqB6I0/",
+        "stadium_id": "905592a0-aeda-49c1-93b7-d85ee28b1497"
+    },
+    "La Guaira": {
+        "team_id": "7b873b90-ed55-4e1e-b57f-2a617552ce9d",
+        "team_url": "https://www.flashscore.com/team/deportivo-la-guaira/4SRaHjat/",
+        "stadium_id": "6bdfc6ca-d724-49e2-b715-236387cc1f60"
+    },
+    "Dep. Tachira": {
+        "team_id": "5a69b247-dd3b-4d62-a90b-24319597d744",
+        "team_url": "https://www.flashscore.com/team/dep-tachira/t8oez9vd/",
+        "stadium_id": "feefac56-508c-4209-abb4-a22c3b7c5aa3"
+    },
+    "Rayo Zuliano": {
+        "team_id": "0b69f96b-8736-417c-939f-2f9def406fb9",
+        "team_url": "https://www.flashscore.com/team/rayo-zuliano/l0k1Tw5i/",
+        "stadium_id": "8ef14205-4966-4f4a-9b5c-4c6db0068eb0"
+    },
+    "Portuguesa": {
+        "team_id": "f028d770-7464-4d0f-b496-78c87aa4f717",
+        "team_url": "https://www.flashscore.com/team/portuguesa/4tFmv8gk/",
+        "stadium_id": "ac3a7319-737b-4099-b2ad-11925c6ff582"
+    },
+    "Puerto Cabello": {
+        "team_id": "5da04bd4-a55d-4732-9d50-28128925566b",
+        "team_url": "https://www.flashscore.com/team/academia-puerto-cabello/Mgr9ojjj/",
+        "stadium_id": "ff15ef6a-47f2-4b62-8357-d463b8c7827b"
+    },
+    "Carabobo": {
+        "team_id": "ac975df4-09d1-4f89-b488-a261420d3bbc",
+        "team_url": "https://www.flashscore.com/team/carabobo/6cmntinM/",
+        "stadium_id": "78365f23-882c-4119-8312-2c98b7cf8b6b"
+    },
+    "Zamora": {
+        "team_id": "2b84ebfa-0b11-4f58-8311-a85e1d724599",
+        "team_url": "https://www.flashscore.com/team/zamora/rXDiwS8e/",
+        "stadium_id": "6f14e2ff-c01c-431e-b4dc-af899dba35d1"
+    },
+    "Estudiantes Merida": {
+        "team_id": "355b944c-3257-4b1f-ad5c-99138b7ec3ea",
+        "team_url": "https://www.flashscore.com/team/estudiantes-merida/CW1kbCW2/",
+        "stadium_id": "5e44e06e-6d3b-4405-842b-4c7df8fece34"
+    },
+    "Metropolitanos": {
+        "team_id": "3e1e2dac-9f58-4130-8a42-bbaf65a87827",
+        "team_url": "https://www.flashscore.com/team/metropolitanos/GjYmyonC/",
+        "stadium_id": "6d0dd04c-f6ae-40d0-a14f-8322bf8eb512"
+    },
+    "Trujillanos": {
+        "team_id": "e1ed9a1a-d839-4d86-9593-f46a1e622d6c",
+        "team_url": "https://www.flashscore.com/team/trujillanos/ddwscmEO/",
+        "stadium_id": "7db1ffc1-1368-46dc-a9ed-9233562bf36a"
+    },
+    "Anzoategui FC": {
+        "team_id": "c1c1b816-d4cb-4df4-82f9-dd79fe54fb1b",
+        "team_url": "https://www.flashscore.com/team/academia-anzoategui/K4Nn6Z08/",
+        "stadium_id": "95b7d11b-0275-4138-a59b-945f053f0955"
+    },
+    "Caracas": {
+        "team_id": "9b2bbc5d-cf62-4806-8d64-b5465f8d9438",
+        "team_url": "https://www.flashscore.com/team/caracas/l6AbuB1S/",
+        "stadium_id": "4a7c4a13-d851-4ba3-a1a3-8d83860b181d"
+    },
+    "Monagas": {
+        "team_id": "e9959147-86a7-48b1-85de-1d33ff6eae6b",
+        "team_url": "https://www.flashscore.com/team/monagas/MHPrulvq/",
+        "stadium_id": "02f49d79-536c-488e-bcf2-4264645bbcaa"
+    }
+}

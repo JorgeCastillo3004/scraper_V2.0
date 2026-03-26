@@ -1,0 +1,97 @@
+{
+    "Cruz Azul": {
+        "team_id": "348dfe9a-af89-4578-b2ef-dc56ba0dbbf1",
+        "team_url": "https://www.flashscore.com/team/cruz-azul/G8PFBMll/",
+        "stadium_id": "5d06cc22-ac54-4e10-8331-4a573dfd2203"
+    },
+    "Toluca": {
+        "team_id": "d6a9a6bd-a84f-4acf-aa30-21e4387c9474",
+        "team_url": "https://www.flashscore.com/team/toluca/8hiBr2eQ/",
+        "stadium_id": "5f83af5f-2ed6-475a-9225-bd8d27f4da9a"
+    },
+    "Guadalajara Chivas": {
+        "team_id": "c9036e3a-cc57-4cb0-8474-9a9c73365120",
+        "team_url": "https://www.flashscore.com/team/guadalajara-chivas/Y5TaMKY6/",
+        "stadium_id": "d10728d9-7aca-4282-899f-8ce52682569a"
+    },
+    "Pachuca": {
+        "team_id": "d965595c-3d90-416b-83a0-3158ee56deba",
+        "team_url": "https://www.flashscore.com/team/pachuca/QT16qrtK/",
+        "stadium_id": "56fd7fa0-edaf-47bb-93fd-7d6082c3cd12"
+    },
+    "UNAM Pumas": {
+        "team_id": "f2d00d42-6d5f-42f0-a94a-089230230cb3",
+        "team_url": "https://www.flashscore.com/team/unam-pumas/UB73mIXI/",
+        "stadium_id": "22c521bc-4bc7-4988-8610-480f6e213bed"
+    },
+    "Tigres UANL": {
+        "team_id": "dbc67ccc-aaa7-439d-8d67-b2587be34a8a",
+        "team_url": "https://www.flashscore.com/team/tigres-uanl/Iy4albIC/",
+        "stadium_id": "81a7b89e-7814-4183-9da8-27d6edf6c5ce"
+    },
+    "Atlas": {
+        "team_id": "7bff4a90-e462-43d9-bd8c-4807c73d76da",
+        "team_url": "https://www.flashscore.com/team/atlas/AVOJAt4f/",
+        "stadium_id": "d5a744ed-3b01-4c7e-98d8-93ca6b2fbc6a"
+    },
+    "Club America": {
+        "team_id": "618ead99-20ec-48c4-abf6-9c3bf1cedf79",
+        "team_url": "https://www.flashscore.com/team/club-america/vyrswtJm/",
+        "stadium_id": "89f6b86e-28b9-4768-a43e-b3d098ecb13e"
+    },
+    "Monterrey": {
+        "team_id": "de363d48-7da9-4de4-b7cf-ea050f89c41b",
+        "team_url": "https://www.flashscore.com/team/monterrey/Ya23C2Zs/",
+        "stadium_id": "3ad91ce7-6e6a-43df-8840-679c9fc22c35"
+    },
+    "Puebla": {
+        "team_id": "1e921fc9-419f-4f94-9156-bc5489b18315",
+        "team_url": "https://www.flashscore.com/team/puebla/pO5ijKm0/",
+        "stadium_id": "118b8d61-25eb-400e-bf76-62ca29798971"
+    },
+    "Juarez": {
+        "team_id": "e854154d-f0b6-4175-a11e-24651e3caa57",
+        "team_url": "https://www.flashscore.com/team/juarez/2wZp8NAh/",
+        "stadium_id": "546506f5-27ae-4979-adce-3de624899233"
+    },
+    "Atl. San Luis": {
+        "team_id": "dd080b42-b47c-4a2b-a4fb-d081c90f8da2",
+        "team_url": "https://www.flashscore.com/team/atletico-san-luis/OYSN90J0/",
+        "stadium_id": "e92d9ab3-d70b-405b-b0f3-bbe55340a8f1"
+    },
+    "Club Leon": {
+        "team_id": "0a1ef23c-2778-4b4e-b585-b0f34437091d",
+        "team_url": "https://www.flashscore.com/team/club-leon/l0iuHPBQ/",
+        "stadium_id": "00d9e1c6-552a-4304-be39-317e8c46d52c"
+    },
+    "Mazatlan FC": {
+        "team_id": "02a878b3-407e-4a7d-97b5-a5e4620d2441",
+        "team_url": "https://www.flashscore.com/team/mazatlan-fc/AXl5ehGE/",
+        "stadium_id": "02a08a5b-8b34-44c6-96c8-4a5f3afe6572"
+    },
+    "Club Tijuana": {
+        "team_id": "fc513b92-8b49-47b3-923b-abb6246dd8f0",
+        "team_url": "https://www.flashscore.com/team/club-tijuana/nuNVeQkr/",
+        "stadium_id": "2f765eae-bede-431d-a94c-78b7aa0db30d"
+    },
+    "Necaxa": {
+        "team_id": "24bc3325-fa9a-4028-92eb-825888e7784f",
+        "team_url": "https://www.flashscore.com/team/necaxa/nw32pOQD/",
+        "stadium_id": "ad601e0c-329c-4aa9-a2d2-0532915c7b89"
+    },
+    "Queretaro": {
+        "team_id": "e4e516a1-0c50-404b-9067-3db1fb2d5383",
+        "team_url": "https://www.flashscore.com/team/queretaro/fqJAznPc/",
+        "stadium_id": "520a0c32-5e49-4301-b128-1804031f5002"
+    },
+    "Santos Laguna": {
+        "team_id": "5b8a364c-fdb2-4c70-8680-2e2e0b0b25d3",
+        "team_url": "https://www.flashscore.com/team/santos-laguna/EBPEFrRQ/",
+        "stadium_id": "bcfc5f00-305e-40cc-b468-ca7affb5d9c9"
+    },
+    "Pachuca\n2": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "119f243a-dd68-46b0-bcf1-bc0a8c1d13c4"
+    }
+}

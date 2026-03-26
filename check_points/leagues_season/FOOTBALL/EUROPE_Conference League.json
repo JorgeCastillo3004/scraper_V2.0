@@ -1,0 +1,182 @@
+{
+    "Fiorentina": {
+        "team_id": "0dd2f900-203b-428e-b755-8a2c8d8d76f3",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "AEK Larnaca": {
+        "team_id": "cfea49d0-5699-460f-a49c-17de0669e3e7",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Celje": {
+        "team_id": "1c211c05-9d51-4c4a-b3ba-56c615bedafa",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lausanne": {
+        "team_id": "ede89637-db39-44e3-b82c-c0e3da1a8b93",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Samsunspor": {
+        "team_id": "a2257145-1e80-4327-9a40-48a968e76002",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Mainz": {
+        "team_id": "002b00b9-0990-4104-9ecf-cf1cde3a7cca",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Rayo Vallecano": {
+        "team_id": "d11bbb73-c73b-4fa8-8cdf-afe533f865e5",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Rakow": {
+        "team_id": "24670075-b8ed-4067-9c59-5cf6fb54adf0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Strasbourg": {
+        "team_id": "31a40e05-3330-4d00-8e5b-02678c4b5ca7",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Jagiellonia": {
+        "team_id": "14a18134-189d-4a1f-a7fa-25583f74174c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Noah": {
+        "team_id": "a8b4bf89-7a3e-4a46-aadf-44900f4ea6d3",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "AEK Athens FC": {
+        "team_id": "0e9aaeab-11dd-4643-8ed2-eb972cd18b16",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Zrinjski": {
+        "team_id": "4069d454-5536-4a48-8238-4e8a872d0602",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lech Poznan": {
+        "team_id": "d119c0ac-3bfd-4601-ba56-8c09e56dbd3d",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Sparta Prague": {
+        "team_id": "48d79ad5-ac22-4ac6-8024-9755656d9ced",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Crystal Palace": {
+        "team_id": "23732214-118e-4777-96e6-0eb12ba819a0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Shakhtar Donetsk": {
+        "team_id": "93a9a9ec-5e2c-4d69-9ac2-413da33a479d",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Legia": {
+        "team_id": "a37d29df-23ba-410c-8a12-dbc4d92a48f0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Rijeka": {
+        "team_id": "a4258489-ee02-46c0-9e34-5a8cd323f976",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Shkendija": {
+        "team_id": "152af1be-2f76-49b1-b7c3-aa4e18d3647c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "AZ Alkmaar": {
+        "team_id": "2c29b08f-72ca-4f2a-9f2d-9dc53d645588",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lincoln Red Imps": {
+        "team_id": "20bf78f0-9023-45d5-beda-aa01c72a3931",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Drita": {
+        "team_id": "dab25847-f36e-4a55-8b06-f46ec5c10557",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Hacken": {
+        "team_id": "166991cc-19e9-4db5-bc46-3771038309cf",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "KuPS": {
+        "team_id": "27cccad5-0a03-45ae-b596-92d12401d073",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Omonia": {
+        "team_id": "d474669c-5cb6-4e82-b82c-94b81015b607",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Shelbourne": {
+        "team_id": "48acf113-f6bf-43b8-9dec-8da7bea6e715",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Sigma Olomouc": {
+        "team_id": "2f0342cc-95eb-4390-8c68-bb96372ca874",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Univ. Craiova": {
+        "team_id": "5e28e61c-c48b-4521-bdff-b0ff3ee5766b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Breidablik": {
+        "team_id": "3724cdd3-2860-486b-bc85-2d708204daab",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Slovan Bratislava": {
+        "team_id": "1910bb5f-8ff3-4db0-b99d-4f7aaebe5759",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Hamrun": {
+        "team_id": "1a6f7413-e5d5-476f-8ced-0e4b52821ab2",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Shamrock Rovers": {
+        "team_id": "ea1efa94-9877-4abb-b55d-94a53df96b99",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Dyn. Kyiv": {
+        "team_id": "e402f344-283d-4d48-9956-843d57643ec6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "SK Rapid": {
+        "team_id": "66160fd0-f5cc-48d8-afd7-f347b629a98a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Aberdeen": {
+        "team_id": "edbbf5a3-e46c-4340-bd4c-cfc6a8bad274",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

@@ -43,6 +43,21 @@ def get_snapshot():
     cur.execute("SELECT COUNT(*) FROM news")
     news_count = cur.fetchone()[0]
 
+    cur.execute("SELECT COUNT(*) FROM sport")
+    sports_count = cur.fetchone()[0]
+
+    cur.execute("SELECT name FROM sport ORDER BY name")
+    sports_list = [row[0] for row in cur.fetchall()]
+
+    cur.execute("SELECT COUNT(*) FROM league")
+    leagues_count = cur.fetchone()[0]
+
+    cur.execute("SELECT COUNT(*) FROM season")
+    seasons_count = cur.fetchone()[0]
+
+    cur.execute("SELECT COUNT(*) FROM player")
+    players_count = cur.fetchone()[0]
+
     cur.close()
     conn.close()
 
@@ -51,6 +66,11 @@ def get_snapshot():
         'total_matches': total,
         'total_teams': teams,
         'total_news': news_count,
+        'total_sports': sports_count,
+        'sports_list': sports_list,
+        'total_leagues': leagues_count,
+        'total_seasons': seasons_count,
+        'total_players': players_count,
         'leagues': leagues,
     }
 
@@ -72,9 +92,14 @@ def show_comparison(prev, curr):
     print(f"\n{'='*60}")
     print(f"  SNAPSHOT: {curr['timestamp']}")
     print(f"{'='*60}")
+    sports = curr.get('sports_list', [])
+    print(f"  Total deportes : {curr['total_sports']:>6}  (Δ {curr['total_sports'] - prev.get('total_sports', 0):+})  {', '.join(sports)}")
+    print(f"  Total ligas    : {curr['total_leagues']:>6}  (Δ {curr['total_leagues'] - prev.get('total_leagues', 0):+})")
+    print(f"  Total temporadas:{curr['total_seasons']:>5}  (Δ {curr['total_seasons'] - prev.get('total_seasons', 0):+})")
     print(f"  Total partidos : {curr['total_matches']:>6}  (Δ {curr['total_matches'] - prev['total_matches']:+})")
     print(f"  Total equipos  : {curr['total_teams']:>6}  (Δ {curr['total_teams'] - prev['total_teams']:+})")
     print(f"  Total noticias : {curr['total_news']:>6}  (Δ {curr['total_news'] - prev.get('total_news', 0):+})")
+    print(f"  Total jugadores: {curr['total_players']:>6}  (Δ {curr['total_players'] - prev.get('total_players', 0):+})")
     print(f"\n  Cambios por liga (vs {prev['timestamp']}):")
     print(f"  {'-'*56}")
 
@@ -104,7 +129,7 @@ def show_list(history):
     print(f"  HISTORIAL DE SNAPSHOTS ({len(history)} entradas)")
     print(f"{'='*50}")
     for i, h in enumerate(history):
-        print(f"  [{i:02d}] {h['timestamp']}  partidos={h['total_matches']}  equipos={h['total_teams']}  noticias={h.get('total_news', '?')}")
+        print(f"  [{i:02d}] {h['timestamp']}  deportes={h.get('total_sports','?')}  ligas={h.get('total_leagues','?')}  partidos={h['total_matches']}  equipos={h['total_teams']}  noticias={h.get('total_news','?')}  jugadores={h.get('total_players','?')}")
     print(f"{'='*50}\n")
 
 
@@ -124,9 +149,13 @@ def main():
         show_comparison(history[-1], snapshot)
     else:
         print(f"\nPrimer snapshot guardado: {snapshot['timestamp']}")
+        print(f"  Total deportes : {snapshot['total_sports']}  {', '.join(snapshot.get('sports_list', []))}")
+        print(f"  Total ligas    : {snapshot['total_leagues']}")
+        print(f"  Total temporadas: {snapshot['total_seasons']}")
         print(f"  Total partidos : {snapshot['total_matches']}")
         print(f"  Total equipos  : {snapshot['total_teams']}")
         print(f"  Total noticias : {snapshot['total_news']}")
+        print(f"  Total jugadores: {snapshot['total_players']}")
 
     history.append(snapshot)
     save_history(history)

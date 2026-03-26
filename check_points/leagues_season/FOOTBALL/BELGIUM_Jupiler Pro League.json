@@ -1,0 +1,82 @@
+{
+    "Royale Union SG": {
+        "team_id": "13b07a4a-4ff6-436e-a0d2-b1e39622d777",
+        "team_url": "",
+        "stadium_id": "f90bf0c3-1839-4b9a-b695-0dcfb4ec9e3d"
+    },
+    "Club Brugge KV": {
+        "team_id": "9c0e5b4e-7d6c-4890-94d5-fdae637cb005",
+        "team_url": "",
+        "stadium_id": "a7c41e64-ae38-4d35-8c02-a61cb0bce4da"
+    },
+    "Anderlecht": {
+        "team_id": "6fd70367-4c70-4b1a-ab01-320f77425c78",
+        "team_url": "",
+        "stadium_id": "21e1ef66-9b6b-4e39-9284-1248a0fb7e44"
+    },
+    "KV Mechelen": {
+        "team_id": "e6cf9996-29b2-41f2-9298-424bd30f036b",
+        "team_url": "",
+        "stadium_id": "3e825727-5ec4-4722-8600-5d97facaec22"
+    },
+    "St. Truiden": {
+        "team_id": "fd305ea8-14da-468d-b7cf-beecd8e1b323",
+        "team_url": "",
+        "stadium_id": "5bcfebb8-5ca1-43b0-b5af-f5a96f1d02d9"
+    },
+    "Waregem": {
+        "team_id": "0fdad62b-953c-4bcf-9f8e-75d49b9a15d5",
+        "team_url": "",
+        "stadium_id": "803d8626-cf92-4f80-aa40-f2b8bf5c8ca4"
+    },
+    "Gent": {
+        "team_id": "b685148e-fc70-4690-b302-70f9ee7d9df7",
+        "team_url": "",
+        "stadium_id": "d17822d3-7087-4a22-9ea8-b10401c36e84"
+    },
+    "Genk": {
+        "team_id": "06dc7797-8bd3-4350-9b93-4961d1dac275",
+        "team_url": "",
+        "stadium_id": "c0866360-c942-40b0-9220-8ec746fde2d4"
+    },
+    "Westerlo": {
+        "team_id": "d580f87b-e853-4c02-a83d-220d0821b42e",
+        "team_url": "",
+        "stadium_id": "084e8722-695e-42be-a728-0426c641ccd7"
+    },
+    "St. Liege": {
+        "team_id": "6921cdd1-1e63-4bc2-807f-60512064cfbb",
+        "team_url": "",
+        "stadium_id": "3c777160-0754-49d0-ba60-0a8db487be10"
+    },
+    "RAAL La Louviere": {
+        "team_id": "b95b6a22-fbe0-4aa8-8fcb-8d5710a32eea",
+        "team_url": "",
+        "stadium_id": "75c80cb6-47ff-4b98-ae5c-fea13fb1b095"
+    },
+    "Charleroi": {
+        "team_id": "5dfe7dfe-8185-44f8-b23a-153b094a9680",
+        "team_url": "",
+        "stadium_id": "d4731d5e-396f-4bbd-b164-17ed97093752"
+    },
+    "Cercle Brugge KSV": {
+        "team_id": "f137ed4b-8dc0-4123-92af-36b1f6806940",
+        "team_url": "",
+        "stadium_id": "8f1dd75c-2ae3-47e4-94be-790bf5d8b511"
+    },
+    "Antwerp": {
+        "team_id": "d4c886e0-c932-44fe-a708-dc39d56fdc27",
+        "team_url": "",
+        "stadium_id": "f4b31824-175e-4239-9433-d1c855eda935"
+    },
+    "Leuven": {
+        "team_id": "0585dfe0-186a-423c-9a3a-d16724f8c92c",
+        "team_url": "",
+        "stadium_id": "d0ed9518-04a7-4f78-bed8-decb712c1d0a"
+    },
+    "Dender": {
+        "team_id": "0d8b4f35-0bc6-463d-b091-260f486a5d77",
+        "team_url": "",
+        "stadium_id": "01feb19f-3bad-4eb8-a100-e1e5b2c23248"
+    }
+}

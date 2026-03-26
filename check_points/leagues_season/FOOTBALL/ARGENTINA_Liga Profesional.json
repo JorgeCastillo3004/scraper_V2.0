@@ -1,0 +1,258 @@
+{
+    "Velez Sarsfield": {
+        "team_id": "424ec30f-b1d8-4640-994c-6a3f502d750b",
+        "team_url": "https://www.flashscore.com/team/velez-sarsfield/UsCR8gFd/",
+        "stadium_id": "2efe4d13-a4df-4f67-a86f-9ef8a0ee8a67",
+        "last_processed": "completed",
+        "url_players": [
+            "https://www.flashscore.com/player/montero-alvaro/Kv30f5AC/",
+            "https://www.flashscore.com/player/garcia-roberto/tS3fmC7l/",
+            "https://www.flashscore.com/player/gomez-elias/2XJKuAXn/",
+            "https://www.flashscore.com/player/gordon-jano/2kMhj1f7/",
+            "https://www.flashscore.com/player/magallan-lisandro/UJ9qbHzf/",
+            "https://www.flashscore.com/player/mammana-emanuel/O6l8vedq/",
+            "https://www.flashscore.com/player/quiroz-aaron/zBAcngxj/",
+            "https://www.flashscore.com/player/silvero-thiago/vTC8XLIn/",
+            "https://www.flashscore.com/player/aliendro-rodrigo/MNBusGhL/",
+            "https://www.flashscore.com/player/andrada-tobias/8l2qBJqH/",
+            "https://www.flashscore.com/player/baeza-claudio/n1mnMstA/",
+            "https://www.flashscore.com/player/feler-luca/tE4U9Q56/",
+            "https://www.flashscore.com/player/lanzini-manuel/QT3lIj4N/",
+            "https://www.flashscore.com/player/robertone-lucas/bVRknfbT/",
+            "https://www.flashscore.com/player/valdes-diego/0MKjTSlp/",
+            "https://www.flashscore.com/player/arias-matias/vqysvn2d/",
+            "https://www.flashscore.com/player/godoy-dilan/Of7kpObk/",
+            "https://www.flashscore.com/player/machuca-imanol/z5zmNtVP/",
+            "https://www.flashscore.com/player/monzon-florian/zk3bnWMf/",
+            "https://www.flashscore.com/player/pellegrini-matias/Y17WIkqP/",
+            "https://www.flashscore.com/player/romero-braian/2e8uHq5S/",
+            "https://www.flashscore.com/player/veron-alex/MFIdIl8j/",
+            "https://www.flashscore.com/player/barros-schelotto-gustavo/OQ1BcJFU/",
+            "https://www.flashscore.com/player/busso-alvaro/r36ppJc3/",
+            "https://www.flashscore.com/player/marchiori-tomas/GSDXrofJ/",
+            "https://www.flashscore.com/player/andrada-isaias/E36eB2q4/",
+            "https://www.flashscore.com/player/cristaldo-leo/h8QiKTIs/",
+            "https://www.flashscore.com/player/dominguez-demian/bgZqIFR8/",
+            "https://www.flashscore.com/player/escobar-simon/zDXq2ib2/",
+            "https://www.flashscore.com/player/pereyra-alexis/SMxDBzpL/",
+            "https://www.flashscore.com/player/pineiro-rodrigo/YZOqfKr9/"
+        ]
+    },
+    "Estudiantes L.P.": {
+        "team_id": "3ef820a8-74f6-4e1b-9469-8ad133206c28",
+        "team_url": "https://www.flashscore.com/team/estudiantes-l-p/p2SkCHXs/",
+        "stadium_id": "17d8f9df-2695-44d2-a32e-b2699e473983",
+        "url_players": [],
+        "last_processed": "completed"
+    },
+    "Union de Santa Fe": {
+        "team_id": "ac5467d4-b57c-4e1c-befb-41dae6970467",
+        "team_url": "https://www.flashscore.com/team/union-de-santa-fe/lr2YMkTK/",
+        "stadium_id": "cd5c11cd-5464-46b1-b5ed-a3e909d96be6",
+        "url_players": [
+            "https://www.flashscore.com/player/mansilla-matias/AuDfrnC8/",
+            "https://www.flashscore.com/player/alvarez-emiliano/UPZW0cWo/",
+            "https://www.flashscore.com/player/fascendini-valentin/21b7Wkk5/",
+            "https://www.flashscore.com/player/luduena-juan/pStY474a/",
+            "https://www.flashscore.com/player/pitton-bruno/WW5YKnl2/",
+            "https://www.flashscore.com/player/profini-rafael/pAyB6THl/",
+            "https://www.flashscore.com/player/rodriguez-maizon/j1POG1Wd/",
+            "https://www.flashscore.com/player/vargas-lautaro/hYuo8xHN/",
+            "https://www.flashscore.com/player/cuello-braian/zgdcDez8/",
+            "https://www.flashscore.com/player/del-blanco-mateo/0UiXzeqS/",
+            "https://www.flashscore.com/player/giaccone-emilio/vi9kp4yi/",
+            "https://www.flashscore.com/player/grella-santiago/4l14W63c/",
+            "https://www.flashscore.com/player/menossi-lucas/pI6YVpb2/",
+            "https://www.flashscore.com/player/palacios-julian/0hVH8329/",
+            "https://www.flashscore.com/player/palavecino-nicolas/I3qMh0sP/",
+            "https://www.flashscore.com/player/pitton-mauro/4ngPbRdb/",
+            "https://www.flashscore.com/player/solari-augusto/EXSsgIYi/",
+            "https://www.flashscore.com/player/aguirre-misael/zksz2x8b/",
+            "https://www.flashscore.com/player/colazo-agustin/U7A3UjjA/",
+            "https://www.flashscore.com/player/diaz-diego/fs2pZbK7/",
+            "https://www.flashscore.com/player/estigarribia-marcelo-luciano/zJF7SL2k/",
+            "https://www.flashscore.com/player/fragapane-franco/4GtyJ7Ed/",
+            "https://www.flashscore.com/player/tarragona-cristian/QyxXUSPs/",
+            "https://www.flashscore.com/player/madelon-leonardo/08RxAcS5/",
+            "https://www.flashscore.com/player/gomes-federico/ljlcOims/",
+            "https://www.flashscore.com/player/palma-lucas/Y5Y73VoE/",
+            "https://www.flashscore.com/player/corvalan-claudio/295zNRob/",
+            "https://www.flashscore.com/player/paz-nicolas/Uy65JSj8/",
+            "https://www.flashscore.com/player/gonzalez-tomas/f9O6GQIa/"
+        ],
+        "last_processed": "completed"
+    },
+    "Independiente": {
+        "team_id": "6bb13d92-5d1c-46ed-8298-d1baa006f43f",
+        "team_url": "https://www.flashscore.com/team/independiente/UVatI5Y2/",
+        "stadium_id": "b7b52ceb-7664-4e30-96fb-f47bff716f5e",
+        "url_players": [
+            "https://www.flashscore.com/player/rey-rodrigo/x6BCGiZJ/",
+            "https://www.flashscore.com/player/arias-santiago/82iJTw7N/",
+            "https://www.flashscore.com/player/fedorco-juan/4KL5JF1T/",
+            "https://www.flashscore.com/player/godoy-leonardo/zPbM3KI7/",
+            "https://www.flashscore.com/player/lomonaco-kevin/bHhEc4EA/",
+            "https://www.flashscore.com/player/montiel-santiago/fmmVeuQp/",
+            "https://www.flashscore.com/player/valdez-sebastian/nmUS0QyJ/",
+            "https://www.flashscore.com/player/valenzuela-milton/vsNGwvca/",
+            "https://www.flashscore.com/player/zabala-facundo/GjM8PLup/",
+            "https://www.flashscore.com/player/cabral-luciano/QkTW2yNs/",
+            "https://www.flashscore.com/player/malcorra-victor/tWCCM4V2/",
+            "https://www.flashscore.com/player/mancuello-federico/WGknWhxt/",
+            "https://www.flashscore.com/player/marcone-ivan/6Nq6MVXK/",
+            "https://www.flashscore.com/player/millan-lautaro/ptKM6eCb/",
+            "https://www.flashscore.com/player/perez-mateo/OziDGdRa/",
+            "https://www.flashscore.com/player/rodrigo-fernandez/YLgqzNsk/",
+            "https://www.flashscore.com/player/abaldo-matias/nR1cGJrm/",
+            "https://www.flashscore.com/player/avalos-gabriel/vcRwBofF/",
+            "https://www.flashscore.com/player/gutierrez-maximiliano/A7DsPjrH/",
+            "https://www.flashscore.com/player/pussetto-ignacio/b1QILWMT/",
+            "https://www.flashscore.com/player/valdez-facundo/4ArCmbcD/",
+            "https://www.flashscore.com/player/quinteros-gustavo/joU5U5WF/",
+            "https://www.flashscore.com/player/blazquez-joaquin/hvfkACAG/",
+            "https://www.flashscore.com/player/barros-luciano/6JAzxwF4/",
+            "https://www.flashscore.com/player/bordon-gonzalo/8QRvoOqm/",
+            "https://www.flashscore.com/player/closter-fernando/C2Q4kKS0/",
+            "https://www.flashscore.com/player/de-irastorza-jonathan/2oESAKXI/",
+            "https://www.flashscore.com/player/freire-nicolas/drwnu3ZE/",
+            "https://www.flashscore.com/player/garrido-nicolas/z9usvT8D/",
+            "https://www.flashscore.com/player/bodnar-simon/AZBpeDAC/",
+            "https://www.flashscore.com/player/medina-joel/WxCYNvZP/",
+            "https://www.flashscore.com/player/palais-josias/UosbQ1Cl/",
+            "https://www.flashscore.com/player/de-las-carreras-mathias/4dcB1mpA/",
+            "https://www.flashscore.com/player/parmo-tomas/QJXkhudH/",
+            "https://www.flashscore.com/player/tempone-felipe/AZ33Unqn/"
+        ],
+        "last_processed": 4
+    },
+    "Platense": {
+        "team_id": "b59f84ef-3a13-4201-bf2c-abf465bf4201",
+        "team_url": "https://www.flashscore.com/team/platense/80MMdBdN/",
+        "stadium_id": "a4cfe320-af9b-4bee-9ded-66f4cfe62111"
+    },
+    "San Lorenzo": {
+        "team_id": "1db686cb-80f7-43d5-ac26-fad9516e595e",
+        "team_url": "https://www.flashscore.com/team/san-lorenzo/ju1xJoJd/",
+        "stadium_id": "7ccce083-f7a0-4ac2-b9a4-14f1c2524e16"
+    },
+    "Defensa y Justicia": {
+        "team_id": "d09bad0c-0d71-450a-9c04-b4d00853fa69",
+        "team_url": "https://www.flashscore.com/team/defensa-y-justicia/Gdfv0Zsh/",
+        "stadium_id": "c8ec31c9-5604-4250-aeca-7a80b238566e"
+    },
+    "Talleres Cordoba": {
+        "team_id": "c31a8e2a-21da-4c8c-98e9-3b47275059c2",
+        "team_url": "https://www.flashscore.com/team/talleres-cordoba/bkDdeAvA/",
+        "stadium_id": "a6b67f09-3f9d-441d-849a-4340c45f2011"
+    },
+    "Boca Juniors": {
+        "team_id": "ea373cca-9d4b-4912-bc21-8ea97b77baba",
+        "team_url": "https://www.flashscore.com/team/boca-juniors/hMrWAFH0/",
+        "stadium_id": "d1ec5541-f58d-4008-9e5e-75cc7fb91757"
+    },
+    "Lanus": {
+        "team_id": "f9c53e63-f7b0-4fa4-9b35-ad12e1ed2098",
+        "team_url": "https://www.flashscore.com/team/lanus/Y9yh1J7G/",
+        "stadium_id": "199bd6e3-f4ef-4dc1-b89b-86e73a7aafea"
+    },
+    "Instituto": {
+        "team_id": "33701d70-ea0f-49d9-8602-cf47704bddd5",
+        "team_url": "https://www.flashscore.com/team/instituto/8G45bXRA/",
+        "stadium_id": "96e2d9d8-20ba-402f-a17e-cb5783d63b3a"
+    },
+    "Central Cordoba": {
+        "team_id": "d26798de-cb78-437f-a747-365366855eb3",
+        "team_url": "https://www.flashscore.com/team/central-cordoba-santiago-del-estero/0dHZReql/",
+        "stadium_id": "4698ed31-87ae-4c42-9555-395abd1ca6d5"
+    },
+    "Gimnasia Mendoza": {
+        "team_id": "bc551b2e-f6e4-48f0-aa38-9e8861366e7b",
+        "team_url": "https://www.flashscore.com/team/gimnasia-mendoza/K2sDXbFE/",
+        "stadium_id": "77e07423-00fe-43c4-92f9-1855115d0518"
+    },
+    "Dep. Riestra": {
+        "team_id": "d9a317a8-9b58-4ec4-8c1d-2e092c89e086",
+        "team_url": "https://www.flashscore.com/team/deportivo-riestra/2iZ4q0z6/",
+        "stadium_id": "5f611332-dcd9-42be-952c-74efe45d93b7"
+    },
+    "Newells Old Boys": {
+        "team_id": "d1181cba-f95f-4d5d-ba9d-940531480678",
+        "team_url": "https://www.flashscore.com/team/newells-old-boys/6gMiRHVj/",
+        "stadium_id": "2d7924c0-df7c-42b1-9c41-024b3d9dafb3"
+    },
+    "Ind. Rivadavia": {
+        "team_id": "f38f40f2-0a41-43a9-b3ff-508a05449bda",
+        "team_url": "https://www.flashscore.com/team/ind-rivadavia/Eg51aDC4/",
+        "stadium_id": "969a317c-ff70-4a6e-b2e6-453ffbd51893"
+    },
+    "Tigre": {
+        "team_id": "40649f4a-3f59-49ea-9ad5-2340dc1f72f0",
+        "team_url": "https://www.flashscore.com/team/tigre/nkwO1uw4/",
+        "stadium_id": "0d75a2ac-fd05-4f96-938f-95939ba8295a"
+    },
+    "Belgrano": {
+        "team_id": "b50f3188-b99a-424c-8f59-b3084e18ca5a",
+        "team_url": "https://www.flashscore.com/team/ca-belgrano-de-cordoba/Amzaty2s/",
+        "stadium_id": "a3be560e-fed1-467a-a35a-b7b1eec0b0ae"
+    },
+    "Rosario Central": {
+        "team_id": "d478a6c7-f03f-42fa-846a-2685545c787a",
+        "team_url": "https://www.flashscore.com/team/rosario-central/4QmJ2LNc/",
+        "stadium_id": "e41253b6-b91f-4475-828b-0da0444caf5a"
+    },
+    "Huracan": {
+        "team_id": "f946a780-7f95-42ed-96ca-890d9b54dc1c",
+        "team_url": "https://www.flashscore.com/team/huracan/xd3lGq3F/",
+        "stadium_id": "eb210e92-abcd-4529-8fc1-4d967ecf3dd1"
+    },
+    "Racing Club": {
+        "team_id": "e03b885a-0bb5-42fa-a085-6e518b5a27cd",
+        "team_url": "https://www.flashscore.com/team/racing-club/OhapHPm9/",
+        "stadium_id": "63ad822d-e5aa-4096-8470-9ecb1d8dcabd"
+    },
+    "River Plate": {
+        "team_id": "36c01394-8edf-4ec6-b748-ad1f6b467a7d",
+        "team_url": "https://www.flashscore.com/team/river-plate/EVqSBe2f/",
+        "stadium_id": "0ecd1f79-015a-4d14-b254-86ab719d65b8"
+    },
+    "Gimnasia L.P.": {
+        "team_id": "8e233ceb-5745-4e02-a8f8-2a49557bc508",
+        "team_url": "https://www.flashscore.com/team/gimnasia-l-p/jiDN9Zaj/",
+        "stadium_id": "bc3ed1cf-0214-4445-b7fa-a7fb24c3d6e5"
+    },
+    "Banfield": {
+        "team_id": "3934fdd0-420b-49ec-bb14-bea02a63fddf",
+        "team_url": "https://www.flashscore.com/team/banfield/GIb40wNM/",
+        "stadium_id": "1320dfd9-af89-42a7-a0a1-bf33c3a786d7"
+    },
+    "Argentinos Jrs": {
+        "team_id": "b510aa85-2022-4563-8685-006e34c362c5",
+        "team_url": "https://www.flashscore.com/team/argentinos-jrs/QuxS0ahA/",
+        "stadium_id": "acc12650-44f7-4e35-a381-160b8c6f8de5"
+    },
+    "Barracas Central": {
+        "team_id": "1c587f9f-de78-4dee-b69a-0208fcc7d32c",
+        "team_url": "https://www.flashscore.com/team/barracas-central/hW08cP6J/",
+        "stadium_id": "f136ecd3-447a-460b-9f35-8986adff10bb"
+    },
+    "Sarmiento Junin": {
+        "team_id": "f7a3abe3-dcec-428e-9bb2-a570d025b6b9",
+        "team_url": "https://www.flashscore.com/team/sarmiento-junin/KQ6kGfyc/",
+        "stadium_id": "27b57bab-f21c-4eec-8cc8-43158b23a4ab"
+    },
+    "Atl. Tucuman": {
+        "team_id": "1911d62e-a1e1-4023-b9ca-4a3bd2641d1c",
+        "team_url": "https://www.flashscore.com/team/atl-tucuman/KpqpxWko/",
+        "stadium_id": "3641c30c-f65f-4ab5-9cbb-ced3fa08f222"
+    },
+    "Estudiantes Rio Cuarto": {
+        "team_id": "d9f61f34-c6f0-4cb7-8fbd-23930b05fbe9",
+        "team_url": "https://www.flashscore.com/team/estudiantes-rio-cuarto/llpcIYF2/",
+        "stadium_id": "5f4c5ba9-87e6-421a-994d-3f2868e03bec"
+    },
+    "Aldosivi": {
+        "team_id": "a25b6d1e-03aa-47fb-9168-5117d4683b62",
+        "team_url": "https://www.flashscore.com/team/aldosivi/Eu4qrEcB/",
+        "stadium_id": "518d4085-04df-4462-a0c1-4f57f16247bd"
+    }
+}

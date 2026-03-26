@@ -97,7 +97,8 @@ def get_league_data_boxing(driver, league_team, sport_name):
     season_id = generate_uuid() 
     ligue_tornamen = {"sport_id":sport_id,"league_id":league_id,"season_id":season_id, 'sport':sport, 'league_country': '',
                      'league_name': league_name,'season_name':season_name, 'league_logo':image_path,
-                      'league_name_i18n':'', 'season_end':datetime.now(), 'season_start':datetime.now()}
+                      'league_name_i18n':'', 'season_end':datetime.now(), 'season_start':datetime.now(),
+                      'image_url': image_url, 'image_path': 'images/logos/' + image_path}
     return ligue_tornamen
 
 def get_teams_data(driver, sport_id, league_id, season_id, team_info):
@@ -359,31 +360,35 @@ def get_racer_info(driver):
         
     return player_dict
 
-def create_league(driver, category_info):
-    dict_league = {'league_id':random_id_text("MOTOR SPORT" + category_info['league_name']), 'league_logo':'',
-                    'league_country':'',
+def create_league(driver, category_info, sport_id=''):
+    dict_league = {'league_id':generate_uuid_text("MOTOR SPORT" + category_info['league_name']), 'league_logo':'',
+                    'league_country':'', 'country_id': '',
                    'league_name':category_info['league_name'],'league_name_i18n':'',
-                   'sport_id':random_id_text('MOTOR SPORT'), 'league_name':category_info['league_name']}
+                   'sport_id': sport_id or generate_uuid_text('MOTOR SPORT'), 'league_name':category_info['league_name']}
 
     if  not check_league_duplicate(dict_league['league_id']):
         save_league_info(dict_league)
     return dict_league
 
 def create_season(driver, dict_league):
-    season_text = driver.find_element(By.CLASS_NAME, 'rankingTable__league.rankingTable__mainRow').text
-    season_year = re.findall(r'\d+\.\d+\.(\d+)', season_text)[0]
-    season_dict = {'season_id' : random_id_text(dict_league['league_name'] + season_year), 'season_name':season_year,
+    try:
+        season_text = driver.find_element(By.CLASS_NAME, 'rankingTable__league.rankingTable__mainRow').text
+        season_year = re.findall(r'\d+\.\d+\.(\d+)', season_text)[0]
+    except Exception:
+        season_year = str(datetime.now().year)
+        print(f'[WARN] create_season: selector no encontrado, usando año {season_year}')
+    season_dict = {'season_id' : generate_uuid_text(dict_league['league_name'] + season_year), 'season_name':season_year,
                  'season_end':datetime.now().date(),'season_start':datetime.now().date(),
-                  'league_id': dict_league['league_id']}    
+                  'league_id': dict_league['league_id']}
     return season_dict
 
-def create_drivers_teams(driver, dict_categories):
-    
+def create_drivers_teams(driver, dict_categories, sport_id=''):
+
     for category, category_info in dict_categories.items():
         category_info['league_name'] = category
         wait_update_page(driver, category_info['standing_link'], "container__heading")
-        
-        dict_league = create_league(driver, category_info) # Create league save in db.       
+
+        dict_league = create_league(driver, category_info, sport_id) # Create league save in db.       
         season_dict = create_season(driver, dict_league)
 
         if not check_season_duplicate(season_dict['season_id']):
@@ -409,7 +414,7 @@ def create_drivers_teams(driver, dict_categories):
             dict_racer['team_name'] = racer['team_name']
             dict_racer['name'] = racer['name']
             dict_racer['sport_name'] = category
-            save_racer_team(dict_racer, season_dict['season_id'])# save each racer in data base.            
+            save_racer_team(dict_racer, season_dict['season_id'], sport_id)# save each racer in data base.            
 #####################################################################
 #                   MOTOR SPORT PLAYER INFO EXTRACTION              #
 #####################################################################
@@ -450,13 +455,14 @@ def get_racer_info(driver):
         
     return player_dict
 
-def save_racer_team(dict_racer, season_id):
-    dict_racer['team_id'] = random_id_text("MOTOR SPORT" + dict_racer['team_name']+ dict_racer['name'])
+def save_racer_team(dict_racer, season_id, sport_id=''):
+    dict_racer['team_id'] = generate_uuid_text("MOTOR SPORT" + dict_racer['team_name'] + dict_racer['name'])
     dict_racer['season_id'] = season_id
-    dict_racer['sport_id'] = random_id_text("MOTOR SPORT")
-    dict_racer['instance_id'] = generate_uuid()    
-    dict_racer['league_id'] = random_id_text("MOTOR SPORT" + dict_racer['sport_name'])
+    dict_racer['sport_id'] = sport_id or generate_uuid_text("MOTOR SPORT")
+    dict_racer['instance_id'] = generate_uuid()
+    dict_racer['league_id'] = generate_uuid_text("MOTOR SPORT" + dict_racer['sport_name'])
     dict_racer['team_country'] = dict_racer['player_country']
+    dict_racer['country_id'] = get_country_id(dict_racer['player_country']) or ''
     dict_racer['team_desc'] = dict_racer['team_name']
     dict_racer['team_name'] = dict_racer['name']
     dict_racer['team_logo'] = dict_racer['player_photo']
@@ -543,11 +549,11 @@ def create_leagues(driver, list_sports):
         else:
             dict_leagues_ready_json = {}        
 
-        if sport_name == 'MOTOR SPORT':         
+        if sport_name == 'MOTOR SPORT':
             list_enables = ['FORMULA 1']
             dict_categories_info = find_categories_motor_sport(driver, list_enables)
             # Create Category = Create league
-            create_drivers_teams(driver, dict_categories_info)
+            create_drivers_teams(driver, dict_categories_info, sport_id)
             # create_teams()# Escuderias equipos de autos.
             
             dict_sport_info[sport_name] = dict_categories_info
@@ -615,11 +621,17 @@ def create_leagues(driver, list_sports):
                     list_seasons = get_seasons(league_id, league_info['season_name'])
                     # list_seasons = [] # UNCOMENT
                     print("list_seasons: ", list_seasons)
-                    
+
                     if len(list_seasons) == 0:
                         enable_save = True
                         print(" "*30, "SAVE NEW SEASON", league_info['season_id'])
                         save_season_database(league_info) # UNCOMENT
+                    else:
+                        # Season already in DB — use its real season_id (not the randomly generated one)
+                        db_season_id = get_season_id_by_name(league_id, league_info['season_name'])
+                        if db_season_id:
+                            league_info['season_id'] = db_season_id
+                            print(f"Season already in DB, using season_id: {db_season_id}")
 
                     ###################################################################
                     #           SECTION CHECK SEASON SAVED PREVIUSLY                  #
@@ -631,7 +643,7 @@ def create_leagues(driver, list_sports):
                                                                  'season_id':league_info['season_id'],
                                                                    'country_id':league_info['country_id']}
 
-                    # GET SECTIONS LINKS
+                    # GET SECTIONS LINKS — if key missing from json, add it with IDs from DB
                     if sport_leag_countr_name_json not in dict_leagues_ready_json:
                         dict_leagues_ready_json[sport_leag_countr_name_json] = {'league_name': league_info['league_name'],
                                                                 'url': league_url, 'league_id': league_id,

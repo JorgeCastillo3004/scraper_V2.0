@@ -1,0 +1,66 @@
+{
+    "Finland": {
+        "team_id": "4073f5b8-d274-4fbb-9d57-8ce18329592e",
+        "team_url": "https://www.flashscore.com/team/finland/rRWMzYQu/"
+    },
+    "Germany": {
+        "team_id": "944d98f8-0bfd-4b89-a3a9-5d05919d523b",
+        "team_url": "https://www.flashscore.com/team/germany/vgQVYBeh/"
+    },
+    "Latvia": {
+        "team_id": "49a93fc3-d6e9-4e70-ad51-9e821c91d407",
+        "team_url": "https://www.flashscore.com/team/latvia/44JaYkQ4/"
+    },
+    "Switzerland": {
+        "team_id": "b7e25ad4-12e2-4f9d-91d0-d322e975ff5a",
+        "team_url": "https://www.flashscore.com/team/switzerland/buO3jBAo/"
+    },
+    "Austria": {
+        "team_id": "79b88ff5-faea-4018-ae0b-c031f41b3ae2",
+        "team_url": "https://www.flashscore.com/team/austria/xWM7kVPi/"
+    },
+    "Great Britain": {
+        "team_id": "d48662e4-97cb-4c08-8407-2b54b09a6c01",
+        "team_url": "https://www.flashscore.com/team/great-britain/C2UJnT9A/"
+    },
+    "Hungary": {
+        "team_id": "fb971cc3-f6a2-4a45-a062-b1e63a6442d1",
+        "team_url": "https://www.flashscore.com/team/hungary/fBiWomPG/"
+    },
+    "USA": {
+        "team_id": "b0031855-cf96-4cbb-a161-473233170004",
+        "team_url": "https://www.flashscore.com/team/usa/GYgp4SO3/"
+    },
+    "Czech Republic": {
+        "team_id": "cc59a467-df9a-4a9f-b896-86ee5c440c1e",
+        "team_url": "https://www.flashscore.com/team/czech-republic/OdY4GUuO/"
+    },
+    "Denmark": {
+        "team_id": "e77f06bf-fc21-4fd6-99af-bdcaf6d828a1",
+        "team_url": "https://www.flashscore.com/team/denmark/2mX8FleU/"
+    },
+    "Italy": {
+        "team_id": "17d5252c-5f4b-41be-87d7-def75bb42911",
+        "team_url": "https://www.flashscore.com/team/italy/IqPZXVAb/"
+    },
+    "Norway": {
+        "team_id": "1e6350ef-4214-470a-ad6e-8b00bc9bf1af",
+        "team_url": "https://www.flashscore.com/team/norway/nDtCX9uB/"
+    },
+    "Slovakia": {
+        "team_id": "68e6624c-773f-4caa-bb4f-be46c876bc10",
+        "team_url": "https://www.flashscore.com/team/slovakia/ruzLVmAN/"
+    },
+    "Slovenia": {
+        "team_id": "59052cb6-9afa-4264-a802-098d2fdf8f3a",
+        "team_url": "https://www.flashscore.com/team/slovenia/x2ZOU7PT/"
+    },
+    "Sweden": {
+        "team_id": "92f595d8-9220-4e65-a4ca-56cfc966a37f",
+        "team_url": "https://www.flashscore.com/team/sweden/vBLjQRXp/"
+    },
+    "Canada": {
+        "team_id": "ba940020-97e6-435c-a272-e4a5131aed6a",
+        "team_url": "https://www.flashscore.com/team/canada/dSsR389c/"
+    }
+}

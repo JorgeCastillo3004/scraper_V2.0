@@ -1,0 +1,92 @@
+{
+    "Bayern Munich": {
+        "team_id": "48a8e71c-8b50-4617-9078-96740b9a6d9d",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "RB Leipzig": {
+        "team_id": "37aa27f8-2d34-48c0-8760-1c98cafabbb2",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Stuttgart": {
+        "team_id": "32f2d560-ac1a-4b44-90d7-52b83e0d9d39",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Dortmund": {
+        "team_id": "77977317-aeb0-461e-907c-4278cdfb46f4",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bayer Leverkusen": {
+        "team_id": "e399d26d-0414-4292-8d9e-7521dc44d242",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "FC Koln": {
+        "team_id": "5a11a7fd-afdf-4070-8023-54f53e1a84fc",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Eintracht Frankfurt": {
+        "team_id": "57e95aa2-410b-4647-abb4-6e90ae15b639",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Hoffenheim": {
+        "team_id": "6ed9ab2f-1969-40fd-aa89-31f1675c0616",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Union Berlin": {
+        "team_id": "e5abbde6-901a-4667-abbe-e3df489f7b1c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Freiburg": {
+        "team_id": "aedc1d4f-9016-4001-9cb1-629d172b0e32",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Hamburger SV": {
+        "team_id": "2f817417-aa8a-45b0-ab86-672947830cf6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Werder Bremen": {
+        "team_id": "1a443d57-d97e-48d4-a616-63511e160779",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Augsburg": {
+        "team_id": "52adea29-99c3-400d-bcb0-537279676f54",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "St. Pauli": {
+        "team_id": "b71d12a5-a86a-43fd-9778-46348fa683d2",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Wolfsburg": {
+        "team_id": "404e16d1-3387-4af9-9865-97fca6e00a45",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Mainz": {
+        "team_id": "740e520c-23fe-4d79-bb12-2815980ee115",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Heidenheim": {
+        "team_id": "03badf2c-9282-4504-9149-f6544e4fcf05",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "B. Monchengladbach": {
+        "team_id": "4cc92a8a-6046-47e6-9239-dea6b3d5e6b2",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "Hamilton Tiger-Cats": {
+        "team_id": "e0f900f1-f93f-43c4-b2af-3c2d93854a9e",
+        "team_url": "https://www.flashscore.com/team/hamilton-tiger-cats/GWpi9YE2/"
+    },
+    "Montreal Alouettes": {
+        "team_id": "e78b1e4a-318a-4c75-ada2-5428d90e2f1e",
+        "team_url": "https://www.flashscore.com/team/montreal-alouettes/fNqe8hU8/",
+        "stadium_id": "42242a55-0eae-4264-bc17-12d26bed87ce"
+    },
+    "Toronto Argonauts": {
+        "team_id": "5a0f71d6-7419-4aad-b524-0c82cc97b6c3",
+        "team_url": "https://www.flashscore.com/team/toronto-argonauts/2iqL8CqF/"
+    },
+    "Ottawa Redblacks": {
+        "team_id": "ae3168eb-a475-41fb-b376-a88d28244bfa",
+        "team_url": "https://www.flashscore.com/team/ottawa-redblacks/WYj56SEt/"
+    },
+    "Winnipeg Blue Bombers": {
+        "team_id": "7a5a89a2-d8fe-4bf3-87f9-9260fc503722",
+        "team_url": "https://www.flashscore.com/team/winnipeg-blue-bombers/trrP7WbL/"
+    },
+    "BC Lions": {
+        "team_id": "94683d3d-969d-4e4d-8c82-355dd03a90db",
+        "team_url": "https://www.flashscore.com/team/bc-lions/O6XT6jER/"
+    },
+    "Calgary Stampeders": {
+        "team_id": "424a1f96-0ce9-46d6-9e47-e258c7c2fc9b",
+        "team_url": "https://www.flashscore.com/team/calgary-stampeders/4pm42AMr/",
+        "stadium_id": "dd6f7fa6-7760-4e16-a7d0-1d7a7b25779f"
+    },
+    "Edmonton Elks": {
+        "team_id": "ba28c46c-4188-40ec-82ae-9bf703225e33",
+        "team_url": "https://www.flashscore.com/team/edmonton-elks/b7n81Uyk/"
+    },
+    "Saskatchewan Roughriders": {
+        "team_id": "df8fb6cc-c91a-402f-97af-634a72b62e44",
+        "team_url": "https://www.flashscore.com/team/saskatchewan-roughriders/xboC0lie/"
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "Canada": {
+        "team_id": "b75cff09-5e3a-469e-9f14-c236fa4f0e3e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Cuba": {
+        "team_id": "0a2fc66b-1b1d-4968-86d9-8be79279b9f4",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Panama": {
+        "team_id": "7ae2d399-3210-44a6-b4ab-1eeaaeec326e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Puerto Rico": {
+        "team_id": "42a0232d-a449-40ae-ae74-efee891bb2cc",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Colombia": {
+        "team_id": "0743eb46-1d12-4a79-92c0-9e7e2354430d",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "USA": {
+        "team_id": "e6575c08-c9ff-43f3-a4fc-0571e2bf43fc",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Mexico": {
+        "team_id": "6b7ff9fb-8ddb-4a53-9d7c-4780f32f5bef",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Italy": {
+        "team_id": "3bd37480-4cee-4ba0-9ee8-5ed365e55d30",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Great Britain": {
+        "team_id": "32c73d20-5089-4248-96e1-59e8fe53298b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Brazil": {
+        "team_id": "6c6b34ec-9ca1-4aef-95fe-0f1a8314f39a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Australia": {
+        "team_id": "9b340c3a-3626-4c6d-80e1-50b3fc2ace89",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Chinese Taipei": {
+        "team_id": "19fab4b4-f34f-4f4b-9cc9-73fa35ace76f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "South Korea": {
+        "team_id": "588a37c3-3822-42e9-a09f-4bcd7fb5ed9b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Japan": {
+        "team_id": "5f1d8dc9-3f2d-47ab-9c12-c8fd4d5f46e6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Czech Republic": {
+        "team_id": "b14b6199-99a7-4684-8424-b40f51366b03",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Dominican Republic": {
+        "team_id": "c6538a60-3c2d-4b95-b745-3e4c22135712",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Venezuela": {
+        "team_id": "3907a78a-6734-4ac4-a8c5-14ed5884d227",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Netherlands": {
+        "team_id": "7757c77e-d775-491d-a6b4-909746b3e5ee",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Israel": {
+        "team_id": "b71d0c73-4492-44f0-b243-6f1a90a340bd",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Nicaragua": {
+        "team_id": "13f96b12-9de2-472a-99c0-ddf07ba0a40a",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

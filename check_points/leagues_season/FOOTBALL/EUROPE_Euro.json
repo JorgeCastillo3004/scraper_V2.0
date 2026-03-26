@@ -1,0 +1,127 @@
+{
+    "Germany": {
+        "team_id": "7c2b28b5-9972-4b86-b4c5-972fccbebeab",
+        "team_url": "",
+        "stadium_id": "a92e4add-8137-4d13-aaf4-5cb8e7f31d88"
+    },
+    "Switzerland": {
+        "team_id": "ddc72fa9-e7e4-4318-9155-c293195acd74",
+        "team_url": "",
+        "stadium_id": "ddd25064-7303-48a2-8b6c-9e5beab8ea07"
+    },
+    "Hungary": {
+        "team_id": "97e2fe53-514e-4737-b766-c70bd8823ca6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Scotland": {
+        "team_id": "61f2b2c5-801c-42f6-83e6-aa7def22ad2b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Spain": {
+        "team_id": "a213b7dd-e201-405c-affa-6f79fec75d9b",
+        "team_url": "",
+        "stadium_id": "bd39ac59-e1b8-4ec8-a85f-49593cefd64a"
+    },
+    "Italy": {
+        "team_id": "4ddc33c1-c76f-4064-9171-54793e35c2f6",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Croatia": {
+        "team_id": "b04cce5b-6e72-4ca4-b8d4-146fc086266f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Albania": {
+        "team_id": "f7dbc4fa-21ec-4691-8833-ef4022a5df3e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "England": {
+        "team_id": "c0e35ea2-3f49-4f47-94c1-9ddd58e5bbde",
+        "team_url": "",
+        "stadium_id": "0a0a6adc-2c84-437f-bf00-825939d6fe1d"
+    },
+    "Denmark": {
+        "team_id": "812feb2f-ea6c-406a-bf2f-93cc418d5429",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Slovenia": {
+        "team_id": "6c9bfd61-f400-448b-b53e-8b7d434eed40",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Serbia": {
+        "team_id": "bf4ea61d-70e8-4889-8ad3-3d7a186ce19a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Austria": {
+        "team_id": "e99fe229-ca6f-4cda-afd2-defcaff4966c",
+        "team_url": "",
+        "stadium_id": "c186b17b-622a-4a04-b54a-ef6590c0111e"
+    },
+    "France": {
+        "team_id": "7b28323c-d862-4025-9592-1f26d79b2f60",
+        "team_url": "",
+        "stadium_id": "91d39090-6a6f-458d-bdd6-7f0f844ca7b2"
+    },
+    "Netherlands": {
+        "team_id": "1f277419-4975-42e9-93f1-cd0e85cebf02",
+        "team_url": "",
+        "stadium_id": "3010106c-84af-412e-ad8a-1c5a30a50083"
+    },
+    "Poland": {
+        "team_id": "8f582d77-0be7-424a-a49f-056d3c166800",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Romania": {
+        "team_id": "ba813cb7-1e93-4c07-98d0-650d268ba78c",
+        "team_url": "",
+        "stadium_id": "55052cf3-bb51-4061-a929-bae1fe35cb8f"
+    },
+    "Belgium": {
+        "team_id": "7414fd26-d33c-4c0a-9ca8-ab728325816f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Slovakia": {
+        "team_id": "fbc3fd24-a80e-4292-b636-b3789c903306",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ukraine": {
+        "team_id": "95f16f6b-5e3e-4ad5-8361-8f69deb0a6f2",
+        "team_url": "",
+        "stadium_id": "46a303df-2672-4455-a09e-9b39621a448f"
+    },
+    "Portugal": {
+        "team_id": "cea8fae6-b80d-4b76-8647-622670ae7ea0",
+        "team_url": "",
+        "stadium_id": "7e50b5ba-0eb2-45cc-8478-04cf6bc3f320"
+    },
+    "Turkey": {
+        "team_id": "9849f1f3-12bc-4477-8e71-a0fb57243916",
+        "team_url": "",
+        "stadium_id": "2b69a875-ab71-4156-9971-bcacc4ee239c"
+    },
+    "Georgia": {
+        "team_id": "1d54190b-6249-4adc-b192-0ce9bf1030a4",
+        "team_url": "",
+        "stadium_id": "dadb7476-16fa-439a-ac2b-cab9a9aa52c3"
+    },
+    "Czech Republic": {
+        "team_id": "cd5f542e-bb09-4bc5-b37d-9785fb3760dc",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Wales": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "2805d636-4898-450b-a726-d0620569476d"
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "Feyenoord": {
+        "team_id": "e744e0fe-c146-4ab8-bbca-5f48c07601a3",
+        "team_url": "",
+        "stadium_id": "89caed03-f38b-40ed-acbb-a4114d33a63b"
+    },
+    "PSV": {
+        "team_id": "455a0546-239e-4eb8-bd4e-c4a732db5167",
+        "team_url": "",
+        "stadium_id": "c8310450-360e-46f7-9e6d-aa57aa95528a"
+    },
+    "AZ Alkmaar": {
+        "team_id": "dfb53001-88b3-4aeb-ac98-4ab7d55a2a70",
+        "team_url": "",
+        "stadium_id": "1feb3dca-acc4-46b0-94c9-e99e09f5a190"
+    },
+    "Ajax": {
+        "team_id": "4bfb8ae2-738d-4f33-9644-d0f9b41b07f7",
+        "team_url": "",
+        "stadium_id": "b989e466-d105-47d2-be53-2505f01fc3e4"
+    },
+    "Groningen": {
+        "team_id": "71a55a30-1ee6-47b2-b08b-21e29b28ab82",
+        "team_url": "",
+        "stadium_id": "d7c6ddf3-c173-4725-bfeb-67c4ec4cc3aa"
+    },
+    "Nijmegen": {
+        "team_id": "6cb647ea-992e-425b-8387-eb9ae8603dd5",
+        "team_url": "",
+        "stadium_id": "1f73d820-20d9-43d7-8319-58bcd048a979"
+    },
+    "Twente": {
+        "team_id": "c3ad7181-f817-4584-9108-ef300c72ec00",
+        "team_url": "",
+        "stadium_id": "592e00d6-5fe2-433f-b7e2-2374e6f6d026"
+    },
+    "Utrecht": {
+        "team_id": "88f13f92-530a-4398-ae63-a43851dbbc10",
+        "team_url": "",
+        "stadium_id": "460647c9-1efb-4676-a64b-4145da10be14"
+    },
+    "Sittard": {
+        "team_id": "9067c962-85fb-49bb-99d5-2c3adbc46646",
+        "team_url": "",
+        "stadium_id": "23bfabaa-b333-42ee-b92c-fda4c112fa02"
+    },
+    "Sparta Rotterdam": {
+        "team_id": "4189be91-7a65-4841-9a6a-670e152aed38",
+        "team_url": "",
+        "stadium_id": "159832dc-f10b-4484-aaae-7137c96cf928"
+    },
+    "Heerenveen": {
+        "team_id": "3d9ac2d1-30f5-4f46-8425-b996b0658f8c",
+        "team_url": "",
+        "stadium_id": "7c50dade-3cf4-477a-92de-8c2dd186206e"
+    },
+    "G.A. Eagles": {
+        "team_id": "5f488cbe-c92e-43e2-89d1-7d868b277357",
+        "team_url": "",
+        "stadium_id": "a63dbda0-adf6-400a-80b9-6ed0193825c4"
+    },
+    "Excelsior": {
+        "team_id": "51833f44-49ec-4d76-8c45-3f1d8850e1d1",
+        "team_url": "",
+        "stadium_id": "b6eaa254-4bac-427f-ad9c-c6b3dcb814f6"
+    },
+    "NAC Breda": {
+        "team_id": "496aa38b-4b84-4df5-aa1b-44205ce7c590",
+        "team_url": "",
+        "stadium_id": "059aff1a-9844-4b0d-863a-63328707cfd7"
+    },
+    "Zwolle": {
+        "team_id": "2776b424-8cc2-4f06-8392-7338c41ebea1",
+        "team_url": "",
+        "stadium_id": "333782dd-7f5f-413a-ae5c-c76359797228"
+    },
+    "Telstar": {
+        "team_id": "c8804eb4-18d2-41e6-af85-a8772df884b7",
+        "team_url": "",
+        "stadium_id": "cafad8a4-9008-4270-843b-7d88182dc638"
+    },
+    "FC Volendam": {
+        "team_id": "43af7815-e92e-40a0-98e9-5cac1dda310c",
+        "team_url": "",
+        "stadium_id": "5ecc3389-dca9-4243-a401-53cc79b77237"
+    },
+    "Heracles": {
+        "team_id": "6f17c92c-ad65-4a3d-9ff8-f4bd71616d3a",
+        "team_url": "",
+        "stadium_id": "5d34e786-4e03-46aa-b044-0af67d4c1cae"
+    }
+}

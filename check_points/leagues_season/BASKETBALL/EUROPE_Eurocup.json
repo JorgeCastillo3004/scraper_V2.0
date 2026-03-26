@@ -1,0 +1,102 @@
+{
+    "Cedevita Olimpija": {
+        "team_id": "3d4c3113-8ebe-4d87-9100-122b05a68411",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Hapoel Jerusalem": {
+        "team_id": "2ec13e42-f03a-4d13-b8fa-b0e9dc4bae43",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Bahcesehir Kol.": {
+        "team_id": "480d6eb7-fe36-4ab5-92d8-e1b1c7bcfba8",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Cluj-Napoca": {
+        "team_id": "1eaef101-3007-4507-8919-261d38d1ca44",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Venezia": {
+        "team_id": "aac28ca7-3ae3-4738-bd51-34a3292c6ed4",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Slask Wroclaw": {
+        "team_id": "d5816f7b-cac3-4f91-8ad4-6e217294cb9a",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Aris": {
+        "team_id": "439fafac-b89d-464f-9f03-4de93d809e2c",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Neptunas": {
+        "team_id": "715db1f1-d50a-40c6-a09f-70d63688cee0",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Manresa": {
+        "team_id": "fb15232c-824a-4fbd-87dc-445e995fae3b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Hamburg": {
+        "team_id": "db5f0869-3452-437c-a758-17e1b3192fd9",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "JL Bourg": {
+        "team_id": "e16208f9-c845-4b84-86c0-8200846bc5de",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Buducnost": {
+        "team_id": "aff6a5ab-57e2-4c86-82ae-b9b51046bd4f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Besiktas": {
+        "team_id": "1ab8b850-a0a7-4a50-8e64-70e41457509f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Turk Telekom": {
+        "team_id": "3c8ad94c-8ec3-4d1f-b184-8bf90a1ca104",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Ulm": {
+        "team_id": "11fca783-38ea-4b8f-8c69-ff447580fa34",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Chemnitz": {
+        "team_id": "8378943b-6cc6-4973-ac96-d0d74ec72c0b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "London Lions": {
+        "team_id": "04c3b7b8-d534-41b4-b988-456077c9338b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Trento": {
+        "team_id": "21e78c51-c47e-4363-b72e-f8120fdbce78",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Lietkabelis": {
+        "team_id": "c41cdbbd-78de-416c-b125-2545cb054677",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Panionios": {
+        "team_id": "f0c296cf-7d43-4c89-ae27-0c1af3ef5d81",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}

@@ -1,0 +1,153 @@
+{
+    "San Diego FC": {
+        "team_id": "cdf64e98-fc52-4534-a311-5a1b56018b1d",
+        "team_url": "https://www.flashscore.com/team/san-diego-fc/EuGkBf33/",
+        "stadium_id": "56e6b632-b3cf-49ef-99bb-11a004e9be27"
+    },
+    "Vancouver Whitecaps": {
+        "team_id": "c63b9861-3b0e-428a-8609-7116a2cdf762",
+        "team_url": "https://www.flashscore.com/team/vancouver-whitecaps/K2dlua5N/",
+        "stadium_id": "61520288-37f3-4cde-b62b-47256fad96c8"
+    },
+    "San Jose Earthquakes": {
+        "team_id": "e29760ce-c5ae-4579-8d0a-108b03ba8651",
+        "team_url": "https://www.flashscore.com/team/san-jose-earthquakes/x05z14ue/",
+        "stadium_id": "e3be19ae-d17b-4455-8e7e-3f0232dcb8e3"
+    },
+    "Los Angeles FC": {
+        "team_id": "9a0fe8c6-7fc1-4b26-bde3-43d230fce80b",
+        "team_url": "https://www.flashscore.com/team/los-angeles-fc/txUJt9AR/",
+        "stadium_id": "2719b14b-82e3-463d-9d21-5c61876d7932"
+    },
+    "Colorado Rapids": {
+        "team_id": "576c2fcb-6bba-45fe-813e-8777c166daac",
+        "team_url": "https://www.flashscore.com/team/colorado-rapids/jmBZNRn8/",
+        "stadium_id": "771fa90c-7411-41d7-ad60-51ff200cab0a"
+    },
+    "Seattle Sounders": {
+        "team_id": "f8aa056b-f945-48a5-acd2-2d1be5e8d773",
+        "team_url": "https://www.flashscore.com/team/seattle-sounders/6P5S63Ah/",
+        "stadium_id": "9ba7629f-cb10-4287-8bd7-0c32823bb8fd"
+    },
+    "Real Salt Lake": {
+        "team_id": "339cc451-9c74-45db-bbf1-2b9c95de0c58",
+        "team_url": "https://www.flashscore.com/team/real-salt-lake/W0ealpQl/",
+        "stadium_id": "f5be65ae-5e32-49e9-a1a0-2aca36e93ab6"
+    },
+    "Los Angeles Galaxy": {
+        "team_id": "a406d989-f733-42c5-831e-7561598c5f75",
+        "team_url": "https://www.flashscore.com/team/los-angeles-galaxy/U3ebh62R/",
+        "stadium_id": "ef4f0c3b-13f7-40fa-b909-ff8d47f09cdb"
+    },
+    "FC Dallas": {
+        "team_id": "8989d472-a701-417d-a962-7cc721ea709b",
+        "team_url": "https://www.flashscore.com/team/fc-dallas/4GtbI4Q1/",
+        "stadium_id": "674f90c9-4784-4efb-8d69-6522450366aa"
+    },
+    "Minnesota United": {
+        "team_id": "26ff1c47-b294-4156-8174-cb2ea45bdfe3",
+        "team_url": "https://www.flashscore.com/team/minnesota-united/zXFxsw2a/",
+        "stadium_id": "7fe6b162-8f2f-4f64-806f-8a89f6ca48e4"
+    },
+    "Austin FC": {
+        "team_id": "d089c626-dbb0-488d-9fc4-2dd6efa276ff",
+        "team_url": "https://www.flashscore.com/team/austin-fc/IeT6JBE3/",
+        "stadium_id": "ea0dd929-fd3e-4cc6-818a-2b7e13e8a963"
+    },
+    "Houston Dynamo": {
+        "team_id": "8165bc19-bf93-48fa-aef3-4f0e3fc5ec06",
+        "team_url": "https://www.flashscore.com/team/houston-dynamo/2i4sdl32/",
+        "stadium_id": "af047122-7fc2-4398-8e50-bf3a9e832ec0"
+    },
+    "Portland Timbers": {
+        "team_id": "4de659b0-5097-4d57-a5dd-e94432e29d1c",
+        "team_url": "https://www.flashscore.com/team/portland-timbers/bm8usLzB/",
+        "stadium_id": "62edb570-1f58-4a10-8a78-dbec8222a314"
+    },
+    "St. Louis City": {
+        "team_id": "f5ff9f96-7a42-4414-bc0f-fe5ce10e2ee5",
+        "team_url": "https://www.flashscore.com/team/st-louis-city/4r4sKQud/",
+        "stadium_id": "2c26781f-ee5d-4c5c-8393-de132fc66015"
+    },
+    "Sporting Kansas City": {
+        "team_id": "c6ff0868-9544-4eaa-8934-1a8ad3180239",
+        "team_url": "https://www.flashscore.com/team/sporting-kansas-city/CURGfJWt/",
+        "stadium_id": "8d99953c-bde2-41f2-a7c9-a3bf474da843"
+    },
+    "New York City": {
+        "team_id": "6266b325-9e84-42f6-baa3-7c526d2bf75c",
+        "team_url": "https://www.flashscore.com/team/new-york-city/vZraQYnO/",
+        "stadium_id": "153e6021-6101-419b-a73d-bfe016bd4fd4"
+    },
+    "Nashville SC": {
+        "team_id": "955fbf16-a0ef-43d2-9571-bc5d39410990",
+        "team_url": "https://www.flashscore.com/team/nashville-sc/84yIDQMe/",
+        "stadium_id": "b7a056b5-3d5e-47bc-8466-0ead806fc2cb"
+    },
+    "New York Red Bulls": {
+        "team_id": "ba3c3f01-be83-4c15-bfd2-95b312b5c6f2",
+        "team_url": "https://www.flashscore.com/team/new-york-red-bulls/zV5YmQAr/",
+        "stadium_id": "b067cf7b-4f0b-4b7e-8969-c44480f74975"
+    },
+    "Inter Miami": {
+        "team_id": "7d38052a-fa60-45cc-8430-d7d5c8ad4290",
+        "team_url": "https://www.flashscore.com/team/inter-miami/0AheRyBg/"
+    },
+    "Chicago Fire": {
+        "team_id": "3819e54e-a2d2-4f60-ac73-a589d564e978",
+        "team_url": "https://www.flashscore.com/team/chicago-fire/UwAwNo2E/",
+        "stadium_id": "f3c32e19-5ee8-4f8b-8fee-7dfcfc16a8bf"
+    },
+    "Charlotte": {
+        "team_id": "a6a32440-fc28-4446-8613-fb57a76a0191",
+        "team_url": "https://www.flashscore.com/team/charlotte-fc/QJF7WTFB/",
+        "stadium_id": "aa0cddf6-f979-46c5-ab02-8638de105255"
+    },
+    "FC Cincinnati": {
+        "team_id": "ac9fadd2-d5f7-4fa6-82ce-10fb1ddab75d",
+        "team_url": "https://www.flashscore.com/team/fc-cincinnati/8btog05R/",
+        "stadium_id": "34501ac6-7707-4e73-bff9-85cd91d3d619"
+    },
+    "DC United": {
+        "team_id": "0abe84d6-c324-406a-aed4-040289c5888f",
+        "team_url": "https://www.flashscore.com/team/dc-united/O6hjfSXE/",
+        "stadium_id": "03233b49-c835-4af5-b323-6e5d851f0a66"
+    },
+    "Columbus Crew": {
+        "team_id": "30689ef8-9ac9-4072-a4b2-cef03e157486",
+        "team_url": "https://www.flashscore.com/team/columbus-crew/pQ8rarA7/",
+        "stadium_id": "e27f7429-3f5b-49ba-8d1b-4ec64d8f0db3"
+    },
+    "Philadelphia Union": {
+        "team_id": "a6bcedd7-7e2f-4cfe-b914-f3a484b16fc4",
+        "team_url": "https://www.flashscore.com/team/philadelphia-union/Szrwix67/",
+        "stadium_id": "59986ec8-b506-41ad-9c18-11b808683273"
+    },
+    "Toronto FC": {
+        "team_id": "f693b185-cfab-4361-af27-982691914372",
+        "team_url": "https://www.flashscore.com/team/toronto-fc/zsdfgnmL/"
+    },
+    "New England Revolution": {
+        "team_id": "51ff0240-d0c6-4043-aa3a-c52485a2d36b",
+        "team_url": "https://www.flashscore.com/team/new-england-revolution/tr3oe8I8/"
+    },
+    "Atlanta Utd": {
+        "team_id": "76916c4f-d91e-48a1-980d-729cc16e8ee8",
+        "team_url": "https://www.flashscore.com/team/atlanta-united/EPngUvhk/",
+        "stadium_id": "e411cf26-6eed-4aa1-92b1-3179cb4d574b"
+    },
+    "Orlando City": {
+        "team_id": "aebf7992-647d-4833-8ad2-076b04742976",
+        "team_url": "https://www.flashscore.com/team/orlando-city/rsHkUNCo/",
+        "stadium_id": "ff2861c5-6cd0-4bda-a1d6-6a048e16ba63"
+    },
+    "CF Montreal": {
+        "team_id": "76eb183d-4d54-49f6-9fc4-66f71168ae38",
+        "team_url": "https://www.flashscore.com/team/cf-montreal/j9cigLCr/"
+    },
+    "Houston Dynamo\n2": {
+        "team_id": null,
+        "team_url": "",
+        "stadium_id": "ddbeee7c-883c-4b3c-a6a9-33c63846b430"
+    }
+}

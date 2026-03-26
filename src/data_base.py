@@ -262,8 +262,9 @@ def save_league_team_entity(dict_team):
     cur.execute(query, dict_team)
     con.commit()
 
-def save_player_info(dict_team):    
-    query = "INSERT INTO player VALUES(%(player_id)s, %(player_country)s, %(player_dob)s,\
+def save_player_info(dict_team):
+    ensure_connection()
+    query = "INSERT INTO player VALUES(%(player_id)s, %(country_id)s, %(player_dob)s,\
      %(player_name)s, %(player_photo)s, %(player_position)s)"
     cur = con.cursor()
     cur.execute(query, dict_team)
@@ -294,11 +295,21 @@ def get_seasons(league_id, season_name):
     ensure_connection()
     query = "SELECT season_name, season_id FROM season  WHERE league_id ='{}' and season_name = '{}';".format(league_id, season_name)
     cur = con.cursor()
-    cur.execute(query)  
-    results = [row[0] for row in cur.fetchall()]
-    for row in cur.fetchall():
-        print(row)
+    cur.execute(query)
+    rows = cur.fetchall()
+    results = [row[0] for row in rows]
     return results
+
+def get_season_id_by_name(league_id, season_name):
+    """Returns the season_id stored in DB for the given league+season_name, or None."""
+    ensure_connection()
+    cur = con.cursor()
+    cur.execute(
+        "SELECT season_id FROM season WHERE league_id = %s AND season_name = %s LIMIT 1",
+        (league_id, season_name)
+    )
+    row = cur.fetchone()
+    return row[0] if row else None
 
 def get_list_id_teams(sport_id, country_id, team_name):
     ensure_connection()
@@ -418,6 +429,18 @@ def save_stadium_in_db(dict_match):
     print(f"[WARN] Stadium NO encontrado en DB tras INSERT: {dict_match.get('name', dict_match['stadium_id'])}")
     return False
 
+def get_league_match_team_count(league_id):
+    ensure_connection()
+    cur = con.cursor()
+    cur.execute(
+        "SELECT COUNT(DISTINCT m.match_id), COUNT(DISTINCT md.team_id) "
+        "FROM match m LEFT JOIN match_detail md ON md.match_id=m.match_id "
+        "WHERE m.league_id = %s",
+        (league_id,)
+    )
+    row = cur.fetchone()
+    return (row[0] or 0, row[1] or 0)  # (match_count, team_count)
+
 def get_rounds_ready(league_id, season_id):
     ensure_connection()
     """Check rounds ready saved in DB"""
@@ -445,13 +468,11 @@ def check_season_duplicate(season_id):
     results = [row[0] for row in cur.fetchall()]
     return results
 
-def check_player_duplicates(player_country, player_name, player_dob):
+def check_player_duplicates(country_id, player_name, player_dob):
     ensure_connection()
-    query = "SELECT player_id FROM player WHERE player_country ='{}' AND player_name ='{}' AND player_dob ='{}';".format(player_country, player_name, player_dob)
-    print("Check player duplicates")
-    print(query)
+    query = "SELECT player_id FROM player WHERE country_id ='{}' AND player_name ='{}' AND player_dob ='{}';".format(country_id, player_name, player_dob)
     cur = con.cursor()
-    cur.execute(query)  
+    cur.execute(query)
     results = [row[0] for row in cur.fetchall()]
     return results
 

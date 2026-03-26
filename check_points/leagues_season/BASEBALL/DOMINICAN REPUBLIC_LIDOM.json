@@ -1,0 +1,32 @@
+{
+    "Aguilas Cibaenas": {
+        "team_id": "5af0d056-fc88-4aa0-a79e-376cd41ac484",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Toros del Este": {
+        "team_id": "b72a5c3a-c5df-487f-8d35-ac863c106202",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Gigantes del Cibao": {
+        "team_id": "f5175b96-df88-4ab3-b890-cca392b26c4e",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Estrellas Orientales": {
+        "team_id": "159cabc1-d043-4241-bb9b-3f7be45d431b",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Leones del Escogido": {
+        "team_id": "405a3627-3287-453a-8abd-cfbe1b39188f",
+        "team_url": "",
+        "stadium_id": ""
+    },
+    "Tigres del Licey": {
+        "team_id": "7a6e2b03-03a5-471e-9263-f50eec9f22e5",
+        "team_url": "",
+        "stadium_id": ""
+    }
+}
