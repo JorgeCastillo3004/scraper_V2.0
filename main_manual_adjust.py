@@ -24,12 +24,12 @@ if database_enable:
     con = getdb()
 
 def main():
-    main_extract_news_enable = True    # 1
+    main_extract_news_enable = False   # 1
     create_leagues_flag      = False    # 2
     teams_creation_flag      = False    # 3
     results_extraction_flag  = False    # 4
-    fixture_extraction_flag  = False     # 5 — ACTIVO
-    players_flag             = False    # 6
+    fixture_extraction_flag  = False    # 5
+    players_flag             = True     # 6
     live_games_flag          = False
 
     if main_extract_news_enable:
@@ -48,7 +48,7 @@ def main():
         results_fixtures_extraction(driver, ["FOOTBALL"], name_section='fixtures')
 
     if players_flag:
-        players(driver, ["FOOTBALL", "BASKETBALL", "BASEBALL", "AM. FOOTBALL", "HOCKEY"])
+        players(driver, ["FOOTBALL"])
 
     if live_games_flag:
         update_lives_matchs(driver)

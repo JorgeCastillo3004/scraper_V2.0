@@ -82,6 +82,7 @@ STATUS_MIGRATION = {
     'schedule':  'SCHEDULED',
     'R':          'COMPLETED',
     'P':          'SCHEDULED',
+    'IN PROGRESS': 'LIVE',
 }
 
 

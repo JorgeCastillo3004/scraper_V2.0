@@ -233,7 +233,8 @@ alter table public.tournament
 
 create table if not exists public.country
 (
-    country_id        varchar(17) not null,
+    country_id        varchar(17) not null
+        constraint country_id_unique unique,
     country_name      varchar(70) not null,
     country_name_i18n varchar(255),
     country_logo      varchar(70)
@@ -242,21 +243,21 @@ create table if not exists public.country
 alter table public.country
     owner to db_admin;
 
-create table if not exists public.DB_USER_params
+create table if not exists public.wohhu_params
 (
     name          varchar(35) not null
-        constraint DB_USER_params_pk
+        constraint wohhu_params_pk
             primary key,
     config_params oid
 );
 
-comment on table public.DB_USER_params is 'Wohhu configuration parameters';
+comment on table public.wohhu_params is 'Wohhu configuration parameters';
 
-comment on column public.DB_USER_params.name is 'Name of the configuration paramater';
+comment on column public.wohhu_params.name is 'Name of the configuration parameter';
 
-comment on column public.DB_USER_params.config_params is 'Configuration parameters';
+comment on column public.wohhu_params.config_params is 'Configuration parameters';
 
-alter table public.DB_USER_params
+alter table public.wohhu_params
     owner to db_admin;
 
 create table if not exists public.pool
@@ -515,5 +516,70 @@ comment on column public.bet_detail.bet_result is 'Result of this team: WIN, DRA
 comment on column public.bet_detail.bet_score is 'Score in case of pool WITH_SCORE';
 
 alter table public.bet_detail
+    owner to db_admin;
+
+create table if not exists public.running_leagues
+(
+    league_id     varchar(128) not null,
+    section       varchar(20)  not null,
+    host          varchar(128),
+    started_at    timestamp    default now(),
+    current_round varchar(128) default ''::character varying,
+    current_match varchar(256) default ''::character varying,
+    status        varchar(20)  not null default 'running'::character varying,
+    constraint running_leagues_pkey
+        primary key (league_id, section)
+);
+
+alter table public.running_leagues
+    owner to db_admin;
+
+create table if not exists public.backoffice_users
+(
+    id         uuid                     not null default gen_random_uuid()
+        constraint backoffice_users_pkey
+            primary key,
+    email      text                     not null,
+    password   text                     not null,
+    first_name text                     not null,
+    last_name  text                     not null,
+    role       varchar(20)              not null default 'viewer'::character varying,
+    status     varchar(20)              not null default 'active'::character varying,
+    last_login timestamp with time zone,
+    created_at timestamp with time zone not null default CURRENT_TIMESTAMP,
+    updated_at timestamp with time zone not null default CURRENT_TIMESTAMP,
+    deleted_at timestamp with time zone
+);
+
+create unique index if not exists idx_backoffice_users_email on public.backoffice_users (email);
+create index if not exists idx_backoffice_users_deleted_at on public.backoffice_users (deleted_at);
+
+alter table public.backoffice_users
+    owner to db_admin;
+
+create sequence if not exists public.user_profiles_id_seq;
+
+create table if not exists public.user_profiles
+(
+    id          integer      not null default nextval('user_profiles_id_seq'::regclass)
+        constraint user_profiles_pk
+            primary key,
+    keycloak_id varchar      not null
+        constraint user_profiles_keycloak_id_uq
+            unique,
+    name        varchar      not null,
+    email       varchar      not null,
+    phone       varchar,
+    birthday    varchar,
+    gender      varchar,
+    country     varchar,
+    city        varchar,
+    address     varchar,
+    photo_url   varchar,
+    created_at  timestamp    default now(),
+    updated_at  timestamp    default now()
+);
+
+alter table public.user_profiles
     owner to db_admin;
 

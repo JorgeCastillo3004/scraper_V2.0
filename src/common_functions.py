@@ -157,7 +157,7 @@ def launch_navigator_chrome(url, headless = True):
     return driver
 
 def launch_navigator(url, headless= True, enable_profile=False):
-    geckodriver_path = "/usr/local/bin/geckodriver" 
+    geckodriver_path = "/home/jorge/.cache/selenium/geckodriver/linux64/0.35.0/geckodriver"
 
     # Configurar las opciones del navegador
     options = Options()
@@ -175,7 +175,7 @@ def launch_navigator(url, headless= True, enable_profile=False):
         profile = FirefoxProfile(profile_path)
         options.profile = profile
     service = Service(geckodriver_path)
-    driver = webdriver.Firefox(options=options)    
+    driver = webdriver.Firefox(service=service, options=options)
     driver.get(url)
     driver.execute_script("document.body.style.zoom='50%'")    
     return driver

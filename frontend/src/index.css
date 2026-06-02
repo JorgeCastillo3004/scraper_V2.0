@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { @apply bg-gray-950 text-gray-100; }
+
+.terminal {
+  @apply bg-black text-green-400 font-mono text-xs leading-5
+         h-64 overflow-y-auto p-3 rounded border border-gray-700;
+}
+.terminal .err  { @apply text-red-400; }
+.terminal .warn { @apply text-yellow-400; }
+.terminal .info { @apply text-blue-400; }

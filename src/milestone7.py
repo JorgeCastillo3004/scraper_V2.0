@@ -14,17 +14,6 @@ from data_base import *
 from milestone6 import *
 from milestone8 import give_click_on_live
 
-def display_dynamic_value(remaining_time):    
-    value = 0
-    while value < remaining_time:
-        # Update the value
-        value += 1
-        # Display the value
-#         display(HTML(f"<h1>{remaining_time - value}</h1>"))
-        print("{:.2f}".format(remaining_time - value), end=' ')
-        time.sleep(1)
-        # Wait for a short period of time before updating again        
-#         clear_output(wait=True)
 
 def get_live_result(row):
 	try:
@@ -113,17 +102,14 @@ def get_live_match(driver, sport_name='FOOTBALL', max_count=10):
 				except:
 					# try:
 					if enable_load:
-						game_results = get_live_result(row)				
+						game_results = get_live_result(row)
 						game_results['league_name'] = league_name
 						game_results['league_country'] = league_country
 						game_results['status'] = update_status(row)
-						print(f"HOME {game_results['home']}  {game_results['home_result']} VISITOR: {game_results['visitor']}  {game_results['visitor_result']}")
-						print(f"STATUS: {game_results['status']}")
-						list_match.append(game_results)				
+						list_match.append(game_results)
 					count = max_count
 			except:
 				count += 1
-				print(f"error in ger info from row inside 'get_live_match' count: {count}")
 	return list_match
 
 def update_status(row, max_count = 10):
@@ -133,74 +119,63 @@ def update_status(row, max_count = 10):
 		try:
 			match_status = row.find_element(By.XPATH, './/div[@class="event__stage"]').text
 			count = max_count
-		except:			
-			print(f"Try again find event stage, count: {count}")
+		except:
 			time.sleep(1)
 			count += 1
 	if match_status !='Finished':
-		status = 'IN PROGRESS'
+		status = 'LIVE'
 	elif match_status =='Finished':
 		status = 'COMPLETED'
 	return status
 		
 # def give_click_on_live_golf(driver):
 
-def live_games(driver, list_sports, interval=60, check_control=None):
+def live_games(driver, list_sports, interval=60, check_control=None, save_screenshot=None):
 	dict_sports_url = load_json('check_points/sports_url_m2.json')
+	_shot = save_screenshot if callable(save_screenshot) else (lambda d, l: None)
 
 	while True:
-		current_date = datetime.now().date()#.strftime('%H:%M:%S')
-		print_section(f" Current_date:{current_date} \n ")
-		# date = dt_object.date()
-		# time = dt_object.time()
+		current_date = datetime.now().date()
 
-		#############################################################
-		# 				MAIN LOOP OVER LIST SPORTS 					#
-		#############################################################
 		start_time = time.time()
-		print("start_time: ", start_time)
 		for sport_name in list_sports:
 			try:
-				print_section("LIVE SECTION: " + sport_name, space_ = 50)
-
 				wait_update_page(driver, dict_sports_url[sport_name], "container__heading")
 				dismiss_cookies(driver)
+				_shot(driver, f'live_{sport_name}')
 
 				live_games_found = give_click_on_live(driver, sport_name)
 
 				if live_games_found:
 					list_live_match = get_live_match(driver, sport_name=sport_name)
-					print("Total math found: ", len(list_live_match))
-					print_section("SEARCHING LIVE MATCH", space_=50)
+					print(f'[{sport_name}] {len(list_live_match)} partidos en vivo')
+					_shot(driver, f'live_{sport_name}_matches')
 					for match_info in list_live_match:
 						try:
-							print(match_info)
+							print(f'  {match_info["home"]} {match_info["home_result"]} - {match_info["visitor_result"]} {match_info["visitor"]}  ({match_info["status"]})')
 							match_id = get_match_id(match_info['league_country'],
 								match_info['league_name'], current_date, match_info['name'])
-							print("Match id: ", match_id)
 							if match_id:
 								dict_match_detail_id = get_math_details_ids(match_id)
-								print_section("MATCH FOUND PROCCED TO UPDATE VALUES.")
 								for match_detail_id, home_flag in dict_match_detail_id.items():
 									if home_flag:
 										update_score({'match_detail_id': match_detail_id, 'points': match_info['home_result']})
 									else:
 										update_score({'match_detail_id': match_detail_id, 'points': match_info['visitor_result']})
 								update_match_status({'match_id': match_id, 'status': match_info['status']})
-								print("Updated")
 						except Exception as e:
-							print(f'[WARN] Error actualizando match {match_info.get("name","?")}: {e}')
+							print(f'  [WARN] {match_info.get("name","?")}: {e}')
 							continue
+
 			except (InvalidSessionIdException, WebDriverException) as e:
+				_shot(driver, f'error_{sport_name}')
 				raise
 			except Exception as e:
-				print(f'[WARN] Error en live section {sport_name}: {type(e).__name__}: {e} — continuando con siguiente deporte')
+				_shot(driver, f'error_{sport_name}')
+				print(f'[WARN] {sport_name}: {type(e).__name__}: {e}')
 				continue
 
-		end_time = time.time()
-		elapsed_time = end_time - start_time
-		print("Complete time: ", elapsed_time)
-		# Esperar 'interval' segundos verificando pause/stop cada 2s
+		elapsed_time = time.time() - start_time
 		_check = check_control if callable(check_control) else (lambda d=None: None)
 		remaining = max(0, interval - elapsed_time)
 		waited = 0
@@ -209,4 +184,3 @@ def live_games(driver, list_sports, interval=60, check_control=None):
 			time.sleep(slice_)
 			waited += slice_
 			_check(driver)
-			print(f'[INFO] Esperando siguiente ciclo: {remaining - waited:.0f}s restantes')

@@ -140,7 +140,8 @@ def insert_countries_to_db(countries):
             exists = cur.fetchone()
 
             if exists:
-                print(f"⚠️ País '{country}' ya existe en la base de datos. Se omite la inserción.")
+                continue
+                # print(f"⚠️ País '{country}' ya existe en la base de datos. Se omite la inserción.")
             else:
                 query = """INSERT INTO COUNTRY (country_id, country_name, country_name_i18n, country_logo) 
                            VALUES (%(country_id)s, %(country_name)s, %(country_name_i18n)s, %(country_logo)s)"""
@@ -313,9 +314,10 @@ def get_season_id_by_name(league_id, season_name):
 
 def get_list_id_teams(sport_id, country_id, team_name):
     ensure_connection()
-    query = """SELECT team_id FROM team WHERE sport_id ='{}' and country_id = '{}' and team_name = '{}';""".format(sport_id, country_id, team_name)
+    # parametrizado: team_name con apóstrofe (Xi'an, O'Higgins) rompía el .format
     cur = con.cursor()
-    cur.execute(query)  
+    cur.execute("SELECT team_id FROM team WHERE sport_id = %s AND country_id = %s AND team_name = %s",
+                (sport_id, country_id, team_name))
     results = [row[0] for row in cur.fetchall()]
     return results
 
@@ -366,31 +368,8 @@ def get_dict_league_ready(sport_id = 'TENNIS'):
 ######################################## FUNCTIONS RELATED TO MATCHS ########################################
 def save_math_info(dict_match):
     ensure_connection()
-    dict_match['rounds'] = ' '.join(dict_match['rounds'].split())
+    dict_match['rounds'] = ' '.join(dict_match['rounds'].split())    
 
-    print("dict_match: ", dict_match['statistic'])
-    table_dict = {
-    "match_id": 255,
-    "match_country": 80,
-    "end_time": 1,  # No es una cadena de caracteres
-    "match_date": 1,  # No es una cadena de caracteres
-    "name": 70,
-    "place": 128,
-    "start_time": 1,  # No es una cadena de caracteres
-    "league_id": 40,
-    "stadium_id": 255,
-    "tournament_id": 255,
-    "rounds": 40,
-    "season_id": 40,
-    "status": 40,
-    "statistic": 1600}
-
-    # for key, value in dict_match.items():
-    #     try:
-    #         print(f"{key} {len(value)}/{table_dict[key]} {value}")
-    #     except:
-    #         print("Possible error: ")
-    #         print(f"key: {key}, value:{value} #")
     query = "INSERT INTO match VALUES(%(match_id)s, %(country_id)s, %(end_time)s,\
      %(match_date)s, %(name)s, %(place)s, %(start_time)s, %(league_id)s, \
      %(stadium_id)s, %(tournament_id)s,%(rounds)s, %(season_id)s, \
@@ -441,12 +420,26 @@ def get_league_match_team_count(league_id):
     row = cur.fetchone()
     return (row[0] or 0, row[1] or 0)  # (match_count, team_count)
 
+def get_teams_by_league_id(league_id, sport_id):
+    """
+    Retorna lista de (team_id, team_name) registrados en una liga específica
+    vía league_team, filtrando también por sport_id para evitar colisiones
+    entre ligas con el mismo nombre en distintos deportes.
+    """
+    ensure_connection()
+    cur = con.cursor()
+    cur.execute(
+        "SELECT t.team_id, t.team_name FROM team t "
+        "JOIN league_team lt ON t.team_id = lt.team_id "
+        "WHERE lt.league_id = %s AND t.sport_id = %s",
+        (league_id, sport_id)
+    )
+    return cur.fetchall()  # [(team_id, team_name), ...]
+
 def get_rounds_ready(league_id, season_id):
     ensure_connection()
     """Check rounds ready saved in DB"""
-    query = "SELECT DISTINCT rounds FROM match WHERE league_id = '{}' AND season_id = '{}';".format(league_id, season_id)   
-    print("query inside rounds ready: ")
-    print(query)
+    query = "SELECT DISTINCT rounds FROM match WHERE league_id = '{}' AND season_id = '{}';".format(league_id, season_id)       
     cur = con.cursor()
     cur.execute(query)  
     results = [row[0] for row in cur.fetchall()]
@@ -486,9 +479,9 @@ def check_player_duplicates_id(player_id):
 
 def check_team_duplicates(team_name, sport_id):
     ensure_connection()
-    query = "SELECT team_id FROM team WHERE team_name ='{}' AND sport_id ='{}';".format(team_name, sport_id)
     cur = con.cursor()
-    cur.execute(query)  
+    cur.execute("SELECT team_id FROM team WHERE team_name = %s AND sport_id = %s",
+                (team_name, sport_id))
     results = [row[0] for row in cur.fetchall()]
     return results
 
@@ -550,18 +543,33 @@ def check_team_player_entitiy(season_id, team_id, player_id):
     results = [row[0] for row in cur.fetchall()]
     return results  
 
+def strip_phase_suffix(name):
+    """FlashScore pega la fase al título de la liga ('Liga 1 - Apertura',
+    'Champions League - Play Offs'); la DB guarda el nombre base ('Liga 1').
+    Recorta todo lo que sigue al primer ' - '. Seguro: ninguna liga real en la
+    DB tiene ' - ' en su nombre (verificado), así que solo elimina fases."""
+    return name.split(' - ')[0].strip() if name else name
+
+
 def get_match_id(league_country, league_name, match_date, match_name):
     ensure_connection()
-    
+    # FIX naming de liga: el DOM trae la fase pegada al título ('Liga 1 -
+    # Apertura'); la DB guarda el nombre base. Sin recortar, el JOIN por
+    # league_name fallaba y el partido salía como inexistente (afecta también
+    # al flujo LIVE de milestone7/live_function que usa esta función).
+    league_db = strip_phase_suffix(league_name)
+    # IMPRESIÓN de verificación: palabras EXACTAS usadas en la solicitud a la DB.
+    print(f"[get_match_id] country='{league_country}' | "
+          f"league(DOM)='{league_name}' -> league(DB)='{league_db}' | "
+          f"match_date='{match_date}' | match_name='{match_name}'")
     query = """
     SELECT match.match_id
     FROM match
     JOIN league ON league.league_id = match.league_id
     JOIN country ON league.country_id = country.country_id
-    WHERE country.country_name = '{}' and 
-    league.league_name = '{}' and 
-    match.match_date = '{}' and match.name = '{}'""".format(league_country, league_name, match_date, match_name)
-    print(query)
+    WHERE country.country_name = '{}' and
+    league.league_name = '{}' and
+    match.match_date = '{}' and match.name = '{}'""".format(league_country, league_db, match_date, match_name)
     try:
         cur = con.cursor()
         cur.execute(query)
@@ -604,9 +612,9 @@ def check_match_duplicate(league_id, match_date, match_name):
 
 def get_stadium_id(place_name):
     ensure_connection()
-    query = """SELECT STADIUM_ID FROM STADIUM WHERE NAME ='{}';""".format(place_name)   
+    # parametrizado: nombres con apóstrofe (Xi'an, O'Higgins) rompían el .format
     cur = con.cursor()
-    cur.execute(query)
+    cur.execute("SELECT STADIUM_ID FROM STADIUM WHERE NAME = %s", (place_name,))
     results = [row[0] for row in cur.fetchall()]
     return results
 

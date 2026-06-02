@@ -35,6 +35,7 @@ import uvicorn
 
 from common_functions import *
 from data_base import *
+from milestone3 import *
 from milestone6 import *
 from config import FS_EMAIL, FS_PASSWORD
 
@@ -198,6 +199,67 @@ def players_league(req: LeagueRequest):
         else:
             players(driver, [req.sport])
             return {"status": "ok", "message": f"players() completado para {req.sport}"}
+    except Exception as e:
+        return {"status": "error", "error": str(e), "trace": traceback.format_exc()}
+
+
+@app.post("/debug_tabs")
+def debug_tabs(req: UrlRequest):
+    """
+    Debug: navega a la URL y retorna TODOS los wcl-tabs encontrados,
+    mostrando data-type para identificar si son primary o secondary.
+    """
+    if not driver_ready:
+        return {"status": "error", "error": "Driver no iniciado."}
+    try:
+        from selenium.webdriver.support.ui import WebDriverWait
+        from selenium.webdriver.support import expected_conditions as EC
+        wait_update_page(driver, req.url, 'container__heading')
+        import time; time.sleep(2)
+        result = {}
+        result['current_url'] = driver.current_url
+        for dtype in ['primary', 'secondary', 'any']:
+            if dtype == 'any':
+                xpath = '//div[@data-testid="wcl-tabs"]/a'
+            else:
+                xpath = f'//div[@data-testid="wcl-tabs" and @data-type="{dtype}"]/a'
+            tabs = driver.find_elements(By.XPATH, xpath)
+            result[dtype] = [
+                {"label": t.find_elements(By.XPATH, './/button')[0].text if t.find_elements(By.XPATH, './/button') else '',
+                 "href": t.get_attribute('href')}
+                for t in tabs if t.get_attribute('href')
+            ]
+        return {"status": "ok", "tabs": result}
+    except Exception as e:
+        return {"status": "error", "error": str(e), "trace": traceback.format_exc()}
+
+
+@app.post("/teams_part1")
+def teams_part1(req: UrlRequest):
+    """Debug: navega a URL y ejecuta get_teams_info_part1 directamente."""
+    if not driver_ready:
+        return {"status": "error", "error": "Driver no iniciado."}
+    try:
+        wait_update_page(driver, req.url, 'container__heading')
+        teams = get_teams_info_part1(driver)
+        return {"status": "ok", "count": len(teams), "teams": list(teams.keys())}
+    except Exception as e:
+        return {"status": "error", "error": str(e), "trace": traceback.format_exc()}
+
+
+@app.post("/teams_standings")
+def teams_standings(req: UrlRequest):
+    """
+    Prueba get_all_teams_from_standings(driver, url).
+    Retorna los equipos encontrados (nombre + team_url), incluyendo divisiones si las hay.
+    Ejemplo: {"url": "https://www.flashscore.com/football/belgium/jupiler-pro-league/standings/"}
+    """
+    if not driver_ready:
+        return {"status": "error", "error": "Driver no iniciado. Llama /start primero."}
+    try:
+        teams = get_all_teams_from_standings(driver, req.url)
+        result = {name: info.get('team_url', '') for name, info in teams.items()}
+        return {"status": "ok", "count": len(result), "teams": result}
     except Exception as e:
         return {"status": "error", "error": str(e), "trace": traceback.format_exc()}
 

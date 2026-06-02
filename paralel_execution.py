@@ -5,11 +5,13 @@ Lanza N drivers en paralelo, distribuyendo las ligas habilitadas en
 leagues_info.json entre ellos y ejecutando extraction_by_dict por worker.
 
 Uso:
-    python paralel_execution.py <n_sessions> <name_section>
+    python paralel_execution.py <n_sessions> <name_section> [--sport <sport>] [--no-confirm]
 
 Ejemplos:
     python paralel_execution.py 3 results
     python paralel_execution.py 2 fixtures
+    python paralel_execution.py 3 results --sport tennis
+    python paralel_execution.py 2 results --sport golf
 """
 
 import sys
@@ -32,7 +34,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src
 import milestone4
 import common_functions
 from common_functions import launch_navigator, load_check_point
-from milestone4 import extraction_by_dict
+from milestone4 import extraction_by_dict, extraction_special_sports
 from data_base import cleanup_stale_leagues
 
 
@@ -57,6 +59,7 @@ common_functions.save_check_point = _locked_save
 # ─────────────────────────────────────────────
 LEAGUES_INFO_FILE = 'check_points/leagues_info.json'
 SUPPORTED_SPORTS  = ['FOOTBALL', 'BASKETBALL', 'BASEBALL', 'AM._FOOTBALL', 'HOCKEY']
+SPECIAL_SPORTS    = ['TENNIS', 'GOLF', 'BOXING']
 SCREENSHOTS_DIR   = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs', 'parallel', 'screenshots')
 
 WORKER_COLORS    = ['cyan', 'yellow', 'green', 'magenta', 'blue', 'red', 'white', 'bright_cyan']
@@ -242,12 +245,13 @@ builtins.print = _patched_print
 #  FUNCIONES DE DISTRIBUCIÓN
 # ─────────────────────────────────────────────
 
-def get_enabled_leagues(name_section='results'):
+def get_enabled_leagues(name_section='results', sport_filter=None):
     extract_key  = 'extract_results' if name_section == 'results' else 'extract_fixtures'
     leagues_info = load_check_point(LEAGUES_INFO_FILE)
+    allowed = [sport_filter.upper()] if sport_filter else SUPPORTED_SPORTS
     enabled = []
     for sport, leagues in leagues_info.items():
-        if sport not in SUPPORTED_SPORTS:
+        if sport not in allowed:
             continue
         for league_name, league_info in leagues.items():
             if league_info.get(extract_key, {}).get('extract', False):
@@ -312,16 +316,17 @@ def _save_screenshots(driver, worker_id, reason):
 #  WORKER
 # ─────────────────────────────────────────────
 
-def worker(worker_id, sport_leagues_dict, name_section):
+def worker(worker_id, sport_leagues_dict, name_section, sport_filter=None):
     _register_thread(worker_id)
     color = WORKER_COLORS[worker_id % len(WORKER_COLORS)]
     n_leagues = sum(len(v) for v in sport_leagues_dict.values())
-    wlog(f'[{color}]Driver iniciado — {n_leagues} ligas asignadas[/{color}]')
+    mode_label = f'special:{sport_filter}' if sport_filter else 'team sports'
+    wlog(f'[{color}]Driver iniciado — {n_leagues} ligas asignadas [{mode_label}][/{color}]')
 
     retry_count = 0
 
-    # El worker nunca se detiene por errores de liga — extraction_by_dict ya los absorbe.
-    # Este bucle solo reintenta ante excepciones que escapen de extraction_by_dict
+    # El worker nunca se detiene por errores de liga — las funciones de extracción ya los absorben.
+    # Este bucle solo reintenta ante excepciones que escapen de esas funciones
     # (e.g., crash total del driver, error de inicialización irrecuperable).
     # MAX_WORKER_RETRIES evita un loop infinito ante un fallo estructural persistente.
     while retry_count <= MAX_WORKER_RETRIES:
@@ -333,7 +338,10 @@ def worker(worker_id, sport_leagues_dict, name_section):
 
         driver = launch_navigator('https://www.flashscore.com', headless=True)
         try:
-            extraction_by_dict(driver, sport_leagues_dict, name_section=name_section)
+            if sport_filter:
+                extraction_special_sports(driver, sport_leagues_dict, name_section=name_section)
+            else:
+                extraction_by_dict(driver, sport_leagues_dict, name_section=name_section)
             with _state_lock:
                 _worker_status[worker_id] = 'done'
                 _worker_league[worker_id] = 'Completado ✔'
@@ -376,7 +384,7 @@ def worker(worker_id, sport_leagues_dict, name_section):
 #  ENTRADA PRINCIPAL
 # ─────────────────────────────────────────────
 
-def run_parallel(n_sessions, name_section='results', confirm=True):
+def run_parallel(n_sessions, name_section='results', confirm=True, sport_filter=None):
     global _current_section, _n_workers_global
 
     # Reiniciar eventos de control para esta ejecución
@@ -396,17 +404,18 @@ def run_parallel(n_sessions, name_section='results', confirm=True):
     if stale:
         console.print(f'[dim]  {stale} claims huérfanos limpiados[/dim]')
 
-    enabled      = get_enabled_leagues(name_section)
+    enabled      = get_enabled_leagues(name_section, sport_filter=sport_filter)
     league_dicts = split_into_dicts(enabled, n_sessions)
 
     # Mostrar distribución y pedir confirmación (omitir si --no-confirm)
+    sport_label = f' [{sport_filter.upper()}]' if sport_filter else ''
     if confirm:
         if not _show_distribution(league_dicts, name_section, console):
             console.print('[yellow]  Ejecución cancelada.[/yellow]')
             write_status(name_section, n_sessions, 'stopped')
             return
     else:
-        console.print(f'[dim]  Iniciando {n_sessions} workers — {name_section.upper()} — {len(enabled)} ligas[/dim]')
+        console.print(f'[dim]  Iniciando {n_sessions} workers — {name_section.upper()}{sport_label} — {len(enabled)} ligas[/dim]')
 
     layout = _build_layout(n_sessions)
 
@@ -421,7 +430,7 @@ def run_parallel(n_sessions, name_section='results', confirm=True):
     with Live(layout, console=console, refresh_per_second=4, screen=True):
         with ThreadPoolExecutor(max_workers=n_sessions) as executor:
             futures = {
-                executor.submit(worker, idx, d, name_section): idx
+                executor.submit(worker, idx, d, name_section, sport_filter): idx
                 for idx, d in enumerate(league_dicts)
             }
             while futures:
@@ -464,12 +473,18 @@ if __name__ == '__main__':
     name_section = sys.argv[2]      if len(sys.argv) > 2 else 'results'
     confirm      = '--no-confirm' not in sys.argv
 
+    sport_filter = None
+    for i, arg in enumerate(sys.argv):
+        if arg == '--sport' and i + 1 < len(sys.argv):
+            sport_filter = sys.argv[i + 1].upper()
+            break
+
     console = Console()
     cycle   = 0
 
     while True:
         cycle += 1
-        enabled = get_enabled_leagues(name_section)
+        enabled = get_enabled_leagues(name_section, sport_filter=sport_filter)
         if not enabled:
             console.print(f'\n[green]✔ Extracción completa — no quedan ligas pendientes en [{name_section.upper()}].[/green]')
             console.print('[dim]Ejecuta: python scripts/db_status.py para el reporte final.[/dim]\n')
@@ -478,7 +493,7 @@ if __name__ == '__main__':
         console.print(f'\n[cyan]━━━ Ciclo {cycle} — {len(enabled)} ligas pendientes [{name_section.upper()}] ━━━[/cyan]')
 
         # Solo pedir confirmación en el primer ciclo
-        run_parallel(n_sessions, name_section, confirm=(confirm and cycle == 1))
+        run_parallel(n_sessions, name_section, confirm=(confirm and cycle == 1), sport_filter=sport_filter)
 
         if _stop_event.is_set():
             console.print('[yellow]  Stop solicitado — saliendo del loop.[/yellow]')

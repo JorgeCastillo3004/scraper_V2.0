@@ -16,9 +16,33 @@ from data_base import *
 from milestone7 import *
 
 # ── Control de ejecución (pause / stop) ───────────────────────────────────────
-_LOGS_DIR     = os.path.join(_ROOT, 'logs')
-_CONTROL_FILE = os.path.join(_LOGS_DIR, 'run_control_live.json')
-_STATUS_FILE  = os.path.join(_LOGS_DIR, 'run_status_live.json')
+_LOGS_DIR          = os.path.join(_ROOT, 'logs')
+_CONTROL_FILE      = os.path.join(_LOGS_DIR, 'run_control_live.json')
+_STATUS_FILE       = os.path.join(_LOGS_DIR, 'run_status_live.json')
+_SCREENSHOTS_DIR   = os.path.join(_LOGS_DIR, 'screenshots', 'live', 'latest')
+
+
+def _save_screenshot(driver, label: str):
+    os.makedirs(_SCREENSHOTS_DIR, exist_ok=True)
+    png  = os.path.join(_SCREENSHOTS_DIR, 'live_0.png')
+    meta = os.path.join(_SCREENSHOTS_DIR, 'live_0.json')
+    try:
+        original_size = driver.get_window_size()
+        try:
+            total_height = driver.execute_script('return document.body.scrollHeight')
+            driver.set_window_size(original_size['width'], max(total_height, original_size['height']))
+            driver.save_screenshot(png)
+        finally:
+            driver.set_window_size(original_size['width'], original_size['height'])
+        with open(meta, 'w', encoding='utf-8') as f:
+            json.dump({
+                'label':       label,
+                'captured_at': datetime.now().isoformat(),
+                'url':         getattr(driver, 'current_url', ''),
+                'image_url':   '/artifacts/screenshots/live/latest/live_0.png',
+            }, f)
+    except Exception:
+        pass
 
 
 def _write_control(command: str):
@@ -117,6 +141,7 @@ def main_live(sports: list, interval: int):
             driver = launch_navigator('https://www.flashscore.com', headless=False)
             print("[INFO] Navegador listo — iniciando login...")
             login(driver, email_=FS_EMAIL, password_=FS_PASSWORD)
+            _save_screenshot(driver, 'login_ready')
             print("[INFO] Login completado — comenzando ciclo live...")
             retry_count = 0
 
@@ -128,6 +153,7 @@ def main_live(sports: list, interval: int):
                 list_sports=sports,
                 interval=interval,
                 check_control=_check_control,
+                save_screenshot=_save_screenshot,
             )
 
         except SystemExit:

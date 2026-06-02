@@ -173,7 +173,7 @@ def update_lives_matchs(driver, list_sports=None, interval=None, check_control=N
 							match_status = match_element[0].find_element(By.CLASS_NAME, 'event__stage--block').text
 							print("Match name: ", name, "Status: ", match_status)
 							if match_status !='Finished':
-								status = 'in progress'
+								status = 'LIVE'
 							elif match_status =='Finished':
 								status = 'COMPLETED'
 								dict_pending_copy[sport_name].pop(name)

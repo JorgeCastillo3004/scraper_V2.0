@@ -265,7 +265,7 @@ def click_show_more_rounds(driver, current_results, section_name):
     webdriver.ActionChains(driver).send_keys(Keys.PAGE_UP).perform()
     time.sleep(1.5)
     
-    show_more_list = driver.find_elements("xpath", "//a[span[contains(text(),'Show more matches')]]")
+    show_more_list = driver.find_elements(By.XPATH, "//*[contains(.,'Show more matches') and (self::button or self::a)]")
     old_len = len(current_results)
     xpath_expression = '//div[contains(@class,"leagues--static event--leagues")]/div'
     max_try = 0
@@ -488,26 +488,73 @@ def wait_load_details(driver, url_details):
                 pass
         return False
 
-def get_statistics_game(driver):
-    wait = WebDriverWait(driver, 20)
+_JS_STATS = """
+    return Array.from(document.querySelectorAll('[data-testid="wcl-statistics"]')).map(el => ({
+        category: (el.querySelector('[data-testid="wcl-statistics-category"]') || {}).textContent || '',
+        home: (el.querySelector('[class*="homeValue"]') || {}).textContent || '',
+        away: (el.querySelector('[class*="awayValue"]') || {}).textContent || ''
+    }));
+"""
+
+
+def _stats_con_texto(items):
+    return [it for it in items if it.get('category') and
+            ((it.get('home') or '').strip() or (it.get('away') or '').strip())]
+
+
+def _intentar_leer_stats(driver, max_wait=8):
+    """Click en 'Stats' y espera (hasta max_wait s) a que aparezca TEXTO.
+    Retorna:
+      None  -> no hay pestaña de estadísticas (genuino, no reintentar)
+      []    -> hay pestaña pero no cargó texto (timing -> conviene refrescar)
+      [..]  -> indicadores con valores
+    """
     button_stats = driver.find_elements(By.XPATH, '//button[contains(.,"Stats")]')
+    if not button_stats:
+        return None
+    driver.execute_script("arguments[0].click();", button_stats[0])
+    try:
+        WebDriverWait(driver, 15).until(
+            EC.presence_of_element_located((By.XPATH, '//div[@data-testid="wcl-statistics"]')))
+    except Exception:
+        return []
+    deadline = time.time() + max_wait
+    raw = []
+    prev_count = -1
+    while time.time() < deadline:
+        time.sleep(0.5)
+        cur = driver.execute_script(_JS_STATS)
+        raw = cur
+        count = len(_stats_con_texto(cur))
+        if count > 0 and count == prev_count:   # estabilizó
+            break
+        prev_count = count
+    return _stats_con_texto(raw)
+
+
+def get_statistics_game(driver):
     statistics_info = {}
-    if len(button_stats)!=0:        
-        button_stats[0].click() 
-        # statistics = driver.find_elements(By.XPATH, '//div[@data-testid="wcl-statistics"]')
-        statistics = wait.until(EC.presence_of_all_elements_located((By.XPATH, '//div[@data-testid="wcl-statistics"]')))
-        
-        for indicator in statistics:        
-            stat_name = indicator.find_element(By.XPATH, './/div[@data-testid="wcl-statistics-category"]').text #data-testid="wcl-simpleText1       
-            statistic_values = indicator.find_elements(By.XPATH, './/div[@data-testid="wcl-statistics-value"]')     
+    raw = _intentar_leer_stats(driver)
+    if raw is None:
+        return str(statistics_info)            # sin pestaña de stats (genuino)
+    if not raw:
+        # Recuperación barata: refrescar la página UNA vez antes de recurrir al
+        # reload completo de la URL (retry_match). Evita esperas largas por match.
+        try:
+            driver.refresh()
+            dismiss_cookies(driver)
+        except Exception:
+            pass
+        raw = _intentar_leer_stats(driver)
+        if raw is None:
+            return str(statistics_info)
+    if not raw:
+        # Último recurso: que retry_match recargue la URL completa y reintente.
+        raise TimeoutException('Estadisticas vacias tras refresh — recargar URL')
 
-            for value in statistic_values:          
-                if 'homeValue' in value.get_attribute('outerHTML'):
-                    stat_home = value.text
-                if 'awayValue' in value.get_attribute('outerHTML'):
-                    stat_away = value.text
-
-            statistics_info[stat_name] = {'home' : stat_home, 'away' : stat_away}
+    for item in raw:
+        if item.get('category'):
+            statistics_info[item['category']] = {'home': item['home'], 'away': item['away']}
     return str(statistics_info)
 
 def get_links_participants(driver):

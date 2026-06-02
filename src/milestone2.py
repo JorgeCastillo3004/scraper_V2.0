@@ -511,7 +511,12 @@ def create_leagues(driver, list_sports):
     dict_sports_url = load_json('check_points/sports_url_m2.json')  
     sport_mode_dict = check_previous_execution(file_path = 'check_points/CONFIG_M2.json')   
     dict_sport_info = load_check_point('check_points/leagues_info.json')
-    dict_sport_id = get_dict_sport_id()
+    # FIX naming: la DB guarda los deportes en Title Case ('Football') pero el
+    # proyecto los referencia en UPPER ('FOOTBALL'). Sin este mapeo, el lookup
+    # de sport_id fallaba y create_sport_dict creaba un deporte DUPLICADO
+    # ('FOOTBALL' además de 'Football'). Mismo patrón que ya usa milestone3.
+    _sn_map = load_json('check_points/sport_name_map.json').get('db_to_project', {})
+    dict_sport_id = {_sn_map.get(k, k.upper()): v for k, v in get_dict_sport_id().items()}
 
     # INITIAL ZOOM ADJUST
     driver.execute_script("document.body.style.zoom='50%'")

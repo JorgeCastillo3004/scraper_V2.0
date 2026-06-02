@@ -1,1 +1,25 @@
+# Web scraping
+selenium
+requests
+
+# Database
+psycopg2-binary
+
+# Terminal UI
+rich
 flet
+
+# Utilities
+pycountry
+Unidecode
+psutil
+
+# Remote / SSH
+paramiko
+
+# File watching
+watchdog
+
+# API server
+fastapi
+uvicorn[standard]

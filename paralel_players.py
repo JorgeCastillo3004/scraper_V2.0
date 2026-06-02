@@ -14,7 +14,7 @@ Uso:
 
 Ejemplos:
     python paralel_players.py 4
-    python paralel_players.py 3 --sport FOOTBALL
+    python paralel_players.py 3 --sport FOOTBALL BASKETBALL
     python paralel_players.py 2 --sport BASKETBALL --no-confirm
 """
 
