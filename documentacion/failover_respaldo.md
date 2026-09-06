@@ -21,15 +21,29 @@ días— antes de dejarle mover nada.
 
 ## Las tres señales
 
-**A · LATIDO — ¿escribe ahora?** Se mira el `mtime` del log del live, no el heartbeat
-JSON: se comprobó que `run_status_live.json` conservaba la marca del arranque **8 horas
-seguidas**, así que un proceso colgado se habría visto igual que uno sano. (Arreglado en
-`main2.py`: ahora late en cada ciclo; pendiente de desplegar.)
+**A · SONDA DE FLASHSCORE — ¿devuelve datos ahora?** *(la señal que manda)*
+Un **navegador aparte**, independiente del que usa el live, carga FlashScore y cuenta los
+partidos que trae. Se ejecuta en paralelo, también mientras el respaldo tiene el mando:
+es así como se sabe que FlashScore ha vuelto y se le puede devolver el control.
 
-**B · COLGADOS — ¿deja partidos abiertos?** Partidos que llevan demasiado en `LIVE`. Es
+Por qué manda esta y no el latido: el `mtime` del log dice que **el proceso escribe**, no
+que **FlashScore le esté dando datos**. La diferencia no es teórica — cuando FlashScore
+renombró `event__time`, el live seguía corriendo y logueando con toda normalidad mientras
+encontraba **cero partidos**. Un detector basado solo en el latido habría dicho "todo
+bien" durante días. La sonda distingue los tres casos: responde con partidos (`OK`),
+carga pero viene vacía —bloqueo, DOM cambiado, sesión caída— (`STALE`), o no se pudo
+sondear (`DESCONOCIDO`, que no es lo mismo que "está roto").
+
+**B · LATIDO — ¿escribe el proceso?** El `mtime` del log del live, no el heartbeat JSON:
+se comprobó que `run_status_live.json` conservaba la marca del arranque **8 horas
+seguidas**, así que un proceso colgado se habría visto igual que uno sano. (Arreglado en
+`main2.py`: ahora late en cada ciclo; pendiente de desplegar.) Es la señal de respaldo
+cuando la sonda no está disponible.
+
+**C · COLGADOS — ¿deja partidos abiertos?** Partidos que llevan demasiado en `LIVE`. Es
 la huella que dejó el incidente de los 38 días.
 
-**C · ATRASO — ¿va por detrás del respaldo?** Partidos que SofaScore ya da por terminados
+**D · ATRASO — ¿va por detrás del respaldo?** Partidos que SofaScore ya da por terminados
 y la BD no. La señal más directa; hoy detectó 7 casos con el primario funcionando.
 
 ### Umbrales, calibrados con lo observado (no adivinados)
@@ -91,7 +105,23 @@ como `SCHEDULED` con marcador `-1`.
 
 ## Estado de los archivos
 
+## El navegador de sondeo
+
+```bash
+sports_env/bin/python scripts/start_driver.py \
+    --session-file tmp/flashscore_probe.json --label sonda_flashscore \
+    --url https://www.flashscore.com --sin-login --lightweight --headless \
+    --profile-dir tmp/profiles/fs_probe
+```
+
+Queda vivo y el detector se reengancha a él. Es **independiente** del driver del live y
+del de SofaScore: cada uno tiene su perfil y su sesión, así que sondear no interfiere con
+lo que esté haciendo el scraper.
+
+Comprobado en marcha: `FlashScore responde con 580 partidos` → `OK`.
+
 | Archivo | Contenido |
 |---|---|
 | `tmp/staleness_status.json` | último veredicto del detector |
+| `tmp/flashscore_probe.json` | sesión del navegador de sondeo |
 | `tmp/failover_state.json` | quién manda, contadores e historial de conmutaciones |

@@ -37,6 +37,8 @@ ap.add_argument('--latido-max', type=float, default=8.0,
                      '(default 8 = ~2,5 ciclos observados)')
 ap.add_argument('--colgado-horas', type=float, default=6.0,
                 help='horas en estado LIVE antes de considerar el partido colgado')
+ap.add_argument('--con-sonda', action='store_true',
+                help='sondear FlashScore en el navegador paralelo (tmp/flashscore_probe.json)')
 ap.add_argument('--con-respaldo', action='store_true',
                 help='añade la señal C comparando con SofaScore (requiere su driver)')
 ap.add_argument('--servidor', default='scraper_server',
@@ -50,7 +52,8 @@ con = psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_P
 cur = con.cursor()
 veredicto, señales, detalle = evaluar_primario(
     cur, servidor=args.servidor, ruta_log=args.log_remoto,
-    latido_max=args.latido_max, colgado_horas=args.colgado_horas)
+    latido_max=args.latido_max, colgado_horas=args.colgado_horas,
+    con_sonda=args.con_sonda)
 
 cur.execute("SELECT count(*) FROM match WHERE status='LIVE'")
 detalle['en_vivo_ahora'] = f'{cur.fetchone()[0]} partidos en estado LIVE en la BD'

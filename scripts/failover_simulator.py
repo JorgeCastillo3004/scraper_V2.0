@@ -30,6 +30,9 @@ ap.add_argument('--simular-caida', action='store_true',
 ap.add_argument('--recuperar-en', type=int, default=0,
                 help='con --simular-caida: ronda a partir de la cual el primario "vuelve"')
 ap.add_argument('--reset', action='store_true', help='empezar con el estado limpio')
+ap.add_argument('--sin-sonda', dest='sonda', action='store_false',
+                help='no sondear FlashScore en el navegador paralelo (solo mira el latido)')
+ap.set_defaults(sonda=True)
 args = ap.parse_args()
 
 if args.reset and os.path.exists(os.path.join(ROOT, 'tmp', 'failover_state.json')):
@@ -87,7 +90,8 @@ print(f'{"="*90}')
 
 for i in range(1, args.lecturas + 1):
     forzar = args.simular_caida and (args.recuperar_en == 0 or i < args.recuperar_en)
-    veredicto, señales, detalle = evaluar_primario(cur, forzar_caida=forzar)
+    veredicto, señales, detalle = evaluar_primario(cur, forzar_caida=forzar,
+                                                  con_sonda=args.sonda)
     dueño_antes = maquina.dueño
     dueño, evento = maquina.actualizar(veredicto, señales)
     maquina.guardar()

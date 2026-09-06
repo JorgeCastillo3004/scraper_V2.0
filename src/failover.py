@@ -20,6 +20,7 @@ Reglas de diseño, todas con su motivo:
 3. **Un solo escritor.** El estado dice quién manda; nadie escribe sin ser el dueño.
 """
 import os
+import sys
 import json
 import subprocess
 from datetime import datetime, timezone
@@ -49,7 +50,7 @@ def _edad_log_minutos(servidor, ruta_remota):
 def evaluar_primario(cur, servidor='scraper_server',
                      ruta_log='/home/scraper/live_v2/logs/live_persist.log',
                      latido_max=LATIDO_MAX_MIN, colgado_horas=COLGADO_HORAS,
-                     forzar_caida=False):
+                     forzar_caida=False, con_sonda=False):
     """Devuelve (veredicto, señales, detalle). `cur` es un cursor abierto a la BD.
     `forzar_caida` finge que el primario está muerto, para ensayar el flujo."""
     señales, detalle = {}, {}
@@ -75,6 +76,13 @@ def evaluar_primario(cur, servidor='scraper_server',
     colgados = cur.fetchone()[0]
     señales['colgados'] = 'OK' if colgados == 0 else ('WARN' if colgados < 5 else 'STALE')
     detalle['colgados'] = f'{colgados} partidos llevan más de {colgado_horas} h en LIVE'
+
+    if con_sonda:
+        if forzar_caida:
+            señales['sonda_fs'] = 'STALE'
+            detalle['sonda_fs'] = 'CAÍDA SIMULADA: se finge que FlashScore no devuelve datos'
+        else:
+            señales['sonda_fs'], detalle['sonda_fs'] = sondear_flashscore()
 
     valores = [v for v in señales.values() if v != 'DESCONOCIDO']
     veredicto = ('STALE' if 'STALE' in valores else
@@ -130,7 +138,12 @@ class MaquinaFailover:
         evento = None
 
         señales = señales or {}
-        vitalidad = señales.get('latido', veredicto)     # sin señal, el veredicto sirve
+        # Prioridad: la SONDA (¿FlashScore devuelve datos?) manda sobre el latido
+        # (¿el proceso escribe?). Un proceso vivo que no obtiene nada no sirve, y es
+        # exactamente lo que pasó con el cambio de DOM de FlashScore.
+        vitalidad = señales.get('sonda_fs') or señales.get('latido', veredicto)
+        if vitalidad == 'DESCONOCIDO':
+            vitalidad = señales.get('latido', veredicto)
         # un atraso grave frente al respaldo también cuenta como "no está actualizando"
         if señales.get('atraso') == 'STALE':
             vitalidad = 'STALE'
@@ -154,3 +167,42 @@ class MaquinaFailover:
         e['ultima_lectura'] = {'cuando': ahora, 'veredicto': veredicto,
                                'vitalidad': vitalidad}
         return e['dueño'], evento
+
+# ── Sonda activa del primario (navegador aparte) ─────────────────────────────
+# El mtime del log dice que el PROCESO escribe, no que FlashScore le esté devolviendo
+# datos. La diferencia no es teórica: cuando FlashScore renombró `event__time`, el live
+# seguía corriendo y logueando con normalidad mientras encontraba CERO partidos. Un
+# detector basado solo en el latido habría dicho "todo bien" durante días.
+#
+# Por eso la recuperación se decide **sondeando FlashScore de verdad**, en un navegador
+# independiente del que usa el live: se carga su página y se cuenta si devuelve partidos.
+
+PROBE_SESSION = os.path.join(ROOT, 'tmp', 'flashscore_probe.json')
+FS_LIVE_URL = 'https://www.flashscore.com/football/'
+
+
+def sondear_flashscore(session_file=PROBE_SESSION, url=FS_LIVE_URL, minimo=1, espera=6):
+    """¿FlashScore está devolviendo datos AHORA? Devuelve (estado, detalle).
+
+    estado: 'OK' si la página trae al menos `minimo` partidos; 'STALE' si carga pero
+    viene vacía (bloqueo, cambio de DOM, sesión caída); 'DESCONOCIDO' si ni siquiera se
+    pudo sondear (sin driver), para no confundir "no lo sé" con "está roto"."""
+    import time as _t
+    try:
+        sys.path.insert(0, os.path.join(ROOT, 'scripts'))
+        from driver_session import get_driver
+        from selenium.webdriver.common.by import By
+    except Exception as e:
+        return 'DESCONOCIDO', f'no se pudo preparar la sonda ({type(e).__name__})'
+    try:
+        d = get_driver(session_file)
+        d.get(url)
+        _t.sleep(espera)
+        filas = d.find_elements(By.CSS_SELECTOR, 'div.event__match')
+        titulo = (d.title or '')[:40]
+        if len(filas) >= minimo:
+            return 'OK', f'FlashScore responde con {len(filas)} partidos ("{titulo}")'
+        return 'STALE', (f'FlashScore carga pero devuelve {len(filas)} partidos '
+                         f'("{titulo}") — bloqueo, DOM cambiado o sesión caída')
+    except Exception as e:
+        return 'STALE', f'no se pudo leer FlashScore ({type(e).__name__}: {str(e)[:60]})'
