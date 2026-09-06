@@ -206,8 +206,13 @@ def search_tournament(driver, texto):
         if res.get('type') not in ('uniqueTournament', 'tournament'):
             continue
         e = res.get('entity') or {}
+        cat = e.get('category') or {}
         out.append({'unique_id': e.get('id'), 'name': e.get('name', ''),
-                    'country': (e.get('category') or {}).get('name', '')})
+                    'country': cat.get('name', ''),
+                    # CRÍTICO: el buscador devuelve torneos de CUALQUIER deporte. Sin
+                    # este dato, 'World Cup' de básquet se emparejaba con el Mundial de
+                    # fútbol — un error que escribiría marcadores en partidos ajenos.
+                    'sport': ((cat.get('sport') or {}).get('name', ''))})
     return out
 
 # ── Emparejamiento de equipos entre proveedores ──────────────────────────────
@@ -294,9 +299,31 @@ def load_teams_map(path=_TEAMS_MAP_PATH):
     return {k: v for k, v in _TEAMS_CACHE.items() if k != '__vacio__'}
 
 
+_OVERRIDES_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                               'check_points', 'sofascore_overrides.json')
+_OVERRIDES_CACHE = {}
+
+
+def load_overrides(path=_OVERRIDES_PATH):
+    """Correcciones manuales del mapeo. Mandan sobre lo generado automáticamente:
+    son la vía para fijar una correspondencia sin depender de una heurística."""
+    if not _OVERRIDES_CACHE:
+        try:
+            with open(path, encoding='utf-8') as f:
+                _OVERRIDES_CACHE.update(json.load(f))
+        except Exception:
+            _OVERRIDES_CACHE['_vacio'] = True
+    return _OVERRIDES_CACHE
+
+
 def team_to_db(nombre_ss, sport, liga_clave, mapa=None):
     """Nombre de equipo de SofaScore -> nombre en la BD, si está mapeado.
-    Devuelve (nombre_bd, mapeado?). Si no hay entrada, devuelve el original."""
+    Devuelve (nombre_bd, mapeado?). Si no hay entrada, devuelve el original.
+    Primero se miran las correcciones manuales; luego el mapa generado."""
+    manual = ((load_overrides().get('teams', {}) or {})
+              .get(sport, {}).get(liga_clave, {}) or {}).get(nombre_ss)
+    if manual:
+        return manual, True
     mapa = mapa if mapa is not None else load_teams_map()
     entrada = (mapa.get(sport, {}).get(liga_clave, {}) or {}).get(nombre_ss)
     if isinstance(entrada, dict) and entrada.get('bd'):

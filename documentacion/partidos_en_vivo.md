@@ -119,6 +119,37 @@ FlashScore (DOM en vivo)
 
 ---
 
+## Partidos con múltiples copias (World Cup) — verificado 2026-06-22
+
+Algunos partidos existen en la BD como **varias copias del mismo match** (mismo
+nombre/fecha/hora, distinto `season_id`). Es el caso de **World Cup / Mundial**:
+en FlashScore el partido está creado así a propósito (pertenece a varias
+agrupaciones/temporadas a la vez). **NO son duplicados a corregir ni a borrar.**
+
+- El live **actualiza TODAS las copias** del partido → en el log aparece
+  `[OK] ... | N copia/s actualizada/s` (ej. 7 copias de `Uruguay~Cape Verde`,
+  2026-06-21). Los datos quedan **consistentes entre todas**.
+- No confundir con el problema de duplicados por error (name+date+HORA exactos)
+  de `fix_null_team_ids.py`. En World Cup las copias son intencionales.
+
+### Dónde se almacena el resultado (importante)
+| Dato | Tabla / columna | Función |
+|---|---|---|
+| **Score** | `score_entity.points` (por `match_detail_id`) | `update_score()` |
+| **Status** | `match.status` (`LIVE` / `COMPLETED` / ...) | `update_match_status()` |
+
+> `match.statistic` queda `{}` **mientras el partido está en vivo** (es normal);
+> se llena al finalizar. Para verificar un score en vivo hay que mirar
+> `score_entity.points`, **no** `match.statistic`.
+
+### Verificación de resultados (sesión 2026-06-22)
+Live estable: ~1209 ciclos en 1d 7h, solo 2 reinicios (sesión de driver caída a
+las ~01:13–01:15 → autorrecuperado, login OK). Confirmado por `SELECT` de solo
+lectura en la BD remota: `Uruguay 2 - 1 Cape Verde` (`status=LIVE`) almacenado
+correctamente en `score_entity` en las **7 copias** esperadas del Mundial.
+
+---
+
 ## Manejo de errores
 
 - `InvalidSessionIdException` / `WebDriverException` → se **relanza** para que `main2.py` reinicie el driver

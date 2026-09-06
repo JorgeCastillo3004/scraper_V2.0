@@ -15,17 +15,15 @@ Uso:
   python scripts/update_server.py milestone4.py paralel_execution.py src/data_base.py
 """
 
-import paramiko
 import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-from config import SERVER_HOST, SERVER_USER, SERVER_PASS, SERVER_PATH
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import SERVER_PATH
+from server_conn import get_ssh_client
 
 # ── Configuración ─────────────────────────────────────────────────────────────
-HOST        = SERVER_HOST
-USER        = SERVER_USER
-PASS        = SERVER_PASS
 LOCAL_BASE  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REMOTE_BASE = SERVER_PATH
 
@@ -126,9 +124,7 @@ def main():
         print('  Cancelado.')
         return
 
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(HOST, username=USER, password=PASS)
+    client = get_ssh_client()
     sftp = client.open_sftp()
 
     # 2. Subir
@@ -151,9 +147,7 @@ def upload_leagues_info():
         print('  Cancelado.')
         return
 
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(HOST, username=USER, password=PASS)
+    client = get_ssh_client()
     sftp = client.open_sftp()
 
     print()
@@ -176,9 +170,7 @@ def upload_specific(files):
         print('  Cancelado.')
         return
 
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(HOST, username=USER, password=PASS)
+    client = get_ssh_client()
     sftp = client.open_sftp()
 
     print()
@@ -214,9 +206,7 @@ def upload_py_files():
         print('  Cancelado.')
         return
 
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(HOST, username=USER, password=PASS)
+    client = get_ssh_client()
     sftp = client.open_sftp()
 
     print()
@@ -244,9 +234,7 @@ def upload_images():
         print(f'  [skip] Carpeta local no encontrada: {local_images}')
         return
 
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(HOST, username=USER, password=PASS)
+    client = get_ssh_client()
     sftp = client.open_sftp()
 
     # ── 1. Detectar archivos nuevos (no existen en servidor) ──────────────────

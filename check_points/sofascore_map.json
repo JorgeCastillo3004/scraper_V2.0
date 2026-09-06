@@ -35,5 +35,62 @@
       "confianza": "parcial",
       "partidos_bd": 4
     }
+  },
+  "Baseball": {
+    "JAPAN_NPB": {
+      "unique_id": 11199,
+      "sofascore_name": "Pro Yakyu - NPB",
+      "sofascore_country": "Japan",
+      "confianza": "parcial",
+      "partidos_bd": 24
+    },
+    "SOUTH KOREA_KBO": {
+      "unique_id": 11204,
+      "sofascore_name": "KBO",
+      "sofascore_country": "South Korea",
+      "confianza": "exacta",
+      "partidos_bd": 5
+    }
+  },
+  "Basketball": {
+    "WORLD_World Cup": {
+      "unique_id": 10437,
+      "sofascore_name": "La BD lo llama 'World Cup', pero sus partidos son los de la FIBA World Cup Qualification, Europe. Verificado: 30 de 32 equipos coinciden.",
+      "sofascore_country": "WORLD",
+      "confianza": "MANUAL (overrides)",
+      "partidos_bd": 24
+    },
+    "EUROPE_EuroBasket": {
+      "unique_id": 662,
+      "sofascore_name": "FIBA EuroBasket Qual.",
+      "sofascore_country": "International",
+      "confianza": "verificado por equipos (8/8)",
+      "partidos_bd": 4
+    }
+  },
+  "American Football": {
+    "USA_NFL": {
+      "unique_id": 9464,
+      "sofascore_name": "NFL",
+      "sofascore_country": "USA",
+      "confianza": "exacta",
+      "partidos_bd": 64
+    },
+    "CANADA_CFL": {
+      "unique_id": 11208,
+      "sofascore_name": "CFL",
+      "sofascore_country": "Canada",
+      "confianza": "exacta",
+      "partidos_bd": 18
+    }
+  },
+  "Hockey": {
+    "FINLAND_Liiga": {
+      "unique_id": 134,
+      "sofascore_name": "Liiga",
+      "sofascore_country": "Finland",
+      "confianza": "verificado por equipos (3/16)",
+      "partidos_bd": 29
+    }
   }
 }

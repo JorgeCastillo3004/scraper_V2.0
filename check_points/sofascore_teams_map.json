@@ -371,5 +371,493 @@
         "score": 0.75
       }
     }
+  },
+  "Baseball": {
+    "JAPAN_NPB": {
+      "Chiba Lotte Marines": {
+        "bd": "Chiba Lotte Marines",
+        "score": 0.88
+      },
+      "Saitama Seibu Lions": {
+        "bd": "Seibu Lions",
+        "score": 0.83
+      },
+      "Hiroshima Carp": {
+        "bd": "Hiroshima Carp",
+        "score": 1.0
+      },
+      "Yomiuri Giants": {
+        "bd": "Yomiuri Giants",
+        "score": 1.0
+      },
+      "Hokkaido Nippon-Ham Fighters": {
+        "bd": "Nippon Ham Fighters",
+        "score": 0.81
+      },
+      "Fukuoka SoftBank Hawks": {
+        "bd": "Fukuoka S. Hawks",
+        "score": 0.78
+      },
+      "Tohoku Rakuten Golden Eagles": {
+        "bd": "Rakuten Gold. Eagles",
+        "score": 0.83
+      },
+      "Orix Buffaloes": {
+        "bd": "Orix Buffaloes",
+        "score": 0.87
+      },
+      "Chunichi Dragons": {
+        "bd": "Chunichi Dragons",
+        "score": 1.0
+      },
+      "Yokohama DeNA BayStars": {
+        "bd": "Yokohama BayStars",
+        "score": 0.83
+      },
+      "Tokyo Yakult Swallows": {
+        "bd": "Yakult Swallows",
+        "score": 0.83
+      },
+      "Hanshin Tigers": {
+        "bd": "Hanshin Tigers",
+        "score": 0.88
+      }
+    },
+    "SOUTH KOREA_KBO": {
+      "Kiwoom Heroes": {
+        "bd": "Kiwoom Heroes",
+        "score": 1.0
+      },
+      "NC Dinos": {
+        "bd": "NC Dinos",
+        "score": 1.0
+      },
+      "SSG Landers": {
+        "bd": "SSG Landers",
+        "score": 1.0
+      },
+      "Doosan Bears": {
+        "bd": "Doosan Bears",
+        "score": 1.0
+      },
+      "Kia Tigers": {
+        "bd": "KIA Tigers",
+        "score": 0.88
+      },
+      "Kt Wiz": {
+        "bd": "KT Wiz Suwon",
+        "score": 0.83
+      },
+      "Lotte Giants": {
+        "bd": "Lotte Giants",
+        "score": 1.0
+      },
+      "Hanwha Eagles": {
+        "bd": "Hanwha Eagles",
+        "score": 1.0
+      },
+      "LG Twins": {
+        "bd": "LG Twins",
+        "score": 1.0
+      },
+      "Samsung Lions": {
+        "bd": "Samsung Lions",
+        "score": 1.0
+      }
+    }
+  },
+  "American Football": {
+    "USA_NFL": {
+      "Seattle Seahawks": {
+        "bd": "Seattle Seahawks",
+        "score": 1.0
+      },
+      "New England Patriots": {
+        "bd": "New England Patriots",
+        "score": 1.0
+      },
+      "Los Angeles Rams": {
+        "bd": "Los Angeles Rams",
+        "score": 1.0
+      },
+      "San Francisco 49ers": {
+        "bd": "San Francisco 49ers",
+        "score": 1.0
+      },
+      "Carolina Panthers": {
+        "bd": "Carolina Panthers",
+        "score": 1.0
+      },
+      "Chicago Bears": {
+        "bd": "Chicago Bears",
+        "score": 1.0
+      },
+      "Cincinnati Bengals": {
+        "bd": "Cincinnati Bengals",
+        "score": 1.0
+      },
+      "Tampa Bay Buccaneers": {
+        "bd": "Tampa Bay Buccaneers",
+        "score": 1.0
+      },
+      "Detroit Lions": {
+        "bd": "Detroit Lions",
+        "score": 1.0
+      },
+      "New Orleans Saints": {
+        "bd": "New Orleans Saints",
+        "score": 1.0
+      },
+      "Houston Texans": {
+        "bd": "Houston Texans",
+        "score": 1.0
+      },
+      "Buffalo Bills": {
+        "bd": "Buffalo Bills",
+        "score": 1.0
+      },
+      "Indianapolis Colts": {
+        "bd": "Indianapolis Colts",
+        "score": 1.0
+      },
+      "Baltimore Ravens": {
+        "bd": "Baltimore Ravens",
+        "score": 1.0
+      },
+      "Jacksonville Jaguars": {
+        "bd": "Jacksonville Jaguars",
+        "score": 1.0
+      },
+      "Cleveland Browns": {
+        "bd": "Cleveland Browns",
+        "score": 1.0
+      },
+      "Pittsburgh Steelers": {
+        "bd": "Pittsburgh Steelers",
+        "score": 1.0
+      },
+      "Atlanta Falcons": {
+        "bd": "Atlanta Falcons",
+        "score": 1.0
+      },
+      "Tennessee Titans": {
+        "bd": "Tennessee Titans",
+        "score": 1.0
+      },
+      "New York Jets": {
+        "bd": "New York Jets",
+        "score": 1.0
+      },
+      "Las Vegas Raiders": {
+        "bd": "Las Vegas Raiders",
+        "score": 1.0
+      },
+      "Miami Dolphins": {
+        "bd": "Miami Dolphins",
+        "score": 1.0
+      },
+      "Los Angeles Chargers": {
+        "bd": "Los Angeles Chargers",
+        "score": 1.0
+      },
+      "Arizona Cardinals": {
+        "bd": "Arizona Cardinals",
+        "score": 1.0
+      },
+      "Minnesota Vikings": {
+        "bd": "Minnesota Vikings",
+        "score": 1.0
+      },
+      "Green Bay Packers": {
+        "bd": "Green Bay Packers",
+        "score": 1.0
+      },
+      "Philadelphia Eagles": {
+        "bd": "Philadelphia Eagles",
+        "score": 1.0
+      },
+      "Washington Commanders": {
+        "bd": "Washington Commanders",
+        "score": 1.0
+      },
+      "New York Giants": {
+        "bd": "New York Giants",
+        "score": 1.0
+      },
+      "Dallas Cowboys": {
+        "bd": "Dallas Cowboys",
+        "score": 1.0
+      },
+      "Kansas City Chiefs": {
+        "bd": "Kansas City Chiefs",
+        "score": 1.0
+      },
+      "Denver Broncos": {
+        "bd": "Denver Broncos",
+        "score": 1.0
+      }
+    },
+    "CANADA_CFL": {
+      "Saskatchewan Roughriders": {
+        "bd": "Saskatchewan Roughriders",
+        "score": 1.0
+      },
+      "Winnipeg Blue Bombers": {
+        "bd": "Winnipeg Blue Bombers",
+        "score": 1.0
+      },
+      "Hamilton Tiger-Cats": {
+        "bd": "Hamilton Tiger-Cats",
+        "score": 1.0
+      },
+      "Toronto Argonauts": {
+        "bd": "Toronto Argonauts",
+        "score": 1.0
+      },
+      "Calgary Stampeders": {
+        "bd": "Calgary Stampeders",
+        "score": 1.0
+      },
+      "Edmonton Elks": {
+        "bd": "Edmonton Elks",
+        "score": 1.0
+      },
+      "Ottawa Redblacks": {
+        "bd": "Ottawa Redblacks",
+        "score": 1.0
+      },
+      "BC Lions": {
+        "bd": "BC Lions",
+        "score": 1.0
+      },
+      "Montreal Alouettes": {
+        "bd": "Montreal Alouettes",
+        "score": 1.0
+      }
+    }
+  },
+  "Basketball": {
+    "WORLD_World Cup": {
+      "Montenegro": {
+        "bd": "Montenegro",
+        "score": 1.0
+      },
+      "Romania": {
+        "bd": "Romania",
+        "score": 1.0
+      },
+      "Lithuania": {
+        "bd": "Lithuania",
+        "score": 1.0
+      },
+      "Great Britain": {
+        "bd": "Great Britain",
+        "score": 1.0
+      },
+      "Portugal": {
+        "bd": "Portugal",
+        "score": 1.0
+      },
+      "Iceland": {
+        "bd": "Iceland",
+        "score": 1.0
+      },
+      "Italy": {
+        "bd": "Italy",
+        "score": 1.0
+      },
+      "Ukraine": {
+        "bd": "Ukraine",
+        "score": 1.0
+      },
+      "Georgia": {
+        "bd": "Georgia",
+        "score": 1.0
+      },
+      "Spain": {
+        "bd": "Spain",
+        "score": 1.0
+      },
+      "Denmark": {
+        "bd": "Denmark",
+        "score": 1.0
+      },
+      "Greece": {
+        "bd": "Greece",
+        "score": 1.0
+      },
+      "Switzerland": {
+        "bd": "Switzerland",
+        "score": 1.0
+      },
+      "Serbia": {
+        "bd": "Serbia",
+        "score": 1.0
+      },
+      "Cyprus": {
+        "bd": "Cyprus",
+        "score": 1.0
+      },
+      "Croatia": {
+        "bd": "Croatia",
+        "score": 1.0
+      },
+      "Israel": {
+        "bd": "Israel",
+        "score": 1.0
+      },
+      "Germany": {
+        "bd": "Germany",
+        "score": 1.0
+      },
+      "Austria": {
+        "bd": "Austria",
+        "score": 1.0
+      },
+      "Poland": {
+        "bd": "Poland",
+        "score": 1.0
+      },
+      "Belgium": {
+        "bd": "Belgium",
+        "score": 1.0
+      },
+      "France": {
+        "bd": "France",
+        "score": 1.0
+      },
+      "Finland": {
+        "bd": "Finland",
+        "score": 1.0
+      },
+      "Hungary": {
+        "bd": "Hungary",
+        "score": 1.0
+      },
+      "Netherlands": {
+        "bd": "Netherlands",
+        "score": 1.0
+      },
+      "Latvia": {
+        "bd": "Latvia",
+        "score": 1.0
+      },
+      "Estonia": {
+        "bd": "Estonia",
+        "score": 1.0
+      },
+      "Slovenia": {
+        "bd": "Slovenia",
+        "score": 1.0
+      },
+      "Sweden": {
+        "bd": "Sweden",
+        "score": 0.73,
+        "revisar": true
+      },
+      "Czechia": {
+        "bd": "Czech Republic",
+        "score": 0.64,
+        "revisar": true
+      }
+    },
+    "EUROPE_EuroBasket": {
+      "Luxembourg": {
+        "bd": "Luxembourg",
+        "score": 1.0
+      },
+      "Azerbaijan": {
+        "bd": "Azerbaijan",
+        "score": 1.0
+      },
+      "Kosovo": {
+        "bd": "Kosovo",
+        "score": 1.0
+      },
+      "Albania": {
+        "bd": "Albania",
+        "score": 1.0
+      },
+      "North Macedonia": {
+        "bd": "North Macedonia",
+        "score": 1.0
+      },
+      "Ireland": {
+        "bd": "Ireland",
+        "score": 1.0
+      },
+      "Norway": {
+        "bd": "Norway",
+        "score": 1.0
+      },
+      "Armenia": {
+        "bd": "Armenia",
+        "score": 1.0
+      }
+    }
+  },
+  "Hockey": {
+    "FINLAND_Liiga": {
+      "Oulun Kärpät": {
+        "bd": "Karpat",
+        "score": 0.75
+      },
+      "KooKoo Kouvola": {
+        "bd": "KooKoo",
+        "score": 0.75
+      },
+      "Kiekko-Espoo": {
+        "bd": "Kiekko-Espoo",
+        "score": 0.81
+      },
+      "JYP Jyväskylä": {
+        "bd": "JYP",
+        "score": 0.75
+      },
+      "Vaasan Sport": {
+        "bd": "Vaasan Sport",
+        "score": 0.81
+      },
+      "KalPa Kuopio": {
+        "bd": "KalPa",
+        "score": 0.75
+      },
+      "Porin Ässät": {
+        "bd": "Assat",
+        "score": 0.75
+      },
+      "Rauman Lukko": {
+        "bd": "Lukko",
+        "score": 0.75
+      },
+      "Mikkelin Jukurit": {
+        "bd": "Jukurit",
+        "score": 0.75
+      },
+      "HPK Hämeenlinna": {
+        "bd": "Hameenlinna",
+        "score": 0.75
+      },
+      "Tampereen Ilves": {
+        "bd": "Ilves",
+        "score": 0.75
+      },
+      "Tappara Tampere": {
+        "bd": "Tappara",
+        "score": 0.75
+      },
+      "SaiPa Lappeenranta": {
+        "bd": "SaiPa",
+        "score": 0.75
+      },
+      "Lahti Pelicans": {
+        "bd": "Pelicans",
+        "score": 0.75
+      },
+      "TPS Turku": {
+        "bd": "TPS Turku",
+        "score": 0.81
+      }
+    }
   }
 }

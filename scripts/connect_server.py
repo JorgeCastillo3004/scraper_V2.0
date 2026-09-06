@@ -11,18 +11,17 @@ import sys
 import select
 import termios
 import tty
-import paramiko
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-from config import SERVER_HOST, SERVER_USER, SERVER_PASS
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import SERVER_HOST, SERVER_USER
+from server_conn import get_ssh_client
 
 
 def main():
     print(f"Conectando a {SERVER_USER}@{SERVER_HOST}...")
 
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(SERVER_HOST, username=SERVER_USER, password=SERVER_PASS)
+    client = get_ssh_client()
 
     channel = client.invoke_shell(term='xterm-256color', width=220, height=50)
     print("Conexión establecida. Escribe 'exit' para salir.\n")

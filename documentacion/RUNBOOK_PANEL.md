@@ -1,7 +1,12 @@
 # RUNBOOK — Panel de control del scraper
 
-**Punto de entrada único para levantar y operar el panel.** Lee esto primero; solo
+**Punto de entrada único para levantar y operar el panel (local).** Lee esto primero; solo
 abre la doc de detalle (abajo) si vas a modificar código de una pestaña concreta.
+
+> ⚠️ Para el **live que corre en el servidor** (permanente, bajo systemd) el runbook es
+> otro: [`RUNBOOK_LIVE_SERVIDOR.md`](RUNBOOK_LIVE_SERVIDOR.md). Ambos escriben en la
+> **misma BD remota**, así que antes de lanzar una sección pesada desde el panel conviene
+> mirar qué está haciendo el live del servidor (regla de un solo escritor).
 
 Panel = `api/` (FastAPI, puerto **8009**) + `frontend/` (React+Vite, puerto **5174**).
 Vite proxea `/api`, `/ws`, `/artifacts` → 8009. La API conecta a la BD **remota**
@@ -53,6 +58,45 @@ caído (`/api/driver/status` → `alive:false`). Se inicia **desde el frontend**
 Inconsistencias → "Iniciar driver"), que lanza `scripts/start_driver.py` detached con
 login. `tmp/driver_session.json` puede apuntar a una sesión muerta tras reboot.
 
+### 4.1 Higiene de recursos / drivers huérfanos (revisado 2026-06-22)
+
+Esta máquina tiene **30 GiB de RAM** (no 7.6 GB; nota vieja de otra restauración).
+Antes de "reducir consumo" SIEMPRE separar 3 familias de procesos:
+
+1. **Firefox de ESCRITORIO del usuario** (snap `firefox` bajo `gnome-shell`, perfil del
+   usuario). Suele ser el mayor consumidor (visto 1 pestaña en **7.6 GB**). **JAMÁS se toca.**
+   Se reconoce: padre = `gnome-shell`, sin `--marionette`, perfil NO en `/tmp/rust_mozprofile`.
+2. **Drivers del scraper VIVOS** — Firefox con `--marionette` + perfil `/tmp/rust_mozprofile…`,
+   **con** un `geckodriver` padre vivo y su `start_driver.py`. El de LIVE se identifica por
+   `tmp/live_driver.json` (`session_id`/`executor_url`). No se matan: reciclan por hot-swap.
+3. **Drivers del scraper HUÉRFANOS** — Firefox `--marionette` + `/tmp/rust_mozprofile…` cuyo
+   `geckodriver` ya murió → reparentado a `systemd --user` (PPID = el pid de `systemd --user`).
+   Nadie puede manejarlo (su puerto `--remote-debugging-port` solo lo escucha él mismo). Es
+   memoria muerta (visto ~865 MB, 9 h idle). **Se puede limpiar, pero con confirmación.**
+
+Detección:
+```bash
+# Drivers marionette del scraper y su padre
+ps -eo pid,ppid,rss,args | grep -E "rust_mozprofile" | grep -v grep
+# ¿Tiene geckodriver vivo? (si NO aparece su puerto debug con dueño geckodriver → huérfano)
+ps -eo pid,ppid,args | grep geckodriver | grep -v grep
+ss -ltnp | grep <remote-debugging-port>
+# ¿Reparentado a systemd? (PPID == pid de `systemd --user` ⇒ huérfano)
+```
+Limpieza segura de un huérfano (verificado 2026-06-22, liberó ~865 MB):
+```bash
+# SIGTERM DIRIGIDO al PID exacto. NUNCA pkill firefox/geckodriver (mataría el del usuario
+# o el LIVE). Confirmar antes el cmdline: --headless + rust_mozprofile + PPID=systemd.
+kill <PID_HUERFANO>
+```
+
+> ⚠️ Los "8 uvicorns zombies" que mencionaban notas viejas **ya no existen** tras reinicio.
+> Lo que hoy corre además del panel es el stack **`control_de_ventas`** en **Docker**
+> (`ventas_backend`→host `:8004`, `ventas_postgres/redis/minio`) + su frontend node en `:3003`.
+> NO son del scraper ni son zombies: pertenecen a otro proyecto y están arriba a propósito.
+> `app.main:8000` corre DENTRO de contenedor (`/proc/<pid>/cgroup` → `docker-…`) → no matar
+> desde el host; usar `docker compose` de ese proyecto si se quiere bajar.
+
 ---
 
 ## 5. Pestañas y qué controla cada una (estado a 2026-06-02)
@@ -88,22 +132,45 @@ El driver es **uno solo y compartido**: lo lanza "Iniciar driver" (`start_driver
 y tanto `update_pending_matches.py` como `fix_null_team_ids.py` se reenganchan a él
 con `driver_session.get_driver()` (lee `tmp/driver_session.json`, NO abre browser nuevo).
 
-### Reciclado del driver por memoria (PENDIENTE — diseño acordado)
-Problema observado 2026-06-02: en corridas largas (`update_matches` multi-liga, modo
-completo+apply) el Firefox del driver crece hasta **~3 GB PSS en una sola pestaña**;
-con 7.6 GB de RAM el sistema llegó a **~230 MB libres** y el OOM-killer mató el Firefox
-→ la corrida se cayó a media tanda (launcher quedó `<defunct>`).
+### Reciclado del driver por memoria (✅ IMPLEMENTADO 2026-06-03)
+Problema (2026-06-02): en corridas largas (`update_matches` multi-liga, completo+apply)
+el Firefox del driver crece hasta **~3 GB PSS en una sola pestaña**; con 7.6 GB de RAM
+el sistema llegó a ~230 MB libres y el OOM-killer mató el Firefox → la corrida se cayó.
 
-Diseño (a implementar): la detección y el reciclado viven **DENTRO del script de
-extracción** (`update_pending_matches.py`, y opcionalmente `fix_null_team_ids.py`),
-NO como watchdog externo del panel. En el checkpoint entre partidos/ligas
-(`_check_control()`): medir la memoria del árbol del driver → si supera el umbral →
-detener+relanzar el driver (= limpia los GB) → `get_driver()` de nuevo → re-navegar al
-`results_url` de la liga actual → continuar en el mismo punto. Helper reusable previsto
-en `scripts/driver_session.py` (`memoria_driver_mb()` + `relaunch_driver()`). Medición:
-PSS del árbol del scraper SOLO (descendientes del launcher + Firefox `--marionette`),
-NUNCA el Firefox del usuario. Decisión abierta: cortar entre ligas (simple) vs a mitad
-de liga (re-navegar + re-escanear). Umbral propuesto ~2.0 GB PSS, configurable.
+Solución: la detección+reciclado viven **DENTRO del script** (`update_pending_matches.py`),
+NO como watchdog del panel. Implementación:
+- **Umbral:** `MEM_LIMIT_MB` = **2048 MB** (env `DRIVER_MEM_LIMIT_MB` lo sobreescribe).
+- **Dónde mide:** entre partidos (junto a `_check_control()`), vía `_maybe_recycle()`.
+- **Métrica:** `driver_session.driver_tree_pss_mb()` — PSS del árbol del driver del scraper
+  SOLO (launcher + geckodriver + Firefox `--marionette` + content procs); **NUNCA** el
+  Firefox del usuario (árbol aparte). Si no puede medir → 0 → no recicla.
+- **Reciclado:** `driver_session.relaunch_driver()` reusa `api/services/driver_manager`
+  (`stop()` SIGTERM al launcher → `start_driver` hace `quit()` y libera los GB; `start()`
+  lanza uno nuevo con login; espera la sesión y devuelve `get_driver()` reconectado).
+- **Continúa en el mismo punto (corte a mitad de liga):** `found` ya está en memoria y
+  `process_match` navega solo a la página de cada partido restante, así que NO hace falta
+  re-escanear ni re-navegar a results.
+- **Visibilidad:** header imprime "Reciclado … ACTIVO (umbral N MB)"; cada reciclado loguea
+  `[RECICLAJE] …`; el RESUMEN final imprime `Reciclajes drv : N`.
+- Gemelo `fix_null_team_ids.py` NO tiene el reciclado aún (mismo patrón si se quiere).
+- Para probar: lanzar una corrida `update_matches` larga desde el panel y mirar el log.
+
+### Detener una corrida — atomicidad por partido (✅ 2026-06-03)
+El botón "■ Detener" de `update_matches` hace `process_manager.stop_process` →
+**SIGTERM** (terminate), 3 s de gracia, luego **SIGKILL**. El script no tiene handler
+de SIGTERM, así que muere donde esté. Para que eso NO deje partidos a medias:
+- **Cada partido se escribe en UNA sola transacción** (`_apply_match_atomic` en
+  `update_pending_matches.py`): los 2 `score_entity` + `status=COMPLETED` + `match.statistic`
+  van con **un único `commit()`** al final (antes eran 3-4 commits sueltos vía
+  `data_base.update_score/update_match_status/_write_statistic`).
+- Si el proceso muere antes del commit (Detener/SIGKILL, OOM, crash, reciclado), Postgres
+  hace **ROLLBACK** → el partido queda en su estado original → la próxima corrida lo
+  reprocesa. **Nunca** quedan estados parciales (p.ej. score real con `status=SCHEDULED` =
+  huérfano, que era justo la causa de los SCHEDULED-con-resultado).
+- Costo: al detener a mitad de partido, **ese** partido se descarta (se rehace luego); no
+  se "termina" el partido en curso. Si se quisiera que lo TERMINE antes de salir, falta el
+  stop cooperativo (escribir `run_control='stop'`, que el script ya chequea entre partidos
+  en `_check_control()`) — pendiente/opcional.
 
 ---
 
@@ -114,8 +181,10 @@ de liga (re-navegar + re-escanear). Umbral propuesto ~2.0 GB PSS, configurable.
 | Arquitectura React/Vite, componentes | [frontend.md](frontend.md) |
 | Endpoints REST + WebSocket | [api.md](api.md) |
 | Trabajo de la sesión del frontend (Noticias, Inconsistencias, completado de partidos, reconciliación de IDs) | [sesion_inconsistencias_fix_frontend.md](sesion_inconsistencias_fix_frontend.md) |
+| **Tenis — creación de partidos: diagnóstico, fixes (foto/DOB/dobles/points), `--load-images`, pruebas** | [tenis_creacion_y_fixes.md](tenis_creacion_y_fixes.md) |
 | Plan §7 (integración) y §8 (visión funcional) | [organizacion_proyecto.md](organizacion_proyecto.md) |
 | Reglas del driver | [../docs/DRIVER_RULES.md](../docs/DRIVER_RULES.md) |
+| **Servidores y acceso SSH/DB** (`ssh scraper_server`, DB `wohhu@96.30.195.40`) | [servidores_y_acceso.md](servidores_y_acceso.md) |
 
 ---
 

@@ -25,6 +25,8 @@ from sofascore_provider import tournament_events, best_match, norm_name, similar
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--deporte', default='Football')
+ap.add_argument('--desde', default=None,
+                help='fecha inicial YYYY-MM-DD (por defecto hoy). Sirve para deportes\n                      fuera de temporada: se valida contra sus últimas jornadas.')
 ap.add_argument('--dias', type=int, default=7)
 ap.add_argument('--umbral-seguro', type=float, default=0.75,
                 help='a partir de aquí el par se da por bueno; por debajo queda "revisar"')
@@ -47,7 +49,7 @@ if os.path.exists(MAPA_EQUIPOS):
 mapa.setdefault(args.deporte, {})
 
 d = get_driver(args.session_file)
-hoy = date.today()
+hoy = date.fromisoformat(args.desde) if args.desde else date.today()
 nuevos = revisar = ya = 0
 
 for clave, info in ligas.items():
@@ -67,25 +69,35 @@ for clave, info in ligas.items():
     if not partidos:
         continue
 
-    # eventos de SofaScore en la misma ventana (deduplicados)
-    evs, vistos = [], set()
+    # Eventos POR FECHA, no en bloque: en béisbol el mismo enfrentamiento se repite
+    # días seguidos (una serie), y mezclarlos hace que cada partido tenga un gemelo
+    # con idéntica puntuación → todo se descarta por ambiguo. La fecha desambigua.
+    por_fecha = {}
     fechas = sorted({p[1].isoformat() for p in partidos})
     for f in fechas:
-        for delta in (0, 1, -1):
-            fx = (date.fromisoformat(f) + timedelta(days=delta)).isoformat()
-            for e in tournament_events(d, info['unique_id'], fx, args.deporte):
-                if e['event_id'] not in vistos:
-                    vistos.add(e['event_id']); evs.append(e)
-            time.sleep(0.3)
+        evs_f, vistos_f = [], set()
+        for e in tournament_events(d, info['unique_id'], f, args.deporte):
+            if e['event_id'] not in vistos_f:
+                vistos_f.add(e['event_id']); evs_f.append(e)
+        time.sleep(0.3)
+        if not evs_f:                       # solo si ese día no hay nada, probar ±1
+            for delta in (1, -1):
+                fx = (date.fromisoformat(f) + timedelta(days=delta)).isoformat()
+                for e in tournament_events(d, info['unique_id'], fx, args.deporte):
+                    if e['event_id'] not in vistos_f:
+                        vistos_f.add(e['event_id']); evs_f.append(e)
+                time.sleep(0.3)
+        por_fecha[f] = evs_f
 
     mapa[args.deporte].setdefault(clave, {})
     tabla = mapa[args.deporte][clave]
-    print(f'\n  {pais}/{liga}: {len(partidos)} partidos en la BD, {len(evs)} en SofaScore')
+    total_evs = sum(len(v) for v in por_fecha.values())
+    print(f'\n  {pais}/{liga}: {len(partidos)} partidos en la BD, {total_evs} en SofaScore')
     for name, _f in partidos:
         partes = str(name).split('~')
         if len(partes) != 2:
             continue
-        ev, score, via = best_match(name, evs)
+        ev, score, via = best_match(name, por_fecha.get(_f.isoformat(), []))
         if not ev:
             continue
         for bd_nombre, ss_nombre in ((partes[0], ev['home']), (partes[1], ev['away'])):

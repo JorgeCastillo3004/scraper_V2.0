@@ -226,52 +226,101 @@ def _no_match_visible(driver):
     return not any(m.is_displayed() for m in matches)
 
 
-def load_until_date(driver, target_date):
-    xpath_rows = '//div[contains(@class,"leagues--static event--leagues")]/div'
-    xpath_btn  = "//*[contains(.,'Show more matches') and (self::button or self::a)]"
-    print('  Cargando hasta: %s' % target_date)
+def load_until_date(driver, target_date, target_matches=None):
+    # Botón "Show more matches": FlashScore migró a clases ofuscadas wcl-*; el <a>
+    # clásico (event__more) ya no existe. El texto vive en un <span> dentro de un
+    # <button>. Anclamos en el <button> + texto estable (verificado: 1 único match,
+    # visible y clickeable). NO usar las clases wcl-* (llevan hash que cambia).
+    #
+    # Corte por COBERTURA (opcional): si se pasa `target_matches` (lista de pendientes
+    # de la DB), el bucle sigue clickeando "Show more" hasta que TODOS los pendientes
+    # estén visibles en la página, o el botón desaparezca / se estanque. En ese modo
+    # la fecha (`target_date`) deja de ser el corte principal — solo informa. Sin
+    # `target_matches`, comportamiento clásico: corte por fecha (compat con llamadores).
+    BTN_XPATH = "//button[.//span[normalize-space()='Show more matches']]"
+    # Conteo REAL de partidos: div.event__match (no los hijos del contenedor, que
+    # incluyen headers/separadores y dan un número inflado y no monótono).
+    MATCH_CSS = 'div.event__match'
+    MAX_CLICKS = 60
+    total_target = len(target_matches) if target_matches else 0
+    if total_target:
+        print('  Cargando por COBERTURA: %d pendientes (fecha más antigua %s)' % (total_target, target_date))
+    else:
+        print('  Cargando hasta: %s' % target_date)
 
     # Pre-check: si la pagina ya muestra "No match found", abortar de inmediato
     if _no_match_visible(driver):
         print('  [SKIP] "No match found" detectado — la pagina no tiene partidos')
         return
 
-    for attempt in range(30):
-        # Esperar a que la fecha renderice: get_last_visible_date puede devolver
-        # None si las filas aún no cargaron. Reintentamos hasta ~6s antes de seguir,
-        # salvo que realmente no haya partidos ("No match found").
+    oldest_seen = None   # fecha más antigua vista (monótona; inmune a la oscilación del render)
+    stagnant    = 0      # clicks consecutivos sin que crezca el conteo de partidos
+    for attempt in range(MAX_CLICKS):
+        n_matches = len(driver.find_elements(By.CSS_SELECTOR, MATCH_CSS))
+
+        # Esperar a que la fecha renderice (puede ser None si aún no cargó).
         last_date = get_last_visible_date(driver)
         waited = 0
         while last_date is None and waited < 12 and not _no_match_visible(driver):
             time.sleep(0.5)
             last_date = get_last_visible_date(driver)
             waited += 1
-        rows      = driver.find_elements(By.XPATH, xpath_rows)
-        print('  [click %d] filas=%d | ultima fecha=%s' % (attempt, len(rows), last_date))
-        # Si no hay filas y aparece "No match found" visible, abortar
-        if len(rows) == 0 and _no_match_visible(driver):
+        if last_date and (oldest_seen is None or last_date < oldest_seen):
+            oldest_seen = last_date
+        print('  [click %d] partidos=%d | fecha más antigua=%s' % (attempt, n_matches, oldest_seen))
+
+        # Sin partidos + "No match found" visible → abortar
+        if n_matches == 0 and _no_match_visible(driver):
             print('  [SKIP] "No match found" tras click %d — abortando carga' % attempt)
             return
-        if last_date and last_date <= target_date:
-            print('  Rango alcanzado.')
-            break
-        btn = driver.find_elements(By.XPATH, xpath_btn)
-        if not btn:
-            print('  Sin mas resultados.')
-            break
-        old_len = len(rows)
-        driver.execute_script("arguments[0].scrollIntoView(true);", btn[0])
-        time.sleep(0.3)
-        driver.execute_script("arguments[0].click();", btn[0])
-        for _ in range(10):
-            time.sleep(0.3)
-            if len(driver.find_elements(By.XPATH, xpath_rows)) > old_len:
+
+        if total_target:
+            # Corte por COBERTURA: si ya están TODOS los pendientes en la página,
+            # no hace falta seguir clickeando. (scan silencioso para no ensuciar log.)
+            found_now = scan_results_page(driver, target_matches, verbose=False)
+            if len(found_now) >= total_target:
+                print('  Cobertura completa: %d/%d pendientes visibles → no se carga más.'
+                      % (len(found_now), total_target))
+                break
+        else:
+            # Corte por fecha: ya cargamos hacia atrás hasta alcanzar el objetivo
+            if oldest_seen and oldest_seen <= target_date:
+                print('  Rango alcanzado (fecha más antigua %s <= %s).' % (oldest_seen, target_date))
                 break
 
-    # Delay final: tras el último "Show more" (o al alcanzar el rango), esperar a
-    # que la página termine de cargar/renderizar todas las filas antes de escanear.
-    # Este script no necesita velocidad, así que damos margen para no perder partidos.
-    time.sleep(2.5)
+        # Botón "Show more matches": si no está (o no es visible) → no hay más
+        btns = [b for b in driver.find_elements(By.XPATH, BTN_XPATH) if b.is_displayed()]
+        if not btns:
+            print('  Sin más resultados (el botón "Show more matches" desapareció).')
+            break
+
+        # Click + espera ACTIVA a que el conteo REAL de partidos crezca
+        try:
+            driver.execute_script("arguments[0].scrollIntoView({block:'center'});", btns[0])
+            time.sleep(0.3)
+            driver.execute_script("arguments[0].click();", btns[0])
+        except Exception as e:
+            print('  [WARN] no se pudo clickear el botón: %s' % e)
+            break
+
+        grew = False
+        for _ in range(20):                       # hasta ~6s
+            time.sleep(0.3)
+            if len(driver.find_elements(By.CSS_SELECTOR, MATCH_CSS)) > n_matches:
+                grew = True
+                break
+
+        if grew:
+            stagnant = 0
+        else:
+            stagnant += 1
+            print('  [estancado] el conteo de partidos no creció tras el click (%d/2)' % stagnant)
+            if stagnant >= 2:                     # 2 clicks seguidos sin cambio → no hay más
+                print('  Sin más resultados (conteo estancado).')
+                break
+
+    # Delay final: dejar que termine de renderizar antes de escanear.
+    time.sleep(2.0)
 
 
 def _norm_team(s):
@@ -280,12 +329,14 @@ def _norm_team(s):
     return s.lower().replace('-', '').replace(' ', '')
 
 
-def scan_results_page(driver, target_matches):
-    print('\n  [4] Buscando partidos en pagina...')
+def scan_results_page(driver, target_matches, verbose=True):
+    if verbose:
+        print('\n  [4] Buscando partidos en pagina...')
     rows  = driver.find_elements(By.XPATH, '//div[contains(@class,"leagues--static event--leagues")]/div')
     # Si no hay filas y aparece "No match found" visible, retornar dict vacio rapido
     if not rows and _no_match_visible(driver):
-        print('    [SKIP] "No match found" — sin partidos en la pagina')
+        if verbose:
+            print('    [SKIP] "No match found" — sin partidos en la pagina')
         return {}
     # Pre-cachear text + outerHTML de cada row UNA SOLA VEZ. Hacer row.text/get_attribute
     # dentro del doble loop (N_targets * N_rows llamadas a Selenium) es lento y
@@ -325,11 +376,13 @@ def scan_results_page(driver, target_matches):
             except Exception:
                 continue
             found[m['match_id']] = scraped
-            print('    [FOUND] %s | score: %s-%s | %s' % (
-                m['name'], scraped['home_result'], scraped['visitor_result'], scraped['link_details']))
+            if verbose:
+                print('    [FOUND] %s | score: %s-%s | %s' % (
+                    m['name'], scraped['home_result'], scraped['visitor_result'], scraped['link_details']))
             break
         else:
-            print('    [NOT FOUND] %s' % m['name'])
+            if verbose:
+                print('    [NOT FOUND] %s' % m['name'])
     return found
 
 

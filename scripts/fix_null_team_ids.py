@@ -35,7 +35,7 @@ USO
 Driver por DEFAULT es visible (headless=False) para inspeccion manual.
 """
 
-import sys, os, argparse, time, json, subprocess, socket
+import sys, os, argparse, time, json, subprocess, socket, shutil
 from collections import defaultdict
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -48,6 +48,7 @@ from selenium import webdriver
 from data_base import (
     getdb, get_country_id, get_dict_league_ready, save_stadium_in_db,
     save_score_info, get_math_details_ids, get_score_by_match_detail_id,
+    get_list_id_teams,
 )
 from common_functions import (
     launch_navigator, login, dismiss_cookies, wait_update_page, load_json,
@@ -62,7 +63,13 @@ from config import FS_EMAIL, FS_PASSWORD
 FLASHSCORE_BASE       = 'https://www.flashscore.com'
 LEAGUES_INFO_PATH     = 'check_points/leagues_info.json'
 DRIVER_SESSION_PATH   = 'tmp/driver_session.json'
-GECKODRIVER_BIN       = '/home/jorge/.cache/selenium/geckodriver/linux64/0.35.0/geckodriver'
+# Resolver geckodriver dinámicamente (PATH → snap → rutas conocidas). Antes
+# estaba hardcodeado a ~/.cache/selenium, que desaparece al restaurar la máquina.
+GECKODRIVER_BIN       = (
+    shutil.which('geckodriver')
+    or next((p for p in ('/snap/bin/geckodriver', '/usr/local/bin/geckodriver',
+                          '/usr/bin/geckodriver') if os.path.exists(p)), 'geckodriver')
+)
 SCAN_CACHE_DIR        = 'tmp/scan_cache'
 PROBLEMS_DIR          = 'tmp/problems'
 
@@ -696,7 +703,7 @@ def upsert_team_in_league_json(sport_key, league_key, team_name,
 
 def ensure_team_created(driver, team_url, league_inf, dict_teams_db,
                         sport_id, dry_run, sport_key=None, league_key=None,
-                        url_cache=None, stadium_out=None):
+                        url_cache=None, stadium_out=None, report_existence=False):
     """
     Si el team no existe en `team`, navega a su URL y lo crea via milestone3.
 
@@ -718,6 +725,8 @@ def ensure_team_created(driver, team_url, league_inf, dict_teams_db,
     if url_cache is not None and team_url in url_cache:
         cached_id = url_cache[team_url]
         print(f"    [CACHE HIT] {team_url} → team_id={cached_id} (sin navegar)")
+        if report_existence:
+            print(f"    [TEAM EXISTENTE] (cache) team_id={cached_id}")
         return cached_id
 
     print(f"    -> navegando a team_url: {team_url}")
@@ -749,6 +758,18 @@ def ensure_team_created(driver, team_url, league_inf, dict_teams_db,
     except Exception:
         country_id = league_inf.get('country_id')
     dict_team['country_id'] = country_id
+
+    # Reporte de existencia (read-only, sirve también en DRY-RUN donde no se llama
+    # a create_team_in_db): consulta la DB por sport+country+nombre.
+    if report_existence:
+        try:
+            _ex = get_list_id_teams(sport_id, country_id, dict_team['team_name'])
+        except Exception:
+            _ex = []
+        if _ex:
+            print(f"    [TEAM EXISTENTE] {dict_team['team_name']} (team_id={_ex[0]})")
+        else:
+            print(f"    [TEAM NO EXISTENTE] {dict_team['team_name']} -> se creará")
 
     # Campos EXACTOS que se insertarían en `team` (verificación de prueba):
     print("    [TEAM FIELDS] " + " | ".join(f"{k}={dict_team.get(k)!r}" for k in dict_team))
@@ -1056,6 +1077,7 @@ def fix_null_team_ids(*, dry_run=True, headless=False,
             'sport_key': sport_key,
             'league_key': league_key,
             'results_url': info.get('results') or info.get('url'),
+            'fixtures_url': info.get('fixtures'),   # partidos FUTUROS (no están en results)
             'season_id': info['season_id'],
             'country_id': info.get('country_id'),
         }
@@ -1158,23 +1180,12 @@ def fix_null_team_ids(*, dry_run=True, headless=False,
             league_key = meta['league_key']
             results_url = meta['results_url']
 
+            fixtures_url = meta.get('fixtures_url')
+
             print('\n' + '─' * 72)
             print(f"[{sport_key}] {league_key} — {len(league_matches)} matches")
-            print(f"  results_url: {results_url}")
-
-            if not results_url:
-                print("  [SKIP] sin URL de results en leagues_info")
-                stats['errors'] += len(league_matches)
-                continue
-
-            # Cargar pagina hasta la fecha mas vieja
-            try:
-                wait_update_page(driver, results_url, 'container__heading')
-                dismiss_cookies(driver)
-            except Exception as e:
-                print(f"  [ERROR] navegando results: {e}")
-                stats['errors'] += len(league_matches)
-                continue
+            print(f"  results_url:  {results_url}")
+            print(f"  fixtures_url: {fixtures_url}")
 
             # FIX 2: cargar scan cache persistente y solo escanear lo faltante
             scan_cache = load_scan_cache(league_id)
@@ -1184,15 +1195,37 @@ def fix_null_team_ids(*, dry_run=True, headless=False,
             print(f"  [SCAN CACHE] {len(ids_cached)} cacheados / {len(ids_missing)} faltantes")
 
             if ids_missing:
-                # Solo escanear los matches no cacheados
-                oldest = min(m['match_date'] for m in league_matches
-                              if m['match_id'] in ids_missing)
-                load_until_date(driver, oldest)
-                matches_to_scan = [m for m in league_matches if m['match_id'] in ids_missing]
-                newly_found = scan_results_page(driver, matches_to_scan)
-                # Mergear y persistir
-                scan_cache.update(newly_found)
-                save_scan_cache(league_id, newly_found)
+                from datetime import date as _date
+                today_ = _date.today()
+                to_scan = [m for m in league_matches if m['match_id'] in ids_missing]
+                # Partidos FUTUROS (>=hoy) NO están en /results/ -> se buscan en /fixtures/.
+                # (match_date None -> tratar como pasado, va a results por compatibilidad.)
+                past_scan   = [m for m in to_scan if not m['match_date'] or m['match_date'] <  today_]
+                future_scan = [m for m in to_scan if m['match_date'] and m['match_date'] >= today_]
+
+                def _scan_page(url, page_matches, label):
+                    if not page_matches:
+                        return
+                    if not url:
+                        print(f"  [SKIP] sin URL de {label} en leagues_info ({len(page_matches)} matches)")
+                        return
+                    try:
+                        wait_update_page(driver, url, 'container__heading')
+                        dismiss_cookies(driver)
+                    except Exception as e:
+                        print(f"  [ERROR] navegando {label}: {e}")
+                        return
+                    # Coverage: "Show more" hasta que TODOS los pendientes estén visibles.
+                    dates = [m['match_date'] for m in page_matches if m['match_date']]
+                    edge = (min(dates) if label == 'results' else max(dates)) if dates else None
+                    load_until_date(driver, edge, target_matches=page_matches)
+                    newly = scan_results_page(driver, page_matches)
+                    scan_cache.update(newly)
+                    save_scan_cache(league_id, newly)
+                    print(f"  [{label.upper()}] escaneados {len(page_matches)} -> encontrados {len(newly)}")
+
+                _scan_page(results_url, past_scan, 'results')
+                _scan_page(fixtures_url, future_scan, 'fixtures')
 
             found = scan_cache
 
@@ -1218,9 +1251,9 @@ def fix_null_team_ids(*, dry_run=True, headless=False,
                 print(f"\n  >>> {m['match_date']} {m['name']}  needs={'+'.join(flags) or 'none'}")
 
                 if m['match_id'] not in found:
-                    print("    [SKIP] no encontrado en results page")
+                    print("    [SKIP] no encontrado en results NI fixtures")
                     save_problem(league_id, m['match_id'], m['name'], m['match_date'],
-                                 reason='not_found_in_results_page')
+                                 reason='not_found_in_results_or_fixtures')
                     stats['errors'] += 1
                     continue
 
@@ -1347,6 +1380,173 @@ def fix_null_team_ids(*, dry_run=True, headless=False,
 
 # ─── CLI ────────────────────────────────────────────────────────────────────
 
+# ─── MODO DB-ONLY: resolver team por nombre desde la BD (sin FlashScore) ─────
+
+def _parse_match_teams(name):
+    """'Home\\n2~Away' -> ('Home','Away'). Quita score embebido tras '\\n'."""
+    if not name or '~' not in name:
+        return (None, None)
+    home_raw, _, away_raw = name.partition('~')
+    home = home_raw.split('\n')[0].strip()
+    away = away_raw.split('\n')[0].strip()
+    return (home or None, away or None)
+
+
+def _resolve_team_by_name(con, tname, sport_id, country_id,
+                          league_id=None, prefer_most_used=False):
+    """
+    Resuelve un team_id existente por nombre+deporte.
+    Preferencia: mismo país de la liga; si no, único por nombre+deporte.
+
+    Si prefer_most_used=True y hay AMBIGÜEDAD (selección duplicada en `team`),
+    desambigua eligiendo el duplicado YA MÁS USADO en match_detail de ESTA
+    liga (tie-break: uso global). Solo si hay ganador ESTRICTO; si empatan,
+    se mantiene 'ambiguous' (no se adivina).
+
+    Returns (team_id|None, status) donde status ∈
+        {'ok_country','ok_global','heuristic_most_used','missing','ambiguous'}.
+    Nunca crea ni borra; solo SELECT.
+    """
+    if not tname:
+        return (None, 'missing')
+    cur = con.cursor()
+
+    def _disambiguate(team_ids):
+        """De varios duplicados, elige el más usado en esta liga (tie global)."""
+        if not (prefer_most_used and league_id and team_ids):
+            return None
+        cur.execute("""
+            SELECT t.team_id,
+                   COUNT(*) FILTER (WHERE m.league_id = %s) AS in_league,
+                   COUNT(md.match_detail_id)                AS global_use
+              FROM team t
+              LEFT JOIN match_detail md ON md.team_id = t.team_id
+              LEFT JOIN match m         ON m.match_id  = md.match_id
+             WHERE t.team_id = ANY(%s)
+             GROUP BY t.team_id
+             ORDER BY in_league DESC, global_use DESC
+        """, (league_id, list(team_ids)))
+        ranked = cur.fetchall()
+        if len(ranked) >= 2 and (ranked[0][1], ranked[0][2]) > (ranked[1][1], ranked[1][2]) \
+           and ranked[0][1] > 0:
+            return ranked[0][0]
+        return None
+
+    if country_id:
+        cur.execute("""SELECT team_id FROM team
+                        WHERE team_name ILIKE %s AND sport_id=%s AND country_id=%s""",
+                    (tname, sport_id, country_id))
+        rc = [r[0] for r in cur.fetchall()]
+        if len(rc) == 1:
+            return (rc[0], 'ok_country')
+        if len(rc) > 1:
+            win = _disambiguate(rc)
+            return (win, 'heuristic_most_used') if win else (None, 'ambiguous')
+    cur.execute("""SELECT team_id FROM team
+                    WHERE team_name ILIKE %s AND sport_id=%s""",
+                (tname, sport_id))
+    rg = [r[0] for r in cur.fetchall()]
+    if len(rg) == 1:
+        return (rg[0], 'ok_global')
+    if len(rg) == 0:
+        return (None, 'missing')
+    win = _disambiguate(rg)
+    return (win, 'heuristic_most_used') if win else (None, 'ambiguous')
+
+
+def fix_null_team_ids_db_only(*, dry_run=True, sport_keys=None,
+                              match_id_filter=None, verbose=True,
+                              prefer_most_used=False):
+    """
+    Repara match_detail.team_id NULL SIN navegar FlashScore: resuelve el team
+    por nombre+deporte contra la BD (causa (b): el equipo YA EXISTE) y reusa
+    update_match_detail_team. Solo UPDATE/INSERT, nunca DELETE/quit driver.
+
+    Los matches cuyo team no resuelve único (missing/ambiguous) se registran
+    con save_problem y se omiten (candidatos al flujo FlashScore).
+    """
+    sport_keys = sport_keys or DEFAULT_LEAGUES
+    leagues_info = load_json(LEAGUES_INFO_PATH)
+
+    league_ids, league_meta = [], {}
+    for sport_key, league_key in sport_keys:
+        try:
+            info = leagues_info[sport_key][league_key]
+        except KeyError:
+            print(f"[WARN] {sport_key}/{league_key} no existe en leagues_info")
+            continue
+        league_ids.append(info['league_id'])
+        league_meta[info['league_id']] = {'sport_key': sport_key, 'league_key': league_key}
+
+    if not league_ids:
+        print("[ABORT] no hay ligas a procesar.")
+        return {}
+
+    con = getdb()
+    matches = detect_null_team_matches(con, league_ids, match_id_filter=match_id_filter)
+    matches = [m for m in matches if m.get('needs_team_fix')]
+
+    print('=' * 72)
+    print(f"DB-ONLY — matches con team_id NULL: {len(matches)}  (dry_run={dry_run})")
+    print(f"Ligas: {[(k['sport_key'], k['league_key']) for k in league_meta.values()]}")
+    print('=' * 72)
+
+    stats = defaultdict(int)
+    stats['matches_total'] = len(matches)
+    by_league = defaultdict(list)
+    for m in matches:
+        by_league[m['league_id']].append(m)
+
+    try:
+        for league_id, lmatches in by_league.items():
+            meta = league_meta.get(league_id, {})
+            print('\n' + '─' * 72)
+            print(f"[{meta.get('sport_key','?')}] {meta.get('league_key','?')} — {len(lmatches)} matches")
+            for m in lmatches:
+                home, away = _parse_match_teams(m['name'])
+                hid, hst = _resolve_team_by_name(con, home, m['sport_id'], m['country_id_liga'],
+                                                 league_id=m['league_id'], prefer_most_used=prefer_most_used)
+                aid, ast = _resolve_team_by_name(con, away, m['sport_id'], m['country_id_liga'],
+                                                 league_id=m['league_id'], prefer_most_used=prefer_most_used)
+                tag = f"{m['match_id'][:8]} {m['name']!r} [{m['status']}]"
+                if verbose:
+                    print(f"  · {tag}")
+                    print(f"      home={home!r} -> {hst} {str(hid)[:8] if hid else '-'}")
+                    print(f"      away={away!r} -> {ast} {str(aid)[:8] if aid else '-'}")
+                if not hid and not aid:
+                    stats['errors'] += 1
+                    if not dry_run:
+                        save_problem(league_id, m['match_id'], m['name'], m['match_date'],
+                                     reason=f"db_only_unresolved home={hst} away={ast}")
+                    print(f"      [SKIP] ninguno resuelto (home={hst}, away={ast})")
+                    continue
+                if not hid or not aid:
+                    # parcial: solo registramos el lado no resuelto, pero igual
+                    # enlazamos el lado que sí existe (update solo toca filas NULL)
+                    print(f"      [PARCIAL] solo un lado resuelto (home={hst}, away={ast})")
+                    if not dry_run:
+                        save_problem(league_id, m['match_id'], m['name'], m['match_date'],
+                                     reason=f"db_only_partial home={hst} away={ast}")
+                res = update_match_detail_team(con, m['match_id'], hid, aid, dry_run)
+                touched = sum(res.values())
+                if touched and not dry_run:
+                    stats['matches_fixed'] += 1
+                    print(f"      [FIX] {res}")
+                elif dry_run:
+                    stats['matches_fixed'] += 1  # contará el plan
+    finally:
+        con.close()
+
+    print('\n' + '=' * 72)
+    print(f"RESUMEN DB-ONLY (dry_run={dry_run})")
+    print(f"  Ligas procesadas    : {len(by_league)}")
+    print(f"  Matches detectados  : {stats['matches_total']}")
+    print(f"  Matches reparados   : {stats['matches_fixed']}")
+    print(f"  Errores (sin resolver): {stats['errors']}")
+    print('=' * 72)
+    return dict(stats)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--apply',    action='store_true', help='Escribe en DB (default: dry-run)')
@@ -1369,6 +1569,14 @@ def main():
     p.add_argument('--session-file', default=None,
                    help='Path al JSON de sesion del driver (default: tmp/driver_session.json). '
                         'Util para correr 2 instancias en paralelo con drivers separados.')
+    p.add_argument('--db-only', action='store_true',
+                   help='Repara team_id NULL resolviendo el team por nombre desde la BD '
+                        '(causa b: el equipo ya existe). NO navega FlashScore ni usa driver. '
+                        'Solo UPDATE/INSERT en match_detail.')
+    p.add_argument('--prefer-most-used', action='store_true',
+                   help='[db-only] Si la selección está duplicada en `team`, desambigua '
+                        'eligiendo el duplicado ya MÁS USADO en esta liga (ganador estricto; '
+                        'si empata, no adivina). UPDATE only.')
     args = p.parse_args()
 
     sport_keys = None
@@ -1377,6 +1585,15 @@ def main():
         for spec in args.league:
             sk, lk = spec.split('/', 1)
             sport_keys.append((sk, lk))
+
+    if args.db_only:
+        fix_null_team_ids_db_only(
+            dry_run=not args.apply,
+            sport_keys=sport_keys,
+            match_id_filter=args.match_id,
+            prefer_most_used=args.prefer_most_used,
+        )
+        return
 
     fix_null_team_ids(
         dry_run=not args.apply,

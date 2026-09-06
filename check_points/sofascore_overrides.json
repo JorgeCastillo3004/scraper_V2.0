@@ -1,0 +1,24 @@
+{
+  "_leeme": [
+    "CORRECCIONES MANUALES del mapeo SofaScore. Este archivo MANDA sobre todo lo",
+    "generado automáticamente por build_sofascore_map.py y build_sofascore_teams_map.py.",
+    "Se edita a mano cuando la heurística falla o cuando hay que fijar una",
+    "correspondencia sin depender de que la adivine.",
+    "",
+    "La base de datos NO se toca: esto solo sirve para BUSCAR el partido correcto.",
+    "",
+    "leagues: clave 'PAIS_Liga' -> unique_id del torneo en SofaScore.",
+    "  Para averiguar el id: abrir el torneo en sofascore.com y mirar la URL, o usar",
+    "  scripts/build_sofascore_map.py que lo imprime al mapear.",
+    "teams: por deporte y liga, nombre en SofaScore -> nombre EXACTO en la BD."
+  ],
+  "leagues": {
+    "Basketball": {
+      "WORLD_World Cup": {
+        "unique_id": 10437,
+        "nota": "La BD lo llama 'World Cup', pero sus partidos son los de la FIBA World Cup Qualification, Europe. Verificado: 30 de 32 equipos coinciden."
+      }
+    }
+  },
+  "teams": {}
+}

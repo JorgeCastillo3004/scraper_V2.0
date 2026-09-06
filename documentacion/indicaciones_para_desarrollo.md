@@ -469,3 +469,28 @@ watch -n 30 'cat tmp/run_status_fix_algo.json | jq .'
 | Recuperación de procesos colgados | `documentacion/desarrollo_local.md` §9 |
 | Mejoras de performance + validaciones DB | `documentacion/mejoras_performance.md` |
 | Coordinación multi-worker (referencia avanzada) | `paralel_execution.py`, `paralel_teams.py` |
+| Ejecución paralela multi-driver (ESPEC, en diseño) | `documentacion/especificacion_parallel_panel.md` |
+
+---
+
+## 15. Ejecución paralela multi-driver (modelo aparte — en diseño)
+
+Todo lo anterior (secciones 1–4) asume **UN** driver compartido vía `get_driver()`
+(`tmp/driver_session.json`): nadie abre un Firefox nuevo, nadie lo cierra. Ese es el
+modo para **desarrollo, debug y corridas single** (`update_pending_matches.py`,
+`fix_null_team_ids.py`, etc.).
+
+Existe un **segundo modelo** para producción masiva: **N drivers en paralelo**, cada
+worker con su **propio** driver (no el compartido) y su subconjunto de ligas. Base:
+`paralel_execution.py` (`ThreadPoolExecutor`, `launch_navigator` por worker, status/control
+por sección). En diseño está la versión que corre `update_pending_matches` por shard con
+**control independiente por worker desde el panel** (start/pause/stop/cerrar-driver por cada
+driver), sharding por deporte+país+liga, visible configurable en `config.py`, y reciclaje por
+memoria por worker.
+
+**Distinción clave para no confundir modelos:**
+- Un worker paralelo **SÍ** posee y cierra/recicla **su** driver (PID propio) — eso es legítimo.
+- Lo prohibido sigue igual: **nunca** tocar el driver de OTRO worker ni el Firefox del usuario,
+  y **nunca `pkill firefox`**. Cada quien solo su propio PID. Ver `docs/DRIVER_RULES.md`.
+
+→ Spec completa y plan: **`documentacion/especificacion_parallel_panel.md`**.

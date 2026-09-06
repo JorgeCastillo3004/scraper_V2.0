@@ -17,15 +17,16 @@ Uso:
 import os
 import sys
 import io
-import paramiko
 from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-from config import SERVER_HOST, SERVER_USER, SERVER_PASS, SERVER_PATH
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import SERVER_PATH
+from server_conn import get_ssh_client
 
-LOCAL_BASE  = '/home/you/work_2026/scraper_V2.0'
+LOCAL_BASE  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REMOTE_BASE = SERVER_PATH
 
 SYNC_DIRS = [
@@ -229,9 +230,7 @@ def execute_sync(sftp, to_upload, to_download):
 
 def main():
     console.print('\n[bold]Conectando al servidor...[/bold]')
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(SERVER_HOST, username=SERVER_USER, password=SERVER_PASS)
+    client = get_ssh_client()
     sftp = client.open_sftp()
 
     console.print('[dim]  Analizando diferencias...[/dim]')

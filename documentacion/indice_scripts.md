@@ -47,7 +47,11 @@ Convención: `_debug_*` = scratchpad descartable · `_test_*` = pruebas · resto
 |---|---|---|
 | `update_pending_matches.py` | mantenimiento | completa partidos pendientes (fecha<hoy: LIVE o score=-1) reusando el driver vivo; modos `rapido`/`completo` + backfill `--solo-sin-stats`; dry-run o `--apply`; control pausa/stop (`run_control_update_matches.json`). Lo lanza el panel (sección `update_matches`) |
 | `fix_live_matches.py` | mantenimiento | cierra partidos varados en LIVE; provee `get_pending_live_matches`, `get_stats_backfill_matches`, `load_until_date`, `scan_results_page`, `scan_with_coverage` (reusados por panel y notebook) |
-| `fix_null_team_ids.py` | mantenimiento | cierra `match_detail` con team_id NULL navegando FlashScore (crea equipos faltantes) |
+| `fix_null_team_ids.py` | mantenimiento | cierra `match_detail` con team_id NULL. Flujo clásico navega FlashScore (crea equipos faltantes). **Modo `--db-only`** (2026-06-16): resuelve el team por nombre+deporte contra la DB sin navegar (causa b: el equipo ya existe), reusa `update_match_detail_team`. **`--prefer-most-used`**: desambigua selecciones duplicadas eligiendo la más usada en esa liga (ganador estricto). Solo INSERT/UPDATE |
+| `_repair_orphan_cfl.py` | mantenimiento (puntual) | re-apunta (`UPDATE match.league_id/season_id`) partidos huérfanos de CFL (league_id/season_id fantasma) a la CFL real; salta duplicados name+date; dry-run/`--apply`. NUNCA DELETE |
+| `label_old_season_matches.py` | mantenimiento | etiqueta partidos -1 de temporada VIEJA con `status='OLD_SEASON'` (verificado vs FlashScore); dry-run/`--apply`. Ver `documentacion/scores_negativos_y_temporadas.md` |
+| `_chain_complete_current.sh` | orquestador | cadena de `update_pending_matches --apply` por liga (completa score-1 de temporadas ACTUALES); umbral reciclaje driver `DRIVER_MEM_LIMIT_MB` (default 3072) |
+| `_chain_backfill_stats.sh` | orquestador | cadena de `update_pending_matches --solo-sin-stats --apply` por liga (lee `tmp/_backfill_leagues.txt`); backfill de `match.statistic` vacío en COMPLETED con score real; NO toca score/status; umbral driver 3072 |
 | `fix_inconsistent_matches.py` | mantenimiento | completa partidos con `match_detail` incompleto (n<2) |
 | `fix_missing_teams.py` | mantenimiento | registra equipos referenciados en `match.name` que faltan en `league_team` |
 | `auto_repair_matches.py` | orquestador | reparación autónoma de todos los `match_detail` con team_id NULL |
@@ -88,6 +92,7 @@ Convención: `_debug_*` = scratchpad descartable · `_test_*` = pruebas · resto
 | `update_server.py` | infra | sincroniza código local → servidor remoto |
 | `update_repo.py` | infra | git pull/sync del repo |
 | `get_last_changes.py` | infra | muestra últimos cambios del repo git |
+| `engine_runner.py` | orquestador | **MOTOR `scraper-engine` (2026-07-07):** corre `sched.start_scheduler()` (news+fix+live-missing) + supervisa `main2.py` por heartbeat + escribe `tmp/engine_status.json`. Reusa `scheduler`/`process_manager`. Correr con `ENGINE_OWNS_SCHEDULER=1`. Ver `especificacion_ejecucion_permanente.md`. SIN PROBAR (bloqueado: config→remoto) |
 | `live_runner.py` | orquestador | runner del scraper LIVE (etapa 2) |
 | `run_fix_live.py` | mantenimiento | cierra partidos varados en LIVE usando el driver del notebook |
 | `run_leagues.py` | wrapper | CLI para lanzar creación de ligas desde la API |
@@ -129,3 +134,11 @@ Convención: `_debug_*` = scratchpad descartable · `_test_*` = pruebas · resto
 | `_debug_seasons_check.py` | ¿las ligas tienen season en DB? (read-only) |
 | `_debug_pin_check.py` / `_debug_pin_insert_dryrun.py` | confirmación/insert dry-run de ligas pineadas |
 | `_debug_launch_and_fix_euroleague.py` | scratchpad euroleague |
+| `_debug_null_team_baseline.py` | auditoría read-only de `match_detail.team_id` NULL: clasifica causa (a/b/c/d), season huérfana, FK |
+| `_debug_cfl_dup_flashscore.py` | verifica en FlashScore si un par name+date con hora distinta es 1 o 2 partidos (caso CFL) |
+| `_debug_4null_flashscore.py` | ¿los 4 NULL restantes (France/Great Britain) existen en FlashScore? |
+| `_debug_brasil_seriea_scores.py` / `_debug_brasil_2025_archive.py` | confirma que los -1 viejos de Brasil están en el archivo `liga-2025`, no en la URL actual |
+| `_debug_bolivia_seasons.py` | Bolivia: partidos DB no aparecen en results actuales (corte 02.06) |
+| `_debug_verify_seasons_flashscore.py` | **clave**: por liga afectada lee `.heading__info` (season FlashScore) y la compara con `season_name` DB → vieja vs actual |
+| `_debug_wc_football_vs_basket.py` | compara un matchup entre links de distintos deportes (detecta liga homónima cross-deporte) |
+| `_debug_bolivia_21.py` | verifica si los partidos de una liga existen en results/fixtures de FlashScore (caso Bolivia) |

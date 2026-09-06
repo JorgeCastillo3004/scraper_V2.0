@@ -14,11 +14,14 @@ import os
 import psycopg2
 from datetime import datetime
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
+
 HISTORY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'logs', 'db_history.json')
 
 
 def get_snapshot():
-    conn = psycopg2.connect(host='96.30.195.40', dbname='sports_db', user='wohhu', password='caracas123')
+    conn = psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
     cur  = conn.cursor()
 
     cur.execute("""
@@ -62,6 +65,15 @@ def get_snapshot():
     """)
     score_minus_one = cur.fetchone()[0]
 
+    # Partidos con AL MENOS un match_detail.team_id NULL (equipos sin crear/enlazar)
+    cur.execute("""
+        SELECT COUNT(DISTINCT m.match_id)
+        FROM match m
+        JOIN match_detail md ON md.match_id = m.match_id
+        WHERE md.team_id IS NULL
+    """)
+    matches_no_team_id = cur.fetchone()[0]
+
     cur.execute("SELECT COUNT(*) FROM team")
     teams = cur.fetchone()[0]
 
@@ -98,6 +110,7 @@ def get_snapshot():
         'total_players': players_count,
         'matches_with_stats': matches_with_stats,
         'score_minus_one': score_minus_one,
+        'matches_no_team_id': matches_no_team_id,
         'status_counts': status_counts,
         'leagues': leagues,
         'leagues_completed': leagues_completed,
@@ -143,6 +156,8 @@ def show_comparison(prev, curr):
     csm, psm = curr.get('score_minus_one', 0), prev.get('score_minus_one', 0)
     print(f"    {'con stats':<14} {cws:>6}  (Δ {cws - pws:+})")
     print(f"    {'score=-1 (pend)':<14} {csm:>6}  (Δ {csm - psm:+})")
+    cnt, pnt = curr.get('matches_no_team_id', 0), prev.get('matches_no_team_id', 0)
+    print(f"    {'sin team_id':<14} {cnt:>6}  (Δ {cnt - pnt:+})")
 
     print(f"\n  Cambios por liga (vs {prev['timestamp']}):")
     print(f"  {'-'*56}")

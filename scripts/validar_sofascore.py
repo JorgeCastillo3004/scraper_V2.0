@@ -23,6 +23,8 @@ from sofascore_provider import tournament_events, norm_name, best_match
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--deporte', default='Football')
+ap.add_argument('--desde', default=None,
+                help='fecha inicial YYYY-MM-DD (por defecto hoy). Sirve para deportes\n                      fuera de temporada: se valida contra sus últimas jornadas.')
 ap.add_argument('--dias', type=int, default=4)
 ap.add_argument('--detalle', action='store_true', help='listar partido por partido')
 ap.add_argument('--session-file', default=os.path.join(ROOT, 'tmp', 'sofascore_driver.json'))
@@ -32,7 +34,7 @@ mapa = json.load(open(os.path.join(ROOT, 'check_points', 'sofascore_map.json'), 
 ligas_map = {k: v for k, v in mapa.get(args.deporte, {}).items() if v.get('unique_id')}
 print(f'Ligas mapeadas para {args.deporte}: {len(ligas_map)}')
 
-hoy = date.today()
+hoy = date.fromisoformat(args.desde) if args.desde else date.today()
 fechas = [(hoy + timedelta(days=i)).isoformat() for i in range(args.dias + 1)]
 
 con = psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
@@ -61,17 +63,24 @@ for clave, info in ligas_map.items():
         # Ventana de ±1 día: SofaScore ubica el partido por su hora REAL en UTC, así que
         # un partido nocturno de América cae en el día siguiente. La BD, en cambio, guarda
         # la fecha local con hora placeholder.
-        evs, vistos_id = [], set()
+        # PRIMERO la fecha exacta; el ±1 día solo si ahí no aparece nada.
+        # En béisbol el MISMO enfrentamiento se repite días seguidos (KBO juega series
+        # de 3: Kiwoom~NC Dinos el 4, el 5 y el 6 de septiembre, con marcadores
+        # distintos), así que ampliar la ventana a ciegas puede asignar el marcador del
+        # juego equivocado. La fecha manda; el margen es solo para el desfase horario.
+        # OJO: pedir una fecha NO devuelve solo esa fecha. NPB pedido el día 8 devuelve
+        # 12 eventos = los 6 del día 8 más los 6 del día 9 (misma serie, jornadas
+        # seguidas). Sin filtrar por la fecha REAL del evento, cada partido tiene un
+        # gemelo idéntico y todo se descarta por ambiguo.
+        todos, vistos_id = [], set()
         for delta in (0, 1, -1):
             fx = (date.fromisoformat(f) + timedelta(days=delta)).isoformat()
             for e in tournament_events(d, info['unique_id'], fx, args.deporte):
-                # DEDUPLICAR: SofaScore devuelve el mismo partido en varias fechas según
-                # la zona horaria. Sin esto, el duplicado se convierte en "segundo mejor
-                # candidato" y el emparejador lo descarta por ambigüedad.
                 if e['event_id'] not in vistos_id:
-                    vistos_id.add(e['event_id'])
-                    evs.append(e)
+                    vistos_id.add(e['event_id']); todos.append(e)
             time.sleep(0.35)
+        evs = [e for e in todos if e['match_date'] == f]      # los de ESE día
+        adyacentes = [e for e in todos if e['match_date'] != f]  # reserva por desfase horario
 
         # índices de SofaScore: por nombres y por hora
         por_nombre = {(norm_name(e['home']), norm_name(e['away'])): e for e in evs}
@@ -111,6 +120,12 @@ for clave, info in ligas_map.items():
                 libres = [e for e in evs if id(e) not in ya_usados]
                 ev, score, motivo = best_match(name, libres)
                 via = 'similitud' if ev else motivo
+                if not ev:
+                    # último recurso: días contiguos (un partido nocturno de América
+                    # cae en el día siguiente UTC). Nunca antes de agotar la fecha real.
+                    libres2 = [e for e in adyacentes if id(e) not in ya_usados]
+                    ev, score, motivo = best_match(name, libres2)
+                    via = 'similitud±1d' if ev else motivo
             if ev:
                 ya_usados.add(id(ev))
             if ev:
