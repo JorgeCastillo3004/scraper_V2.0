@@ -26,21 +26,28 @@ from sofascore_provider import (live_events, ensure_context, load_teams_map,
                                 match_name_db, norm_name, best_match)
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--deporte', default='Football', help='Football | Basketball | Baseball ...')
+ap.add_argument('--deporte', default='Football',
+                help="Football | Basketball | Baseball | Hockey | 'American Football' | todos")
 ap.add_argument('--loop', type=int, default=0, help='repetir cada N segundos (0 = una vez)')
 ap.add_argument('--todos', action='store_true',
                 help='mostrar también los partidos de ligas que la BD no sigue')
 ap.add_argument('--session-file', default=os.path.join(ROOT, 'tmp', 'sofascore_driver.json'))
 args = ap.parse_args()
 
-ligas_map = json.load(open(os.path.join(ROOT, 'check_points', 'sofascore_map.json'),
-                           encoding='utf-8')).get(args.deporte, {})
-# torneo de SofaScore -> clave de liga en la BD ('COLOMBIA_Primera A')
-ss_a_bd = {}
-for clave, info in ligas_map.items():
-    if info.get('unique_id'):
-        ss_a_bd[norm_name(info.get('sofascore_name', ''))] = clave
+TODOS = json.load(open(os.path.join(ROOT, 'check_points', 'sofascore_map.json'),
+                       encoding='utf-8'))
+deportes = ([d for d in TODOS if any(v.get('unique_id') for v in TODOS[d].values())]
+            if args.deporte.lower() == 'todos' else [args.deporte])
 teams_map = load_teams_map()
+
+
+def indice_ligas(dep):
+    """torneo de SofaScore -> clave de liga en la BD ('COLOMBIA_Primera A')"""
+    out = {}
+    for clave, info in TODOS.get(dep, {}).items():
+        if info.get('unique_id'):
+            out[norm_name(info.get('sofascore_name', ''))] = clave
+    return out
 
 d = get_driver(args.session_file)
 
@@ -65,14 +72,14 @@ def resultado_en_bd(cur, sport, clave_liga, nombre_bd, fecha):
     return (r[0], r[1]) if r else (None, None)
 
 
-def una_pasada():
+def una_pasada(dep, ss_a_bd):
     ensure_context(d)
-    eventos = live_events(d, args.deporte)
+    eventos = live_events(d, dep)
     con = psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER, password=DB_PASS)
     cur = con.cursor()
 
     print('\n' + '=' * 118)
-    print(f'  {args.deporte.upper()} EN VIVO — SofaScore vs BD (FlashScore)      '
+    print(f'  {dep.upper()} EN VIVO — SofaScore vs BD (FlashScore)      '
           f'{datetime.now():%H:%M:%S}   |   {len(eventos)} partidos en vivo en SofaScore')
     print('=' * 118)
     print('%-26s %-42s %-11s %-11s %-9s' %
@@ -84,11 +91,11 @@ def una_pasada():
         clave = ss_a_bd.get(norm_name(ev['league_raw'])) or ss_a_bd.get(norm_name(ev['league_unique']))
         if not clave and not args.todos:
             continue
-        nombre_bd, mapeado = (match_name_db(ev, args.deporte, clave, teams_map)
+        nombre_bd, mapeado = (match_name_db(ev, dep, clave, teams_map)
                               if clave else (ev['match_name'], False))
         estado_bd = marcador_bd = None
         if clave:
-            estado_bd, marcador_bd = resultado_en_bd(cur, args.deporte, clave,
+            estado_bd, marcador_bd = resultado_en_bd(cur, dep, clave,
                                                      nombre_bd, ev['match_date'])
         ss = f"{ev['score_home']}-{ev['score_away']}"
         bd = marcador_bd if marcador_bd is not None else '—'
@@ -107,18 +114,29 @@ def una_pasada():
     print('-' * 118)
     print(f'  mostrados: {mostrados} | marcador idéntico: {iguales} | '
           f'distinto: {distintos} | sin correspondencia en la BD: {solo_ss}')
+    return mostrados
     if not args.todos:
         print('  (solo ligas mapeadas; usa --todos para ver el resto de lo que SofaScore tiene en vivo)')
 
 
+def ronda():
+    total = 0
+    for dep in deportes:
+        idx = indice_ligas(dep)
+        if not idx:
+            continue
+        total += una_pasada(dep, idx) or 0
+    return total
+
+
 if args.loop:
-    print(f'Comparando cada {args.loop}s. Ctrl+C para parar.')
+    print(f'Comparando cada {args.loop}s ({", ".join(deportes)}). Ctrl+C para parar.')
     try:
         while True:
-            una_pasada()
+            ronda()
             time.sleep(args.loop)
     except KeyboardInterrupt:
         print('\n[fin] driver vivo intacto')
 else:
-    una_pasada()
+    ronda()
     print('\n[fin] driver vivo intacto')
