@@ -101,12 +101,26 @@ def _hotswap_own_driver(old_driver):
     return nuevo
 
 
+def _heartbeat(sports=None, interval=None):
+    """Refresca el estado del live ENTRE CICLOS.
+
+    Sin esto, `run_status_live.json` conservaba la marca del arranque para siempre
+    (verificado: 8 h corriendo y `updated_at` seguía en la hora de inicio), así que no
+    servía para saber si el proceso estaba vivo o colgado — justo lo que el detector
+    de staleness necesita mirar."""
+    try:
+        _write_status('running', sports, interval)
+    except Exception:
+        pass
+
+
 def _maybe_recycle_live(driver):
     """Mide la memoria del árbol del driver live; si supera MEM_LIMIT_MB lo recicla
     con hot-swap y devuelve el driver nuevo. Funciona en los DOS modos: driver del
     panel (attached) y driver propio (standalone del servidor) — antes salía de una
     en modo propio, que es justo como corre el live del servidor, y por eso el
     Firefox crecía sin techo hasta el OOM."""
+    _heartbeat()                 # latido: se llama entre ciclos, es el punto natural
     try:
         mb = _live_mem_mb()
     except Exception:
