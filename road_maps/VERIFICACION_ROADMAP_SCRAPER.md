@@ -93,7 +93,26 @@ reemplazado por `live_v2` + `scraper_V2.0` (local).
 - Faltan por evaluar los cuatro que el roadmap nombra: **API-Football, SportMonks,
   TheSportsDB, football-data.org**.
 
-**SC5 · Escribir la decisión** — ⚪ no empezado (depende de SC4).
+#### Proveedores evaluados (2026-09-06, verificado contra su documentación y su API)
+
+| Proveedor | Deportes | Plan gratuito | Veredicto |
+|---|---|---|---|
+| **ESPN** (API no oficial) | los 9 del scraper | sin key, sin límite publicado | 🟢 **candidato**: 88 % de cruce de nombres; **le faltan NPB, KBO, LMB, LIDOM** (1.040 partidos de béisbol) |
+| **API-Sports** (api-football.com) | football, baseball, basketball, hockey, NFL, F1, MMA… | **100 req/día por API**, sin tarjeta; pagos desde ~10-19 USD/mes | 🟡 **el más prometedor**: es el único con una API por deporte que cubre los 9. Falta medir su cobertura real de ligas → `scripts/_debug_evaluar_proveedor_apisports.py` (necesita key) |
+| **SofaScore** | todos | — | 🔴 403 a todo cliente HTTP; solo funciona desde navegador → **incumple el criterio 4** del roadmap (API HTTP, no otro sitio a scrapear): compartiría modo de fallo con el primario |
+| **TheSportsDB** | varios | key pública "3" → **5 ligas en total** | 🔴 su cobertura real está tras pago; con la key libre no sirve |
+| **football-data.org** | solo fútbol | 12 competiciones, 10 req/min, **"scores delayed"** | 🔴 doble descarte: de tus ligas solo tendría Brasil Serie A, y el retraso de resultados **incumple el criterio 2** (cierre el mismo día) |
+| **SportMonks** | fútbol, cricket, F1 | 2 ligas (Danesa y Escocesa) | 🔴 **no cubre béisbol, baloncesto, hockey ni am. football**: 5 de tus 9 deportes fuera. Desde 29 €/mes |
+
+**Nota sobre el volumen:** 100 req/día no alcanzan para un live cada 60 s (serían ~1.440),
+pero el roadmap plantea el segundo scraper **en espera**, con volumen casi nulo hasta que
+active — para ese uso el plan gratuito basta, y solo al promocionarse haría falta pagar.
+
+**Siguiente paso concreto:** registrar una key gratuita en
+`dashboard.api-football.com/register` y correr el script de cobertura; decide si
+API-Sports cubre el hueco de béisbol que ESPN deja.
+
+**SC5 · Escribir la decisión** — ⚪ no empezado (depende de cerrar SC4).
 
 ### S3 a S7 — 🔴 no empezados
 SC6/SC7 (mapping + migración), SC8/SC9 (ingesta), SC10/SC11 (staleness + failover),
