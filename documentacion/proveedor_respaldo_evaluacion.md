@@ -260,3 +260,76 @@ belga sí está**, como `Pro League [Belgium]` → la cobertura es **75 de 75 li
 Extender a **Basketball** y **Baseball** (el script ya acepta `--deporte`), y construir el
 diccionario de alias de ligas y equipos que salga de estas corridas: es la capa de mapeo
 del SC6, y es lo único que separa esto de un respaldo funcional.
+
+---
+
+## 8. Validación extensiva por fechas — FÚTBOL (2026-09-06)
+
+Segunda tanda de pruebas, ya con **driver visible y persistente** (`tmp/sofascore_driver.json`,
+lanzado con `start_driver.py --url https://www.sofascore.com --sin-login --no-headless`,
+igual que el de FlashScore) y sobre **hoy y los próximos días**, no solo lo que está en vivo.
+
+**Resultado final: 37 de 40 partidos localizados (92 %).**
+
+| Liga | Partidos en la BD | Localizados |
+|---|---:|---:|
+| BRAZIL / Serie A Betano | 10 | **10** |
+| CHILE / Liga de Primera | 8 | **8** |
+| ECUADOR / Liga Pro | 8 | **8** |
+| CHINA / Super League | 4 | **4** |
+| COLOMBIA / Primera A | 10 | 7 |
+
+Cómo se emparejó cada uno: 11 por nombre exacto, 2 por fecha+hora, **24 por similitud**.
+
+### Hallazgo 1 — la BD no guarda la hora real de los partidos programados
+
+Los partidos `SCHEDULED` tienen una **hora placeholder por liga y jornada**: los 10 de
+Brasil del 6-sep con `20:00:00.000009`, los 10 de Colombia con `20:00:00.000014`, los 8 de
+Chile con `04:00:00.000009` — la misma hora para toda la jornada, con microsegundos que
+delatan que es un valor generado. Solo tienen hora real los partidos que **el live ya
+tocó** (China: 11:00, 11:35, 12:00, tres horas distintas).
+
+Consecuencias:
+- La hora **no sirve** para emparejar partidos futuros, solo los que el live ya vio. Y de
+  esos, **coincidió al minuto en el 100 %** (4 de 4).
+- Es un problema del scraper en sí, no del respaldo: cualquier cosa que dependa de la hora
+  de un partido programado está usando un dato inventado.
+
+### Hallazgo 2 — las abreviaturas obligan a emparejar por similitud
+
+Ningún nombre coincide entre fuentes: `Atl. Nacional` / `Atlético Nacional`,
+`Ind. Medellin` / `Independiente Medellín`, `D. Concepcion` / `Deportes Concepción`,
+`Dep. Cali` / `Deportivo Cali`. Se resolvió con similitud por **tokens admitiendo
+prefijos** (`atl` ⊂ `atletico`), simétrica, exigiendo que **ambos** equipos peguen y que el
+mejor candidato saque ventaja al segundo — si hay empate, se prefiere no emparejar antes
+que escribir en el partido equivocado. 7 de 7 en las pruebas unitarias, incluidos los dos
+casos que NO debían emparejar.
+
+### Hallazgo 3 — hay partidos con fecha distinta entre proveedores
+
+Los 3 no localizados de Colombia no están en SofaScore en esa ventana. Mirando su
+calendario, `Llaneros~Dep. Cali` figura en la BD el 6-sep y en SofaScore el 8-sep. Son
+**reprogramaciones**, el mismo patrón que el caso Bolivia ya documentado
+(`scores_negativos_y_temporadas.md`): no es un fallo del emparejador, es una discrepancia
+de datos que el respaldo permite **detectar**.
+
+### Dos errores propios que costaron una vuelta cada uno
+
+- Ampliar la búsqueda a ±1 día **sin deduplicar** hizo que el mismo partido apareciera dos
+  veces; el duplicado pasaba a ser "segundo mejor candidato" y el emparejador lo rechazaba
+  por ambiguo. La cobertura cayó de 72 % a 38 % hasta deduplicar por `event_id`.
+- Al ofrecer candidatos a la similitud, excluí *todos* los eventos en vez de solo los ya
+  asignados: `best_match` recibía una lista vacía y todo salía "sin candidatos".
+
+### Estado del desarrollo
+
+| Pieza | Estado |
+|---|---|
+| `src/sofascore_provider.py` | live, fixtures por fecha, búsqueda, normalización y similitud |
+| `scripts/build_sofascore_map.py` | mapa liga BD ↔ torneo SofaScore (5/5 en fútbol) |
+| `scripts/validar_sofascore.py` | validación extensiva por fechas, solo lectura |
+| `check_points/sofascore_map.json` | mapa persistido, con nivel de confianza por liga |
+| Escritura en la BD | **ninguna**, y no la habrá hasta que el emparejamiento sea 100 % fiable |
+
+Siguiente: repetir con **Basketball** y **Baseball** (`--deporte`), y decidir qué hacer con
+las reprogramaciones detectadas.

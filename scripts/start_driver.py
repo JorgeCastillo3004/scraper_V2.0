@@ -47,19 +47,25 @@ def save_session(driver, session_file):
     print(f'     executor_url: {data["executor_url"]}')
 
 
-def main(session_file=SESSION_FILE, headless=FIX_HEADLESS, label='driver', lightweight=False, load_images=False):
+def main(session_file=SESSION_FILE, headless=FIX_HEADLESS, label='driver', lightweight=False,
+         load_images=False, url='https://www.flashscore.com', login_=True, profile_dir=None):
     print('=' * 55)
     print(f'start_driver.py — iniciando browser ({label})')
     print('=' * 55)
 
     print(f'\n[1] Abriendo browser... (headless={headless}, lightweight={lightweight}, load_images={load_images})')
-    driver = launch_navigator('https://www.flashscore.com', headless=headless,
-                              lightweight=lightweight, load_images=load_images)
+    driver = launch_navigator(url, headless=headless, lightweight=lightweight,
+                              load_images=load_images, profile_dir=profile_dir)
 
     try:
         dismiss_cookies(driver)            # cerrar consentimiento ANTES por si tapa el botón LOGIN
-        print('[2] Sesión (reutiliza la guardada; solo loguea si hace falta)...')
-        print(f'    modo: {ensure_login(driver, FS_EMAIL, FS_PASSWORD)}')
+        if login_:
+            print('[2] Sesión (reutiliza la guardada; solo loguea si hace falta)...')
+            print(f'    modo: {ensure_login(driver, FS_EMAIL, FS_PASSWORD)}')
+        else:
+            # Sitios sin cuenta (p.ej. SofaScore, usado como fuente de respaldo): no hay
+            # login que hacer, solo dejar el navegador abierto y la sesión publicada.
+            print(f'[2] Sin login (sitio abierto: {url})')
         dismiss_cookies(driver)
         print(f'    URL actual: {driver.current_url}')
 
@@ -112,7 +118,15 @@ if __name__ == '__main__':
     g = p.add_mutually_exclusive_group()
     g.add_argument('--headless',    dest='headless', action='store_true',  default=None)
     g.add_argument('--no-headless', dest='headless', action='store_false')
+    p.add_argument('--url', default='https://www.flashscore.com',
+                   help='sitio a abrir (p.ej. https://www.sofascore.com para el respaldo).')
+    p.add_argument('--sin-login', dest='login', action='store_false',
+                   help='no intentar login (sitios sin cuenta, como SofaScore).')
+    p.add_argument('--profile-dir', default=None,
+                   help='perfil de Firefox persistente propio (aísla este driver del resto).')
+    p.set_defaults(login=True)
     args = p.parse_args()
     headless = FIX_HEADLESS if args.headless is None else args.headless
     main(session_file=args.session_file, headless=headless, label=args.label,
-         lightweight=args.lightweight, load_images=args.load_images)
+         lightweight=args.lightweight, load_images=args.load_images,
+         url=args.url, login_=args.login, profile_dir=args.profile_dir)

@@ -1,0 +1,39 @@
+{
+  "Football": {
+    "BRAZIL_Serie A Betano": {
+      "unique_id": 325,
+      "sofascore_name": "Brasileirão Betano",
+      "sofascore_country": "Brazil",
+      "confianza": "tokens (revisar)",
+      "partidos_bd": 10
+    },
+    "COLOMBIA_Primera A": {
+      "unique_id": 11539,
+      "sofascore_name": "Primera A",
+      "sofascore_country": "Colombia",
+      "confianza": "exacta",
+      "partidos_bd": 10
+    },
+    "CHILE_Liga de Primera": {
+      "unique_id": 11653,
+      "sofascore_name": "Liga de Primera",
+      "sofascore_country": "Chile",
+      "confianza": "exacta",
+      "partidos_bd": 8
+    },
+    "ECUADOR_Liga Pro": {
+      "unique_id": 240,
+      "sofascore_name": "LigaPro Serie A",
+      "sofascore_country": "Ecuador",
+      "confianza": "AMBIGUA (revisar)",
+      "partidos_bd": 8
+    },
+    "CHINA_Super League": {
+      "unique_id": 649,
+      "sofascore_name": "Chinese Super League",
+      "sofascore_country": "China",
+      "confianza": "parcial",
+      "partidos_bd": 4
+    }
+  }
+}
