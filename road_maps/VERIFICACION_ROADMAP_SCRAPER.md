@@ -128,6 +128,37 @@ los procesos), así que la infraestructura del item existe; falta enviar los log
 
 ---
 
+## 3. Estado de cada item (actualizado 2026-09-06, fin de sesión)
+
+| Item | Estado | Qué falta |
+|---|---|---|
+| **SC1** subir `scraper_v3` y confirmar que corre | 🟡 parcial | GitLab ya es accesible (clave registrada) y `scraper_V2.0` está subido a `wohhu/scrapper`. Pero `scraper_v3` sigue solo en el servidor: 71 cambios sin commitear, HEAD de **oct-2025**, muerto desde marzo. **Decisión pendiente: rescatarlo o archivarlo** |
+| **SC2** reclamar el disco | ✅ **hecho** | — (19 GB → 497 MB; retención de 7 días + sin `page_source`) |
+| **SC3** convención de `match.status` | 🟡 parcial | Diagnóstico hecho: `COMPLETED/SCHEDULED/OLD_SEASON/LIVE`, sin `CHECK`, y **ninguna** de las dos convenciones documentadas coincide. Falta **confirmar qué valor lee el backend** y la migración con `CHECK` — no hay repo `core-db` en esta máquina |
+| **SC4** evaluar proveedores | ✅ **hecho** | — (6 evaluados con datos reales; SofaScore elegido) |
+| **SC5** escribir la decisión | ✅ **hecho** | `documentacion/proveedor_respaldo_evaluacion.md`. Falta presentarlo y que lo firme quien corresponda |
+| **SC6** diseñar la capa de mapeo | 🟢 funcionando | Implementada con **archivos** (`sofascore_map.json`, `sofascore_teams_map.json`, `sofascore_overrides.json`): 12 ligas y 202 equipos, verificados por equipos. El roadmap pedía una **tabla `source_entity_map`**: decidir si se migra a BD o se queda en archivos |
+| **SC7** migración de mapeo y heartbeat | 🔴 pendiente | Depende de `core-db` y de la revisión de Angel |
+| **SC8** ingesta de datos de referencia | 🔴 pendiente | No hace falta para el respaldo del Live (solo actualiza partidos existentes); sí para cubrir competiciones nuevas |
+| **SC9** ingesta de partidos y resultados | 🟡 parcial | El **modo comparación** que pedía el item ya existe y funciona (`comparar_sofascore_hoy.py`, `validar_sofascore.py`): 139/144 partidos, 0 discrepancias. Falta **la escritura real** |
+| **SC10** detector de obsolescencia | ✅ **hecho** | 4 señales (sonda activa de FlashScore, latido, colgados, atraso), umbrales calibrados con el ciclo real |
+| **SC11** conmutación | 🟡 parcial | Simulador completo: conmuta, enumera lo que escribiría y devuelve el mando. Falta **permiso de escritura** y el **candado de escritor único** (P7) |
+| **SC12** scheduler | 🟡 parcial | systemd con `Restart=always` + linger ya está. Falta el **límite de memoria** (`MemoryMax`) que pide el item |
+| **SC13** monitorización | 🔴 pendiente | Loki, Prometheus y Grafana **ya corren** en el servidor: falta enviar los logs y el panel "cuándo escribió cada fuente por última vez" + alerta |
+| **SC14** runbook y traspaso | 🔴 pendiente | Hay mucha documentación técnica, pero falta el runbook de operación de **ambos** scrapers y la sesión en vivo |
+
+### Pendientes propios que deja esta sesión
+
+- **Desplegar el arreglo del heartbeat** (`main2.py`) al servidor: hoy `run_status_live.json`
+  conserva la marca del arranque y no sirve como señal de vida.
+- **Cerrar P7 (un solo escritor)**: bloquea que la conmutación pueda escribir de verdad.
+- **15 partidos** en `FOOTBALL/WORLD_World Cup` que en realidad son de baloncesto
+  (AfroBasket / FIBA Asia Cup) creados en la liga equivocada: requieren reclasificación.
+- **Merge request en `wohhu/scrapper`**: `main` está protegida y el push directo se rechaza;
+  el trabajo está en la rama `fix/live-memoria-y-sesion`.
+- Ligas sin mapear: 7 de hockey, y tenis / boxeo / motor sport (sin actividad o estructura
+  distinta).
+
 ## 3. Orden propuesto
 
 1. **Decidir el destino de `scraper_v3`** (bloquea SC1 y SC2, y aclara de qué habla el track).
