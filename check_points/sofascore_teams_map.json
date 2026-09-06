@@ -1,0 +1,375 @@
+{
+  "Football": {
+    "BRAZIL_Serie A Betano": {
+      "Botafogo": {
+        "bd": "Botafogo RJ",
+        "score": 0.75
+      },
+      "Palmeiras": {
+        "bd": "Palmeiras",
+        "score": 0.81
+      },
+      "Red Bull Bragantino": {
+        "bd": "Bragantino",
+        "score": 0.67,
+        "revisar": true
+      },
+      "Bahia": {
+        "bd": "Bahia",
+        "score": 0.75
+      },
+      "Corinthians": {
+        "bd": "Corinthians",
+        "score": 1.0
+      },
+      "Chapecoense": {
+        "bd": "Chapecoense-SC",
+        "score": 1.0
+      },
+      "Coritiba": {
+        "bd": "Coritiba",
+        "score": 1.0
+      },
+      "Mirassol": {
+        "bd": "Mirassol",
+        "score": 1.0
+      },
+      "Cruzeiro": {
+        "bd": "Cruzeiro",
+        "score": 0.81
+      },
+      "Athletico": {
+        "bd": "Athletico-PR",
+        "score": 0.75
+      },
+      "Fluminense": {
+        "bd": "Fluminense",
+        "score": 0.75
+      },
+      "Vasco da Gama": {
+        "bd": "Vasco",
+        "score": 0.67,
+        "revisar": true
+      },
+      "Internacional": {
+        "bd": "Internacional",
+        "score": 1.0
+      },
+      "Santos": {
+        "bd": "Santos",
+        "score": 1.0
+      },
+      "Remo": {
+        "bd": "Remo",
+        "score": 0.81
+      },
+      "Flamengo": {
+        "bd": "Flamengo RJ",
+        "score": 0.75
+      },
+      "São Paulo": {
+        "bd": "Sao Paulo",
+        "score": 0.62,
+        "revisar": true
+      },
+      "Atlético Mineiro": {
+        "bd": "Atletico-MG",
+        "score": 0.5,
+        "revisar": true
+      },
+      "Vitória": {
+        "bd": "Vitoria",
+        "score": 1.0
+      },
+      "Grêmio": {
+        "bd": "Gremio",
+        "score": 1.0
+      }
+    },
+    "COLOMBIA_Primera A": {
+      "Rionegro Águilas Doradas": {
+        "bd": "Aguilas",
+        "score": 0.67,
+        "revisar": true
+      },
+      "Boyacá Chicó FC": {
+        "bd": "Chico",
+        "score": 0.69,
+        "revisar": true
+      },
+      "Independiente Medellín": {
+        "bd": "Ind. Medellin",
+        "score": 0.93
+      },
+      "Llaneros FC": {
+        "bd": "Llaneros",
+        "score": 0.94
+      },
+      "Alianza Valledupar FC": {
+        "bd": "Alianza",
+        "score": 0.75
+      },
+      "Atlético Nacional": {
+        "bd": "Atl. Nacional",
+        "score": 0.79
+      },
+      "Deportivo Cali": {
+        "bd": "Dep. Cali",
+        "score": 0.79
+      },
+      "Atlético Bucaramanga": {
+        "bd": "Bucaramanga",
+        "score": 0.75
+      },
+      "Deportivo Pasto": {
+        "bd": "Dep. Pasto",
+        "score": 0.79
+      },
+      "Deportivo Pereira": {
+        "bd": "Pereira",
+        "score": 0.75
+      },
+      "Once Caldas": {
+        "bd": "Once Caldas",
+        "score": 0.81
+      },
+      "Cúcuta Deportivo": {
+        "bd": "Cucuta",
+        "score": 0.75
+      },
+      "Internacional de Bogotá": {
+        "bd": "Inter Bogotá",
+        "score": 0.73,
+        "revisar": true
+      },
+      "Junior Barranquilla": {
+        "bd": "Junior",
+        "score": 0.75
+      },
+      "Jaguares de Córdoba": {
+        "bd": "Jaguares de Cordoba",
+        "score": 0.81
+      },
+      "Millonarios": {
+        "bd": "Millonarios",
+        "score": 0.81
+      },
+      "Independiente Santa Fe": {
+        "bd": "Santa Fe",
+        "score": 0.83
+      },
+      "Fortaleza FC": {
+        "bd": "Fortaleza",
+        "score": 0.88
+      },
+      "Deportes Tolima": {
+        "bd": "Deportes Tolima",
+        "score": 0.81
+      },
+      "América de Cali": {
+        "bd": "America De Cali",
+        "score": 1.0
+      }
+    },
+    "CHILE_Liga de Primera": {
+      "Deportes Concepción": {
+        "bd": "D. Concepcion",
+        "score": 0.68,
+        "revisar": true
+      },
+      "Audax Italiano": {
+        "bd": "A. Italiano",
+        "score": 0.68,
+        "revisar": true
+      },
+      "Everton de Viña del Mar": {
+        "bd": "Everton",
+        "score": 0.62,
+        "revisar": true
+      },
+      "Universidad Católica": {
+        "bd": "U. Catolica",
+        "score": 0.64,
+        "revisar": true
+      },
+      "Huachipato": {
+        "bd": "Huachipato",
+        "score": 1.0
+      },
+      "Colo-Colo": {
+        "bd": "Colo Colo",
+        "score": 1.0
+      },
+      "Deportes La Serena": {
+        "bd": "La Serena",
+        "score": 0.75
+      },
+      "Ñublense": {
+        "bd": "Nublense",
+        "score": 0.81
+      },
+      "Deportes Limache": {
+        "bd": "Limache",
+        "score": 0.75
+      },
+      "Cobresal": {
+        "bd": "Cobresal",
+        "score": 0.81
+      },
+      "Universidad de Concepción": {
+        "bd": "U. De Concepcion",
+        "score": 0.68,
+        "revisar": true
+      },
+      "Universidad de Chile": {
+        "bd": "U. De Chile",
+        "score": 0.68,
+        "revisar": true
+      },
+      "Unión La Calera": {
+        "bd": "Union La Calera",
+        "score": 0.81
+      },
+      "Palestino": {
+        "bd": "Palestino",
+        "score": 1.0
+      },
+      "O'Higgins": {
+        "bd": "O'Higgins",
+        "score": 0.76
+      },
+      "Coquimbo Unido": {
+        "bd": "Coquimbo",
+        "score": 0.75
+      }
+    },
+    "ECUADOR_Liga Pro": {
+      "Guayaquil City": {
+        "bd": "Guayaquil City",
+        "score": 0.81
+      },
+      "LDU": {
+        "bd": "LDU Quito",
+        "score": 0.75
+      },
+      "Orense SC": {
+        "bd": "Orense",
+        "score": 1.0
+      },
+      "Macará": {
+        "bd": "Macara",
+        "score": 1.0
+      },
+      "Manta FC": {
+        "bd": "Manta",
+        "score": 1.0
+      },
+      "Deportivo Cuenca": {
+        "bd": "Dep. Cuenca",
+        "score": 0.93
+      },
+      "Barcelona SC Guayaquil": {
+        "bd": "Barcelona SC",
+        "score": 0.75
+      },
+      "Mushuc Runa SC": {
+        "bd": "Mushuc Runa",
+        "score": 1.0
+      },
+      "Delfín": {
+        "bd": "Delfin",
+        "score": 1.0
+      },
+      "Emelec": {
+        "bd": "Emelec",
+        "score": 1.0
+      },
+      "Leones del Norte": {
+        "bd": "Leones del Norte",
+        "score": 1.0
+      },
+      "Libertad FC": {
+        "bd": "Libertad",
+        "score": 1.0
+      },
+      "Independiente del Valle": {
+        "bd": "Ind. del Valle",
+        "score": 0.8
+      },
+      "Técnico Universitario": {
+        "bd": "Tecnico U.",
+        "score": 0.68,
+        "revisar": true
+      },
+      "Universidad Católica del Ecuador": {
+        "bd": "U. Catolica",
+        "score": 0.51,
+        "revisar": true
+      },
+      "Aucas": {
+        "bd": "Aucas",
+        "score": 0.63,
+        "revisar": true
+      }
+    },
+    "CHINA_Super League": {
+      "Wuhan Three Towns": {
+        "bd": "Wuhan Three Towns",
+        "score": 1.0
+      },
+      "Qingdao West Coast": {
+        "bd": "Qingdao West Coast",
+        "score": 1.0
+      },
+      "Shanghai Port": {
+        "bd": "Shanghai Port",
+        "score": 1.0
+      },
+      "Beijing Guoan": {
+        "bd": "Beijing Guoan",
+        "score": 1.0
+      },
+      "Dalian Yingbo FC": {
+        "bd": "Dalian Yingbo",
+        "score": 1.0
+      },
+      "Qingdao Hainiu": {
+        "bd": "Qingdao Hainiu",
+        "score": 1.0
+      },
+      "Chongqing Tonglianglong FC": {
+        "bd": "Chongqing Tonglianglong",
+        "score": 1.0
+      },
+      "Shanghai Shenhua": {
+        "bd": "Shanghai Shenhua",
+        "score": 1.0
+      },
+      "Yunnan Yukun": {
+        "bd": "Yunnan Yukun",
+        "score": 1.0
+      },
+      "Liaoning Tieren FC": {
+        "bd": "Liaoning Tieren",
+        "score": 1.0
+      },
+      "Tianjin Jinmen Tiger": {
+        "bd": "Tianjin Jinmen Tiger",
+        "score": 0.81
+      },
+      "Zhejiang": {
+        "bd": "Zhejiang Professional",
+        "score": 0.75
+      },
+      "Henan FC": {
+        "bd": "Henan Songshan Longmen",
+        "score": 0.67,
+        "revisar": true
+      },
+      "Chengdu Rongcheng": {
+        "bd": "Chengdu Rongcheng",
+        "score": 0.75
+      }
+    }
+  }
+}

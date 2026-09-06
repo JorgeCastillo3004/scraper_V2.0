@@ -17,6 +17,8 @@ Dos cosas que condicionan el diseño:
 Este módulo NO escribe en la base de datos ni decide nada: solo lee y normaliza.
 """
 import re
+import os
+import json
 import time
 from datetime import datetime, timezone
 
@@ -269,3 +271,44 @@ def best_match(name_bd, eventos, umbral=0.62, margen=0.08):
     if mejor_score - segundo < margen:
         return None, mejor_score, f'ambiguo (2º={segundo:.2f})'
     return mejor_ev, mejor_score, 'similitud'
+
+# ── Mapa de equipos (la verdad, por encima de la similitud) ──────────────────
+# La similitud acierta, pero en producción no basta: un empate de puntuación
+# escribiría el marcador en el partido equivocado. Por eso las correspondencias
+# verificadas se congelan en check_points/sofascore_teams_map.json y mandan sobre
+# cualquier heurística. La similitud queda solo para lo que aún no está mapeado.
+
+_TEAMS_MAP_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                               'check_points', 'sofascore_teams_map.json')
+_TEAMS_CACHE = {}
+
+
+def load_teams_map(path=_TEAMS_MAP_PATH):
+    """Carga (y cachea) el mapa de equipos. Devuelve {} si no existe todavía."""
+    if not _TEAMS_CACHE:
+        try:
+            with open(path, encoding='utf-8') as f:
+                _TEAMS_CACHE.update(json.load(f))
+        except Exception:
+            _TEAMS_CACHE['__vacio__'] = True
+    return {k: v for k, v in _TEAMS_CACHE.items() if k != '__vacio__'}
+
+
+def team_to_db(nombre_ss, sport, liga_clave, mapa=None):
+    """Nombre de equipo de SofaScore -> nombre en la BD, si está mapeado.
+    Devuelve (nombre_bd, mapeado?). Si no hay entrada, devuelve el original."""
+    mapa = mapa if mapa is not None else load_teams_map()
+    entrada = (mapa.get(sport, {}).get(liga_clave, {}) or {}).get(nombre_ss)
+    if isinstance(entrada, dict) and entrada.get('bd'):
+        return entrada['bd'], True
+    if isinstance(entrada, str):
+        return entrada, True
+    return nombre_ss, False
+
+
+def match_name_db(ev, sport, liga_clave, mapa=None):
+    """El 'Local~Visitante' que tendría este evento con los nombres de la BD."""
+    mapa = mapa if mapa is not None else load_teams_map()
+    h, ok_h = team_to_db(ev['home'], sport, liga_clave, mapa)
+    a, ok_a = team_to_db(ev['away'], sport, liga_clave, mapa)
+    return f'{h}~{a}', (ok_h and ok_a)
