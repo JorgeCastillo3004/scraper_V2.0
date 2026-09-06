@@ -32,3 +32,27 @@ api_service/
 diagramas/
 docs/
 images/
+
+# === Entornos / dependencias (NUNCA al repo) ===
+env_sports/
+sports_env/
+node_modules/
+frontend/dist/
+
+# === Copias de BD / dumps / backups ===
+backups/
+*.dump
+*.sql.gz
+*.bak
+*.bak_*
+
+# === Temporales del runtime ===
+tmp/
+
+# === Otras herramientas AI / scratch ===
+.codex
+test.txt
+test2.py
+
+# Claves SSH privadas
+ssh_key/

@@ -364,6 +364,54 @@ def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
                     f"Login fallido tras {max_attempts} intentos. Último error: {e}"
                 )
 
+# ── Retención de artefactos de depuración ─────────────────────────────────────
+# Los guardados de error (PNG + page_source HTML) se escriben pero NADIE los lee:
+# sirven para mirar QUÉ pasó cuando algo falla, y solo mientras el fallo es reciente.
+# Sin poda crecen sin techo: en `scraper_v3` llegaron a **18 GB** (42.947 archivos de
+# marzo y abril; 14,7 GB solo en HTML) de un scraper que ya ni corría, y encima
+# capturados contra un DOM de FlashScore que después cambió — valor nulo hoy.
+# Retención por defecto 7 días, configurable con SCREENSHOTS_RETENTION_DAYS.
+
+SCREENSHOTS_RETENTION_DAYS = int(os.environ.get('SCREENSHOTS_RETENTION_DAYS', '7'))
+_PRUNED_DIRS = set()
+
+
+def prune_debug_artifacts(directory, days=None, exts=('.png', '.html', '.json'), once=True):
+    """Borra de `directory` los artefactos de depuración más viejos que `days` días.
+    `once=True` la ejecuta UNA sola vez por proceso y directorio (barato de llamar
+    desde el propio guardado). Nunca lanza: si falla, el scraper sigue igual.
+    Devuelve (archivos_borrados, bytes_liberados)."""
+    days = SCREENSHOTS_RETENTION_DAYS if days is None else days
+    if days <= 0:
+        return (0, 0)
+    clave = os.path.abspath(directory)
+    if once:
+        if clave in _PRUNED_DIRS:
+            return (0, 0)
+        _PRUNED_DIRS.add(clave)
+    corte = time.time() - days * 86400
+    n = libres = 0
+    try:
+        for nombre in os.listdir(directory):
+            ruta = os.path.join(directory, nombre)
+            try:
+                if not os.path.isfile(ruta) or not nombre.lower().endswith(tuple(exts)):
+                    continue
+                st = os.stat(ruta)
+                if st.st_mtime < corte:
+                    os.remove(ruta)
+                    n += 1
+                    libres += st.st_size
+            except OSError:
+                pass
+    except OSError:
+        return (0, 0)
+    if n:
+        print(f'  [retención] {directory}: {n} artefactos > {days} días borrados '
+              f'({libres/1048576:.0f} MB liberados)')
+    return (n, libres)
+
+
 # ── Sesión de FlashScore reutilizable (abrir el navegador ya logueado) ────────
 # El login por formulario es el paso más caro y frágil del arranque de un driver
 # (hasta 3 intentos, banner de cookies, ~30-60 s) y repetirlo seguido —p.ej. en cada

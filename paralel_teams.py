@@ -50,7 +50,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src
 
 import milestone3
 import common_functions
-from common_functions import launch_navigator, load_check_point, wait_update_page
+from common_functions import launch_navigator, load_check_point, wait_update_page, prune_debug_artifacts
 from milestone3 import (
     get_teams_info_part1,
     get_teams_info_part2,
@@ -261,6 +261,7 @@ def _save_worker_screenshot(driver, label, keep_history=False):
         wlog(f'[dim]Screenshot worker {worker_id}: {label}[/dim]')
 
         if keep_history:
+            prune_debug_artifacts(TEAMS_SCREENSHOTS_HISTORY_DIR)   # history/ no se limpiaba
             ts = datetime.now().strftime('%Y%m%d_%H%M%S')
             history_png = os.path.join(
                 TEAMS_SCREENSHOTS_HISTORY_DIR,

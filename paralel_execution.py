@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src
 
 import milestone4
 import common_functions
-from common_functions import launch_navigator, load_check_point
+from common_functions import launch_navigator, load_check_point, prune_debug_artifacts
 from milestone4 import extraction_by_dict, extraction_special_sports
 from data_base import cleanup_stale_leagues
 
@@ -302,11 +302,15 @@ def _show_distribution(league_dicts, name_section, console):
 def _save_screenshots(driver, worker_id, reason):
     try:
         os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+        # Poda las capturas viejas (1 vez por proceso). Sin esto este mismo directorio
+        # acumuló 18 GB / 42.947 archivos en scraper_v3 (marzo-abril 2026).
+        prune_debug_artifacts(SCREENSHOTS_DIR)
         ts     = datetime.now().strftime('%Y%m%d_%H%M%S')
         prefix = os.path.join(SCREENSHOTS_DIR, f'worker{worker_id}_{reason}_{ts}')
         driver.save_screenshot(f'{prefix}.png')
-        with open(f'{prefix}_source.html', 'w', encoding='utf-8') as f:
-            f.write(driver.page_source)
+        # NO se guarda el page_source: la captura ya muestra qué pasó, y el HTML era el
+        # 83% del disco (14,7 GB de los 18 GB acumulados en scraper_v3) sin que nada lo
+        # leyera nunca. Para inspeccionar el DOM a fondo están los scripts _debug_*.
         wlog(f'[yellow]Screenshot guardado: worker{worker_id}_{reason}_{ts}.png[/yellow]')
     except Exception as e:
         wlog(f'[red]No se pudo capturar screenshot: {e}[/red]')

@@ -38,7 +38,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import milestone6
 import common_functions
-from common_functions import launch_navigator, load_check_point, save_check_point, wait_update_page, login
+from common_functions import launch_navigator, load_check_point, save_check_point, wait_update_page, login, prune_debug_artifacts
 from selenium.webdriver.common.by import By
 from config import FS_EMAIL, FS_PASSWORD
 
@@ -247,11 +247,12 @@ def _render_layout(layout: Layout, n_workers: int):
 def _save_screenshot(driver, worker_id: int, reason: str):
     try:
         os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+        prune_debug_artifacts(SCREENSHOTS_DIR)
         ts     = datetime.now().strftime('%Y%m%d_%H%M%S')
         prefix = os.path.join(SCREENSHOTS_DIR, f'w{worker_id}_{reason}_{ts}')
         driver.save_screenshot(f'{prefix}.png')
-        with open(f'{prefix}_source.html', 'w', encoding='utf-8') as f:
-            f.write(driver.page_source)
+        # Sin page_source: ver paralel_execution._save_screenshots (el HTML no lo lee nadie
+        # y era el grueso del disco consumido).
     except Exception:
         pass
 
