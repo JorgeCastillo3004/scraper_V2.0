@@ -25,6 +25,34 @@ class StartParams(BaseModel):
     mode:           str  = 'completo'   # 'rapido' | 'completo'
     solo_sin_stats: bool = False        # backfill: solo COMPLETED sin statistic
     apply:          bool = False        # escribir en DB (default dry-run)
+    own_driver:     bool = False        # extract_fixtures: lanzar driver propio
+                                        # (default: reusar el de corrección)
+    today:          bool = False        # extract_fixtures --today: crea los partidos
+                                        # de HOY desde la summary (status+score reales)
+    from_pin:       bool = False        # extract_fixtures --from-pin: barre TODAS las
+                                        # ligas pineadas del deporte (sin --leagues)
+
+
+class SportsParams(BaseModel):
+    sports: list[str] = []
+
+
+class IntervalParams(BaseModel):
+    interval: int
+
+
+@router.post("/live/sports")
+def set_live_sports(params: SportsParams):
+    """Actualiza EN CALIENTE la selección de deportes del live (se aplica al final
+    del ciclo en curso, sin reiniciar el script)."""
+    return pm.update_live_sports(params.sports)
+
+
+@router.post("/live/interval")
+def set_live_interval(params: IntervalParams):
+    """Actualiza EN CALIENTE el intervalo del live (se aplica a la pausa del fin del
+    ciclo en curso, sin reiniciar el script)."""
+    return pm.update_live_interval(params.interval)
 
 
 @router.post("/{section}/start")

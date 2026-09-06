@@ -96,10 +96,29 @@ def get_time_date_format(date, section=None):
     time = dt_object.time()
     return date, time
 
+def _clean_score(raw):
+    # El marcador debe ser numérico (score_entity.points es double precision).
+    # FlashScore mete el resultado de la tanda de penales en el mismo
+    # event__score, en una 2a línea entre paréntesis: "2\n(4)". Nos quedamos
+    # SOLO con el marcador reglamentario/prórroga (primer entero) y descartamos
+    # la tanda "(4)". Si no hay número (p.ej. "-" de aplazado), devolvemos ''.
+    m = re.search(r'\d+', raw or '')
+    return m.group(0) if m else ''
+
 def get_result(row, country_id, section = 'results'):
     home_xpath_expression = ".//div[contains(@class, 'homeParticipant')]"
     away_xpath_expression = ".//div[contains(@class, 'awayParticipant')]"
-    match_date = row.find_element(By.CLASS_NAME, 'event__time').text    
+    # FlashScore (2026) renombró la clase del horario: 'event__time' -> 'event__stageTime'
+    # (las clases 'wcl-*' llevan hash y cambian; 'event__stageTime' es la estable). Sin este
+    # fallback, esta primera línea lanzaba NoSuchElementException en CADA fila y quien llama
+    # (scan_results_page) lo tragaba con 'except: continue' -> 0 partidos encontrados.
+    try:
+        match_date = row.find_element(By.CLASS_NAME, 'event__time').text
+    except NoSuchElementException:
+        try:
+            match_date = row.find_element(By.CLASS_NAME, 'event__stageTime').text
+        except NoSuchElementException:
+            match_date = ''
     try:
         # home_participant = row.find_element(By.CLASS_NAME, 'event__participant.event__participant--home.fontExtraBold').text        
         home_participant = row.find_element(By.XPATH, home_xpath_expression).text
@@ -112,8 +131,8 @@ def get_result(row, country_id, section = 'results'):
         away_participant = row.find_element(By.CLASS_NAME, 'event__participant.event__participant--away').text
 
     if section == 'results':
-        home_result = row.find_element(By.CLASS_NAME, 'event__score.event__score--home').text
-        away_result = row.find_element(By.CLASS_NAME, 'event__score.event__score--away').text
+        home_result = _clean_score(row.find_element(By.CLASS_NAME, 'event__score.event__score--home').text)
+        away_result = _clean_score(row.find_element(By.CLASS_NAME, 'event__score.event__score--away').text)
     else:
         home_result = ''
         away_result = ''
@@ -647,6 +666,43 @@ def save_participants_info(driver, player_links, sport_id, league_id, season_id,
     return dict_players_ready, team_name
 #             save_check_point('check_points/players_ready.json', dict_players_ready)
 
+def _init_team_fix_state(league_info):
+    """
+    Inicializa (lazy) los recursos para crear equipos faltantes desde la
+    página del match. Reutiliza EXACTAMENTE las funciones del último script
+    (crear_fixtures_ligas.py → fix_null_team_ids): get_team_links_from_match,
+    ensure_team_created, load_url_team_cache. Import lazy para evitar el
+    circular (fix_null_team_ids importa milestone4).
+    """
+    import sys as _sys, os as _os
+    _scripts = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts')
+    if _scripts not in _sys.path:
+        _sys.path.insert(0, _scripts)
+    from fix_null_team_ids import (get_team_links_from_match, ensure_team_created,
+                                    load_url_team_cache)
+    from data_base import get_dict_league_ready
+    sport_id = league_info['sport_id']
+    state = {
+        'get_team_links_from_match': get_team_links_from_match,
+        'ensure_team_created':       ensure_team_created,
+        'league_inf': {
+            'sport_id':    sport_id,
+            'sport_name':  league_info['sport_name'],
+            'league_id':   league_info['league_id'],
+            'league_name': league_info['league_name'],
+            'season_id':   league_info['season_id'],
+            'country_id':  league_info.get('country_id', ''),
+        },
+        'dict_teams_db': get_dict_league_ready(sport_id=sport_id),
+    }
+    try:
+        state['url_cache'] = load_url_team_cache(league_info['sport_name'],
+                                                 league_info['league_name'])
+    except Exception:
+        state['url_cache'] = {}
+    return state
+
+
 def get_complete_match_info(driver, league_info, dict_country_league_season,
                             checkpoint_round, checkpoint_match,
                             section='results'):
@@ -654,6 +710,10 @@ def get_complete_match_info(driver, league_info, dict_country_league_season,
     sport_name  = league_info['sport_name']
     league_id   = league_info['league_id']
     season_id   = league_info['season_id']
+
+    # Estado lazy para el FIX DE RAÍZ de equipos faltantes (se inicializa solo
+    # la 1ra vez que un match necesita crear un equipo).
+    _team_fix_state = None
 
     skip_round  = bool(checkpoint_round)
     skip_match  = bool(checkpoint_match)
@@ -739,6 +799,39 @@ def get_complete_match_info(driver, league_info, dict_country_league_season,
                 team_id_home    = get_team_id_db(event_info['home'], league_id, season_id)
                 team_id_visitor = get_team_id_db(event_info['visitor'], league_id, season_id)
 
+            # ── FIX DE RAÍZ: equipo inexistente en DB → crearlo ──────────
+            # Si get_team_id_db devolvió None, el equipo no existe y
+            # match_creation_save dejaría match_detail.team_id = NULL.
+            # Se navega a la página del equipo (links del match actual, el
+            # driver ya está posado aquí) y se crea con ensure_team_created
+            # — mismo patrón que el último script (crear_fixtures_ligas.py).
+            if team_id_home is None or team_id_visitor is None:
+                try:
+                    if _team_fix_state is None:
+                        _team_fix_state = _init_team_fix_state(league_info)
+                    home_url, away_url = _team_fix_state['get_team_links_from_match'](driver)
+                    si = _team_fix_state
+                    if team_id_home is None and home_url:
+                        print(f"[FIX-TEAM] home '{event_info['home']}' no existe → creando desde {home_url}")
+                        team_id_home = si['ensure_team_created'](
+                            driver, home_url, si['league_inf'], si['dict_teams_db'],
+                            si['league_inf']['sport_id'], False,
+                            sport_key=sport_name, league_key=league_name,
+                            url_cache=si['url_cache'])
+                    if team_id_visitor is None and away_url:
+                        print(f"[FIX-TEAM] visitor '{event_info['visitor']}' no existe → creando desde {away_url}")
+                        team_id_visitor = si['ensure_team_created'](
+                            driver, away_url, si['league_inf'], si['dict_teams_db'],
+                            si['league_inf']['sport_id'], False,
+                            sport_key=sport_name, league_key=league_name,
+                            url_cache=si['url_cache'])
+                    if team_id_home is None or team_id_visitor is None:
+                        print(f"[FIX-TEAM][WARN] equipos sin resolver "
+                              f"(home={team_id_home}, visitor={team_id_visitor}) — "
+                              f"FlashScore quizá aún no define los equipos del match")
+                except Exception as _e:
+                    print(f"[FIX-TEAM][WARN] fallo creando equipo faltante: {_e}")
+
             create_stadium(dict_country_league_season, event_info, league_info, team_id_home)
             match_creation_save(event_info, team_id_home, team_id_visitor, section)
             print("MATCH CREATION EXECUTED")
@@ -809,36 +902,43 @@ def save_team_player_single(driver, player_link , league_info):
 
 def save_team_player_doubles(driver, player_links , league_info):
     # LOAD PLAYER URL
+    from data_base import get_country_id, insert_country
     team_members = []
+    player_ids = []                       # FIX: enlazar TODOS los jugadores al team (no solo el último)
     for player_link in player_links:
         wait_update_page(driver, player_link, 'container__heading')
-        player_dict = get_player_data_tennis(driver)        
+        player_dict = get_player_data_tennis(driver)
         player_dict['season_id'] = league_info['season_id']
-        player_dict['team_country'] = player_dict['player_country']     
+        player_dict['team_country'] = player_dict['player_country']
         player_dict['team_desc'] = ''
-        player_dict['team_logo'] = player_dict['player_photo']          
+        player_dict['team_logo'] = player_dict['player_photo']
         player_dict['sport_id'] = league_info['sport_id']
         player_dict['instance_id'] = generate_uuid()
         player_dict['player_meta'] = ''
         player_dict['team_meta'] = ''
         player_dict['team_position'] = 0
         player_dict['league_id'] = league_info['league_id']
+        # FIX: resolver country_id (faltaba → el INSERT de player/team daba KeyError)
+        player_dict['country_id'] = get_country_id(player_dict['player_country']) or insert_country(player_dict['player_country'])
         team_members.append(player_dict['player_name'])
+        player_ids.append(player_dict['player_id'])
         # CHECK IF PLAYER WAS CREATED PREVIOUSLY
-        player_id_list = check_player_duplicates(player_dict['player_country'], player_dict['player_name'], player_dict['player_dob'])
-        if not player_id_list:
+        if not check_player_duplicates_id(player_dict['player_id']):
             save_player_info(player_dict) # player
         else:
-            print('Player created previously')          
-    
-    # TEAM CREATION
+            print('Player created previously')
+
+    # TEAM CREATION (el team representa a la pareja)
     player_dict['team_id'] = generate_uuid()
     player_dict['team_name'] = '-'.join(team_members)
-    
+
     team_id_list = check_team_duplicates(player_dict['team_name'], player_dict['sport_id'])
     if not team_id_list:
         save_team_info(player_dict) # team
-        save_team_players_entity(player_dict) # team_players_entity     
+        # FIX: una fila team_players_entity por CADA jugador de la pareja (antes solo el último)
+        for pid in player_ids:
+            save_team_players_entity({'player_meta':'', 'season_id':player_dict['season_id'],
+                                      'team_id':player_dict['team_id'], 'player_id':pid})
     else:
         print('Team created previously')
         player_dict['team_id'] =  team_id_list[0]
@@ -949,16 +1049,24 @@ def get_complete_match_info_tennis(driver, league_info, section='results'):
                     event_info['stadium_id'] = stadium_results[0]
 
                 print("#" * 80, '\n' * 2)
+                # points → float: la columna score_entity.points es double precision.
+                # _clean_score devuelve str ('0','2') y SCHEDULED usa -1; casteamos para
+                # no depender del cast implícito (y '' / no-numérico cae a -1.0).
+                def _points_value(v):
+                    try:
+                        return float(v)
+                    except (TypeError, ValueError):
+                        return -1.0
                 match_detail_id = generate_uuid()
                 score_id = generate_uuid()
                 dict_home = {'match_detail_id': match_detail_id, 'home': True, 'visitor': False,
                              'match_id': event_info['match_id'], 'team_id': team_id_home,
-                             'points': event_info['home_result'], 'score_id': score_id}
+                             'points': _points_value(event_info['home_result']), 'score_id': score_id}
                 match_detail_id = generate_uuid()
                 score_id = generate_uuid()
                 dict_visitor = {'match_detail_id': match_detail_id, 'home': False, 'visitor': True,
                                 'match_id': event_info['match_id'], 'team_id': team_id_away,
-                                'points': event_info['visitor_result'], 'score_id': score_id}
+                                'points': _points_value(event_info['visitor_result']), 'score_id': score_id}
 
                 event_info['season_id'] = league_info['season_id']
                 event_info['tournament_id'] = ''

@@ -1,87 +1,87 @@
 {
-    "Mushuc Runa": {
-        "team_id": "9dcd07d0-31d5-4d58-8b63-5520fb40ea1e",
-        "team_url": "",
-        "stadium_id": "3e3357cb-08dd-4c6b-bcbd-4f903cf2e27b"
-    },
-    "Manta": {
-        "team_id": "ddd09f7a-4f4c-47b2-9f66-1cd91dc65581",
-        "team_url": "",
-        "stadium_id": "245e02f8-645a-4772-8c48-226e3be2ab90"
-    },
-    "Tecnico U.": {
-        "team_id": "7c10c915-1e8d-44f9-99fd-46f14548b0ed",
-        "team_url": "",
-        "stadium_id": "758d982d-b563-491e-97b4-63f889b10dcc"
-    },
-    "Vinotinto": {
-        "team_id": "cea62e49-967f-4131-afcc-2dc2e8b336d7",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Barcelona SC": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "da392a20-f41e-4814-af0f-4389c94cd75b"
-    },
-    "Delfin": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "66387b3c-9925-4dbd-8621-bdff200a0919"
-    },
-    "Dep. Cuenca": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "1e234ad6-af5a-40eb-9a2a-2c470e58f7f1"
-    },
-    "LDU Quito": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e4ae5693-7728-41ca-9d91-33dfc859d6bb"
-    },
-    "Leones del Norte": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "2982eb68-89d2-468c-ad4e-4abd99e92fdc"
-    },
-    "Libertad": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "d1f3fc0b-e6de-47ef-b121-3703bb5a5e90"
-    },
-    "U. Catolica": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e036ee7d-c2d0-4fd3-837d-d9b928f94329"
-    },
-    "Aucas": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "301c3233-d6ab-4747-b13d-a2ff7f5681b0"
-    },
-    "Emelec": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "2c5d1e0c-2ded-44d6-9d75-fc73dfbabe07"
-    },
-    "Guayaquil City": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "7d575cf9-41b9-4361-a69c-77ead1e4d828"
-    },
-    "Ind. del Valle": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "536fba93-0d68-4e6d-a517-4715087bae46"
-    },
-    "Macara": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e8870660-9ccb-42f6-86e0-8f112463b59a"
-    },
-    "Orense": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "b8d925e3-5cbb-4f53-8488-a8dcb40204d6"
-    }
+  "Mushuc Runa": {
+    "team_id": "9dcd07d0-31d5-4d58-8b63-5520fb40ea1e",
+    "team_url": "https://www.flashscore.com/team/mushuc-runa/bioR64Gg/",
+    "stadium_id": "3e3357cb-08dd-4c6b-bcbd-4f903cf2e27b"
+  },
+  "Manta": {
+    "team_id": "ddd09f7a-4f4c-47b2-9f66-1cd91dc65581",
+    "team_url": "https://www.flashscore.com/team/manta/YwE6vHLt/",
+    "stadium_id": "245e02f8-645a-4772-8c48-226e3be2ab90"
+  },
+  "Tecnico U.": {
+    "team_id": "7c10c915-1e8d-44f9-99fd-46f14548b0ed",
+    "team_url": "https://www.flashscore.com/team/tecnico-u/Em6vQ0O5/",
+    "stadium_id": "758d982d-b563-491e-97b4-63f889b10dcc"
+  },
+  "Vinotinto": {
+    "team_id": "cea62e49-967f-4131-afcc-2dc2e8b336d7",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Barcelona SC": {
+    "team_id": "aa60400f-689b-4ecc-adaf-8d08c85717d7",
+    "team_url": "https://www.flashscore.com/team/barcelona-sc/pCMG6CNp/",
+    "stadium_id": "da04d820-5ba1-4907-9292-9a463229d18d"
+  },
+  "Delfin": {
+    "team_id": "6d99259d-387d-4a56-bf2f-796527920cb1",
+    "team_url": "https://www.flashscore.com/team/delfin/b1b1P14P/",
+    "stadium_id": "e6756132-f4d6-4dd2-a098-1001201e0517"
+  },
+  "Dep. Cuenca": {
+    "team_id": "9b54f64d-4a86-43ab-bdd2-199e4f222acc",
+    "team_url": "https://www.flashscore.com/team/dep-cuenca/KQ6zRt9a/",
+    "stadium_id": "a9244fca-5410-4ac8-b276-3de85118e158"
+  },
+  "LDU Quito": {
+    "team_id": "ad245498-4f16-4ae2-a8c2-e2a6e367161b",
+    "team_url": "https://www.flashscore.com/team/ldu-quito/xIqORMgg/",
+    "stadium_id": "e02000ff-ebe9-4234-9528-7f8419c0397c"
+  },
+  "Leones del Norte": {
+    "team_id": "e692d201-b9d7-465c-b8f5-397c919af948",
+    "team_url": "https://www.flashscore.com/team/leones-del-norte/Y3V74SEO/",
+    "stadium_id": "1b335a9e-5588-4eaf-b38e-743965e1cb99"
+  },
+  "Libertad": {
+    "team_id": "43b97890-25a1-470c-8fc9-a1b5f5cbbba1",
+    "team_url": "https://www.flashscore.com/team/libertad/vB5IpIzn/",
+    "stadium_id": "ed5b43c8-fd4c-4422-a84a-31af19663ea3"
+  },
+  "U. Catolica": {
+    "team_id": "391058ae-5552-4408-8a99-dbaf341d149f",
+    "team_url": "https://www.flashscore.com/team/u-catolica/pG8RWOGP/",
+    "stadium_id": "88076107-8f4e-4f68-93c8-f248aadbc5fe"
+  },
+  "Aucas": {
+    "team_id": "c730f799-69f7-4839-99c8-f676b911ddfb",
+    "team_url": "https://www.flashscore.com/team/aucas/nJRc8sLh/",
+    "stadium_id": "651b0e97-d7ef-4cdb-917d-8ca055f36ec0"
+  },
+  "Emelec": {
+    "team_id": "aeaae739-9d5b-498c-bb02-10d65e8a61ce",
+    "team_url": "https://www.flashscore.com/team/emelec/8namOvgI/",
+    "stadium_id": "b9fc95e2-b36b-4550-887e-6d8ab2103aff"
+  },
+  "Guayaquil City": {
+    "team_id": "4c10b56d-58aa-4e67-bda2-2eb25aed345e",
+    "team_url": "https://www.flashscore.com/team/guayaquil-city/pn42PQGI/",
+    "stadium_id": "1f813f73-eacb-4e20-9dce-9a89c1bd07e8"
+  },
+  "Ind. del Valle": {
+    "team_id": "535ab7b9-c256-40da-988a-f9d0d3ada111",
+    "team_url": "https://www.flashscore.com/team/independiente-del-valle/YFwXD2sh/",
+    "stadium_id": "3fc5cd0f-c05b-4b7c-b36e-4e9360ed4ae4"
+  },
+  "Macara": {
+    "team_id": "c325f6ba-6c20-4ebe-8921-242bac4559f2",
+    "team_url": "https://www.flashscore.com/team/macara/QN9rPKwC/",
+    "stadium_id": "985871a1-c8e8-4031-97d7-5b45d6dbfeab"
+  },
+  "Orense": {
+    "team_id": "352e5c0e-d888-4ead-83e6-38368027935c",
+    "team_url": "https://www.flashscore.com/team/orense/4MwdGZV3/",
+    "stadium_id": "aa621103-5801-4e32-8a7a-545a8e93e774"
+  }
 }

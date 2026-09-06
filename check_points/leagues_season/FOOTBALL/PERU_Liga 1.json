@@ -1,97 +1,107 @@
 {
-    "U. de Deportes": {
-        "team_id": "bafbb4df-9064-4880-bbc2-7fcbb39ea6f9",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Cusco": {
-        "team_id": "782ee11f-b997-4ecf-84ae-c02c51ef5e17",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Alianza Lima": {
-        "team_id": "b172df58-e2c2-41cd-b01e-b1ee016641fc",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Sporting Cristal": {
-        "team_id": "16b97118-d539-44cb-b0f0-ba3dbf3b3db1",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "FBC Melgar": {
-        "team_id": "042eaf92-fb69-4588-a7f5-25b39ba3210a",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Deportivo Garcilaso": {
-        "team_id": "aeafc260-237e-4287-992e-f87944851548",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "AD Tarma": {
-        "team_id": "6f332733-a741-4309-9d58-e774ed5d6d36",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Comerciantes Unidos": {
-        "team_id": "d8d8119a-77e1-4deb-9f5f-1c999d44a6ab",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Cienciano": {
-        "team_id": "20cb2268-119b-4701-b006-465c8f9a776a",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Los Chankas": {
-        "team_id": "56146846-de2d-4322-aa19-d67b1ab40d32",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Alianza Atl.": {
-        "team_id": "0f097260-c05c-4aaf-95bf-25849bf5bebb",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Sport Huancayo": {
-        "team_id": "b0a26658-1f8b-4d7c-aee5-2dee9ff1ed3f",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Grau": {
-        "team_id": "48442f93-6f31-45b0-ba37-8002e273d638",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Sport Boys": {
-        "team_id": "0b421018-af23-4365-a9ef-49bc433569e7",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Alianza Huanuco": {
-        "team_id": "1f11bb74-f68d-4c42-94ca-cb93791fd8d5",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Juan Pablo II": {
-        "team_id": "e83c5fa7-3501-4bc7-bb2d-5543f3c9be94",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Ayacucho": {
-        "team_id": "bfcc4f11-bba5-4df4-8a5c-6fafff83bc17",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Cajamarca": {
-        "team_id": "06d0cfee-fea4-4b46-b376-14be9ce1aa01",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Binacional": {
-        "team_id": "d40b6c8f-460a-4942-82ba-e63c25dcbbd3",
-        "team_url": "",
-        "stadium_id": ""
-    }
+  "U. de Deportes": {
+    "team_id": "bafbb4df-9064-4880-bbc2-7fcbb39ea6f9",
+    "team_url": "https://www.flashscore.com/team/universitario-de-deportes/xhw3JTnU/",
+    "stadium_id": ""
+  },
+  "Cusco": {
+    "team_id": "782ee11f-b997-4ecf-84ae-c02c51ef5e17",
+    "team_url": "https://www.flashscore.com/team/cusco/zDuHd68m/",
+    "stadium_id": ""
+  },
+  "Alianza Lima": {
+    "team_id": "b172df58-e2c2-41cd-b01e-b1ee016641fc",
+    "team_url": "https://www.flashscore.com/team/a-lima/tSWpiWmI/",
+    "stadium_id": ""
+  },
+  "Sporting Cristal": {
+    "team_id": "16b97118-d539-44cb-b0f0-ba3dbf3b3db1",
+    "team_url": "https://www.flashscore.com/team/sporting-cristal/rVwaK9XN/",
+    "stadium_id": ""
+  },
+  "FBC Melgar": {
+    "team_id": "042eaf92-fb69-4588-a7f5-25b39ba3210a",
+    "team_url": "https://www.flashscore.com/team/fbc-melgar/IZO9NXIh/",
+    "stadium_id": ""
+  },
+  "Deportivo Garcilaso": {
+    "team_id": "aeafc260-237e-4287-992e-f87944851548",
+    "team_url": "https://www.flashscore.com/team/deportivo-garcilaso/pQ8DJXPR/",
+    "stadium_id": ""
+  },
+  "AD Tarma": {
+    "team_id": "6f332733-a741-4309-9d58-e774ed5d6d36",
+    "team_url": "https://www.flashscore.com/team/ad-tarma/EsfgJz9N/",
+    "stadium_id": ""
+  },
+  "Comerciantes Unidos": {
+    "team_id": "d8d8119a-77e1-4deb-9f5f-1c999d44a6ab",
+    "team_url": "https://www.flashscore.com/team/comerciantes-unidos/ABEwYY2S/",
+    "stadium_id": ""
+  },
+  "Cienciano": {
+    "team_id": "20cb2268-119b-4701-b006-465c8f9a776a",
+    "team_url": "https://www.flashscore.com/team/cienciano/82OXAD3n/",
+    "stadium_id": ""
+  },
+  "Los Chankas": {
+    "team_id": "56146846-de2d-4322-aa19-d67b1ab40d32",
+    "team_url": "https://www.flashscore.com/team/los-chankas/hfMxvE6a/",
+    "stadium_id": ""
+  },
+  "Alianza Atl.": {
+    "team_id": "0f097260-c05c-4aaf-95bf-25849bf5bebb",
+    "team_url": "https://www.flashscore.com/team/alianza-atl/GlLFjAIU/",
+    "stadium_id": ""
+  },
+  "Sport Huancayo": {
+    "team_id": "b0a26658-1f8b-4d7c-aee5-2dee9ff1ed3f",
+    "team_url": "https://www.flashscore.com/team/sport-huancayo/hEX4iScl/",
+    "stadium_id": ""
+  },
+  "Grau": {
+    "team_id": "48442f93-6f31-45b0-ba37-8002e273d638",
+    "team_url": "https://www.flashscore.com/team/atletico-grau/6o4srhvP/",
+    "stadium_id": ""
+  },
+  "Sport Boys": {
+    "team_id": "0b421018-af23-4365-a9ef-49bc433569e7",
+    "team_url": "https://www.flashscore.com/team/sport-boys/URZfLkIH/",
+    "stadium_id": ""
+  },
+  "Alianza Huanuco": {
+    "team_id": "1f11bb74-f68d-4c42-94ca-cb93791fd8d5",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Juan Pablo II": {
+    "team_id": "e83c5fa7-3501-4bc7-bb2d-5543f3c9be94",
+    "team_url": "https://www.flashscore.com/team/juan-pablo-ii/bXJtZt18/",
+    "stadium_id": ""
+  },
+  "Ayacucho": {
+    "team_id": "bfcc4f11-bba5-4df4-8a5c-6fafff83bc17",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Cajamarca": {
+    "team_id": "06d0cfee-fea4-4b46-b376-14be9ce1aa01",
+    "team_url": "https://www.flashscore.com/team/cajamarca/6cko2SpQ/",
+    "stadium_id": ""
+  },
+  "Binacional": {
+    "team_id": "d40b6c8f-460a-4942-82ba-e63c25dcbbd3",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "FC Cajamarca": {
+    "team_id": "eb055dc6-a710-4417-89c0-63e90478594f",
+    "team_url": "https://www.flashscore.com/team/fc-cajamarca/0EDzFnkQ/",
+    "stadium_id": "7703e67c-edb5-4730-92f9-ffcb92ac0e3c"
+  },
+  "Moquegua": {
+    "team_id": "7917575e-8d1a-4094-a655-04fab2c2b29b",
+    "team_url": "https://www.flashscore.com/team/moquegua/OtSVKjtb/",
+    "stadium_id": "3639c9f8-a19a-4412-bf3a-530fe734f524"
+  }
 }

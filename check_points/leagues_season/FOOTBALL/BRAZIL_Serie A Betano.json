@@ -1,102 +1,122 @@
 {
-    "Palmeiras": {
-        "team_id": "fadf8c34-c214-4e47-aa77-66c8209d24ea",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Flamengo RJ": {
-        "team_id": "873fc006-e6b0-4590-8c6a-54bb83da7caa",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Cruzeiro": {
-        "team_id": "aa77d819-dca5-443f-9922-cb1ae9ae2a12",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Mirassol": {
-        "team_id": "48ea343d-3fd4-4c3a-a6be-984073ad4ad4",
-        "team_url": "",
-        "stadium_id": "192ddf38-97aa-4dde-877e-26f11d4d22ef"
-    },
-    "Bahia": {
-        "team_id": "d3e541b5-cb6a-472d-8128-b40981b193f9",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Botafogo RJ": {
-        "team_id": "9b309dc8-3905-41d9-a68f-0ad09107121f",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Fluminense": {
-        "team_id": "8b4982fb-6c81-4825-808e-3d3227f085ce",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Vasco": {
-        "team_id": "1bb0d3df-5f0e-4944-a69b-9c63c7edc360",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Sao Paulo": {
-        "team_id": "b4a07fe0-9067-479f-b2de-ec071383e39b",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Bragantino": {
-        "team_id": "1da41522-cf71-40ef-8947-a80f8a54d040",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Corinthians": {
-        "team_id": "7e5ae245-24a8-42c6-8372-5a95f4281412",
-        "team_url": "",
-        "stadium_id": "ab1a719f-8d59-49d3-b155-89412be3ade9"
-    },
-    "Gremio": {
-        "team_id": "e811d7b4-244b-4058-abf1-b6a5628bdf0f",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Ceara": {
-        "team_id": "5a92f4f6-a84e-451c-bcd6-895d1a0bcd95",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Internacional": {
-        "team_id": "54a0fe59-1791-49e6-afb4-37db026d6cc1",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Atletico-MG": {
-        "team_id": "e197fd90-bc21-46b2-9b43-64b494061edb",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Santos": {
-        "team_id": "42dea3b0-22e1-405e-b564-a353f38d8eac",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Vitoria": {
-        "team_id": "d6ca16f4-fc72-4a88-ac8c-0493a4d2d93d",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Juventude": {
-        "team_id": "166a7851-1a35-4073-9cfe-43550e65ffa7",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Fortaleza": {
-        "team_id": "afe5ecd5-0a27-4ae7-9856-28bfe95a793c",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Sport Recife": {
-        "team_id": "8b0f53d3-6909-4104-8eea-a2830f21fe8e",
-        "team_url": "",
-        "stadium_id": "2d57e54c-ad1d-4139-9d7a-e3f7294538f5"
-    }
+  "Palmeiras": {
+    "team_id": "fadf8c34-c214-4e47-aa77-66c8209d24ea",
+    "team_url": "https://www.flashscore.com/team/palmeiras/hMn9FTbH/",
+    "stadium_id": ""
+  },
+  "Flamengo RJ": {
+    "team_id": "873fc006-e6b0-4590-8c6a-54bb83da7caa",
+    "team_url": "https://www.flashscore.com/team/flamengo-rj/WjxY29qB/",
+    "stadium_id": ""
+  },
+  "Cruzeiro": {
+    "team_id": "aa77d819-dca5-443f-9922-cb1ae9ae2a12",
+    "team_url": "https://www.flashscore.com/team/cruzeiro/0SwtclaU/",
+    "stadium_id": ""
+  },
+  "Mirassol": {
+    "team_id": "48ea343d-3fd4-4c3a-a6be-984073ad4ad4",
+    "team_url": "https://www.flashscore.com/team/mirassol/pQ8ryEe7/",
+    "stadium_id": "192ddf38-97aa-4dde-877e-26f11d4d22ef"
+  },
+  "Bahia": {
+    "team_id": "d3e541b5-cb6a-472d-8128-b40981b193f9",
+    "team_url": "https://www.flashscore.com/team/bahia/UeD7XtzM/",
+    "stadium_id": ""
+  },
+  "Botafogo RJ": {
+    "team_id": "9b309dc8-3905-41d9-a68f-0ad09107121f",
+    "team_url": "https://www.flashscore.com/team/botafogo-rj/jXzWoWa5/",
+    "stadium_id": ""
+  },
+  "Fluminense": {
+    "team_id": "8b4982fb-6c81-4825-808e-3d3227f085ce",
+    "team_url": "https://www.flashscore.com/team/fluminense/EV9L3kU4/",
+    "stadium_id": ""
+  },
+  "Vasco": {
+    "team_id": "1bb0d3df-5f0e-4944-a69b-9c63c7edc360",
+    "team_url": "https://www.flashscore.com/team/vasco/2RABlYFn/",
+    "stadium_id": ""
+  },
+  "Sao Paulo": {
+    "team_id": "b4a07fe0-9067-479f-b2de-ec071383e39b",
+    "team_url": "https://www.flashscore.com/team/sao-paulo/QgP0oAUH/",
+    "stadium_id": ""
+  },
+  "Bragantino": {
+    "team_id": "1da41522-cf71-40ef-8947-a80f8a54d040",
+    "team_url": "https://www.flashscore.com/team/bragantino/jwKvKhGa/",
+    "stadium_id": ""
+  },
+  "Corinthians": {
+    "team_id": "7e5ae245-24a8-42c6-8372-5a95f4281412",
+    "team_url": "https://www.flashscore.com/team/corinthians/QBGfQbSe/",
+    "stadium_id": "ab1a719f-8d59-49d3-b155-89412be3ade9"
+  },
+  "Gremio": {
+    "team_id": "e811d7b4-244b-4058-abf1-b6a5628bdf0f",
+    "team_url": "https://www.flashscore.com/team/gremio/E1EFmhVh/",
+    "stadium_id": ""
+  },
+  "Ceara": {
+    "team_id": "5a92f4f6-a84e-451c-bcd6-895d1a0bcd95",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Internacional": {
+    "team_id": "54a0fe59-1791-49e6-afb4-37db026d6cc1",
+    "team_url": "https://www.flashscore.com/team/internacional/tSCiHj0I/",
+    "stadium_id": ""
+  },
+  "Atletico-MG": {
+    "team_id": "e197fd90-bc21-46b2-9b43-64b494061edb",
+    "team_url": "https://www.flashscore.com/team/atletico-mg/hGLC5Bah/",
+    "stadium_id": ""
+  },
+  "Santos": {
+    "team_id": "42dea3b0-22e1-405e-b564-a353f38d8eac",
+    "team_url": "https://www.flashscore.com/team/santos/n3QdnjFB/",
+    "stadium_id": ""
+  },
+  "Vitoria": {
+    "team_id": "d6ca16f4-fc72-4a88-ac8c-0493a4d2d93d",
+    "team_url": "https://www.flashscore.com/team/vitoria/8bSbHipn/",
+    "stadium_id": ""
+  },
+  "Juventude": {
+    "team_id": "166a7851-1a35-4073-9cfe-43550e65ffa7",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Fortaleza": {
+    "team_id": "afe5ecd5-0a27-4ae7-9856-28bfe95a793c",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Sport Recife": {
+    "team_id": "8b0f53d3-6909-4104-8eea-a2830f21fe8e",
+    "team_url": "",
+    "stadium_id": "2d57e54c-ad1d-4139-9d7a-e3f7294538f5"
+  },
+  "Athletico-PR": {
+    "team_id": "b730e897-5e27-4af2-bb19-bdf8c35c3056",
+    "team_url": "https://www.flashscore.com/team/athletico-pr/UoAxb1Tq/",
+    "stadium_id": "b4341b37-cfdc-4e71-9bd7-4f7a1aa90bce"
+  },
+  "Coritiba": {
+    "team_id": "61da8bdc-5caf-4b2a-ab19-25954a507d98",
+    "team_url": "https://www.flashscore.com/team/coritiba/KGO4pUqO/",
+    "stadium_id": "23dec1bb-513c-4eb5-84d8-75c9da97548e"
+  },
+  "Chapecoense-SC": {
+    "team_id": "b75fb3e1-c719-4505-9c32-39e0701c4708",
+    "team_url": "https://www.flashscore.com/team/chapecoense-sc/jcQV3XP6/",
+    "stadium_id": "ddfae411-47bf-4308-8b6c-3a26b3c58803"
+  },
+  "Remo": {
+    "team_id": "2b1bd556-fed8-40d4-aafd-be16c41570c6",
+    "team_url": "https://www.flashscore.com/team/remo/2i0B6Zul/",
+    "stadium_id": "481c1de5-260a-4144-8d61-bb6cc3d5293a"
+  }
 }

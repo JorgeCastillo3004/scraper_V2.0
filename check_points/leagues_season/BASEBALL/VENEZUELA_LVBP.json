@@ -1,42 +1,42 @@
 {
     "Zulia": {
         "team_id": "577c545d-9436-4fe3-ac4c-359ba9771635",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/aguilas-de-zulia/AaYxoiR7/",
         "stadium_id": "0cad6c4b-39d4-4d60-9cc6-1810a99e37f9"
     },
     "Aragua": {
         "team_id": "60e81247-2026-4b6a-bd63-a8c680c33e06",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/tigres-de-aragua/8vIKajt1/",
         "stadium_id": "d936564e-49ab-455b-8d10-702e9328f5e1"
     },
     "Anzoategui": {
         "team_id": "fd4b7015-2f6c-409e-8f41-49ef4349e1d8",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/caribes/U31a2hdr/",
         "stadium_id": "b3e82cde-a8a5-4e9b-97be-f4b8bc5bf9d4"
     },
     "Margarita": {
         "team_id": "d2792c5e-c039-41a0-94f6-6905b995d271",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/bravos-de-margarita/SKpT9z48/",
         "stadium_id": "20637cc8-2b1c-4e90-9b74-933a79b578ae"
     },
     "Lara": {
         "team_id": "1ed1b88c-6b0e-4540-bff5-417041d0caf7",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/cardenales-lara/YXFT7EYK/",
         "stadium_id": "f39e904b-feb3-41c4-804f-c9c2982b1b18"
     },
     "Caracas": {
         "team_id": "d80b6f3f-48c9-4a05-bed9-9daefb1c515c",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/leones-del-caracas/nPTB1CBl/",
         "stadium_id": "6f094d77-fdd1-44d9-88f8-81261384aba1"
     },
     "La Guaira": {
         "team_id": "8cbfe106-f335-4d06-8e4f-c1b2ad8c605b",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/tiburones-de-la-guaira/UmJG0WQf/",
         "stadium_id": "578e2c72-cdf2-4195-86ab-cfb9d9562cb6"
     },
     "Magallanes": {
         "team_id": "7cc900eb-c76b-4ff2-ab3e-6b37b2335b84",
-        "team_url": "",
+        "team_url": "https://www.flashscore.com/team/navegantes-magallanes/xEMObAe7/",
         "stadium_id": "75545258-137f-4f21-af1a-9ce457c993f5"
     }
 }

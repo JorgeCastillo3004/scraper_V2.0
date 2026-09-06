@@ -1,6 +1,7 @@
 {
     "FOOTBALL": {
         "ARGENTINA_Liga Profesional": {
+            "league_name": "Liga Profesional",
             "url": "https://www.flashscore.com/football/argentina/liga-profesional/",
             "league_id": "5108a53a-510a-4243-9d51-4bf1e3b0cf61",
             "season_id": "786ec8e4-2056-4cdc-b656-68eaff448800",
@@ -9,25 +10,8 @@
             "news": "https://www.flashscore.com/football/argentina/liga-profesional/news/",
             "results": "https://www.flashscore.com/football/argentina/liga-profesional/results/",
             "fixtures": "https://www.flashscore.com/football/argentina/liga-profesional/fixtures/",
-            "standings": "https://www.flashscore.com/football/argentina/liga-profesional/standings/",
-            "archive": "https://www.flashscore.com/football/argentina/liga-profesional/archive/",
-            "teams": 30,
-            "matches": 334,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "liga-profesional": "https://www.flashscore.com/football/argentina/liga-profesional/standings",
+            "archive": "https://www.flashscore.com/football/argentina/liga-profesional/archive/"
         },
         "ARGENTINA_Copa de la Liga Profesional": {
             "league_name": "Copa de la Liga Profesional",
@@ -39,26 +23,11 @@
             "news": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/news/",
             "results": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/results/",
             "fixtures": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/fixtures/",
-            "standings": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/standings/",
-            "archive": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/archive/",
-            "teams": 56,
-            "matches": 174,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "copa-de-la-liga-profesional": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/standings",
+            "archive": "https://www.flashscore.com/football/argentina/copa-de-la-liga-profesional/archive/"
         },
         "BELGIUM_Jupiler Pro League": {
+            "league_name": "Jupiler Pro League",
             "url": "https://www.flashscore.com/football/belgium/jupiler-pro-league/",
             "league_id": "ff0c642f-a748-4cda-9253-3564eae6a9cd",
             "season_id": "04fa44ea-b525-48bc-bfdc-f8b8912d8034",
@@ -67,59 +36,24 @@
             "news": "https://www.flashscore.com/football/belgium/jupiler-pro-league/news/",
             "results": "https://www.flashscore.com/football/belgium/jupiler-pro-league/results/",
             "fixtures": "https://www.flashscore.com/football/belgium/jupiler-pro-league/fixtures/",
-            "standings": "https://www.flashscore.com/football/belgium/jupiler-pro-league/standings/",
-            "archive": "https://www.flashscore.com/football/belgium/jupiler-pro-league/archive/",
-            "teams": 16,
-            "matches": 197,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "jupiler-pro-league": "https://www.flashscore.com/football/belgium/jupiler-pro-league/standings",
+            "archive": "https://www.flashscore.com/football/belgium/jupiler-pro-league/archive/"
         },
         "BOLIVIA_Division Profesional": {
-            "league_name": "BOLIVIA_Division Profesional",
+            "league_name": "Division Profesional",
             "url": "https://www.flashscore.com/football/bolivia/division-profesional/",
             "league_id": "070d6690-9fb3-446a-9eda-d3fafb7911c2",
-            "season_id": "dd1325e5-23da-4d66-b85f-8d93e8d9663b",
+            "season_id": "1f7df32e-fa78-47ba-9019-3abbda3f7484",
             "country_id": "58v0b04ly3yr4rrjg",
             "odds": "https://www.flashscore.com/football/bolivia/division-profesional/odds/",
             "news": "https://www.flashscore.com/football/bolivia/division-profesional/news/",
             "results": "https://www.flashscore.com/football/bolivia/division-profesional/results/",
             "fixtures": "https://www.flashscore.com/football/bolivia/division-profesional/fixtures/",
-            "standings": "https://www.flashscore.com/football/bolivia/division-profesional/standings/",
-            "archive": "https://www.flashscore.com/football/bolivia/division-profesional/archive/",
-            "teams": 16,
-            "matches": 0,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "sport_name": "FOOTBALL",
-            "sport_id": "1cbecbaf-1b6c-438b-881b-320ffc264806"
+            "division-profesional": "https://www.flashscore.com/football/bolivia/division-profesional/standings",
+            "archive": "https://www.flashscore.com/football/bolivia/division-profesional/archive/"
         },
         "BRAZIL_Serie A Betano": {
+            "league_name": "Serie A Betano",
             "url": "https://www.flashscore.com/football/brazil/serie-a-betano/",
             "league_id": "7382625d-fca9-4b34-918b-f7e76d585d1b",
             "season_id": "933f5af7-08e2-4411-b6e4-f8c6408e9802",
@@ -128,28 +62,11 @@
             "news": "https://www.flashscore.com/football/brazil/serie-a-betano/news/",
             "results": "https://www.flashscore.com/football/brazil/serie-a-betano/results/",
             "fixtures": "https://www.flashscore.com/football/brazil/serie-a-betano/fixtures/",
-            "standings": "https://www.flashscore.com/football/brazil/serie-a-betano/standings/",
-            "archive": "https://www.flashscore.com/football/brazil/serie-a-betano/archive/",
-            "teams": 20,
-            "matches": 140,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "serie-a-betano": "https://www.flashscore.com/football/brazil/serie-a-betano/standings",
+            "archive": "https://www.flashscore.com/football/brazil/serie-a-betano/archive/"
         },
         "CHILE_Liga de Primera": {
-            "league_name": "CHILE_Liga de Primera",
+            "league_name": "Liga de Primera",
             "url": "https://www.flashscore.com/football/chile/liga-de-primera/",
             "league_id": "7b0f4cfa-6a3e-449a-b91e-271efbcd5853",
             "season_id": "3b815bbf-d9ef-4705-8ee9-c149fa5f7818",
@@ -158,29 +75,11 @@
             "news": "https://www.flashscore.com/football/chile/liga-de-primera/news/",
             "results": "https://www.flashscore.com/football/chile/liga-de-primera/results/",
             "fixtures": "https://www.flashscore.com/football/chile/liga-de-primera/fixtures/",
-            "standings": "https://www.flashscore.com/football/chile/liga-de-primera/standings/",
-            "archive": "https://www.flashscore.com/football/chile/liga-de-primera/archive/",
-            "teams": 17,
-            "matches": 62,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "ROUND_13.json",
-                "match": "A. Italiano~Cobresal"
-            },
-            "sport_name": "FOOTBALL",
-            "sport_id": "1cbecbaf-1b6c-438b-881b-320ffc264806"
+            "liga-de-primera": "https://www.flashscore.com/football/chile/liga-de-primera/standings",
+            "archive": "https://www.flashscore.com/football/chile/liga-de-primera/archive/"
         },
         "CHINA_Super League": {
-            "league_name": "CHINA_Super League",
+            "league_name": "Super League",
             "url": "https://www.flashscore.com/football/china/super-league/",
             "league_id": "849a5dd9-f003-4a4f-a530-f635df2267cc",
             "season_id": "38cd0e11-c6da-436f-aafc-aabed92705d1",
@@ -189,30 +88,11 @@
             "news": "https://www.flashscore.com/football/china/super-league/news/",
             "results": "https://www.flashscore.com/football/china/super-league/results/",
             "fixtures": "https://www.flashscore.com/football/china/super-league/fixtures/",
-            "standings": "https://www.flashscore.com/football/china/super-league/standings/",
-            "archive": "https://www.flashscore.com/football/china/super-league/archive/",
-            "teams": 16,
-            "matches": 128,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "sport_name": "FOOTBALL",
-            "sport_id": "1cbecbaf-1b6c-438b-881b-320ffc264806"
+            "super-league": "https://www.flashscore.com/football/china/super-league/standings",
+            "archive": "https://www.flashscore.com/football/china/super-league/archive/"
         },
         "COLOMBIA_Primera A": {
-            "league_name": "COLOMBIA_Primera A",
+            "league_name": "Primera A",
             "url": "https://www.flashscore.com/football/colombia/primera-a/",
             "league_id": "db91f27f-376b-4b8b-acea-27bb73350572",
             "season_id": "2c610591-99e8-4ab0-b826-4f3329c5649c",
@@ -221,31 +101,11 @@
             "news": "https://www.flashscore.com/football/colombia/primera-a/news/",
             "results": "https://www.flashscore.com/football/colombia/primera-a/results/",
             "fixtures": "https://www.flashscore.com/football/colombia/primera-a/fixtures/",
-            "standings": "https://www.flashscore.com/football/colombia/primera-a/standings/",
-            "archive": "https://www.flashscore.com/football/colombia/primera-a/archive/",
-            "teams": 21,
-            "matches": 107,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "running": true
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "ROUND_6.json",
-                "match": "Pereira~Alianza",
-                "status": "completed"
-            },
-            "sport_name": "FOOTBALL",
-            "sport_id": "1cbecbaf-1b6c-438b-881b-320ffc264806"
+            "primera-a": "https://www.flashscore.com/football/colombia/primera-a/standings",
+            "archive": "https://www.flashscore.com/football/colombia/primera-a/archive/"
         },
         "COSTA RICA_Primera Division": {
-            "league_name": "COSTA RICA_Primera Division",
+            "league_name": "Primera Division",
             "url": "https://www.flashscore.com/football/costa-rica/primera-division/",
             "league_id": "85c3e4f4-1f3b-4119-b11a-2728325981a3",
             "season_id": "f65b45b1-8b76-45ab-92e3-31670d2d9e1c",
@@ -254,30 +114,11 @@
             "news": "https://www.flashscore.com/football/costa-rica/primera-division/news/",
             "results": "https://www.flashscore.com/football/costa-rica/primera-division/results/",
             "fixtures": "https://www.flashscore.com/football/costa-rica/primera-division/fixtures/",
-            "standings": "https://www.flashscore.com/football/costa-rica/primera-division/standings/",
-            "archive": "https://www.flashscore.com/football/costa-rica/primera-division/archive/",
-            "teams": 10,
-            "matches": 50,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "running": true
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "ROUND_17.json",
-                "match": "Zeledon~Herediano"
-            },
-            "sport_name": "FOOTBALL",
-            "sport_id": "1cbecbaf-1b6c-438b-881b-320ffc264806"
+            "primera-division": "https://www.flashscore.com/football/costa-rica/primera-division/standings",
+            "archive": "https://www.flashscore.com/football/costa-rica/primera-division/archive/"
         },
         "ECUADOR_Liga Pro": {
-            "league_name": "ECUADOR_Liga Pro",
+            "league_name": "Liga Pro",
             "url": "https://www.flashscore.com/football/ecuador/liga-pro/",
             "league_id": "2a60c337-6d3c-418a-94d3-e351b990ce65",
             "season_id": "78102a43-27f5-492a-af68-f7adccd61658",
@@ -286,30 +127,11 @@
             "news": "https://www.flashscore.com/football/ecuador/liga-pro/news/",
             "results": "https://www.flashscore.com/football/ecuador/liga-pro/results/",
             "fixtures": "https://www.flashscore.com/football/ecuador/liga-pro/fixtures/",
-            "standings": "https://www.flashscore.com/football/ecuador/liga-pro/standings/",
-            "archive": "https://www.flashscore.com/football/ecuador/liga-pro/archive/",
-            "teams": 4,
-            "matches": 47,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "running": false,
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            },
-            "sport_name": "FOOTBALL",
-            "sport_id": "1cbecbaf-1b6c-438b-881b-320ffc264806"
+            "liga-pro": "https://www.flashscore.com/football/ecuador/liga-pro/standings",
+            "archive": "https://www.flashscore.com/football/ecuador/liga-pro/archive/"
         },
         "ENGLAND_Premier League": {
+            "league_name": "Premier League",
             "url": "https://www.flashscore.com/football/england/premier-league/",
             "league_id": "039e0410-7047-4b95-8a2d-f429f73047d2",
             "season_id": "871b8c98-d5fc-4cf2-bb60-8370076babd7",
@@ -318,27 +140,11 @@
             "news": "https://www.flashscore.com/football/england/premier-league/news/",
             "results": "https://www.flashscore.com/football/england/premier-league/results/",
             "fixtures": "https://www.flashscore.com/football/england/premier-league/fixtures/",
-            "standings": "https://www.flashscore.com/football/england/premier-league/standings/",
-            "archive": "https://www.flashscore.com/football/england/premier-league/archive/",
-            "teams": 20,
-            "matches": 274,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "premier-league": "https://www.flashscore.com/football/england/premier-league/standings",
+            "archive": "https://www.flashscore.com/football/england/premier-league/archive/"
         },
         "FRANCE_Ligue 1": {
+            "league_name": "Ligue 1",
             "url": "https://www.flashscore.com/football/france/ligue-1/",
             "league_id": "6e75f045-3079-4b94-84f7-36cec24c7281",
             "season_id": "32289bdf-5a02-4fb8-82c3-82857b5744bf",
@@ -347,27 +153,11 @@
             "news": "https://www.flashscore.com/football/france/ligue-1/news/",
             "results": "https://www.flashscore.com/football/france/ligue-1/results/",
             "fixtures": "https://www.flashscore.com/football/france/ligue-1/fixtures/",
-            "standings": "https://www.flashscore.com/football/france/ligue-1/standings/",
-            "archive": "https://www.flashscore.com/football/france/ligue-1/archive/",
-            "teams": 18,
-            "matches": 176,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "ligue-1": "https://www.flashscore.com/football/france/ligue-1/standings",
+            "archive": "https://www.flashscore.com/football/france/ligue-1/archive/"
         },
         "GERMANY_Bundesliga": {
+            "league_name": "Bundesliga",
             "url": "https://www.flashscore.com/football/germany/bundesliga/",
             "league_id": "5954f3aa-64e1-481d-8462-81abdf51eba0",
             "season_id": "ab7dee72-51db-478d-92c0-0a2aa8aa055f",
@@ -376,25 +166,8 @@
             "news": "https://www.flashscore.com/football/germany/bundesliga/news/",
             "results": "https://www.flashscore.com/football/germany/bundesliga/results/",
             "fixtures": "https://www.flashscore.com/football/germany/bundesliga/fixtures/",
-            "standings": "https://www.flashscore.com/football/germany/bundesliga/standings/",
-            "archive": "https://www.flashscore.com/football/germany/bundesliga/archive/",
-            "teams": 18,
-            "matches": 242,
-            "teams_creation": {
-                "extract": false,
-                "last_team_created": ""
-            },
-            "extract_results": {
-                "extract": false,
-                "round": "",
-                "match": "",
-                "status": "completed"
-            },
-            "extract_fixtures": {
-                "extract": false,
-                "round": "",
-                "match": ""
-            }
+            "bundesliga": "https://www.flashscore.com/football/germany/bundesliga/standings",
+            "archive": "https://www.flashscore.com/football/germany/bundesliga/archive/"
         },
         "ITALY_Serie A": {
             "url": "https://www.flashscore.com/football/italy/serie-a/",
@@ -679,7 +452,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -708,7 +481,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -737,7 +510,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -766,7 +539,7 @@
             "teams": 18,
             "matches": 275,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -913,7 +686,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -929,16 +702,16 @@
             }
         },
         "AFRICA_World Cup": {
-            "url": "https://www.flashscore.com/football/africa/world-cup/",
+            "url": "https://www.flashscore.com/football/africa/world-championship/",
             "league_id": "231356e2-9c5e-4cbd-be5e-4325dc1043cf",
             "season_id": "acebcaeb-5506-4d03-ba37-f86774995436",
             "country_id": "1kt4gi28c49s6ot02",
-            "odds": "https://www.flashscore.com/football/africa/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/africa/world-cup/news/",
-            "results": "https://www.flashscore.com/football/africa/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/africa/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/africa/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/africa/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/africa/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/africa/world-championship/news/",
+            "results": "https://www.flashscore.com/football/africa/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/africa/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/africa/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/africa/world-championship/archive/",
             "teams": 25,
             "matches": 146,
             "teams_creation": {
@@ -987,16 +760,16 @@
             }
         },
         "ASIA_World Cup": {
-            "url": "https://www.flashscore.com/football/asia/world-cup/",
+            "url": "https://www.flashscore.com/football/asia/world-championship/",
             "league_id": "55190eea-6fe4-408d-999a-8037caf0a3c9",
             "season_id": "61c963fa-c626-42ad-b486-99892b3bf8f9",
             "country_id": "5xm7hqbaqtaqkcx7v",
-            "odds": "https://www.flashscore.com/football/asia/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/asia/world-cup/news/",
-            "results": "https://www.flashscore.com/football/asia/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/asia/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/asia/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/asia/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/asia/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/asia/world-championship/news/",
+            "results": "https://www.flashscore.com/football/asia/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/asia/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/asia/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/asia/world-championship/archive/",
             "teams": 54,
             "matches": 155,
             "teams_creation": {
@@ -1018,16 +791,16 @@
             }
         },
         "AUSTRALIA & OCEANIA_World Cup": {
-            "url": "https://www.flashscore.com/football/australia-oceania/world-cup/",
+            "url": "https://www.flashscore.com/football/australia-oceania/world-championship/",
             "league_id": "95826b86-4c11-4ecc-8386-23af1b92945d",
             "season_id": "5ca14540-3052-4f47-b665-22957895418a",
             "country_id": "vs26h6yxs5un1akiv",
-            "odds": "https://www.flashscore.com/football/australia-oceania/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/australia-oceania/world-cup/news/",
-            "results": "https://www.flashscore.com/football/australia-oceania/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/australia-oceania/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/australia-oceania/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/australia-oceania/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/australia-oceania/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/australia-oceania/world-championship/news/",
+            "results": "https://www.flashscore.com/football/australia-oceania/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/australia-oceania/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/australia-oceania/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/australia-oceania/world-championship/archive/",
             "teams": 54,
             "matches": 39,
             "teams_creation": {
@@ -1093,7 +866,7 @@
             "teams": 67,
             "matches": 19,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -1181,7 +954,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -1197,16 +970,16 @@
             }
         },
         "EUROPE_World Cup": {
-            "url": "https://www.flashscore.com/football/europe/world-cup/",
+            "url": "https://www.flashscore.com/football/europe/world-championship/",
             "league_id": "a4761fda-5eb5-4212-b4f3-d046f12e491f",
             "season_id": "d0d2584d-c309-4179-8659-f91f50894a8c",
             "country_id": "4ex9xdkdu6chrpa20",
-            "odds": "https://www.flashscore.com/football/europe/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/europe/world-cup/news/",
-            "results": "https://www.flashscore.com/football/europe/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/europe/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/europe/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/europe/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/europe/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/europe/world-championship/news/",
+            "results": "https://www.flashscore.com/football/europe/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/europe/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/europe/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/europe/world-championship/archive/",
             "teams": 55,
             "matches": 137,
             "teams_creation": {
@@ -1270,7 +1043,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -1286,16 +1059,16 @@
             }
         },
         "NORTH & CENTRAL AMERICA_World Cup": {
-            "url": "https://www.flashscore.com/football/north-central-america/world-cup/",
+            "url": "https://www.flashscore.com/football/north-central-america/world-championship/",
             "league_id": "62e5c065-2f4d-43fb-acb2-341d856c8a72",
             "season_id": "9c26c030-2dbe-4fa9-a7cc-947c0d540854",
             "country_id": "4y7avpjojb3423vsr",
-            "odds": "https://www.flashscore.com/football/north-central-america/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/north-central-america/world-cup/news/",
-            "results": "https://www.flashscore.com/football/north-central-america/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/north-central-america/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/north-central-america/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/north-central-america/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/north-central-america/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/north-central-america/world-championship/news/",
+            "results": "https://www.flashscore.com/football/north-central-america/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/north-central-america/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/north-central-america/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/north-central-america/world-championship/archive/",
             "teams": 54,
             "matches": 148,
             "teams_creation": {
@@ -1315,7 +1088,7 @@
                 "match": ""
             }
         },
-        "SOUTH AMERICA_Copa Am\u00e9rica": {
+        "SOUTH AMERICA_Copa América": {
             "url": "https://www.flashscore.com/football/south-america/copa-america/",
             "league_id": "7a010227-3942-4bcf-b0e9-4ad6b09f8199",
             "season_id": "c6b2b78a-c24a-47f7-bba1-5a932acbf0d4",
@@ -1358,7 +1131,7 @@
             "teams": 0,
             "matches": 0,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -1374,20 +1147,20 @@
             }
         },
         "SOUTH AMERICA_World Cup": {
-            "url": "https://www.flashscore.com/football/south-america/world-cup/",
+            "url": "https://www.flashscore.com/football/south-america/world-championship/",
             "league_id": "e5ac3ae1-b526-448e-8349-b4b14d635203",
             "season_id": "7eee1def-dc12-4826-8686-dfacb72c909c",
             "country_id": "pfklcehuwkle486ds",
-            "odds": "https://www.flashscore.com/football/south-america/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/south-america/world-cup/news/",
-            "results": "https://www.flashscore.com/football/south-america/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/south-america/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/south-america/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/south-america/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/south-america/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/south-america/world-championship/news/",
+            "results": "https://www.flashscore.com/football/south-america/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/south-america/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/south-america/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/south-america/world-championship/archive/",
             "teams": 55,
             "matches": 124,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -1405,20 +1178,20 @@
             }
         },
         "WORLD_World Cup": {
-            "url": "https://www.flashscore.com/football/world/world-cup/",
+            "url": "https://www.flashscore.com/football/world/world-championship/",
             "league_id": "2e7ee992-42e9-4347-927e-a2bc27e08027",
             "season_id": "0d5e3010-7b61-461e-9b04-e68e9960b268",
             "country_id": "1szntdq0kvp6odaob",
-            "odds": "https://www.flashscore.com/football/world/world-cup/odds/",
-            "news": "https://www.flashscore.com/football/world/world-cup/news/",
-            "results": "https://www.flashscore.com/football/world/world-cup/results/",
-            "fixtures": "https://www.flashscore.com/football/world/world-cup/fixtures/",
-            "standings": "https://www.flashscore.com/football/world/world-cup/standings/",
-            "archive": "https://www.flashscore.com/football/world/world-cup/archive/",
+            "odds": "https://www.flashscore.com/football/world/world-championship/odds/",
+            "news": "https://www.flashscore.com/football/world/world-championship/news/",
+            "results": "https://www.flashscore.com/football/world/world-championship/results/",
+            "fixtures": "https://www.flashscore.com/football/world/world-championship/fixtures/",
+            "standings": "https://www.flashscore.com/football/world/world-championship/standings/",
+            "archive": "https://www.flashscore.com/football/world/world-championship/archive/",
             "teams": 55,
             "matches": 71,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -1432,6 +1205,19 @@
                 "round": "",
                 "match": ""
             }
+        },
+        "ARGENTINA_Torneo Betano": {
+            "league_name": "Torneo Betano",
+            "url": "https://www.flashscore.com/football/argentina/liga-profesional-2025/",
+            "league_id": "3dc916f0-cbd8-4073-aaea-b6c06216c254",
+            "season_id": "dda470a9-ba2f-49ae-acbe-5e8bcc805beb",
+            "country_id": "1gg2cou9izg4xcqln",
+            "odds": "https://www.flashscore.com/football/argentina/liga-profesional-2025/odds/",
+            "news": "https://www.flashscore.com/football/argentina/liga-profesional-2025/news/",
+            "results": "https://www.flashscore.com/football/argentina/liga-profesional-2025/results/",
+            "fixtures": "https://www.flashscore.com/football/argentina/liga-profesional-2025/fixtures/",
+            "liga-profesional-2025": "https://www.flashscore.com/football/argentina/liga-profesional-2025/standings",
+            "archive": "https://www.flashscore.com/football/argentina/liga-profesional-2025/archive/"
         }
     },
     "BASKETBALL": {
@@ -1859,7 +1645,7 @@
             "teams": 6,
             "matches": 52,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -2064,7 +1850,7 @@
             "teams": 20,
             "matches": 40,
             "teams_creation": {
-                "extract": false,
+                "extract": true,
                 "last_team_created": ""
             },
             "extract_results": {
@@ -2459,6 +2245,60 @@
                 "round": "",
                 "match": ""
             }
+        }
+    },
+    "HOCKEY": {
+        "CZECH REPUBLIC_Extraliga": {
+            "league_name": "Extraliga",
+            "url": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/",
+            "league_id": "67ac7f77-682d-4fc0-a1e4-0dbb04b8b80b",
+            "season_id": "0a15a5e0-1004-49e0-9140-9d8f8a852f59",
+            "country_id": "i1c7au25lcfenvc3q",
+            "odds": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/odds/",
+            "news": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/news/",
+            "results": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/results/",
+            "fixtures": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/fixtures/",
+            "extraliga-2025-2026": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/standings",
+            "archive": "https://www.flashscore.com/hockey/czech-republic/extraliga-2025-2026/archive/"
+        },
+        "FINLAND_Liiga": {
+            "league_name": "Liiga",
+            "url": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/",
+            "league_id": "9d698813-a2bf-408b-ab43-9bdbe903f247",
+            "season_id": "7137144b-26fd-43af-8baf-da227aa65340",
+            "country_id": "whx0e744f0q3x1eog",
+            "odds": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/odds/",
+            "news": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/news/",
+            "results": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/results/",
+            "fixtures": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/fixtures/",
+            "liiga-2025-2026": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/standings",
+            "archive": "https://www.flashscore.com/hockey/finland/liiga-2025-2026/archive/"
+        },
+        "GERMANY_DEL": {
+            "league_name": "DEL",
+            "url": "https://www.flashscore.com/hockey/germany/del/",
+            "league_id": "7a85d30d-5bdf-46b6-a682-bc658e64783b",
+            "season_id": "6f203247-5261-42a5-92d1-fa5f4e05f97c",
+            "country_id": "4gdw1aitaylec6ev6",
+            "odds": "https://www.flashscore.com/hockey/germany/del/odds/",
+            "news": "https://www.flashscore.com/hockey/germany/del/news/",
+            "results": "https://www.flashscore.com/hockey/germany/del/results/",
+            "fixtures": "https://www.flashscore.com/hockey/germany/del/fixtures/",
+            "del": "https://www.flashscore.com/hockey/germany/del/standings",
+            "archive": "https://www.flashscore.com/hockey/germany/del/archive/"
+        },
+        "EUROPE_European Cup of Nations": {
+            "league_name": "European Cup of Nations",
+            "url": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/",
+            "league_id": "f3682be9-6626-4b5e-aefd-eb90c362b18b",
+            "season_id": "d64f1d63-b2d2-4a3e-bb8b-1d35e9b0a0c5",
+            "country_id": "4ex9xdkdu6chrpa20",
+            "odds": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/odds/",
+            "news": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/news/",
+            "results": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/results/",
+            "fixtures": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/fixtures/",
+            "european-cup-of-nations": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/standings",
+            "archive": "https://www.flashscore.com/hockey/europe/european-cup-of-nations/archive/"
         }
     }
 }

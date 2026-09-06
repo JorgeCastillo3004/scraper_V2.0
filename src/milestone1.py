@@ -27,6 +27,20 @@ SHOW_MORE_ARTICLES = '//span[text()="Show more"]'
 #    1c. update_recent_news_found — actualiza el checkpoint de fecha por deporte
 # =============================================================================
 
+def _compute_floor_date(last_date_saved, max_older_news):
+	"""Frontera temporal ÚNICA de FASE 1 (la usan TANTO el iterador como el
+	show_more, para que no puedan divergir).
+
+	- Con checkpoint (`last_date_saved`): se carga/itera HASTA esa fecha,
+	  IGNORANDO el límite de días → permite el backfill completo desde la
+	  última corrida, sin importar `max_older_news`.
+	- Primera corrida (sin checkpoint): se usa `now - max_older_news días`
+	  como tope de arranque (bootstrap)."""
+	if last_date_saved:
+		return datetime.strptime(last_date_saved, '%Y-%m-%d %H:%M:%S')
+	return utc_time_naive - timedelta(days=max_older_news)
+
+
 def get_list_recent_news(driver, max_older_news, last_index, last_date_saved):
 	"""
 	Itera sobre los bloques de noticias ya cargados en pantalla comenzando
@@ -55,10 +69,7 @@ def get_list_recent_news(driver, max_older_news, last_index, last_date_saved):
 	# ── 2. LÍMITE TEMPORAL — calculado UNA VEZ antes del loop ────────────────
 	# Si existe checkpoint de fecha se usa como frontera exacta; en caso
 	# contrario se retrocede max_older_news días desde ahora (UTC).
-	if last_date_saved:
-		old_date = datetime.strptime(last_date_saved, '%Y-%m-%d %H:%M:%S')
-	else:
-		old_date = utc_time_naive - timedelta(days=max_older_news)
+	old_date = _compute_floor_date(last_date_saved, max_older_news)
 	print(f"  Fecha límite: {old_date}")
 
 	# ── 3. INICIALIZACIÓN DE RESULTADOS ──────────────────────────────────────
@@ -124,7 +135,7 @@ def make_scroll_to_bottom(driver):
 	driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 	time.sleep(0.5)
 
-def click_show_more_news(driver, max_older_news, max_click_more=5):
+def click_show_more_news(driver, max_older_news, max_click_more=5, last_date_saved=None):
 	"""
 	Expande la lista del DOM haciendo scroll al fondo y clickeando "show more".
 	Repite hasta max_click_more veces o hasta que:
@@ -197,7 +208,7 @@ def click_show_more_news(driver, max_older_news, max_click_more=5):
 		try:
 			last_date_text = container_news[-1].find_element(By.XPATH, XPATH_META).text.split('\n')[0].strip()
 			last_timestamp = process_date(last_date_text)
-			limit_date     = utc_time_naive - timedelta(days=max_older_news)
+			limit_date     = _compute_floor_date(last_date_saved, max_older_news)
 			if last_timestamp < limit_date:
 				print(f"    — última noticia ({last_date_text}) fuera del rango permitido — deteniendo")
 				break
@@ -220,8 +231,15 @@ def update_recent_news_found(sport_name, last_news_saved, list_upate_news, new_d
 	(sólo en la primera llamada con noticias, cuando new_date_update aún está vacío).
 	Persiste el checkpoint de fecha por deporte en disco.
 
+	IMPORTANTE: la fecha nueva se guarda como `pending_last_date` (NO como
+	`last_date`). La frontera oficial `last_date` solo se PROMUEVE cuando FASE 2
+	termina de guardar el deporte en DB (ver final de `extract_news_info`). Así,
+	si FASE 2 se interrumpe y se pierden los JSON, la frontera no adelanta data
+	que nunca se guardó → la próxima corrida vuelve a recolectar desde la última
+	fecha realmente persistida.
+
 	Estructura guardada en last_saved_news.json:
-	  { sport_name: { "last_date": "YYYY-MM-DD HH:MM:SS", "phase2": {...} } }
+	  { sport_name: { "last_date": "...", "pending_last_date": "...", "phase2": {...} } }
 
 	Retorna new_date_update (actualizado o sin cambios).
 	"""
@@ -232,10 +250,10 @@ def update_recent_news_found(sport_name, last_news_saved, list_upate_news, new_d
 		# Asegurar que la entrada del deporte sea un dict (compat. con formato antiguo string)
 		if not isinstance(last_news_saved.get(sport_name), dict):
 			last_news_saved[sport_name] = {}
-		last_news_saved[sport_name]['last_date'] = new_date_update
+		last_news_saved[sport_name]['pending_last_date'] = new_date_update
 
 		save_check_point('check_points/last_saved_news.json', last_news_saved)
-		print(f"  Fecha más reciente registrada: {new_date_update}")
+		print(f"  Fecha más reciente registrada (pendiente hasta completar FASE 2): {new_date_update}")
 	return new_date_update
 
 
@@ -282,6 +300,51 @@ def get_news_info_part2(driver, dict_news):
 	return dict_news
 
 
+# =============================================================================
+#  RECICLAJE DEL DRIVER DE NOTICIAS
+#
+#  El driver propio de noticias (headless, con imágenes) se degrada/cuelga tras
+#  cargar muchas páginas de detalle → empieza a fallar con "Read timed out"
+#  contra el geckodriver. En vez de reintentar contra un driver muerto, lo
+#  detectamos y relanzamos (mismo patrón que run_news). La reanudación es barata
+#  gracias al checkpoint de FASE 2 + el early-skip por (title, published).
+# =============================================================================
+
+def _is_driver_dead(exc):
+	"""Heurística: ¿la excepción indica que el geckodriver/Firefox murió o no responde?"""
+	s = f'{type(exc).__name__}: {exc}'.lower()
+	needles = ('read timed out', 'connection refused', 'failed to establish',
+	           'connection aborted', 'invalid session id', 'no such window',
+	           'unable to connect', 'broken pipe', 'connection reset',
+	           'remote end closed', 'session deleted', 'connection pool',
+	           'max retries exceeded', 'httpconnectionpool')
+	return any(n in s for n in needles)
+
+
+def _relaunch_news_driver(old_driver):
+	"""Cierra el driver muerto y levanta uno nuevo con login. Devuelve el nuevo."""
+	from config import FS_EMAIL, FS_PASSWORD
+	try:
+		old_driver.quit()
+	except Exception:
+		pass
+	print('  ♻ Driver de noticias no responde → relanzando…')
+	drv = launch_navigator('https://www.flashscore.com', headless=True)
+	login(drv, email_=FS_EMAIL, password_=FS_PASSWORD)
+	print('  ♻ Driver relanzado OK')
+	return drv
+
+
+def _ensure_alive(driver):
+	"""Devuelve el driver si está vivo; si murió (sesión inválida), lo relanza.
+	Se usa al entrar a cada deporte: el driver pudo morir procesando el anterior."""
+	try:
+		_ = driver.current_url
+		return driver
+	except Exception:
+		return _relaunch_news_driver(driver)
+
+
 def extract_news_info(driver, sport_name, last_news_saved):
 	"""
 	Lee los archivos JSON de check_points/news/ (generados en FASE 1),
@@ -313,7 +376,7 @@ def extract_news_info(driver, sport_name, last_news_saved):
 
 	if not file_paths:
 		print(f"  No hay archivos pendientes en {sport_news_dir}")
-		return
+		return driver
 
 	print(f"  Archivos a procesar ({len(file_paths)}): {[os.path.basename(f) for f in file_paths]}")
 
@@ -337,6 +400,11 @@ def extract_news_info(driver, sport_name, last_news_saved):
 	# Saltar archivos ya completados en una ejecución anterior
 	start_file_idx = file_paths.index(cp['current_file']) if cp['current_file'] in file_paths else 0
 
+	# Presupuesto de relanzamientos de driver por deporte (evita loop infinito si
+	# el login falla siempre). Cada relevo exitoso permite seguir desde el checkpoint.
+	relaunch_count = 0
+	RELAUNCH_BUDGET = 10
+
 	for file_path in file_paths[start_file_idx:]:
 		file_num   = file_paths.index(file_path) + 1
 		input_dict = load_check_point(file_path)
@@ -359,6 +427,17 @@ def extract_news_info(driver, sport_name, last_news_saved):
 			cp['current_index'] = list_pos
 			save_check_point('check_points/last_saved_news.json', last_news_saved)
 
+			# ── Early-skip: si ya está en DB, NO navegar (reanudación rápida) ─
+			# La FASE-1 ya trae title+published en el JSON; evitamos recargar
+			# miles de noticias ya insertadas (acelera el resume y reduce la
+			# exposición a crashes por carga de páginas).
+			try:
+				if news_exists(current_dict['title'], process_date(current_dict['published'])):
+					print("· ya existía (skip sin navegar)")
+					continue
+			except Exception:
+				pass
+
 			# ── Navegar, extraer y guardar en DB (con reintentos) ─────────────
 			count_max = 0
 			while True:
@@ -368,12 +447,19 @@ def extract_news_info(driver, sport_name, last_news_saved):
 					dict_news              = get_news_info_part2(driver, current_dict)
 					dict_news['published'] = process_date(dict_news['published'])
 					try:
-						save_news_database(dict_news)
-						print("  ✓ guardado en DB")
+						if save_news_database(dict_news):
+							print("  ✓ guardado en DB")
+						else:
+							print("  · ya existía, omitido")
 					except Exception as e:
 						print(f"  Error guardando en DB: {e}")
 					break
 				except Exception as e:
+					# Driver muerto/colgado → relanzar (no reintentar contra un driver muerto)
+					if _is_driver_dead(e) and relaunch_count < RELAUNCH_BUDGET:
+						relaunch_count += 1
+						driver = _relaunch_news_driver(driver)
+						continue  # reintentar ESTA noticia con el driver nuevo
 					print(f'  Reintentando... ({e})')
 					if count_max == 3:
 						break
@@ -391,8 +477,16 @@ def extract_news_info(driver, sport_name, last_news_saved):
 	# ── 4. LIMPIAR CHECKPOINT DE FASE 2 ──────────────────────────────────────
 	# Se elimina la clave "phase2" para indicar que no hay trabajo pendiente.
 	sport_data.pop('phase2', None)
+	# PROMOVER la frontera: ahora que FASE 2 guardó todo en DB, la fecha pendiente
+	# pasa a ser la oficial `last_date`. Si FASE 2 nunca llegó acá, `last_date`
+	# queda en su valor anterior y la próxima corrida re-recolecta (idempotente).
+	pending = sport_data.pop('pending_last_date', None)
+	if pending:
+		sport_data['last_date'] = pending
+		print(f"  ✓ Frontera promovida: last_date = {pending}")
 	save_check_point('check_points/last_saved_news.json', last_news_saved)
 	print(f"  ✓ FASE 2 completada para {sport_name}")
+	return driver
 
 
 # =============================================================================
@@ -437,6 +531,45 @@ def check_enable_add_news(title, last_news_saved_sport):
 #  FUNCIÓN PRINCIPAL
 # =============================================================================
 
+def _fase1_collect(driver, sport_name, news_url, last_news_saved, max_older):
+	"""FASE 1 — navega a la URL del deporte, itera los bloques visibles y expande
+	el DOM con show_more hasta la frontera (`_compute_floor_date`), guardando los
+	links/metadata en JSON. Devuelve el driver (idéntico, o relanzado por el caller
+	si se cuelga). Es re-ejecutable: arranca de cero (last_index=0) y los JSON que
+	regenere se deduplican en FASE 2, así que reintentar el deporte es seguro."""
+	# 1.1 NAVEGACIÓN
+	print(f"  URL: {news_url}")
+	wait_update_page(driver, news_url, "fsNewsSection")
+
+	# 1.2 FRONTERA TEMPORAL (última noticia guardada)
+	sport_data      = last_news_saved.get(sport_name, {})
+	last_date_saved = sport_data.get('last_date') if isinstance(sport_data, dict) else sport_data
+
+	# 1.3 ESTADO INICIAL
+	last_index      = 0
+	new_date_update = ''
+	container_news  = driver.find_elements(By.XPATH, XPATH_ARTICLES)
+
+	# 1.4 LOOP DE PROCESAMIENTO EN BLOQUES
+	while last_index < len(container_news):
+		start_index = last_index
+		list_upate_news, last_index, enable_more_click = get_list_recent_news(
+			driver, max_older, last_index, last_date_saved
+		)
+		print(f"  enable_more_click: {enable_more_click}  |  noticias en batch: {len(list_upate_news)}")
+		new_date_update = update_recent_news_found(
+			sport_name, last_news_saved, list_upate_news, new_date_update
+		)
+		if len(list_upate_news) != 0:
+			sport_news_dir = f'check_points/news/{sport_name}'
+			os.makedirs(sport_news_dir, exist_ok=True)
+			save_check_point(f'{sport_news_dir}/{start_index}_{last_index}.json', list_upate_news)
+			if enable_more_click:
+				container_news = click_show_more_news(driver, max_older, max_click_more=5, last_date_saved=last_date_saved)
+		last_index += 1
+	return driver
+
+
 def main_extract_news(driver, list_sports, MAX_OLDER_DATE_ALLOWED=31):
 	"""
 	Orquesta el proceso completo de extracción de noticias por deporte.
@@ -469,67 +602,36 @@ def main_extract_news(driver, list_sports, MAX_OLDER_DATE_ALLOWED=31):
 		)
 		if has_phase2_cp and has_news_files:
 			print(f"  ⚠ Proceso anterior interrumpido — retomando FASE 2 directamente")
-			extract_news_info(driver, sport_name, last_news_saved)
+			driver = _ensure_alive(driver)
+			driver = extract_news_info(driver, sport_name, last_news_saved)
 			continue
 
 		# ─────────────────────────────────────────────────────────────────────
-		#  FASE 1 — RECOLECCIÓN DE LINKS Y METADATA
+		#  FASE 1 — RECOLECCIÓN DE LINKS Y METADATA (con reciclaje de driver)
 		# ─────────────────────────────────────────────────────────────────────
-
-		# ── 1.1 NAVEGACIÓN A LA URL DEL DEPORTE ──────────────────────────────
-		print(f"  URL: {news_url}")
-		wait_update_page(driver, news_url, "fsNewsSection")
-
-		# ── 1.2 CARGAR CHECKPOINT DE FECHA (última noticia guardada) ─────────
-		# Sirve como frontera temporal: sólo se procesan noticias más recientes.
-		# Compat. con formato antiguo (string) y nuevo (dict con clave last_date).
-		sport_data      = last_news_saved.get(sport_name, {})
-		last_date_saved = sport_data.get('last_date') if isinstance(sport_data, dict) else sport_data
-
-		# ── 1.3 ESTADO INICIAL DEL CONTENEDOR ────────────────────────────────
-		last_index      = 0
-		new_date_update = ''
-		container_news  = driver.find_elements(By.XPATH, XPATH_ARTICLES)
-
-		# ── 1.4 LOOP DE PROCESAMIENTO EN BLOQUES ─────────────────────────────
-		# Cada iteración procesa el bloque visible actual (desde last_index).
-		# Si hay más noticias válidas, se expande el DOM y se repite.
-		while last_index < len(container_news):
-			start_index = last_index
-
-			# 1.4a — Iterar sobre el bloque visible sin solapamiento
-			list_upate_news, last_index, enable_more_click = get_list_recent_news(
-				driver, MAX_OLDER_DATE_ALLOWED, last_index, last_date_saved
-			)
-			print(f"  enable_more_click: {enable_more_click}  |  noticias en batch: {len(list_upate_news)}")
-
-			# 1.4b — Registrar la fecha de la noticia más reciente del primer batch
-			new_date_update = update_recent_news_found(
-				sport_name, last_news_saved, list_upate_news, new_date_update
-			)
-
-			if len(list_upate_news) != 0:
-				# 1.4c — Guardar batch de links/metadata en checkpoint JSON
-				# Cada deporte tiene su propia subcarpeta dentro de check_points/news/
-				# para evitar mezclar archivos entre deportes y facilitar la reanudación.
-				sport_news_dir = f'check_points/news/{sport_name}'
-				os.makedirs(sport_news_dir, exist_ok=True)
-				save_check_point(
-					f'{sport_news_dir}/{start_index}_{last_index}.json',
-					list_upate_news
-				)
-				if enable_more_click:
-					# 1.4d — Expandir el DOM: click en "show more" y esperar nuevas noticias
-					container_news = click_show_more_news(driver, MAX_OLDER_DATE_ALLOWED, max_click_more=5)
-
-			last_index += 1
+		# Si el driver se cuelga durante la navegación o el show_more (backfills
+		# grandes cargan miles de artículos en un solo DOM), se relanza y se
+		# reintenta FASE 1 desde cero para ese deporte (idempotente vía dedup).
+		fase1_relaunch = 0
+		while True:
+			try:
+				driver = _ensure_alive(driver)
+				driver = _fase1_collect(driver, sport_name, news_url, last_news_saved, MAX_OLDER_DATE_ALLOWED)
+				break
+			except Exception as e:
+				if _is_driver_dead(e) and fase1_relaunch < 5:
+					fase1_relaunch += 1
+					print(f"  ⚠ Driver caído en FASE 1 de {sport_name} → relevo {fase1_relaunch}/5 y reintento")
+					driver = _relaunch_news_driver(driver)
+					continue
+				raise
 
 		# ─────────────────────────────────────────────────────────────────────
 		#  FASE 2 — EXTRACCIÓN DE DETALLE Y GUARDADO EN DB
 		# ─────────────────────────────────────────────────────────────────────
 		# Lee los checkpoints JSON generados en FASE 1, entra a cada URL,
 		# extrae el cuerpo completo y persiste el registro en la base de datos.
-		extract_news_info(driver, sport_name, last_news_saved)
+		driver = extract_news_info(driver, sport_name, last_news_saved)
 
 
 # =============================================================================

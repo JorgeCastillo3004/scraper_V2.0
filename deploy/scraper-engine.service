@@ -1,0 +1,27 @@
+# scraper-engine.service — MOTOR siempre corriendo (Live + scheduler + Driver 2)
+# Instalar (sudo UNA vez):
+#   sudo cp deploy/scraper-engine.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now scraper-engine
+# Ajustar RUTA y User al servidor antes de instalar.
+[Unit]
+Description=Scraper engine (Live permanente + scheduler news/inconsistencias)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=jorge
+WorkingDirectory=/home/jorge/work/scraper_V2.0
+Environment=ENGINE_OWNS_SCHEDULER=1
+Environment=NO_RICH=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/jorge/work/scraper_V2.0/env_sports/bin/python -m scripts.engine_runner
+Restart=always
+RestartSec=5
+# Al parar el engine, NO matar al grupo entero: el LIVE (main2.py, detached con
+# setsid) debe sobrevivir al reinicio del engine. KillMode=process solo señala al
+# proceso principal (engine_runner), no a sus hijos detached.
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

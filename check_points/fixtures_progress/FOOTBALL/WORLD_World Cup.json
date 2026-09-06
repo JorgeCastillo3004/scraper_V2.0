@@ -1,0 +1,571 @@
+{
+ "sport_key": "FOOTBALL",
+ "league_key": "WORLD_World Cup",
+ "section": "fixtures",
+ "league_id": "2e7ee992-42e9-4347-927e-a2bc27e08027",
+ "season_id": "0d5e3010-7b61-461e-9b04-e68e9960b268",
+ "matches": [
+  {
+   "name": "France~Senegal",
+   "date": "16.06. 21:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/ALxYcMw2/#/match-summary/match-summary",
+   "home": "France",
+   "visitor": "Senegal",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Iraq~Norway",
+   "date": "17.06. 00:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/n9TEVLhA/#/match-summary/match-summary",
+   "home": "Iraq",
+   "visitor": "Norway",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Argentina~Algeria",
+   "date": "17.06. 03:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/UP9bEsOr/#/match-summary/match-summary",
+   "home": "Argentina",
+   "visitor": "Algeria",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Austria~Jordan",
+   "date": "17.06. 06:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/OO27CLhe/#/match-summary/match-summary",
+   "home": "Austria",
+   "visitor": "Jordan",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Portugal~D.R. Congo",
+   "date": "17.06. 19:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/4zTHJLbM/#/match-summary/match-summary",
+   "home": "Portugal",
+   "visitor": "D.R. Congo",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "England~Croatia",
+   "date": "17.06. 22:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/b5qGuKMs/#/match-summary/match-summary",
+   "home": "England",
+   "visitor": "Croatia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Ghana~Panama",
+   "date": "18.06. 01:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/jD1Nwbif/#/match-summary/match-summary",
+   "home": "Ghana",
+   "visitor": "Panama",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Uzbekistan~Colombia",
+   "date": "18.06. 04:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/jaMlPbx1/#/match-summary/match-summary",
+   "home": "Uzbekistan",
+   "visitor": "Colombia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Czech Republic~South Africa",
+   "date": "18.06. 18:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/8nrACRTs/#/match-summary/match-summary",
+   "home": "Czech Republic",
+   "visitor": "South Africa",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Switzerland~Bosnia & Herzegovina",
+   "date": "18.06. 21:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/djmY6NcJ/#/match-summary/match-summary",
+   "home": "Switzerland",
+   "visitor": "Bosnia & Herzegovina",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Canada~Qatar",
+   "date": "19.06. 00:00\nPREVIEW",
+   "url": "https://www.flashscore.com/match/67vLrBMM/#/match-summary/match-summary",
+   "home": "Canada",
+   "visitor": "Qatar",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Mexico~South Korea",
+   "date": "19.06. 03:00",
+   "url": "https://www.flashscore.com/match/On5HOkVj/#/match-summary/match-summary",
+   "home": "Mexico",
+   "visitor": "South Korea",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "USA~Australia",
+   "date": "19.06. 21:00",
+   "url": "https://www.flashscore.com/match/S0aAVubs/#/match-summary/match-summary",
+   "home": "USA",
+   "visitor": "Australia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Scotland~Morocco",
+   "date": "20.06. 00:00",
+   "url": "https://www.flashscore.com/match/nRafcAyG/#/match-summary/match-summary",
+   "home": "Scotland",
+   "visitor": "Morocco",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Brazil~Haiti",
+   "date": "20.06. 02:30",
+   "url": "https://www.flashscore.com/match/IRyRv2Ll/#/match-summary/match-summary",
+   "home": "Brazil",
+   "visitor": "Haiti",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Turkey~Paraguay",
+   "date": "20.06. 05:00",
+   "url": "https://www.flashscore.com/match/KnyuOLXH/#/match-summary/match-summary",
+   "home": "Turkey",
+   "visitor": "Paraguay",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Netherlands~Sweden",
+   "date": "20.06. 19:00",
+   "url": "https://www.flashscore.com/match/0rAjVxuo/#/match-summary/match-summary",
+   "home": "Netherlands",
+   "visitor": "Sweden",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Germany~Ivory Coast",
+   "date": "20.06. 22:00",
+   "url": "https://www.flashscore.com/match/SMzorJsm/#/match-summary/match-summary",
+   "home": "Germany",
+   "visitor": "Ivory Coast",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Ecuador~Curacao",
+   "date": "21.06. 02:00",
+   "url": "https://www.flashscore.com/match/p2XLmuKP/#/match-summary/match-summary",
+   "home": "Ecuador",
+   "visitor": "Curacao",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Tunisia~Japan",
+   "date": "21.06. 06:00",
+   "url": "https://www.flashscore.com/match/SzGJdIdt/#/match-summary/match-summary",
+   "home": "Tunisia",
+   "visitor": "Japan",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Spain~Saudi Arabia",
+   "date": "21.06. 18:00",
+   "url": "https://www.flashscore.com/match/CASh7QGF/#/match-summary/match-summary",
+   "home": "Spain",
+   "visitor": "Saudi Arabia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Belgium~Iran",
+   "date": "21.06. 21:00",
+   "url": "https://www.flashscore.com/match/fBZ09etn/#/match-summary/match-summary",
+   "home": "Belgium",
+   "visitor": "Iran",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Uruguay~Cape Verde",
+   "date": "22.06. 00:00",
+   "url": "https://www.flashscore.com/match/4pPp9nn3/#/match-summary/match-summary",
+   "home": "Uruguay",
+   "visitor": "Cape Verde",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "New Zealand~Egypt",
+   "date": "22.06. 03:00",
+   "url": "https://www.flashscore.com/match/QeaikheU/#/match-summary/match-summary",
+   "home": "New Zealand",
+   "visitor": "Egypt",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Argentina~Austria",
+   "date": "22.06. 19:00",
+   "url": "https://www.flashscore.com/match/Cpq2Y2FE/#/match-summary/match-summary",
+   "home": "Argentina",
+   "visitor": "Austria",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "France~Iraq",
+   "date": "22.06. 23:00",
+   "url": "https://www.flashscore.com/match/KMRMTaNM/#/match-summary/match-summary",
+   "home": "France",
+   "visitor": "Iraq",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Norway~Senegal",
+   "date": "23.06. 02:00",
+   "url": "https://www.flashscore.com/match/xSUJLPV8/#/match-summary/match-summary",
+   "home": "Norway",
+   "visitor": "Senegal",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Jordan~Algeria",
+   "date": "23.06. 05:00",
+   "url": "https://www.flashscore.com/match/dx1FAaN7/#/match-summary/match-summary",
+   "home": "Jordan",
+   "visitor": "Algeria",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Portugal~Uzbekistan",
+   "date": "23.06. 19:00",
+   "url": "https://www.flashscore.com/match/nRFcNx7D/#/match-summary/match-summary",
+   "home": "Portugal",
+   "visitor": "Uzbekistan",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "England~Ghana",
+   "date": "23.06. 22:00",
+   "url": "https://www.flashscore.com/match/KhgvzGjJ/#/match-summary/match-summary",
+   "home": "England",
+   "visitor": "Ghana",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Panama~Croatia",
+   "date": "24.06. 01:00",
+   "url": "https://www.flashscore.com/match/CSkWyxM6/#/match-summary/match-summary",
+   "home": "Panama",
+   "visitor": "Croatia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Colombia~D.R. Congo",
+   "date": "24.06. 04:00",
+   "url": "https://www.flashscore.com/match/K0YnEaMq/#/match-summary/match-summary",
+   "home": "Colombia",
+   "visitor": "D.R. Congo",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Bosnia & Herzegovina~Qatar",
+   "date": "24.06. 21:00",
+   "url": "https://www.flashscore.com/match/jRyHEZGP/#/match-summary/match-summary",
+   "home": "Bosnia & Herzegovina",
+   "visitor": "Qatar",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Switzerland~Canada",
+   "date": "24.06. 21:00",
+   "url": "https://www.flashscore.com/match/2wQjwkpp/#/match-summary/match-summary",
+   "home": "Switzerland",
+   "visitor": "Canada",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Morocco~Haiti",
+   "date": "25.06. 00:00",
+   "url": "https://www.flashscore.com/match/n7TsyKKD/#/match-summary/match-summary",
+   "home": "Morocco",
+   "visitor": "Haiti",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Scotland~Brazil",
+   "date": "25.06. 00:00",
+   "url": "https://www.flashscore.com/match/EgVZxtj1/#/match-summary/match-summary",
+   "home": "Scotland",
+   "visitor": "Brazil",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Czech Republic~Mexico",
+   "date": "25.06. 03:00",
+   "url": "https://www.flashscore.com/match/GCoIA5bf/#/match-summary/match-summary",
+   "home": "Czech Republic",
+   "visitor": "Mexico",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "South Africa~South Korea",
+   "date": "25.06. 03:00",
+   "url": "https://www.flashscore.com/match/4rr4ngNc/#/match-summary/match-summary",
+   "home": "South Africa",
+   "visitor": "South Korea",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Curacao~Ivory Coast",
+   "date": "25.06. 22:00",
+   "url": "https://www.flashscore.com/match/d2S1vysC/#/match-summary/match-summary",
+   "home": "Curacao",
+   "visitor": "Ivory Coast",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Ecuador~Germany",
+   "date": "25.06. 22:00",
+   "url": "https://www.flashscore.com/match/zmvgtcCa/#/match-summary/match-summary",
+   "home": "Ecuador",
+   "visitor": "Germany",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Japan~Sweden",
+   "date": "26.06. 01:00",
+   "url": "https://www.flashscore.com/match/Sl2xgtXi/#/match-summary/match-summary",
+   "home": "Japan",
+   "visitor": "Sweden",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Tunisia~Netherlands",
+   "date": "26.06. 01:00",
+   "url": "https://www.flashscore.com/match/0lERfdRh/#/match-summary/match-summary",
+   "home": "Tunisia",
+   "visitor": "Netherlands",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Paraguay~Australia",
+   "date": "26.06. 04:00",
+   "url": "https://www.flashscore.com/match/lGmJTJSg/#/match-summary/match-summary",
+   "home": "Paraguay",
+   "visitor": "Australia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Turkey~USA",
+   "date": "26.06. 04:00",
+   "url": "https://www.flashscore.com/match/SCvmMa2U/#/match-summary/match-summary",
+   "home": "Turkey",
+   "visitor": "USA",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Norway~France",
+   "date": "26.06. 21:00",
+   "url": "https://www.flashscore.com/match/bsJSJ30L/#/match-summary/match-summary",
+   "home": "Norway",
+   "visitor": "France",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Senegal~Iraq",
+   "date": "26.06. 21:00",
+   "url": "https://www.flashscore.com/match/j5IhOwop/#/match-summary/match-summary",
+   "home": "Senegal",
+   "visitor": "Iraq",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Cape Verde~Saudi Arabia",
+   "date": "27.06. 02:00",
+   "url": "https://www.flashscore.com/match/487Xar9k/#/match-summary/match-summary",
+   "home": "Cape Verde",
+   "visitor": "Saudi Arabia",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Uruguay~Spain",
+   "date": "27.06. 02:00",
+   "url": "https://www.flashscore.com/match/8xM154oS/#/match-summary/match-summary",
+   "home": "Uruguay",
+   "visitor": "Spain",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Egypt~Iran",
+   "date": "27.06. 05:00",
+   "url": "https://www.flashscore.com/match/OjRH5DuB/#/match-summary/match-summary",
+   "home": "Egypt",
+   "visitor": "Iran",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "New Zealand~Belgium",
+   "date": "27.06. 05:00",
+   "url": "https://www.flashscore.com/match/jwT97ZAb/#/match-summary/match-summary",
+   "home": "New Zealand",
+   "visitor": "Belgium",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Croatia~Ghana",
+   "date": "27.06. 23:00",
+   "url": "https://www.flashscore.com/match/6mbbuBSb/#/match-summary/match-summary",
+   "home": "Croatia",
+   "visitor": "Ghana",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Panama~England",
+   "date": "27.06. 23:00",
+   "url": "https://www.flashscore.com/match/YZajsXcn/#/match-summary/match-summary",
+   "home": "Panama",
+   "visitor": "England",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Colombia~Portugal",
+   "date": "28.06. 01:30",
+   "url": "https://www.flashscore.com/match/vL2qotaK/#/match-summary/match-summary",
+   "home": "Colombia",
+   "visitor": "Portugal",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "D.R. Congo~Uzbekistan",
+   "date": "28.06. 01:30",
+   "url": "https://www.flashscore.com/match/hEWfCwid/#/match-summary/match-summary",
+   "home": "D.R. Congo",
+   "visitor": "Uzbekistan",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Algeria~Austria",
+   "date": "28.06. 04:00",
+   "url": "https://www.flashscore.com/match/4rOtRK7l/#/match-summary/match-summary",
+   "home": "Algeria",
+   "visitor": "Austria",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  },
+  {
+   "name": "Jordan~Argentina",
+   "date": "28.06. 04:00",
+   "url": "https://www.flashscore.com/match/KAnAWtpR/#/match-summary/match-summary",
+   "home": "Jordan",
+   "visitor": "Argentina",
+   "home_result": "",
+   "visitor_result": "",
+   "done": true
+  }
+ ],
+ "last_index": 55,
+ "status": "completed"
+}

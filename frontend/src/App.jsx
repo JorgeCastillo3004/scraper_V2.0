@@ -6,6 +6,7 @@ import Partidos  from './pages/Partidos'
 import Jugadores from './pages/Jugadores'
 import Live      from './pages/Live'
 import Inconsistencias from './pages/Inconsistencias'
+import Drivers   from './pages/Drivers'
 
 const NAV = [
   { to: '/noticias',         label: '📰 Noticias'        },
@@ -15,6 +16,7 @@ const NAV = [
   { to: '/jugadores',        label: '🧑 Jugadores'       },
   { to: '/live',             label: '🔴 Live'            },
   { to: '/inconsistencias',  label: '🩺 Inconsistencias' },
+  { to: '/drivers',          label: '🖥️ Drivers'         },
 ]
 
 export default function App() {
@@ -54,6 +56,7 @@ export default function App() {
           <Route path="/jugadores" element={<Jugadores />} />
           <Route path="/live"             element={<Live />} />
           <Route path="/inconsistencias"  element={<Inconsistencias />} />
+          <Route path="/drivers"          element={<Drivers />} />
         </Routes>
       </main>
     </div>

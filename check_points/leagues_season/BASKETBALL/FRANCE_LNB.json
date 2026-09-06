@@ -1,0 +1,12 @@
+{
+  "Paris": {
+    "team_id": "935a0ac2-d73e-42cf-8e71-6bbd4c424492",
+    "team_url": "https://www.flashscore.com/team/paris/CdCP6AWf/",
+    "stadium_id": "5330cda9-1a3b-475e-b03f-feaaab53601c"
+  },
+  "Monaco": {
+    "team_id": "ec74d398-d41d-4982-96b0-39ddad6ddf04",
+    "team_url": "https://www.flashscore.com/team/as-monaco/YFxc9UAj/",
+    "stadium_id": "b5bcaf95-194c-4902-8f62-38951f64d481"
+  }
+}

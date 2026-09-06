@@ -1,0 +1,978 @@
+{
+ "sport_key": "FOOTBALL",
+ "league_key": "CHILE_Liga de Primera",
+ "league_id": "7b0f4cfa-6a3e-449a-b91e-271efbcd5853",
+ "season_id": "3b815bbf-d9ef-4705-8ee9-c149fa5f7818",
+ "matches": [
+  {
+   "name": "U. De Chile~O'Higgins",
+   "date": "19.06. 02:00",
+   "url": "https://www.flashscore.com/match/6yWPoLgo/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~U. De Chile",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/pS6NdcP0/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~Limache",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/WOtlrbA7/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~U. De Concepcion",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/hURr4uXQ/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "Huachipato~Cobresal",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/G8jsDI9s/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "Nublense~Palestino",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/YmmIIvnK/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~D. Concepcion",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/tf0WfyfD/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~La Serena",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/nXOz612E/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~Everton",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/x23FbJfl/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "Cobresal~Union La Calera",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/plrb9z96/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~U. Catolica",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/hSQvMDhC/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "U. Catolica",
+   "done": true
+  },
+  {
+   "name": "Everton~Colo Colo",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/h4rhVHVP/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "La Serena~O'Higgins",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/hEo67EwJ/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "Limache~Nublense",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/lzUNPegm/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "Palestino~Coquimbo",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/p2NWNZNa/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Huachipato",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/OYgkBdvf/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~A. Italiano",
+   "date": "02.08. 22:00",
+   "url": "https://www.flashscore.com/match/CGwD35xo/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~Nublense",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/Cz2fGrMj/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~La Serena",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/ngIFNQTG/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~U. De Concepcion",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/dOybz4DM/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "Huachipato~Everton",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/0drkxQrA/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~Limache",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/hWvsvnEc/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~Cobresal",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/EuK7Pna4/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Palestino",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/IDQbR8Ui/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~Colo Colo",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/rLBOL4bT/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "Cobresal~D. Concepcion",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/b7hUSL5d/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~O'Higgins",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/hfNTUsyp/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~U. Catolica",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/QDpGjPc3/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "U. Catolica",
+   "done": true
+  },
+  {
+   "name": "Everton~A. Italiano",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/nTYOl3SF/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "Limache~U. De Chile",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/fgxXnscS/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "Nublense~Union La Calera",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/pOGBuak2/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "Palestino~Huachipato",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/CAI3sLKk/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~La Serena",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/0Wbb32s9/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~Union La Calera",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/S6IuGuRE/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~Coquimbo",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/zVtUgkAC/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "Everton~U. De Concepcion",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/zDVghxZ7/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "Huachipato~Limache",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/EFhLeBu0/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "La Serena~Cobresal",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/voxofb4e/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~Palestino",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/M7zEcXAm/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~Nublense",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/hUwwdKZr/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Colo Colo",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/8d261tCL/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "Cobresal~Palestino",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/d20hfJLh/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~A. Italiano",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/repxhTvP/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~Huachipato",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/G4Gghcj5/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "Limache~Everton",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/pp8AlFkU/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "Nublense~D. Concepcion",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/z9mK8Izn/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~O'Higgins",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/Ol2pduit/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~U. De Chile",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/U7tT6d5b/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~La Serena",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/OUJ1jyLH/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~A. Italiano",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/WImcAVBj/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "Everton~U. Catolica",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/UVOFchSp/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "U. Catolica",
+   "done": true
+  },
+  {
+   "name": "Huachipato~Colo Colo",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/CY6QFilT/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "La Serena~Nublense",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/bmYq3E4N/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "Limache~Cobresal",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/AR12LeKi/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~Union La Calera",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/vL8IHDJG/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "Palestino~U. De Concepcion",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/rgF9JZl4/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Coquimbo",
+   "date": "06.09. 06:00",
+   "url": "https://www.flashscore.com/match/2Lvy5zzB/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~O'Higgins",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/hjmtAMH7/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "Cobresal~Coquimbo",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/IBTiWCY9/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~D. Concepcion",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/dduqYY3c/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "La Serena~U. De Chile",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/OAePD4Ir/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "Nublense~Everton",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/vaeTV3vR/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "Palestino~U. Catolica",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/WYiLXP9E/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "U. Catolica",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~Huachipato",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/OWWaQs2l/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~Limache",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/KxkYBrme/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "Cobresal~U. De Concepcion",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/40V1p3gK/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~Colo Colo",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/OpCYvsHs/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~Union La Calera",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/fkppctwQ/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "Everton~La Serena",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/WAFtwLof/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "Huachipato~O'Higgins",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/vs2cZxoJ/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "Limache~Palestino",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/hQ3kyaG6/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~A. Italiano",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/C6rGMa1D/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Nublense",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/Wdz8OLW0/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "La Serena~D. Concepcion",
+   "date": "25.10. 02:00",
+   "url": "https://www.flashscore.com/match/nmPOkbVa/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "Nublense~Coquimbo",
+   "date": "25.10. 02:00",
+   "url": "https://www.flashscore.com/match/Y3m62yF5/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~Huachipato",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/EaGunGUO/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~Cobresal",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/0jkb4cpg/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "Palestino~Colo Colo",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/4Oek6JFt/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Everton",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/jLVFiK0m/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~Limache",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/vHI60FqI/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~U. Catolica",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/hpSWmx0C/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "U. Catolica",
+   "done": true
+  },
+  {
+   "name": "Cobresal~Everton",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/YyRY3ljA/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~U. De Concepcion",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/pGpvr7Tj/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~Union La Calera",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/SzKs2SKM/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~Palestino",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/8fuHGRZF/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "Huachipato~La Serena",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/nui8Im53/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "Limache~A. Italiano",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/O65Dd6rp/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~Nublense",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/KYbMfpDd/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~U. De Chile",
+   "date": "01.11. 22:00",
+   "url": "https://www.flashscore.com/match/QBNQ5ALc/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~Coquimbo",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/tQtS7i8r/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "Everton~D. Concepcion",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/dh5eDDpL/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "La Serena~Palestino",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/n9I37Nd2/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "Nublense~Colo Colo",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/ljpz6Vxe/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~Limache",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/EeKe9qSk/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Cobresal",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/fBwPE54S/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~O'Higgins",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/pIwq4977/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~Huachipato",
+   "date": "08.11. 22:00",
+   "url": "https://www.flashscore.com/match/4pmlFZF8/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "Cobresal~A. Italiano",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/dEtWPjUQ/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~U. Catolica",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/xCQURCaE/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "U. Catolica",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~Everton",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/SdX1KUil/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "Huachipato~D. Concepcion",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/t4TxMsTh/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "Limache~La Serena",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/lCLAI8M0/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~U. De Chile",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/8jVUN3bt/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "Palestino~Union La Calera",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/dxPIGniD/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~Nublense",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/xWMoKLc5/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "A. Italiano~Palestino",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/nqkyVxCN/#/match-summary/match-summary",
+   "home": "A. Italiano",
+   "visitor": "Palestino",
+   "done": true
+  },
+  {
+   "name": "Colo Colo~La Serena",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/pdQgIaSH/#/match-summary/match-summary",
+   "home": "Colo Colo",
+   "visitor": "La Serena",
+   "done": true
+  },
+  {
+   "name": "Coquimbo~Limache",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/My4Bzsrn/#/match-summary/match-summary",
+   "home": "Coquimbo",
+   "visitor": "Limache",
+   "done": true
+  },
+  {
+   "name": "D. Concepcion~U. De Chile",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/dfIgmKRi/#/match-summary/match-summary",
+   "home": "D. Concepcion",
+   "visitor": "U. De Chile",
+   "done": true
+  },
+  {
+   "name": "Everton~O'Higgins",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/jHeSWbsB/#/match-summary/match-summary",
+   "home": "Everton",
+   "visitor": "O'Higgins",
+   "done": true
+  },
+  {
+   "name": "Nublense~Cobresal",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/Gbu7PGZp/#/match-summary/match-summary",
+   "home": "Nublense",
+   "visitor": "Cobresal",
+   "done": true
+  },
+  {
+   "name": "U. Catolica~Huachipato",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/6BE2GwcU/#/match-summary/match-summary",
+   "home": "U. Catolica",
+   "visitor": "Huachipato",
+   "done": true
+  },
+  {
+   "name": "Union La Calera~U. De Concepcion",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/I3cKYKCb/#/match-summary/match-summary",
+   "home": "Union La Calera",
+   "visitor": "U. De Concepcion",
+   "done": true
+  },
+  {
+   "name": "Cobresal~Colo Colo",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/0nFAqxRG/#/match-summary/match-summary",
+   "home": "Cobresal",
+   "visitor": "Colo Colo",
+   "done": true
+  },
+  {
+   "name": "Huachipato~Nublense",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/C60pdFAM/#/match-summary/match-summary",
+   "home": "Huachipato",
+   "visitor": "Nublense",
+   "done": true
+  },
+  {
+   "name": "La Serena~A. Italiano",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/YaDIsGeT/#/match-summary/match-summary",
+   "home": "La Serena",
+   "visitor": "A. Italiano",
+   "done": true
+  },
+  {
+   "name": "Limache~D. Concepcion",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/GKGsxfJj/#/match-summary/match-summary",
+   "home": "Limache",
+   "visitor": "D. Concepcion",
+   "done": true
+  },
+  {
+   "name": "O'Higgins~Coquimbo",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/4tcxbytA/#/match-summary/match-summary",
+   "home": "O'Higgins",
+   "visitor": "Coquimbo",
+   "done": true
+  },
+  {
+   "name": "Palestino~Everton",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/rR8TacBc/#/match-summary/match-summary",
+   "home": "Palestino",
+   "visitor": "Everton",
+   "done": true
+  },
+  {
+   "name": "U. De Chile~Union La Calera",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/4KL1obd4/#/match-summary/match-summary",
+   "home": "U. De Chile",
+   "visitor": "Union La Calera",
+   "done": true
+  },
+  {
+   "name": "U. De Concepcion~U. Catolica",
+   "date": "06.12. 22:00",
+   "url": "https://www.flashscore.com/match/GYeGjgYq/#/match-summary/match-summary",
+   "home": "U. De Concepcion",
+   "visitor": "U. Catolica",
+   "done": true
+  }
+ ],
+ "last_index": 120,
+ "status": "completed"
+}

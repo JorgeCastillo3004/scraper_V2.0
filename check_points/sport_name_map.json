@@ -1,0 +1,13 @@
+{
+  "db_to_project": {
+    "American Football": "AM._FOOTBALL",
+    "Baseball": "BASEBALL",
+    "Basketball": "BASKETBALL",
+    "Boxing": "BOXING",
+    "Football": "FOOTBALL",
+    "GOLF": "GOLF",
+    "Hockey": "HOCKEY",
+    "MOTOR SPORT": "MOTOR SPORT",
+    "Tennis": "TENNIS"
+  }
+}

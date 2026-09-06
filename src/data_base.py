@@ -2,7 +2,7 @@ import psycopg2
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
-from common_functions import load_json
+from common_functions import load_json, red_box_warning
 from unidecode import unidecode
 import re
 import hashlib
@@ -39,14 +39,51 @@ def ensure_connection():
 def save_news_database(dict_news):
     ensure_connection()
     try:
+        cur = con.cursor()
+        # Anti-duplicado: la tabla `news` no tiene constraint único, así que
+        # verificamos existencia ANTES de insertar. La clave es (title,
+        # news_content): la MISMA noticia es mismo título + mismo cuerpo,
+        # independiente de `published` (las noticias recientes traen fecha
+        # RELATIVA "X min ago" y `process_date` la calcula contra el "ahora" de
+        # cada corrida → `published` varía y un dedup por fecha dejaba pasar
+        # near-duplicados). Con (title, news_content) se preservan los títulos
+        # repetidos que son noticias DISTINTAS (contenido distinto). Idempotente.
+        cur.execute(
+            "SELECT 1 FROM news WHERE title = %(title)s AND news_content = %(news_content)s LIMIT 1",
+            dict_news,
+        )
+        if cur.fetchone():
+            con.commit()
+            return False  # ya existe → no reinsertar
         query = "INSERT INTO news VALUES(%(news_id)s, %(news_content)s, %(image)s,\
                 %(published)s, %(news_summary)s, %(news_tags)s, %(title)s)"
-        cur = con.cursor()
         cur.execute(query, dict_news)
         con.commit()
+        return True
     except:
         print("###### ERROR SAVING NEWS ######")
         con.rollback()
+        return False
+
+
+def news_exists(title, published):
+    """True si ya existe una noticia con ese (title, published) en DB.
+    Se usa como early-skip ANTES de navegar a la página de la noticia, para
+    que las reanudaciones de FASE 2 no re-naveguen miles de noticias ya
+    guardadas (la FASE-1 ya trae title+published en el JSON)."""
+    ensure_connection()
+    try:
+        cur = con.cursor()
+        cur.execute(
+            "SELECT 1 FROM news WHERE title = %s AND published = %s LIMIT 1",
+            (title, published),
+        )
+        found = cur.fetchone() is not None
+        con.commit()
+        return found
+    except:
+        con.rollback()
+        return False
 
 def save_sport_database(sport_dict):
     ensure_connection()
@@ -280,17 +317,23 @@ def save_team_players_entity(player_dict):
     con.commit()
 
 def get_team_id(league_id, season_id, team_name):
+    # NOTA (2026-06-13): esta función NO tiene llamadores en el proyecto — el flujo
+    # de creación/lookup de equipos usa get_list_id_teams() + create_team_in_db().
+    # Se deja neutralizada por las dudas: (1) parametrizada, para que un nombre con
+    # apóstrofe (O'Higgins, M'Gladbach) NO rompa el SQL ni envenene la conexión si
+    # algún flujo futuro la usa; (2) con guarda de None, porque el `results[0]`
+    # crudo explotaba (TypeError) cuando el equipo no existía.
     ensure_connection()
-    query = """
-    SELECT t2.team_id \
-    FROM league_team AS t1\
-    JOIN team AS t2 ON t1.team_id = t2.team_id\
-    WHERE t1.league_id = '{}' AND t1.season_id = '{}' AND t2.team_name = '{}'""".format(league_id, season_id, team_name)
-
     cur = con.cursor()
-    cur.execute(query)
+    cur.execute(
+        """SELECT t2.team_id
+           FROM league_team AS t1
+           JOIN team AS t2 ON t1.team_id = t2.team_id
+           WHERE t1.league_id = %s AND t1.season_id = %s AND t2.team_name = %s""",
+        (league_id, season_id, team_name),
+    )
     results = cur.fetchone()
-    return results[0]
+    return results[0] if results else None
 
 def get_seasons(league_id, season_name):
     ensure_connection()
@@ -463,9 +506,12 @@ def check_season_duplicate(season_id):
 
 def check_player_duplicates(country_id, player_name, player_dob):
     ensure_connection()
-    query = "SELECT player_id FROM player WHERE country_id ='{}' AND player_name ='{}' AND player_dob ='{}';".format(country_id, player_name, player_dob)
+    # parametrizado: player_name con apóstrofe (O'Brien, N'Golo) rompía el .format
     cur = con.cursor()
-    cur.execute(query)
+    cur.execute(
+        "SELECT player_id FROM player WHERE country_id = %s AND player_name = %s AND player_dob = %s",
+        (country_id, player_name, player_dob),
+    )
     results = [row[0] for row in cur.fetchall()]
     return results
 
@@ -551,7 +597,7 @@ def strip_phase_suffix(name):
     return name.split(' - ')[0].strip() if name else name
 
 
-def get_match_id(league_country, league_name, match_date, match_name):
+def get_match_id(league_country, league_name, match_date, match_name, sport=None):
     ensure_connection()
     # FIX naming de liga: el DOM trae la fase pegada al título ('Liga 1 -
     # Apertura'); la DB guarda el nombre base. Sin recortar, el JOIN por
@@ -561,25 +607,84 @@ def get_match_id(league_country, league_name, match_date, match_name):
     # IMPRESIÓN de verificación: palabras EXACTAS usadas en la solicitud a la DB.
     print(f"[get_match_id] country='{league_country}' | "
           f"league(DOM)='{league_name}' -> league(DB)='{league_db}' | "
-          f"match_date='{match_date}' | match_name='{match_name}'")
-    query = """
+          f"match_date='{match_date}' | match_name='{match_name}'"
+          f"{f' | sport={sport!r}' if sport else ''}")
+    # parametrizado: match.name con apóstrofe (Coquimbo~O'Higgins, M'Gladbach)
+    # rompía el .format -> SyntaxError -> rollback -> devolvía None SIEMPRE, así
+    # que el live nunca encontraba/actualizaba esos partidos (DB-SKIP eterno).
+    #
+    # FILTRO POR DEPORTE (sport, opcional): hay países con DOS ligas del mismo
+    # nombre en deportes distintos (p.ej. TURKEY tiene 'Super Lig' en Basketball
+    # Y en Football). Sin filtrar por deporte, get_match_id podía devolver el
+    # match del deporte equivocado -> el live escribía el marcador en el partido
+    # incorrecto. `sport` debe ser el NOMBRE de deporte tal cual la DB (sport.name,
+    # Title Case: 'Basketball', 'Football'). Si es None -> comportamiento previo.
+    params = [league_country, league_db, match_date, match_name]
+    sport_join = sport_cond = ""
+    if sport:
+        sport_join = "JOIN sport ON sport.sport_id = league.sport_id"
+        sport_cond = "and sport.name = %s"
+        params.append(sport)
+    else:
+        # NUNCA debería ocurrir: sin deporte, una liga homónima de OTRO deporte
+        # (WORLD 'World Cup' en fútbol y básquet) puede devolver el match equivocado.
+        red_box_warning(
+            'get_match_id llamado SIN filtro de deporte (sport=None)',
+            [f"country='{league_country}'  league='{league_db}'",
+             f"match='{match_name}'  date='{match_date}'",
+             'Riesgo: colision cross-deporte (liga homonima). Pasar sport al caller.',
+             'El proceso CONTINUA (comportamiento previo, sin filtrar deporte).'])
+    query = f"""
     SELECT match.match_id
     FROM match
     JOIN league ON league.league_id = match.league_id
     JOIN country ON league.country_id = country.country_id
-    WHERE country.country_name = '{}' and
-    league.league_name = '{}' and
-    match.match_date = '{}' and match.name = '{}'""".format(league_country, league_db, match_date, match_name)
+    {sport_join}
+    WHERE country.country_name = %s and
+    league.league_name = %s and
+    match.match_date = %s and match.name = %s {sport_cond}"""
     try:
         cur = con.cursor()
-        cur.execute(query)
-        print("Solicitud ejecutada")
+        cur.execute(query, tuple(params))
+        print("[get_match_id] búsqueda de partido ejecutada en la BD")
         res = cur.fetchone()
         if res:
             return res[0]
     except:
         con.rollback()
         return None
+
+
+def get_all_match_ids(league_name, match_date, match_name, sport):
+    """Como get_match_id pero SIN filtro de país y devuelve TODAS las copias.
+
+    Pensada para torneos modelados como varias ligas HOMÓNIMAS (mismo
+    league_name) en distintos países/confederaciones — caso World Cup, que en
+    FlashScore aparece en las 7 confederaciones, así que el mismo partido existe
+    7 veces (uno por liga). El live, al ver el partido una vez, debe actualizar
+    TODAS sus copias, no solo la de un país.
+
+    FILTRA por `sport` (Title Case DB) para NO cruzar deportes homónimos
+    (World Cup de Football vs Basketball). Devuelve lista de match_id (puede
+    ser vacía)."""
+    ensure_connection()
+    league_db = strip_phase_suffix(league_name)
+    query = """
+        SELECT match.match_id
+        FROM match
+        JOIN league ON league.league_id = match.league_id
+        JOIN sport  ON sport.sport_id   = league.sport_id
+        WHERE league.league_name = %s AND match.match_date = %s
+          AND match.name = %s AND sport.name = %s
+    """
+    try:
+        cur = con.cursor()
+        cur.execute(query, (league_db, match_date, match_name, sport))
+        return [r[0] for r in cur.fetchall()]
+    except Exception:
+        con.rollback()
+        return []
+
 
 def get_math_details_ids(match_id):
     ensure_connection()
@@ -667,6 +772,13 @@ def get_match_by_day():
     return cur.fetchall()
 
 def get_match_by_league_name(league_name_, month_number, day_number):
+    # DEPRECATED — NO USAR: resuelve por league_name LIKE SIN país ni deporte
+    # (colisiona cross-deporte: WORLD 'World Cup' fútbol/básquet). Sin llamadores.
+    red_box_warning(
+        'get_match_by_league_name() es DEPRECATED y resuelve SIN deporte',
+        [f"league_name LIKE '{league_name_}' (sin pais ni deporte)",
+         'Riesgo: colision cross-deporte. Usar un lookup con sport_id/league_id.',
+         'El proceso CONTINUA.'])
     ensure_connection()
     # Query to retrieve pending matches for updating.
     query = f"""

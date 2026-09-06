@@ -1,0 +1,1610 @@
+{
+ "sport_key": "FOOTBALL",
+ "league_key": "BRAZIL_Serie A Betano",
+ "league_id": "7382625d-fca9-4b34-918b-f7e76d585d1b",
+ "season_id": "933f5af7-08e2-4411-b6e4-f8c6408e9802",
+ "matches": [
+  {
+   "name": "Atletico-MG~Bahia",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/lvhNV8sC/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Santos",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/8KWmH9SI/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Flamengo RJ",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/4S3cXLIG/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Remo",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/Kb06Zjrm/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Palmeiras",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/zmCty4Ji/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Bragantino",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/ELwuJVc6/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Internacional~Cruzeiro",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/KvUgD0Rp/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Gremio",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/SO3EXUCa/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Athletico-PR",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/0EJZvDKP/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Vasco",
+   "date": "22.07. 22:00",
+   "url": "https://www.flashscore.com/match/80AlZsl4/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Internacional",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/IVTWoLX9/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Bahia~Corinthians",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/jqSvpa2M/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Coritiba",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/AP65VamT/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Botafogo RJ",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/fcrxQwBj/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Sao Paulo",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/tUYBxHfd/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Gremio~Fluminense",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/M3zOms3c/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Atletico-MG",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/AaNEdxnS/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Remo~Vitoria",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/Y3V3vwQq/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Santos~Chapecoense-SC",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/UkF6bbHF/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Vasco~Mirassol",
+   "date": "26.07. 22:00",
+   "url": "https://www.flashscore.com/match/MPBb0Kn3/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Bragantino",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/dKNS3gge/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Gremio",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/2c2gkfv2/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Vasco",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/ARJ356Ua/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Athletico-PR",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/jJrlBy1L/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Cruzeiro",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/pt4NPzGE/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Bahia",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/6V8piG9k/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Internacional~Flamengo RJ",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/UXLz2XN7/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Remo",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/0hUJ5FOr/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Santos",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/U3fuDcW8/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Palmeiras",
+   "date": "29.07. 22:00",
+   "url": "https://www.flashscore.com/match/lCVf7Sam/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Bahia~Vasco",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/MapCWrTb/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Fluminense",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/EJGK1OTO/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Corinthians",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/r9PxIqE5/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Chapecoense-SC",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/lnn4Y4bn/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Mirassol",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/4ODoGNrI/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Vitoria",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/IiNB3paC/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Gremio~Sao Paulo",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/ClHgE1DU/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Internacional",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/zqMUJ5qg/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Remo~Atletico-MG",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/IRwLUMcB/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Santos~Athletico-PR",
+   "date": "09.08. 22:00",
+   "url": "https://www.flashscore.com/match/UVjULREt/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Bragantino",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/vJLQsUhc/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Gremio",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/tUjBuvCT/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Bahia",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/tps7Na7r/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Cruzeiro",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/ClafqMC4/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Palmeiras",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/QisTS0SN/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Internacional~Remo",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/dfdtzIZj/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Flamengo RJ",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/p2c2s0sH/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Coritiba",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/GM5oorrh/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Vasco~Santos",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/APIaNvjo/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Botafogo RJ",
+   "date": "16.08. 22:00",
+   "url": "https://www.flashscore.com/match/nqPYu8N9/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Athletico-PR",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/YaeGJH67/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Gremio",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/h4Stzwil/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Sao Paulo",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/SMtPnGzf/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Corinthians",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/zP1pfbrK/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Flamengo RJ",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/n3LkYGL0/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Remo",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/EcuFLwxe/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Internacional~Atletico-MG",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/KGJcWfjD/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Vasco",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/MLyBuaTQ/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Santos~Mirassol",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/06m2sLbE/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Bahia",
+   "date": "23.08. 22:00",
+   "url": "https://www.flashscore.com/match/67hGlx6s/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Fluminense",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/McsXFE4t/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Vitoria",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/z78EcXlC/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Bahia~Internacional",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/fBuuEhZh/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Santos",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/8fHc1Fkm/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Botafogo RJ",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/0lfWpf56/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Gremio~Chapecoense-SC",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/rXBMeBJO/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Palmeiras",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/EiK5agKa/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Remo~Coritiba",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/EDetCW35/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Bragantino",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/lAzR6ySP/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Vasco~Cruzeiro",
+   "date": "30.08. 22:00",
+   "url": "https://www.flashscore.com/match/dGmuqYZI/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Palmeiras",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/tSBMi2Ij/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Bahia",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/MeAOBN9M/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Chapecoense-SC",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/lrCGDquA/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Mirassol",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/U1XkSrf3/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Athletico-PR",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/ttie61Xq/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Vasco",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/MwalAAYH/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Internacional~Santos",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/l6f34u2d/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Remo~Flamengo RJ",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/CpP6O0gS/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Atletico-MG",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/8Y38F5Ac/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Gremio",
+   "date": "06.09. 22:00",
+   "url": "https://www.flashscore.com/match/GIVcQMOF/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Fluminense",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/IoUKVH0e/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Bahia~Remo",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/OIkFkwhR/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Bragantino",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/4r4oHIo2/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Internacional",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/8jRopHFl/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Athletico-PR",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/Ghn7iaNE/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Corinthians",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/8GAxJvHk/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Gremio~Vasco",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/jaSSTeV7/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Vitoria",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/MJzCXwWr/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Sao Paulo",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/jyptw08L/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Santos~Cruzeiro",
+   "date": "13.09. 22:00",
+   "url": "https://www.flashscore.com/match/ULeXvMw9/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Bahia",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/h0zfpxXo/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Chapecoense-SC",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/QkKwrnjI/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Fluminense",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/dASMoUjg/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Bragantino",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/GGUgrep1/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Gremio~Palmeiras",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/C6IotQKU/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Botafogo RJ",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/4zWUq8L5/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Remo~Santos",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/MuSAtfWA/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Internacional",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/0rZDmjMt/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Vasco~Coritiba",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/AFN2tZED/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Cruzeiro",
+   "date": "20.09. 22:00",
+   "url": "https://www.flashscore.com/match/QDY1rG1b/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Atletico-MG",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/QmkB9h0c/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Vasco",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/bLLlZBOp/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Mirassol",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/f75igXFG/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Sao Paulo",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/E9LhiBpT/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Coritiba",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/EmpIvY0N/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Internacional~Corinthians",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/phCOok8j/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Bahia",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/Mg7qego4/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Remo~Gremio",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/SCoS5AaM/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Santos~Flamengo RJ",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/QRDzcFGi/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Chapecoense-SC",
+   "date": "07.10. 22:00",
+   "url": "https://www.flashscore.com/match/YDhJ7WU9/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Santos",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/zaxs0uT0/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Bahia~Mirassol",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/hz97G0Ds/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Cruzeiro",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/vXrY11bl/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Athletico-PR",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/EkcGEvrf/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Botafogo RJ",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/OKIyMMkK/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Fluminense",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/OrXc0lNq/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Gremio~Internacional",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/8CzkbJcD/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Corinthians",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/8W61K9EF/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Vitoria",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/nHIhMVq3/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Vasco~Remo",
+   "date": "11.10. 22:00",
+   "url": "https://www.flashscore.com/match/KAQ6bSid/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Palmeiras",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/hAPGswCt/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Coritiba",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/MyxaPedC/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Bahia~Flamengo RJ",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/QNNOuHtg/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Chapecoense-SC",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/IsfXAdsJ/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Vitoria",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/hdprTwcm/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Santos",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/MF0OCIC6/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Gremio~Cruzeiro",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/U1u7NZQO/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Internacional",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/0MmjRHRa/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Remo~Bragantino",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/MkHXweB5/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Vasco",
+   "date": "18.10. 22:00",
+   "url": "https://www.flashscore.com/match/AysJYaZP/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Fluminense",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/YBVbjP0S/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Gremio",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/UJYsf713/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Remo",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/rRhmYPvp/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Atletico-MG",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/UFKuxZuI/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Internacional~Botafogo RJ",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/lOeeW39d/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Sao Paulo",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/lQzFjYfB/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Bragantino",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/GCx7hfQb/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Santos~Bahia",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/KpqbfGen/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Vasco~Corinthians",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/jV8lzDAU/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Athletico-PR",
+   "date": "25.10. 22:00",
+   "url": "https://www.flashscore.com/match/xpxjhoWF/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Cruzeiro",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/lbC4ct8e/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Bahia~Sao Paulo",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/nDr51AQQ/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Chapecoense-SC",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/faJea2wq/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Mirassol",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/OGSP4OFL/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Vitoria",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/vmuc3WeE/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Internacional",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/UsHUp3Ok/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Gremio~Athletico-PR",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/MBACeKx8/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Remo~Botafogo RJ",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/WpKydlll/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Santos~Palmeiras",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/21vH6po9/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Vasco~Flamengo RJ",
+   "date": "28.10. 22:00",
+   "url": "https://www.flashscore.com/match/zenVrsg2/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Vasco",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/0xdoC0vn/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Atletico-MG",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/ETBhh6mD/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Santos",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/IFcI8RXg/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Mirassol",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/hhAf8IwB/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Bahia",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/vVoR6526/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Gremio",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/I1IqfSI0/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Internacional~Coritiba",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/nekZ4qXI/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Remo",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/Q7uBAm3s/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Corinthians",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/6NbvG9uK/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Fluminense",
+   "date": "04.11. 22:00",
+   "url": "https://www.flashscore.com/match/YkfgAv9b/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Botafogo RJ",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/6ezUMHh4/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Santos",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/nFe3yH7c/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Palmeiras",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/zySpJZiT/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Athletico-PR",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/0ID26d8N/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Gremio~Bahia",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/6JIGDDFj/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Atletico-MG",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/v9YyLeNG/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Remo~Chapecoense-SC",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/G82JXY6M/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Fluminense",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/CdsLOwOi/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Vasco~Internacional",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/pjkZ0zWp/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Bragantino",
+   "date": "18.11. 22:00",
+   "url": "https://www.flashscore.com/match/Kt9AZfxA/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Remo",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/Y5AK0Xz9/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Corinthians",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/M97XvjEk/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Bahia~Coritiba",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/v5xhrPKs/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Sao Paulo",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/86sbQjad/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Vasco",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/2PQ0pCjS/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Cruzeiro",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/0KQ0t3kf/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Mirassol",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/CvlkSCUq/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Internacional~Vitoria",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/fN5uwUr2/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Vitoria",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Flamengo RJ",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/faNhnYLF/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Santos~Gremio",
+   "date": "22.11. 22:00",
+   "url": "https://www.flashscore.com/match/YqZqlfi3/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Atletico-MG~Vasco",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/UDcjiK3C/#/match-summary/match-summary",
+   "home": "Atletico-MG",
+   "visitor": "Vasco",
+   "done": true
+  },
+  {
+   "name": "Botafogo RJ~Bahia",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/lfxHxLlJ/#/match-summary/match-summary",
+   "home": "Botafogo RJ",
+   "visitor": "Bahia",
+   "done": true
+  },
+  {
+   "name": "Chapecoense-SC~Palmeiras",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/OzJP5JI5/#/match-summary/match-summary",
+   "home": "Chapecoense-SC",
+   "visitor": "Palmeiras",
+   "done": true
+  },
+  {
+   "name": "Corinthians~Gremio",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/0Y5Zf24m/#/match-summary/match-summary",
+   "home": "Corinthians",
+   "visitor": "Gremio",
+   "done": true
+  },
+  {
+   "name": "Coritiba~Flamengo RJ",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/feR891Jt/#/match-summary/match-summary",
+   "home": "Coritiba",
+   "visitor": "Flamengo RJ",
+   "done": true
+  },
+  {
+   "name": "Fluminense~Cruzeiro",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/8pU8vsK6/#/match-summary/match-summary",
+   "home": "Fluminense",
+   "visitor": "Cruzeiro",
+   "done": true
+  },
+  {
+   "name": "Internacional~Bragantino",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/GUebkbYO/#/match-summary/match-summary",
+   "home": "Internacional",
+   "visitor": "Bragantino",
+   "done": true
+  },
+  {
+   "name": "Mirassol~Athletico-PR",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/8b9sgtZa/#/match-summary/match-summary",
+   "home": "Mirassol",
+   "visitor": "Athletico-PR",
+   "done": true
+  },
+  {
+   "name": "Sao Paulo~Remo",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/tlP20OtQ/#/match-summary/match-summary",
+   "home": "Sao Paulo",
+   "visitor": "Remo",
+   "done": true
+  },
+  {
+   "name": "Vitoria~Santos",
+   "date": "29.11. 22:00",
+   "url": "https://www.flashscore.com/match/S8PG7ulg/#/match-summary/match-summary",
+   "home": "Vitoria",
+   "visitor": "Santos",
+   "done": true
+  },
+  {
+   "name": "Athletico-PR~Sao Paulo",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/UBSNIQDi/#/match-summary/match-summary",
+   "home": "Athletico-PR",
+   "visitor": "Sao Paulo",
+   "done": true
+  },
+  {
+   "name": "Bahia~Atletico-MG",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/xxWVG4r4/#/match-summary/match-summary",
+   "home": "Bahia",
+   "visitor": "Atletico-MG",
+   "done": true
+  },
+  {
+   "name": "Bragantino~Fluminense",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/Ais7Id2B/#/match-summary/match-summary",
+   "home": "Bragantino",
+   "visitor": "Fluminense",
+   "done": true
+  },
+  {
+   "name": "Cruzeiro~Internacional",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/G4C7GzXN/#/match-summary/match-summary",
+   "home": "Cruzeiro",
+   "visitor": "Internacional",
+   "done": true
+  },
+  {
+   "name": "Flamengo RJ~Chapecoense-SC",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/UXLX3cmI/#/match-summary/match-summary",
+   "home": "Flamengo RJ",
+   "visitor": "Chapecoense-SC",
+   "done": true
+  },
+  {
+   "name": "Gremio~Mirassol",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/nm3wBEfo/#/match-summary/match-summary",
+   "home": "Gremio",
+   "visitor": "Mirassol",
+   "done": true
+  },
+  {
+   "name": "Palmeiras~Coritiba",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/xvqaKIXb/#/match-summary/match-summary",
+   "home": "Palmeiras",
+   "visitor": "Coritiba",
+   "done": true
+  },
+  {
+   "name": "Remo~Corinthians",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/WzPvFrDG/#/match-summary/match-summary",
+   "home": "Remo",
+   "visitor": "Corinthians",
+   "done": true
+  },
+  {
+   "name": "Santos~Botafogo RJ",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/tCkjMv3n/#/match-summary/match-summary",
+   "home": "Santos",
+   "visitor": "Botafogo RJ",
+   "done": true
+  },
+  {
+   "name": "Vasco~Vitoria",
+   "date": "02.12. 22:00",
+   "url": "https://www.flashscore.com/match/jmAt2yIU/#/match-summary/match-summary",
+   "home": "Vasco",
+   "visitor": "Vitoria",
+   "done": true
+  }
+ ],
+ "last_index": 199,
+ "status": "completed"
+}

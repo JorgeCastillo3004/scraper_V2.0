@@ -1,62 +1,92 @@
 {
-    "Brasilia": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e66b58b2-fc7f-4707-8acc-7b292530b963"
-    },
-    "Cruzeiro": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "3e5e6eaf-2fe1-4ba1-811e-12b70132221b"
-    },
-    "Flamengo": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "6aeb7fb0-fc60-4cd1-ab92-e184bab31e9a"
-    },
-    "Pinheiros": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "03953035-95d3-4a41-a9bc-a0b94f3b4bba"
-    },
-    "Caxias do Sul": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "f4a7677c-7202-4c5d-b02a-f5b3c0f9a7c4"
-    },
-    "Botafogo": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "da93c2b6-d527-4749-984d-eba2cdf0074b"
-    },
-    "Paulistano": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "cf466d06-2f0c-4af8-b3d8-6e945675b6f1"
-    },
-    "Minas": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "7fb2607e-0abf-4ee4-82e0-3c29ea5e11be"
-    },
-    "Osasco": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e4b473cf-278b-4215-8aa2-56dec8eb11b5"
-    },
-    "Rio Claro": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "eb056f2f-e834-48de-8e4c-e002abd5ea7d"
-    },
-    "Bauru": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "fe4bc154-1416-4c7f-95c8-de7ec9877e9d"
-    },
-    "Vasco": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "900db8ba-665e-4771-a451-7ccd34133fa9"
-    }
+  "Brasilia": {
+    "team_id": "bc1e1073-7f6d-4b2b-93b2-b1cd63878915",
+    "team_url": "https://www.flashscore.com/team/brasilia/23ofxpkB/",
+    "stadium_id": "417e947e-c506-482f-a529-4d2c4f579035"
+  },
+  "Cruzeiro": {
+    "team_id": "8f364174-d284-43e2-9c60-4af2325cd848",
+    "team_url": "https://www.flashscore.com/team/cruzeiro/EudxXhxQ/",
+    "stadium_id": "ee413886-b89b-4ba8-9cc9-512baa9c0e5b"
+  },
+  "Flamengo": {
+    "team_id": "bc7ecaf3-8088-45cf-bfb0-95cabe6f5737",
+    "team_url": "https://www.flashscore.com/team/flamengo/tKHUh5Zi/",
+    "stadium_id": "d8043d5a-c3fd-497f-93e9-1d3549bed3cb"
+  },
+  "Pinheiros": {
+    "team_id": "68188d58-6014-480c-b813-de4cd570c7ae",
+    "team_url": "https://www.flashscore.com/team/pinheiros/KfOswQZ4/",
+    "stadium_id": "34936aa3-2c82-405a-baa5-9707c8a3e6b0"
+  },
+  "Caxias do Sul": {
+    "team_id": "e377d2b1-df19-4e52-bebf-2e469de8f85c",
+    "team_url": "https://www.flashscore.com/team/caxias-do-sul/2Rx5IG9O/",
+    "stadium_id": "88006268-72b9-459a-9472-66c591aeabac"
+  },
+  "Botafogo": {
+    "team_id": "f34cf634-a12d-4589-b46d-eb73513d5bae",
+    "team_url": "https://www.flashscore.com/team/botafogo-rj/C02IOrql/",
+    "stadium_id": "6711d92c-df95-4258-abdd-8f3dd9279e30"
+  },
+  "Paulistano": {
+    "team_id": "ea8f9075-b7e6-45fc-a8e9-84b0ca2f7f2b",
+    "team_url": "https://www.flashscore.com/team/paulistano/rLZhOTth/",
+    "stadium_id": "cbb72b63-9b3a-4363-b857-b0a368878af6"
+  },
+  "Minas": {
+    "team_id": "cb714959-98a8-4d82-8b2d-981c5fba8e0e",
+    "team_url": "https://www.flashscore.com/team/minas/pSzay44H/",
+    "stadium_id": "9c7e0a99-a0c9-47da-81c1-8af1fc245b58"
+  },
+  "Osasco": {
+    "team_id": "97e71856-6a33-4b07-992f-b8dcf93fa2a8",
+    "team_url": "https://www.flashscore.com/team/osasco/dUXzF6rd/",
+    "stadium_id": "978ce45f-ba43-47f1-a3e4-f27df61bd7f9"
+  },
+  "Rio Claro": {
+    "team_id": "06978711-3167-47c7-9a38-20ff20283d22",
+    "team_url": "https://www.flashscore.com/team/rio-claro/px1tfUBj/",
+    "stadium_id": "cbf3904f-79cd-44f4-b1fe-2adc64efc93a"
+  },
+  "Bauru": {
+    "team_id": "c8c2e81d-7acf-4776-99de-172c8685dbd5",
+    "team_url": "https://www.flashscore.com/team/bauru/hQH5u8zt/",
+    "stadium_id": "9a01ac95-23be-4ea0-9811-bc641f42e9d9"
+  },
+  "Vasco": {
+    "team_id": "e2494dcd-ee6f-4fd1-9bea-a67bc1b9f239",
+    "team_url": "https://www.flashscore.com/team/vasco-da-gama/8fGWaGa5/",
+    "stadium_id": "425e8402-3dc4-47fe-822f-62cd893e4831"
+  },
+  "Pato": {
+    "team_id": "625dbb25-0418-4b7d-bdff-12e2885ad427",
+    "team_url": "https://www.flashscore.com/team/pato/0AWmyNU6/",
+    "stadium_id": "04788f97-7c86-4013-9661-3d951e597362"
+  },
+  "Corinthians Paulista": {
+    "team_id": "2e12793d-97fc-4ded-b214-bf80a7b07d35",
+    "team_url": "https://www.flashscore.com/team/corinthians-paulista/IVE5O0Oa/",
+    "stadium_id": "b2e67c25-ff26-499e-a2d3-b182fcc2c788"
+  },
+  "Unifacisa": {
+    "team_id": "976981b3-f285-4f26-85b2-70732dbb1cb2",
+    "team_url": "https://www.flashscore.com/team/unifacisa/fooizspD/",
+    "stadium_id": "2c32c5ae-527f-4300-a824-70db9283fb64"
+  },
+  "Franca": {
+    "team_id": "cf8bec11-df91-4b69-b909-a75db5184140",
+    "team_url": "https://www.flashscore.com/team/franca/CQOHx6Kb/",
+    "stadium_id": "c4f2df2b-ec23-4539-912b-4d03f72d6a3c"
+  },
+  "Cearense": {
+    "team_id": "a8cf59d7-86b4-41d0-a4b0-3460d80ce968",
+    "team_url": "https://www.flashscore.com/team/cearense/nercQR5s/",
+    "stadium_id": "550187bb-72f1-4bc7-8e4e-e5baad13007b"
+  },
+  "Sao Jose": {
+    "team_id": "8f107f3a-3eb4-4fa9-b50b-a2d4e2064bf1",
+    "team_url": "https://www.flashscore.com/team/sao-jose/jBz9vSkn/",
+    "stadium_id": "39ae0712-59bd-49f2-857f-4081de70652e"
+  }
 }

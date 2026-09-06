@@ -3,9 +3,13 @@
 
 # Servidor remoto
 SERVER_HOST = ''
-SERVER_USER = ''
+SERVER_USER = ''           # usuario SSH (p.ej. 'scraper')
+SERVER_PORT = 22
+# Autenticación por CLAVE (preferida). Ruta a la clave privada; si está vacía o
+# el archivo no existe, se usa SERVER_PASS (contraseña) como fallback.
+SERVER_KEY  = ''           # p.ej. 'ssh_key/jorge_scraper_key'
 SERVER_PASS = ''
-SERVER_PATH = '/root/scraper_v3'
+SERVER_PATH = '/home/scraper/scraper_v3'
 
 # Base de datos PostgreSQL
 DB_HOST     = ''

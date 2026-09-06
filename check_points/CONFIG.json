@@ -1,7 +1,31 @@
 {
-    "get_news_m1": true,
-    "sports_link": false,
-    "update_links": true,
-    "get_news": false,
-    "DATA_BASE": false
+  "get_news_m1": true,
+  "sports_link": false,
+  "update_links": true,
+  "get_news": false,
+  "DATA_BASE": false,
+  "FIX_TEAM_IDS": {
+    "ENABLED": true,
+    "AT_HOUR": "16:00",
+    "APPLY": true,
+    "EXCLUDE": []
+  },
+  "LIVE_MISSING_REPAIR": {
+    "ENABLED": false,
+    "EVERY_MINUTES": 60,
+    "APPLY": true
+  },
+  "EXTRACT_NEWS": {
+    "ENABLED": true,
+    "EVERY_HOURS": 24,
+    "SPORTS": [
+      "FOOTBALL",
+      "TENNIS",
+      "GOLF",
+      "BASKETBALL",
+      "AMERICAN_SPORTS",
+      "HOCKEY"
+    ],
+    "MAX_OLDER_DATE_ALLOWED": 31
+  }
 }

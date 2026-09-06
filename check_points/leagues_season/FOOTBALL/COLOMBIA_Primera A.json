@@ -1,117 +1,117 @@
 {
-    "Bucaramanga": {
-        "team_id": "bc84389a-9cbe-4e65-9eaf-50d0cf12c3c7",
-        "team_url": "",
-        "stadium_id": "c9cae740-2815-44f0-b6af-6827feb413e7"
-    },
-    "Ind. Medellin": {
-        "team_id": "b13720e9-aa8d-44ba-bd1f-c03a4036e393",
-        "team_url": "",
-        "stadium_id": "6e98bc73-ad84-4652-8a0b-4c6c49644261"
-    },
-    "Junior": {
-        "team_id": "eb8f3199-578b-4796-b6c5-281e74a46da7",
-        "team_url": "",
-        "stadium_id": "0e73787d-6b93-4fb8-b784-addb03eff858"
-    },
-    "Atl. Nacional": {
-        "team_id": "5b057a69-61c5-4183-ac3a-8b3dfcbb5c37",
-        "team_url": "",
-        "stadium_id": "6cf93134-5ea0-480b-9f3f-ca28ec36b4d9"
-    },
-    "Fortaleza": {
-        "team_id": "e21f50ef-c43a-4d29-9a2f-152b11e6457c",
-        "team_url": "",
-        "stadium_id": "600f401b-c1fa-4105-bc04-88559667f6d3"
-    },
-    "Deportes Tolima": {
-        "team_id": "9347225f-b534-4bc1-a07b-616931f7768d",
-        "team_url": "",
-        "stadium_id": "92115e62-0600-4f19-ae84-ead56f45ef23"
-    },
-    "Llaneros": {
-        "team_id": "d01a570b-ce36-441c-8606-334e25664551",
-        "team_url": "",
-        "stadium_id": "03f664b9-b2a5-48fe-a4c1-e869a0ac8844"
-    },
-    "Santa Fe": {
-        "team_id": "941d1744-dd5f-4bd8-8a16-5eb8008537e0",
-        "team_url": "",
-        "stadium_id": "a2980889-c6b0-4cf3-84fa-ebcdcf7bbe54"
-    },
-    "Aguilas": {
-        "team_id": "59d2400e-908c-4eea-84dc-9ee4b61e67d1",
-        "team_url": "",
-        "stadium_id": "48c365ce-2607-467d-99c5-b514b245a988"
-    },
-    "America De Cali": {
-        "team_id": "8c2e1706-e105-42db-87f9-c6c8c77bd63b",
-        "team_url": "",
-        "stadium_id": "a3f51c8a-797a-4d4c-900f-025a860bc6e6"
-    },
-    "Alianza": {
-        "team_id": "8c85f7ce-741b-4ed2-8519-0dd046fec3be",
-        "team_url": "",
-        "stadium_id": "c67fb3a7-a186-4f5c-ac2c-de0384e1c573"
-    },
-    "Dep. Cali": {
-        "team_id": "c7512d40-d678-4a83-8f80-c4bf62520700",
-        "team_url": "",
-        "stadium_id": "fa99d50a-a4b6-4d82-86a6-7161b90956a6"
-    },
-    "Once Caldas": {
-        "team_id": "20c60a22-4687-4535-98b9-fd5395582c65",
-        "team_url": "",
-        "stadium_id": "f53cea11-5101-41f3-be5c-c84d3c6bbcba"
-    },
-    "Pereira": {
-        "team_id": "0728b4d7-6a2b-4f3a-b0bf-f455b0a7d5dd",
-        "team_url": "",
-        "stadium_id": "3139ae4b-08cb-41bd-8c2b-1dee73b377b3"
-    },
-    "Millonarios": {
-        "team_id": "213b4cd9-5f59-4e33-9622-e9061980026c",
-        "team_url": "",
-        "stadium_id": "90be1691-38bb-4ab1-807f-018693f4a017"
-    },
-    "U. Magdalena": {
-        "team_id": "23b0e3fe-df36-4b93-bbd1-d0a9c573fb1b",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Envigado": {
-        "team_id": "320c3c97-0885-4a8c-8c50-791f56cf654c",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Dep. Pasto": {
-        "team_id": "907b6136-9aff-466e-bac7-a986665ab5fd",
-        "team_url": "",
-        "stadium_id": "fb0679de-2b6b-4334-beec-8c280a0809f6"
-    },
-    "Chico": {
-        "team_id": "acc7f1dd-cdd5-43f3-8719-09f1e2a4b760",
-        "team_url": "",
-        "stadium_id": "bc3f2ea4-55c7-443a-8b09-74ce8af20ab3"
-    },
-    "La Equidad": {
-        "team_id": "fd426029-f14d-4aa7-ac21-4c72f8fd4326",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Inter Bogot\u00e1": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "61222f5e-0197-42b1-aec5-168c9b3cc7c6"
-    },
-    "Cucuta": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "38bef743-9806-413d-896d-7a857229e82d"
-    },
-    "Jaguares de Cordoba": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "03b57c2e-c411-48e9-8294-6a6ef6ed4095"
-    }
+  "Bucaramanga": {
+    "team_id": "bc84389a-9cbe-4e65-9eaf-50d0cf12c3c7",
+    "team_url": "https://www.flashscore.com/team/bucaramanga/I1DMa0eR/",
+    "stadium_id": "c9cae740-2815-44f0-b6af-6827feb413e7"
+  },
+  "Ind. Medellin": {
+    "team_id": "b13720e9-aa8d-44ba-bd1f-c03a4036e393",
+    "team_url": "https://www.flashscore.com/team/ind-medellin/p2ADRKlk/",
+    "stadium_id": "6e98bc73-ad84-4652-8a0b-4c6c49644261"
+  },
+  "Junior": {
+    "team_id": "eb8f3199-578b-4796-b6c5-281e74a46da7",
+    "team_url": "https://www.flashscore.com/team/junior/ptqMix37/",
+    "stadium_id": "0e73787d-6b93-4fb8-b784-addb03eff858"
+  },
+  "Atl. Nacional": {
+    "team_id": "5b057a69-61c5-4183-ac3a-8b3dfcbb5c37",
+    "team_url": "https://www.flashscore.com/team/atl-nacional/C23omttL/",
+    "stadium_id": "6cf93134-5ea0-480b-9f3f-ca28ec36b4d9"
+  },
+  "Fortaleza": {
+    "team_id": "e21f50ef-c43a-4d29-9a2f-152b11e6457c",
+    "team_url": "https://www.flashscore.com/team/fortaleza-c-e-i-f/8YJQcU38/",
+    "stadium_id": "600f401b-c1fa-4105-bc04-88559667f6d3"
+  },
+  "Deportes Tolima": {
+    "team_id": "9347225f-b534-4bc1-a07b-616931f7768d",
+    "team_url": "https://www.flashscore.com/team/deportes-tolima/bLphhbYf/",
+    "stadium_id": "92115e62-0600-4f19-ae84-ead56f45ef23"
+  },
+  "Llaneros": {
+    "team_id": "d01a570b-ce36-441c-8606-334e25664551",
+    "team_url": "https://www.flashscore.com/team/llaneros/KzwFLhIU/",
+    "stadium_id": "03f664b9-b2a5-48fe-a4c1-e869a0ac8844"
+  },
+  "Santa Fe": {
+    "team_id": "941d1744-dd5f-4bd8-8a16-5eb8008537e0",
+    "team_url": "https://www.flashscore.com/team/santa-fe/6HbMPbJ1/",
+    "stadium_id": "a2980889-c6b0-4cf3-84fa-ebcdcf7bbe54"
+  },
+  "Aguilas": {
+    "team_id": "59d2400e-908c-4eea-84dc-9ee4b61e67d1",
+    "team_url": "https://www.flashscore.com/team/aguilas-doradas/Ma0BXUXe/",
+    "stadium_id": "48c365ce-2607-467d-99c5-b514b245a988"
+  },
+  "America De Cali": {
+    "team_id": "8c2e1706-e105-42db-87f9-c6c8c77bd63b",
+    "team_url": "https://www.flashscore.com/team/america-de-cali/Oh9HQv4e/",
+    "stadium_id": "a3f51c8a-797a-4d4c-900f-025a860bc6e6"
+  },
+  "Alianza": {
+    "team_id": "8c85f7ce-741b-4ed2-8519-0dd046fec3be",
+    "team_url": "https://www.flashscore.com/team/alianza/GfFNymsk/",
+    "stadium_id": "c67fb3a7-a186-4f5c-ac2c-de0384e1c573"
+  },
+  "Dep. Cali": {
+    "team_id": "c7512d40-d678-4a83-8f80-c4bf62520700",
+    "team_url": "https://www.flashscore.com/team/dep-cali/GWDKnMQE/",
+    "stadium_id": "fa99d50a-a4b6-4d82-86a6-7161b90956a6"
+  },
+  "Once Caldas": {
+    "team_id": "20c60a22-4687-4535-98b9-fd5395582c65",
+    "team_url": "https://www.flashscore.com/team/once-caldas/bVsnDlMD/",
+    "stadium_id": "f53cea11-5101-41f3-be5c-c84d3c6bbcba"
+  },
+  "Pereira": {
+    "team_id": "0728b4d7-6a2b-4f3a-b0bf-f455b0a7d5dd",
+    "team_url": "https://www.flashscore.com/team/dep-pereira/CYojC8yK/",
+    "stadium_id": "3139ae4b-08cb-41bd-8c2b-1dee73b377b3"
+  },
+  "Millonarios": {
+    "team_id": "213b4cd9-5f59-4e33-9622-e9061980026c",
+    "team_url": "https://www.flashscore.com/team/millonarios/OWsQjdID/",
+    "stadium_id": "90be1691-38bb-4ab1-807f-018693f4a017"
+  },
+  "U. Magdalena": {
+    "team_id": "23b0e3fe-df36-4b93-bbd1-d0a9c573fb1b",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Envigado": {
+    "team_id": "320c3c97-0885-4a8c-8c50-791f56cf654c",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Dep. Pasto": {
+    "team_id": "907b6136-9aff-466e-bac7-a986665ab5fd",
+    "team_url": "https://www.flashscore.com/team/dep-pasto/GdemgvJl/",
+    "stadium_id": "fb0679de-2b6b-4334-beec-8c280a0809f6"
+  },
+  "Chico": {
+    "team_id": "acc7f1dd-cdd5-43f3-8719-09f1e2a4b760",
+    "team_url": "https://www.flashscore.com/team/chico/ULWUFrRR/",
+    "stadium_id": "bc3f2ea4-55c7-443a-8b09-74ce8af20ab3"
+  },
+  "La Equidad": {
+    "team_id": "fd426029-f14d-4aa7-ac21-4c72f8fd4326",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Inter Bogot\u00e1": {
+    "team_id": "1740a49b-0bfb-454c-879e-3c942667b44f",
+    "team_url": "https://www.flashscore.com/team/inter-bogota/KK2QOIY7/",
+    "stadium_id": "66656dfe-7627-467b-a253-54f53ba18f32"
+  },
+  "Cucuta": {
+    "team_id": "cdf3c3e1-5da5-4093-aff2-30de117a2ef8",
+    "team_url": "https://www.flashscore.com/team/cucuta/zs0leK3r/",
+    "stadium_id": "5e91df29-6df3-413d-acb7-c33be434f198"
+  },
+  "Jaguares de Cordoba": {
+    "team_id": "f26b184c-2132-458b-9fc5-8ab6c045e133",
+    "team_url": "https://www.flashscore.com/team/jaguares-de-cordoba/hCwaFc4a/",
+    "stadium_id": "9d5b72c6-c089-4e1f-9b89-5917224f4126"
+  }
 }

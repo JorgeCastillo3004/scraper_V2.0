@@ -8,6 +8,7 @@ psycopg2-binary
 # Terminal UI
 rich
 flet
+IPython          # milestone7/milestone8: clear_output (live scraper)
 
 # Utilities
 pycountry

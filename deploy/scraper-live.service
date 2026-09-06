@@ -1,0 +1,17 @@
+[Unit]
+Description=Scraper LIVE (FlashScore) - live_v2 standalone headless
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/scraper/live_v2
+ExecStart=/home/scraper/live_v2/run_live.sh
+Restart=always
+RestartSec=15
+# Deja el log donde ya estaba, para no perder continuidad
+StandardOutput=append:/home/scraper/live_v2/logs/live_persist.log
+StandardError=append:/home/scraper/live_v2/logs/live_persist.log
+
+[Install]
+WantedBy=default.target

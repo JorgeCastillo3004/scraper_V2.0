@@ -1,457 +1,567 @@
 {
-    "Germany": {
-        "team_id": "5abe32b9-d273-4888-9847-1dc8f21f6410",
-        "team_url": "",
-        "stadium_id": "da348779-c68c-4a2b-9ce5-a3954116f10a"
-    },
-    "Slovakia": {
-        "team_id": "214c1327-104b-49ce-b505-c0511bfcb6cd",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Northern Ireland": {
-        "team_id": "d6175e69-54b2-47d8-8837-6b0ee81bdbbc",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Luxembourg": {
-        "team_id": "ef9e814b-a576-46cb-8ce4-e3736e9236e9",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Switzerland": {
-        "team_id": "7ddb4e77-190a-477e-8fb0-2f286865ba39",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Kosovo": {
-        "team_id": "4d129933-5694-4787-b24c-cd41f966eed9",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Slovenia": {
-        "team_id": "63ce4b9c-8897-4876-b00a-45525e3e46e1",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Sweden": {
-        "team_id": "7edf52a7-067f-461f-a039-a0f619adff23",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Denmark": {
-        "team_id": "8c168da6-13b3-49b1-ad7b-6d05461c03d7",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Scotland": {
-        "team_id": "d8a6828b-1d36-4894-b87c-2d79ce2001d4",
-        "team_url": "",
-        "stadium_id": "259f3401-c39c-475b-8903-82b95efc2035"
-    },
-    "Greece": {
-        "team_id": "b9042822-f360-434a-bdbd-27680f1ff811",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Belarus": {
-        "team_id": "f58d91bc-3b33-46c7-a41d-dbfe4cb8ab16",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "France": {
-        "team_id": "35d5d2d0-582a-44c3-bf3e-0950e68efded",
-        "team_url": "",
-        "stadium_id": "b9c385c7-49e7-4c79-a1a0-24d2ad90c298"
-    },
-    "Ukraine": {
-        "team_id": "90527222-e4f0-4843-bd08-30cbde4eba31",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Iceland": {
-        "team_id": "19cf842f-3715-4bd5-8dae-053d9ad96c42",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Azerbaijan": {
-        "team_id": "f5f7fb68-e6d0-4ff7-b28e-7a6917e2a18c",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Spain": {
-        "team_id": "c4ea4ce6-74db-426f-bd9c-b8de76a97e32",
-        "team_url": "",
-        "stadium_id": "5942e2c4-7034-45f6-bb04-3fbca9b4d4a3"
-    },
-    "Turkey": {
-        "team_id": "3994d2b7-d1ac-408b-a665-e5383879ac8d",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Georgia": {
-        "team_id": "622ed75e-65e0-4ec5-b32f-1076274ed6b2",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Bulgaria": {
-        "team_id": "cacc8599-1d8c-4266-87e8-c225d79815e4",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Portugal": {
-        "team_id": "fdea94b2-38fc-41fa-8a8a-590f6210cdbb",
-        "team_url": "",
-        "stadium_id": "e2f5ab2e-ec14-403f-90e3-a1cfde64264f"
-    },
-    "Hungary": {
-        "team_id": "d9409518-8a1f-4784-b0b7-43e4c7ea4c55",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Ireland": {
-        "team_id": "dec2d71f-08cb-42d1-be51-15f78825949b",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Armenia": {
-        "team_id": "e773e09f-4471-4cb3-af9d-3fe4080e679e",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Netherlands": {
-        "team_id": "2c25e80c-43e9-447d-9221-939135fab2dc",
-        "team_url": "",
-        "stadium_id": "07e6f646-fd1b-4812-8edf-6620375bd577"
-    },
-    "Poland": {
-        "team_id": "435e8fd7-c8ae-4533-ae0c-872cd1ea393e",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Finland": {
-        "team_id": "b1d92045-830e-48e0-8266-0dfaf7911cf1",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Lithuania": {
-        "team_id": "481d686c-231e-4b5e-8b77-bc29002c9b9e",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Malta": {
-        "team_id": "4e9470d2-56a1-45f9-aa17-02a766a076d7",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Austria": {
-        "team_id": "9044d48f-f04b-4dec-a1bf-edeaeacf44b2",
-        "team_url": "",
-        "stadium_id": "ba9bda8d-fae1-4037-b9e0-9f34a4aa513e"
-    },
-    "Bosnia & Herzegovina": {
-        "team_id": "7ab24f90-3590-4b43-bc91-53068478a33a",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Romania": {
-        "team_id": "870d11be-7655-483c-a743-357b2d36e51b",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Cyprus": {
-        "team_id": "243e2bd3-67aa-4276-ba02-9e7aa162ba4b",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "San Marino": {
-        "team_id": "36ef9cd0-f311-46e4-aea7-1da706454613",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Norway": {
-        "team_id": "6121c447-aeef-4b3c-95a2-a6ce56f84f96",
-        "team_url": "",
-        "stadium_id": "7dfe49e9-6834-4f27-9af0-05b446152a6b"
-    },
-    "Italy": {
-        "team_id": "a7c05606-39fd-42a9-8ce7-08dc00648644",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Israel": {
-        "team_id": "902d5fcd-2282-46c9-b92d-eb739d19dd52",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Estonia": {
-        "team_id": "803f64b8-bdd5-4dd9-bd9f-a01791f44ef4",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Moldova": {
-        "team_id": "fd5728e9-bd0e-4681-918b-3b26e8114497",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Belgium": {
-        "team_id": "cb889ccc-e124-4567-8ce5-60ded5225a2d",
-        "team_url": "",
-        "stadium_id": "009e7c96-63f9-4689-8e81-5e723f03489c"
-    },
-    "North Macedonia": {
-        "team_id": "9dd38278-16c6-4bdb-af8b-643d46dfa8cb",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Wales": {
-        "team_id": "f61f6ad2-701f-4f6d-b1c6-5bb10df92015",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Kazakhstan": {
-        "team_id": "f4b8cc41-ebeb-4ec4-8ad1-01fef9fc3688",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Liechtenstein": {
-        "team_id": "41d64946-5305-48d4-b244-6f62c9c15bcf",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "England": {
-        "team_id": "2ab005f8-f718-42e9-afc4-cc7c5f84ce71",
-        "team_url": "",
-        "stadium_id": "1c547012-3d6a-4d11-a213-a2f3716b11c5"
-    },
-    "Albania": {
-        "team_id": "32671774-a0ce-4f55-a445-eecd15daee98",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Serbia": {
-        "team_id": "42a392a4-a794-4aed-99e9-a94b65d7c078",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Latvia": {
-        "team_id": "8981ed49-085d-4147-9f68-b38dffb51ef8",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Andorra": {
-        "team_id": "bc349492-37eb-46a2-bdd1-c2ec87de919f",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Croatia": {
-        "team_id": "319502ab-4170-402e-8d2b-3bed771b84ef",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Czech Republic": {
-        "team_id": "1f3d83d8-41b2-4483-bd14-a7271a78ac42",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Faroe Islands": {
-        "team_id": "a987ac3c-ec59-4560-a6f0-3134da99b675",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Montenegro": {
-        "team_id": "25b957fe-cf23-43ba-bb72-f131a234d7bc",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Gibraltar": {
-        "team_id": "ff15aed3-c251-4f1a-a831-6a54c2ce6259",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Iraq": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "6279994f-df86-4129-9c5b-0dce23781970"
-    },
-    "United Arab Emirates": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "da87d96e-1b93-4acd-b1a2-0978842d45e9"
-    },
-    "Indonesia": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "22f303cd-e039-4442-a28f-2e017849e3ec"
-    },
-    "Oman": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "ea15eba5-7861-4434-8012-d8dea0f09474"
-    },
-    "Jordan": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "4305866a-5aa6-4991-b12e-830071ff5938"
-    },
-    "Palestine": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "50f86cef-f4e9-4191-be5a-1e4ccc6db259"
-    },
-    "Saudi Arabia": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "8f167a7a-5df2-4d55-8cb6-a54098e5a56d"
-    },
-    "Iran": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "a2592d1f-3e36-4b85-9033-b1b33030502b"
-    },
-    "Kyrgyzstan": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "a6d80ad3-ec73-4c73-bbee-1bcd006b19ba"
-    },
-    "Uzbekistan": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "d00bbba4-9bbb-40d8-beb4-67a2b8c2fe6c"
-    },
-    "China": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "d8ffe78e-3d2f-4983-99b2-7f5a93c061df"
-    },
-    "South Korea": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "b9fbaf5c-0572-47d1-ae00-c66cdaac1242"
-    },
-    "Japan": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "22ca019d-c4cc-4ca6-bbb2-5a88f250af76"
-    },
-    "Qatar": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "cefcbf5b-4268-4d80-8a05-7e7443457abd"
-    },
-    "Australia": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "b4a8a4d5-e87d-4055-a8cc-d9dbe2983a6a"
-    },
-    "Kuwait": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "eaa206ca-1e9a-4d90-9134-7cb5c3490588"
-    },
-    "Bahrain": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "1b9d521a-e238-4861-9deb-af723a49f6c2"
-    },
-    "North Korea": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "ec7e0c7b-4133-41e7-929a-553b83d326ef"
-    },
-    "Yemen": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "0bdec38c-1b7b-4a9d-b5d7-da7d317382fd"
-    },
-    "Lebanon": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "8009b67c-2776-4d25-ad29-e2d7b181a973"
-    },
-    "Tajikistan": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "ad716d7c-028e-4a23-bcb4-80a4ca32f74a"
-    },
-    "Turkmenistan": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e4111048-4c00-43e2-ba57-a2324374df48"
-    },
-    "Malaysia": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "f49ff61d-c354-4607-a287-87a6c2f41c1b"
-    },
-    "Thailand": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "cb181637-1b8b-452e-86d3-960dfb654b6c"
-    },
-    "Mexico": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "d8fdac51-6ee3-4e6d-a68a-bf839e39d18c"
-    },
-    "USA": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "1cb24a64-0e79-44a0-b237-9a012a6f1814"
-    },
-    "Brazil": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "f0476946-bbbb-4f59-a998-a284f3a63a92"
-    },
-    "Haiti": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "a359b356-32e4-4f86-bd8e-301f0d0c5e77"
-    },
-    "Ivory Coast": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "233b57c8-7ef0-4bf6-82e4-1f3ea0bc8722"
-    },
-    "Argentina": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "93643c5e-26b8-4497-bf6a-7616b4b229a0"
-    },
-    "Ghana": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "158dda04-658d-4534-baca-25e82a0bd2a1"
-    },
-    "Canada": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "a6e17224-51da-4b28-8ab2-1a34a1f2b70c"
-    },
-    "Ecuador": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "efef2827-dbe1-463e-8cce-5b27a4ad7d53"
-    },
-    "Tunisia": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "5d076550-820e-469b-a1c6-7782d635eb01"
-    },
-    "Uruguay": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "3d385dfe-62ad-4005-ae6d-127abd579b82"
-    },
-    "New Zealand": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "8d4705a2-414e-49f9-8a60-29b8bae5910c"
-    },
-    "Panama": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "e8796f62-6ae1-449e-9512-bbada33531f8"
-    }
+  "Germany": {
+    "team_id": "5abe32b9-d273-4888-9847-1dc8f21f6410",
+    "team_url": "https://www.flashscore.com/team/germany/ptQide1O/",
+    "stadium_id": "da348779-c68c-4a2b-9ce5-a3954116f10a"
+  },
+  "Slovakia": {
+    "team_id": "214c1327-104b-49ce-b505-c0511bfcb6cd",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Northern Ireland": {
+    "team_id": "d6175e69-54b2-47d8-8837-6b0ee81bdbbc",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Luxembourg": {
+    "team_id": "ef9e814b-a576-46cb-8ce4-e3736e9236e9",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Switzerland": {
+    "team_id": "7ddb4e77-190a-477e-8fb0-2f286865ba39",
+    "team_url": "https://www.flashscore.com/team/switzerland/rHJ2vy1B/",
+    "stadium_id": ""
+  },
+  "Kosovo": {
+    "team_id": "4d129933-5694-4787-b24c-cd41f966eed9",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Slovenia": {
+    "team_id": "63ce4b9c-8897-4876-b00a-45525e3e46e1",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Sweden": {
+    "team_id": "7edf52a7-067f-461f-a039-a0f619adff23",
+    "team_url": "https://www.flashscore.com/team/sweden/OQyqbHWB/",
+    "stadium_id": ""
+  },
+  "Denmark": {
+    "team_id": "8c168da6-13b3-49b1-ad7b-6d05461c03d7",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Scotland": {
+    "team_id": "d8a6828b-1d36-4894-b87c-2d79ce2001d4",
+    "team_url": "https://www.flashscore.com/team/scotland/fZRU25WH/",
+    "stadium_id": "259f3401-c39c-475b-8903-82b95efc2035"
+  },
+  "Greece": {
+    "team_id": "b9042822-f360-434a-bdbd-27680f1ff811",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Belarus": {
+    "team_id": "f58d91bc-3b33-46c7-a41d-dbfe4cb8ab16",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "France": {
+    "team_id": "35d5d2d0-582a-44c3-bf3e-0950e68efded",
+    "team_url": "https://www.flashscore.com/team/france/QkGeVG1n/",
+    "stadium_id": "b9c385c7-49e7-4c79-a1a0-24d2ad90c298"
+  },
+  "Ukraine": {
+    "team_id": "90527222-e4f0-4843-bd08-30cbde4eba31",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Iceland": {
+    "team_id": "19cf842f-3715-4bd5-8dae-053d9ad96c42",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Azerbaijan": {
+    "team_id": "f5f7fb68-e6d0-4ff7-b28e-7a6917e2a18c",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Spain": {
+    "team_id": "c4ea4ce6-74db-426f-bd9c-b8de76a97e32",
+    "team_url": "https://www.flashscore.com/team/spain/bLyo6mco/",
+    "stadium_id": "5942e2c4-7034-45f6-bb04-3fbca9b4d4a3"
+  },
+  "Turkey": {
+    "team_id": "3994d2b7-d1ac-408b-a665-e5383879ac8d",
+    "team_url": "https://www.flashscore.com/team/turkey/QeijuHo5/",
+    "stadium_id": ""
+  },
+  "Georgia": {
+    "team_id": "622ed75e-65e0-4ec5-b32f-1076274ed6b2",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Bulgaria": {
+    "team_id": "cacc8599-1d8c-4266-87e8-c225d79815e4",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Portugal": {
+    "team_id": "fdea94b2-38fc-41fa-8a8a-590f6210cdbb",
+    "team_url": "https://www.flashscore.com/team/portugal/WvJrjFVN/",
+    "stadium_id": "e2f5ab2e-ec14-403f-90e3-a1cfde64264f"
+  },
+  "Hungary": {
+    "team_id": "d9409518-8a1f-4784-b0b7-43e4c7ea4c55",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Ireland": {
+    "team_id": "dec2d71f-08cb-42d1-be51-15f78825949b",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Armenia": {
+    "team_id": "e773e09f-4471-4cb3-af9d-3fe4080e679e",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Netherlands": {
+    "team_id": "2c25e80c-43e9-447d-9221-939135fab2dc",
+    "team_url": "https://www.flashscore.com/team/netherlands/WYintcWb/",
+    "stadium_id": "07e6f646-fd1b-4812-8edf-6620375bd577"
+  },
+  "Poland": {
+    "team_id": "435e8fd7-c8ae-4533-ae0c-872cd1ea393e",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Finland": {
+    "team_id": "b1d92045-830e-48e0-8266-0dfaf7911cf1",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Lithuania": {
+    "team_id": "481d686c-231e-4b5e-8b77-bc29002c9b9e",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Malta": {
+    "team_id": "4e9470d2-56a1-45f9-aa17-02a766a076d7",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Austria": {
+    "team_id": "9044d48f-f04b-4dec-a1bf-edeaeacf44b2",
+    "team_url": "https://www.flashscore.com/team/austria/naHiWdnt/",
+    "stadium_id": "ba9bda8d-fae1-4037-b9e0-9f34a4aa513e"
+  },
+  "Bosnia & Herzegovina": {
+    "team_id": "7ab24f90-3590-4b43-bc91-53068478a33a",
+    "team_url": "https://www.flashscore.com/team/bosnia-herzegovina/fqe7WYTr/",
+    "stadium_id": ""
+  },
+  "Romania": {
+    "team_id": "870d11be-7655-483c-a743-357b2d36e51b",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Cyprus": {
+    "team_id": "243e2bd3-67aa-4276-ba02-9e7aa162ba4b",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "San Marino": {
+    "team_id": "36ef9cd0-f311-46e4-aea7-1da706454613",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Norway": {
+    "team_id": "6121c447-aeef-4b3c-95a2-a6ce56f84f96",
+    "team_url": "https://www.flashscore.com/team/norway/8rP6JO0H/",
+    "stadium_id": "7dfe49e9-6834-4f27-9af0-05b446152a6b"
+  },
+  "Italy": {
+    "team_id": "a7c05606-39fd-42a9-8ce7-08dc00648644",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Israel": {
+    "team_id": "902d5fcd-2282-46c9-b92d-eb739d19dd52",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Estonia": {
+    "team_id": "803f64b8-bdd5-4dd9-bd9f-a01791f44ef4",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Moldova": {
+    "team_id": "fd5728e9-bd0e-4681-918b-3b26e8114497",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Belgium": {
+    "team_id": "cb889ccc-e124-4567-8ce5-60ded5225a2d",
+    "team_url": "https://www.flashscore.com/team/belgium/GbB957na/",
+    "stadium_id": "009e7c96-63f9-4689-8e81-5e723f03489c"
+  },
+  "North Macedonia": {
+    "team_id": "9dd38278-16c6-4bdb-af8b-643d46dfa8cb",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Wales": {
+    "team_id": "f61f6ad2-701f-4f6d-b1c6-5bb10df92015",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Kazakhstan": {
+    "team_id": "f4b8cc41-ebeb-4ec4-8ad1-01fef9fc3688",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Liechtenstein": {
+    "team_id": "41d64946-5305-48d4-b244-6f62c9c15bcf",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "England": {
+    "team_id": "2ab005f8-f718-42e9-afc4-cc7c5f84ce71",
+    "team_url": "https://www.flashscore.com/team/england/j9N9ZNFA/",
+    "stadium_id": "1c547012-3d6a-4d11-a213-a2f3716b11c5"
+  },
+  "Albania": {
+    "team_id": "32671774-a0ce-4f55-a445-eecd15daee98",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Serbia": {
+    "team_id": "42a392a4-a794-4aed-99e9-a94b65d7c078",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Latvia": {
+    "team_id": "8981ed49-085d-4147-9f68-b38dffb51ef8",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Andorra": {
+    "team_id": "bc349492-37eb-46a2-bdd1-c2ec87de919f",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Croatia": {
+    "team_id": "319502ab-4170-402e-8d2b-3bed771b84ef",
+    "team_url": "https://www.flashscore.com/team/croatia/K8aznggo/",
+    "stadium_id": ""
+  },
+  "Czech Republic": {
+    "team_id": "1f3d83d8-41b2-4483-bd14-a7271a78ac42",
+    "team_url": "https://www.flashscore.com/team/czech-republic/6LHwBDGU/",
+    "stadium_id": ""
+  },
+  "Faroe Islands": {
+    "team_id": "a987ac3c-ec59-4560-a6f0-3134da99b675",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Montenegro": {
+    "team_id": "25b957fe-cf23-43ba-bb72-f131a234d7bc",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Gibraltar": {
+    "team_id": "ff15aed3-c251-4f1a-a831-6a54c2ce6259",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Iraq": {
+    "team_id": "9bc4192c-b405-46cf-ba6f-1ded5ddaa218",
+    "team_url": "https://www.flashscore.com/team/iraq/K8aAGt6r/",
+    "stadium_id": ""
+  },
+  "United Arab Emirates": {
+    "team_id": "b5f36b5c-fe3d-4446-9207-913711a40aa6",
+    "team_url": "https://www.flashscore.com/team/united-arab-emirates/Knrj3QiN/",
+    "stadium_id": ""
+  },
+  "Indonesia": {
+    "team_id": "4fe94a98-969e-4d68-97a6-63894e0f529a",
+    "team_url": "https://www.flashscore.com/team/indonesia/88ErHiT9/",
+    "stadium_id": ""
+  },
+  "Oman": {
+    "team_id": "1727588f-69d5-4b85-87b9-664e5433fe19",
+    "team_url": "https://www.flashscore.com/team/oman/EDZck0CK/",
+    "stadium_id": ""
+  },
+  "Jordan": {
+    "team_id": "2c1ab9de-048e-486b-a2f0-888c1cbb0fe2",
+    "team_url": "https://www.flashscore.com/team/jordan/vNcmJoU2/",
+    "stadium_id": ""
+  },
+  "Palestine": {
+    "team_id": "eb0b8d05-385f-48b9-99dd-6410462ee26f",
+    "team_url": "https://www.flashscore.com/team/palestine/raIKZdDJ/",
+    "stadium_id": ""
+  },
+  "Saudi Arabia": {
+    "team_id": "54a00f0a-fb8a-46e2-a771-5356d73a6757",
+    "team_url": "https://www.flashscore.com/team/saudi-arabia/biSY8ox4/",
+    "stadium_id": ""
+  },
+  "Iran": {
+    "team_id": "bb0d44e1-079a-484f-a2fb-2e3d5863809c",
+    "team_url": "https://www.flashscore.com/team/iran/xrRx85iA/",
+    "stadium_id": ""
+  },
+  "Kyrgyzstan": {
+    "team_id": "31026618-1bdc-4e08-b0c4-e7996a3249b6",
+    "team_url": "https://www.flashscore.com/team/kyrgyzstan/pMXTD85a/",
+    "stadium_id": ""
+  },
+  "Uzbekistan": {
+    "team_id": "64d18960-5694-497a-b034-b2574857e76d",
+    "team_url": "https://www.flashscore.com/team/uzbekistan/EZYKKRMc/",
+    "stadium_id": ""
+  },
+  "China": {
+    "team_id": "e8beadcd-9d40-40f9-9cf8-2259ee7165b0",
+    "team_url": "https://www.flashscore.com/team/china/f5AvIXD3/",
+    "stadium_id": ""
+  },
+  "South Korea": {
+    "team_id": "9b8e5961-b5d0-43ea-8f6c-53d93be01f03",
+    "team_url": "https://www.flashscore.com/team/south-korea/K6Gs7P6G/",
+    "stadium_id": ""
+  },
+  "Japan": {
+    "team_id": "90b68911-908b-429e-8e1d-e3f39cff3efd",
+    "team_url": "https://www.flashscore.com/team/japan/ULXPdOUj/",
+    "stadium_id": ""
+  },
+  "Qatar": {
+    "team_id": "8e686675-e34a-4561-aaa7-4903351cdc5a",
+    "team_url": "https://www.flashscore.com/team/qatar/zqzHL77i/",
+    "stadium_id": ""
+  },
+  "Australia": {
+    "team_id": "fb993e15-4f0c-41c5-acc6-bdad51bbb32f",
+    "team_url": "https://www.flashscore.com/team/australia/xSrf6qMM/",
+    "stadium_id": ""
+  },
+  "Kuwait": {
+    "team_id": "65d77860-4004-4dde-8ae7-3611ebd8c385",
+    "team_url": "https://www.flashscore.com/team/kuwait/UTDwCIKD/",
+    "stadium_id": ""
+  },
+  "Bahrain": {
+    "team_id": "b4a06a69-27f9-4339-b65d-52dff1f47edf",
+    "team_url": "https://www.flashscore.com/team/bahrain/GITLc4Fp/",
+    "stadium_id": ""
+  },
+  "North Korea": {
+    "team_id": "47273dfb-1dcf-4702-a1cb-3cd90910fc83",
+    "team_url": "https://www.flashscore.com/team/north-korea/bwsf2p7T/",
+    "stadium_id": ""
+  },
+  "Yemen": {
+    "team_id": "36e294ad-af49-4b0a-84f4-cc21ca00f9e7",
+    "team_url": "https://www.flashscore.com/team/yemen/GGzYeY4n/",
+    "stadium_id": ""
+  },
+  "Lebanon": {
+    "team_id": "ba7c01d7-b31c-4291-bd85-ed5b745b4f4d",
+    "team_url": "https://www.flashscore.com/team/lebanon/jHmbM6XM/",
+    "stadium_id": ""
+  },
+  "Tajikistan": {
+    "team_id": "07c7fd1a-8b92-460c-88fa-81dbf88f8d53",
+    "team_url": "https://www.flashscore.com/team/tajikistan/WlExKTT4/",
+    "stadium_id": ""
+  },
+  "Turkmenistan": {
+    "team_id": "e5d345c0-07d5-489f-90bb-dabdc874c6a4",
+    "team_url": "https://www.flashscore.com/team/turkmenistan/SUftDSK5/",
+    "stadium_id": ""
+  },
+  "Malaysia": {
+    "team_id": "81bd83f8-bfbd-4091-a0fb-9d8393075f6d",
+    "team_url": "https://www.flashscore.com/team/malaysia/rDaObqDr/",
+    "stadium_id": ""
+  },
+  "Thailand": {
+    "team_id": "ad877420-fd4f-47e1-a61a-e58d9c002c78",
+    "team_url": "https://www.flashscore.com/team/thailand/zHgBrkd7/",
+    "stadium_id": ""
+  },
+  "Mexico": {
+    "team_id": "eed37608-e690-4009-8e74-84a5fb488e30",
+    "team_url": "https://www.flashscore.com/team/mexico/O6iHcNkd/",
+    "stadium_id": ""
+  },
+  "USA": {
+    "team_id": "c7b17df1-2982-4dd3-ac16-1ec19db4b688",
+    "team_url": "https://www.flashscore.com/team/usa/fuitL4CF/",
+    "stadium_id": ""
+  },
+  "Brazil": {
+    "team_id": "c0d78213-41c5-4c74-a1eb-d75bbd39a3ca",
+    "team_url": "https://www.flashscore.com/team/brazil/I9l9aqLq/",
+    "stadium_id": ""
+  },
+  "Haiti": {
+    "team_id": "0926f11d-64de-43ca-ad17-8c0f1039de94",
+    "team_url": "https://www.flashscore.com/team/haiti/nk4v10Z1/",
+    "stadium_id": ""
+  },
+  "Ivory Coast": {
+    "team_id": "19a85b57-153d-46ec-b19c-1257c7e64ccc",
+    "team_url": "https://www.flashscore.com/team/ivory-coast/G2FRjBgn/",
+    "stadium_id": ""
+  },
+  "Argentina": {
+    "team_id": "dabd1808-fc2e-4085-8592-5db5ffd5b06d",
+    "team_url": "https://www.flashscore.com/team/argentina/f9OppQjp/",
+    "stadium_id": ""
+  },
+  "Ghana": {
+    "team_id": "4fbda118-f1d8-48ea-a64f-124eaa3fea4a",
+    "team_url": "https://www.flashscore.com/team/ghana/nNBjHale/",
+    "stadium_id": ""
+  },
+  "Canada": {
+    "team_id": "f1433666-2f48-4f66-b816-d9a20e8299b7",
+    "team_url": "https://www.flashscore.com/team/canada/x4toKORL/",
+    "stadium_id": ""
+  },
+  "Ecuador": {
+    "team_id": "6ba2550d-7bfa-4f69-8888-343acc16b053",
+    "team_url": "https://www.flashscore.com/team/ecuador/8tbm8Tri/",
+    "stadium_id": ""
+  },
+  "Tunisia": {
+    "team_id": "45869eea-3331-4e26-b7fd-40901bcb2b62",
+    "team_url": "https://www.flashscore.com/team/tunisia/QqZVYk95/",
+    "stadium_id": ""
+  },
+  "Uruguay": {
+    "team_id": "a824f24f-e63f-4fc6-8a68-53b689e79d57",
+    "team_url": "https://www.flashscore.com/team/uruguay/xMk44orG/",
+    "stadium_id": ""
+  },
+  "New Zealand": {
+    "team_id": "dfac85ba-1a48-4672-ad81-5311a91ac5c1",
+    "team_url": "https://www.flashscore.com/team/new-zealand/rLctHkpU/",
+    "stadium_id": ""
+  },
+  "Panama": {
+    "team_id": "704a2c55-5be1-45ac-acdf-c01f477fdf48",
+    "team_url": "https://www.flashscore.com/team/panama/OWKqbCfi/",
+    "stadium_id": ""
+  },
+  "Pakistan": {
+    "team_id": "6334bc58-5a2a-4fe6-ad38-d78be5b6157a",
+    "team_url": "https://www.flashscore.com/team/pakistan/YDdhqj6h/",
+    "stadium_id": ""
+  },
+  "Afghanistan": {
+    "team_id": "8729c64b-213d-44f8-8e20-d6e498bdff7a",
+    "team_url": "https://www.flashscore.com/team/afghanistan/4M0iRO5p/",
+    "stadium_id": ""
+  },
+  "Vietnam": {
+    "team_id": "3e4d4cfd-2f46-4919-a4c2-ef3f1bd91d82",
+    "team_url": "https://www.flashscore.com/team/vietnam/xAcurtwO/",
+    "stadium_id": ""
+  },
+  "Chinese Taipei": {
+    "team_id": "835302be-870b-48fb-bd56-836ecbce1954",
+    "team_url": "https://www.flashscore.com/team/chinese-taipei/CbzOhSZN/",
+    "stadium_id": ""
+  },
+  "India": {
+    "team_id": "9877ae40-d00d-497c-a90f-19ea446f9c23",
+    "team_url": "https://www.flashscore.com/team/india/A1UUGpep/",
+    "stadium_id": ""
+  },
+  "Nepal": {
+    "team_id": "9fb64b33-35bb-4fd5-8946-df0722112971",
+    "team_url": "https://www.flashscore.com/team/nepal/lhkLpjfJ/",
+    "stadium_id": ""
+  },
+  "Bangladesh": {
+    "team_id": "26cb60b0-2ec0-431a-b3ec-c39f90d82ff5",
+    "team_url": "https://www.flashscore.com/team/bangladesh/C4edrALb/",
+    "stadium_id": ""
+  },
+  "Singapore": {
+    "team_id": "fc0f8bc8-d304-4ca3-bcad-ad3c785deb18",
+    "team_url": "https://www.flashscore.com/team/singapore/G0dqs0hU/",
+    "stadium_id": ""
+  },
+  "Philippines": {
+    "team_id": "953924e3-15c5-43da-8f2e-61072ec0612a",
+    "team_url": "https://www.flashscore.com/team/philippines/UentCdsm/",
+    "stadium_id": ""
+  },
+  "Syria": {
+    "team_id": "5ed38efa-aff6-4574-9410-dffbafdbba26",
+    "team_url": "https://www.flashscore.com/team/syria/bDoeW1BH/",
+    "stadium_id": ""
+  },
+  "Hong Kong": {
+    "team_id": "d0926d3d-07e6-4324-8491-ca4d8083ce9b",
+    "team_url": "https://www.flashscore.com/team/hong-kong/lhTYF4Aj/",
+    "stadium_id": ""
+  },
+  "Myanmar": {
+    "team_id": "9cdf316d-df91-4072-9fa3-8a5376eb589d",
+    "team_url": "https://www.flashscore.com/team/myanmar/2JBsa3Sl/",
+    "stadium_id": ""
+  },
+  "Paraguay": {
+    "team_id": "45d6cb67-2b68-4ee3-8d22-4e05d6e07c36",
+    "team_url": "https://www.flashscore.com/team/paraguay/YaNlqp6j/",
+    "stadium_id": ""
+  },
+  "Morocco": {
+    "team_id": "d82403d4-6dee-42be-86f3-5e3b453948b6",
+    "team_url": "https://www.flashscore.com/team/morocco/IDKYO3R8/",
+    "stadium_id": ""
+  },
+  "South Africa": {
+    "team_id": "76c62c36-9615-498c-a1a2-32eef99699bd",
+    "team_url": "https://www.flashscore.com/team/south-africa/W2ijYvlr/",
+    "stadium_id": ""
+  },
+  "Algeria": {
+    "team_id": "b3e2990a-2f5d-4d3a-b8a0-56d81b4d9ad9",
+    "team_url": "https://www.flashscore.com/team/algeria/nc87N1BR/",
+    "stadium_id": ""
+  },
+  "Senegal": {
+    "team_id": "554a7132-b75e-404c-bef8-511fcf37790c",
+    "team_url": "https://www.flashscore.com/team/senegal/hOIsJLJr/",
+    "stadium_id": ""
+  },
+  "Egypt": {
+    "team_id": "c17e150e-60b7-479c-84a8-e3c6c071a44c",
+    "team_url": "https://www.flashscore.com/team/egypt/bejDn7NN/",
+    "stadium_id": ""
+  },
+  "Cape Verde": {
+    "team_id": "744349ea-c846-468d-a88e-8ecadf3386c5",
+    "team_url": "https://www.flashscore.com/team/cape-verde/MocyWdm7/",
+    "stadium_id": ""
+  },
+  "Curacao": {
+    "team_id": "a2588972-315e-4aca-9c75-6d106911bd1b",
+    "team_url": "https://www.flashscore.com/team/curacao/bLLGpOkQ/",
+    "stadium_id": ""
+  },
+  "Colombia": {
+    "team_id": "094ff22d-b00b-4388-9b99-053b8dfb538f",
+    "team_url": "https://www.flashscore.com/team/colombia/G02s4PCS/",
+    "stadium_id": ""
+  },
+  "D.R. Congo": {
+    "team_id": "f63e07a3-f6bd-4220-9b47-6d7ca7b7f2d2",
+    "team_url": "https://www.flashscore.com/team/d-r-congo/phn9mm8H/",
+    "stadium_id": ""
+  }
 }

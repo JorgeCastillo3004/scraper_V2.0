@@ -1,92 +1,92 @@
 {
-    "Shanghai Port": {
-        "team_id": "4960919c-3cac-4b57-af7b-2ce69850fb23",
-        "team_url": "",
-        "stadium_id": "833b7d3b-4fac-4a28-a82a-68632274433a"
-    },
-    "Chengdu Rongcheng": {
-        "team_id": "2159c808-fb22-4f9b-a379-b4d98e7a5995",
-        "team_url": "",
-        "stadium_id": "0a855028-1378-47b6-9187-be80c713ac3c"
-    },
-    "Shanghai Shenhua": {
-        "team_id": "176c4f4b-9a77-4b2f-86e2-32492a49bbfd",
-        "team_url": "",
-        "stadium_id": "350cd5c2-9380-474e-bac4-9036135157ef"
-    },
-    "Beijing Guoan": {
-        "team_id": "792ba6bd-e4bc-4e13-944f-5df416afdd50",
-        "team_url": "",
-        "stadium_id": "e0b30dc2-3636-4c69-a827-1e43bb0d7a92"
-    },
-    "Shandong Taishan": {
-        "team_id": "ec5a9698-ea40-47df-b8ed-e1a494e53750",
-        "team_url": "",
-        "stadium_id": "c32ed895-d48e-4c1a-beba-e6b753817621"
-    },
-    "Tianjin Jinmen Tiger": {
-        "team_id": "db6e848b-6598-4529-b4db-efb3f578a387",
-        "team_url": "",
-        "stadium_id": "41e7b2fa-52e9-4319-a68c-bb5495b58c6e"
-    },
-    "Zhejiang Professional": {
-        "team_id": "c4c1132e-aa0a-47ad-84c0-a0a0554891a4",
-        "team_url": "",
-        "stadium_id": "e31f1bf3-3cd8-4389-8d17-7c30647843f2"
-    },
-    "Qingdao West Coast": {
-        "team_id": "946fc7f4-44f1-4d8b-85d4-b75ad6aa6c38",
-        "team_url": "",
-        "stadium_id": "2db4dc01-a830-4d17-aa8e-8337ca9ffe3c"
-    },
-    "Yunnan Yukun": {
-        "team_id": "89ef8485-d932-4453-9c22-8f8a6ff2e7f1",
-        "team_url": "",
-        "stadium_id": "5099e52b-2475-4670-a9c4-e8f9673c77ef"
-    },
-    "Dalian Yingbo": {
-        "team_id": "818e5918-fd7d-4837-9247-2df6bfbe2b35",
-        "team_url": "",
-        "stadium_id": "c1b1a22b-893c-4b93-a686-1da29107f40f"
-    },
-    "Henan Songshan Longmen": {
-        "team_id": "3df4a903-5795-4dee-ba3a-22517ebe6244",
-        "team_url": "",
-        "stadium_id": "b07a1d5f-8596-4f0c-9213-8167811524ac"
-    },
-    "Wuhan Three Towns": {
-        "team_id": "bde2bbe5-c7df-43d7-a977-9e52950deb2b",
-        "team_url": "",
-        "stadium_id": "2dd4f6e4-4d7b-41f8-891c-528ef521baf0"
-    },
-    "Shenzhen Xinpengcheng": {
-        "team_id": "19577722-6d61-49c7-8821-6cae7658435c",
-        "team_url": "",
-        "stadium_id": "47f69216-f8ac-4359-bffc-fdcf33dea3d6"
-    },
-    "Meizhou Hakka": {
-        "team_id": "6484a5c4-8bdb-4b54-877e-ca9433f2db09",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Qingdao Hainiu": {
-        "team_id": "87968008-4f09-4da9-a817-8d60e71cbb5a",
-        "team_url": "",
-        "stadium_id": "4cd4c7f2-38e1-44d1-97f8-4409005929e3"
-    },
-    "Changchun Yatai": {
-        "team_id": "549be7fe-c437-42e3-a345-a98927ef6e7e",
-        "team_url": "",
-        "stadium_id": ""
-    },
-    "Chongqing Tonglianglong": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "bf55d88c-a8a5-423b-bb38-b57b7b221499"
-    },
-    "Liaoning Tieren": {
-        "team_id": null,
-        "team_url": "",
-        "stadium_id": "1ba25869-f744-4736-9f0d-9538b9e68749"
-    }
+  "Shanghai Port": {
+    "team_id": "4960919c-3cac-4b57-af7b-2ce69850fb23",
+    "team_url": "https://www.flashscore.com/team/shanghai-port/O88o93rn/",
+    "stadium_id": "833b7d3b-4fac-4a28-a82a-68632274433a"
+  },
+  "Chengdu Rongcheng": {
+    "team_id": "2159c808-fb22-4f9b-a379-b4d98e7a5995",
+    "team_url": "https://www.flashscore.com/team/chengdu-rongcheng/ILi3oBgH/",
+    "stadium_id": "0a855028-1378-47b6-9187-be80c713ac3c"
+  },
+  "Shanghai Shenhua": {
+    "team_id": "176c4f4b-9a77-4b2f-86e2-32492a49bbfd",
+    "team_url": "https://www.flashscore.com/team/shanghai-shenhua/r5AIrq5q/",
+    "stadium_id": "350cd5c2-9380-474e-bac4-9036135157ef"
+  },
+  "Beijing Guoan": {
+    "team_id": "792ba6bd-e4bc-4e13-944f-5df416afdd50",
+    "team_url": "https://www.flashscore.com/team/beijing-guoan/WSLjVBLN/",
+    "stadium_id": "e0b30dc2-3636-4c69-a827-1e43bb0d7a92"
+  },
+  "Shandong Taishan": {
+    "team_id": "ec5a9698-ea40-47df-b8ed-e1a494e53750",
+    "team_url": "https://www.flashscore.com/team/shandong-taishan/27dl0BzH/",
+    "stadium_id": "c32ed895-d48e-4c1a-beba-e6b753817621"
+  },
+  "Tianjin Jinmen Tiger": {
+    "team_id": "db6e848b-6598-4529-b4db-efb3f578a387",
+    "team_url": "https://www.flashscore.com/team/tianjin-jinmen-tiger/tCx1gsk2/",
+    "stadium_id": "41e7b2fa-52e9-4319-a68c-bb5495b58c6e"
+  },
+  "Zhejiang Professional": {
+    "team_id": "c4c1132e-aa0a-47ad-84c0-a0a0554891a4",
+    "team_url": "https://www.flashscore.com/team/zhejiang-professional/ncsQGOBL/",
+    "stadium_id": "e31f1bf3-3cd8-4389-8d17-7c30647843f2"
+  },
+  "Qingdao West Coast": {
+    "team_id": "946fc7f4-44f1-4d8b-85d4-b75ad6aa6c38",
+    "team_url": "https://www.flashscore.com/team/qingdao-west-coast/0QkqH4Gf/",
+    "stadium_id": "2db4dc01-a830-4d17-aa8e-8337ca9ffe3c"
+  },
+  "Yunnan Yukun": {
+    "team_id": "89ef8485-d932-4453-9c22-8f8a6ff2e7f1",
+    "team_url": "https://www.flashscore.com/team/yunnan-yukun/EJp81K5A/",
+    "stadium_id": "5099e52b-2475-4670-a9c4-e8f9673c77ef"
+  },
+  "Dalian Yingbo": {
+    "team_id": "818e5918-fd7d-4837-9247-2df6bfbe2b35",
+    "team_url": "https://www.flashscore.com/team/dalian-yingbo/zDctmLjH/",
+    "stadium_id": "c1b1a22b-893c-4b93-a686-1da29107f40f"
+  },
+  "Henan Songshan Longmen": {
+    "team_id": "3df4a903-5795-4dee-ba3a-22517ebe6244",
+    "team_url": "https://www.flashscore.com/team/henan-songshan-longmen/Ywy81Djb/",
+    "stadium_id": "b07a1d5f-8596-4f0c-9213-8167811524ac"
+  },
+  "Wuhan Three Towns": {
+    "team_id": "bde2bbe5-c7df-43d7-a977-9e52950deb2b",
+    "team_url": "https://www.flashscore.com/team/wuhan-three-towns/SfLUTe08/",
+    "stadium_id": "2dd4f6e4-4d7b-41f8-891c-528ef521baf0"
+  },
+  "Shenzhen Xinpengcheng": {
+    "team_id": "19577722-6d61-49c7-8821-6cae7658435c",
+    "team_url": "https://www.flashscore.com/team/shenzhen-xinpengcheng/08kX8Xr0/",
+    "stadium_id": "47f69216-f8ac-4359-bffc-fdcf33dea3d6"
+  },
+  "Meizhou Hakka": {
+    "team_id": "6484a5c4-8bdb-4b54-877e-ca9433f2db09",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Qingdao Hainiu": {
+    "team_id": "87968008-4f09-4da9-a817-8d60e71cbb5a",
+    "team_url": "https://www.flashscore.com/team/qingdao-hainiu/KbZy1iLA/",
+    "stadium_id": "4cd4c7f2-38e1-44d1-97f8-4409005929e3"
+  },
+  "Changchun Yatai": {
+    "team_id": "549be7fe-c437-42e3-a345-a98927ef6e7e",
+    "team_url": "",
+    "stadium_id": ""
+  },
+  "Chongqing Tonglianglong": {
+    "team_id": "c82e001c-1e13-438f-a4b9-636fc060af49",
+    "team_url": "https://www.flashscore.com/team/chongqing-tonglianglong/niRb526o/",
+    "stadium_id": "49d2bdd3-2296-4bb4-a8db-bbf0aff64fac"
+  },
+  "Liaoning Tieren": {
+    "team_id": "4e3c5e1b-39c2-4225-a5d9-a795f16a413b",
+    "team_url": "https://www.flashscore.com/team/liaoning-tieren/K8GO0Wwb/",
+    "stadium_id": "3c3f8a27-3236-4ac7-bdcb-c2264730a360"
+  }
 }

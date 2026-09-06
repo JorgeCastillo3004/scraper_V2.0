@@ -77,35 +77,43 @@ def give_click_on_live(driver, sport_name,section = "LIVE"):
 
 	wait = WebDriverWait(driver, 10)
 	# get list of games section LIVE
-	xpath_expression_game = '//*[@title="{}"]'.format(section_title)	
-	current_tab = driver.find_elements(By.XPATH, xpath_expression_game)
+	xpath_expression_game = '//*[@title="{}"]'.format(section_title)
 
-	# give click
+	# give click en el filtro LIVE
 	webdriver.ActionChains(driver).send_keys(Keys.HOME).perform()
 	xpath_expression = f'//div[@class="filters__tab" and contains(.,"{section}")]'
-	livebutton = wait.until(EC.element_to_be_clickable((By.XPATH, xpath_expression)))
-	livebutton.click()				# UNCOMENT
-	time.sleep(0.3)
-	# after click, check results or empy page.
-	# Find all the matchs availables
+	livebutton = wait.until(EC.presence_of_element_located((By.XPATH, xpath_expression)))
 	try:
-		nomatchs = driver.find_element(By.CLASS_NAME, 'nmf__title')
-		print(nomatchs.text)
-		option = 1
-	except:		
-		current_tab = driver.find_elements(By.XPATH, xpath_expression_game)
-		option = 2
+		livebutton.click()
+	except Exception:
+		# Un overlay (p.ej. <div class="zone__container">) puede tapar el boton LIVE.
+		# Fallback: click por JS (el overlay no lo intercepta).
+		driver.execute_script('arguments[0].click();', livebutton)
 
-	# Continue option 2
-	if option == 2:
-		if len(current_tab) == 0:
+	# Tras el click: o hay eventos, o FlashScore muestra un cartel de "sin eventos en
+	# vivo". El texto del cartel depende del deporte (verificado contra FlashScore):
+	#   - "No match is being played right now."  → mayoría de deportes
+	#   - "No race is being held right now."      → MOTOR SPORT / Fórmula 1
+	# Cada cartel debe ser ÚNICO en la página (exactamente 1 elemento que lo contiene
+	# como nodo de texto directo) para estar seguros de que es el correcto. En cuanto
+	# se confirma "hay eventos" o "no hay eventos", salimos: así NO se queda
+	# reintentando 10s buscando partidos que no existen (p.ej. F1 sin carreras).
+	no_event_texts = [
+		"No match is being played right now.",
+		"No race is being held right now.",
+	]
+	max_wait, waited = 10.0, 0.0
+	while waited < max_wait:
+		if len(driver.find_elements(By.XPATH, xpath_expression_game)) > 0:
+			return True                      # hay eventos en vivo
+		for _txt in no_event_texts:
+			if len(driver.find_elements(By.XPATH, '//*[normalize-space(text())="%s"]' % _txt)) == 1:
+				return False                 # confirmado sin eventos → no reintentar (sin print: ruido)
+		time.sleep(0.5)
+		waited += 0.5
 
-			current_tab = wait.until(EC.presence_of_all_elements_located((By.XPATH, xpath_expression_game)))
-		# else:
-		# 	element_updated = wait.until(EC.staleness_of(current_tab[-1]))
-		return True
-	else:
-		return False
+	# Sin eventos y sin cartel único tras max_wait → tratar como sin eventos (sin print).
+	return False
 
 def update_lives_matchs(driver, list_sports=None, interval=None, check_control=None):
 
@@ -172,19 +180,21 @@ def update_lives_matchs(driver, list_sports=None, interval=None, check_control=N
 							# try:
 							match_status = match_element[0].find_element(By.CLASS_NAME, 'event__stage--block').text
 							print("Match name: ", name, "Status: ", match_status)
-							if match_status !='Finished':
-								status = 'LIVE'
-							elif match_status =='Finished':
-								status = 'COMPLETED'
+							# 'COMPLETED' | 'LIVE' | etiqueta NO-live ('POSTPONED', ...). Antes
+							# 'no es Finished' => LIVE, marcando LIVE a aplazados/cancelados.
+							status = classify_live_status(match_status)
+							if status == 'COMPLETED':
 								dict_pending_copy[sport_name].pop(name)
 								print("Match Finished delteted: ", name)
-							# except:
-							# 	status = 'R'
-							# 	dict_pending_copy[sport_name].pop(name)
-							# 	print("Match Finished delteted: ", name)
 
-							update_match_status({'match_id':match['match_id'], 'status':status})
-							update_match_score(match_element[0], match['match_id'])
+							if status in ('LIVE', 'COMPLETED'):
+								update_match_status({'match_id':match['match_id'], 'status':status})
+								update_match_score(match_element[0], match['match_id'])
+							else:
+								# Postponed/Cancelled/etc.: en la BD el estado queda 'SCHEDULED'
+								# (no se marca LIVE ni se toca el score).
+								update_match_status({'match_id':match['match_id'], 'status':'SCHEDULED'})
+								print(f"  [NO-LIVE] {name}: FlashScore={status} -> BD=SCHEDULED")
 							
 						else:
 							# Match don't found in live section.

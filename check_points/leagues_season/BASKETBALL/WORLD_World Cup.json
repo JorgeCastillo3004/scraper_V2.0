@@ -1,11 +1,55 @@
 {
     "Spain": {
         "team_id": "2b999339-b63d-4940-bc7f-b3a49c86a370",
-        "team_url": "https://www.flashscore.com/team/spain/OKERpL3q/"
+        "team_url": "https://www.flashscore.com/team/spain/OKERpL3q/",
+        "url_players": [
+            "https://www.flashscore.com/player/almansa-perez-izan/pSSj0xYi/",
+            "https://www.flashscore.com/player/alonso-francisco/KUu7ftcS/",
+            "https://www.flashscore.com/player/bassas-ferran/A51Cj86d/",
+            "https://www.flashscore.com/player/busquets-josep/KCSOJ4r0/",
+            "https://www.flashscore.com/player/cardenas-alvaro/Op84rjbG/",
+            "https://www.flashscore.com/player/costa-martinez-lluis/48H9BkX9/",
+            "https://www.flashscore.com/player/diaz-alberto/rBsBqV0f/",
+            "https://www.flashscore.com/player/diez-daniel/KOCb0Tzg/",
+            "https://www.flashscore.com/player/fernandez-jaime/t4tFyDeD/",
+            "https://www.flashscore.com/player/guerra-fran/GWsReuE3/",
+            "https://www.flashscore.com/player/martinez-sergi/QB60PPvI/",
+            "https://www.flashscore.com/player/nogues-gonzalez-isaac/MXJBeEnN/",
+            "https://www.flashscore.com/player/oriola-pierre/ja5EJcim/",
+            "https://www.flashscore.com/player/osobor-great/bL9mphVb/",
+            "https://www.flashscore.com/player/pauli-oriol/fybbyLe2/",
+            "https://www.flashscore.com/player/reyes-alejandro/hfO1V9i2/",
+            "https://www.flashscore.com/player/salvo-miquel/llS5uedl/",
+            "https://www.flashscore.com/player/yusta-santigo/SCQuNlVa/",
+            "https://www.flashscore.com/player/chus-mateo/OSjl4OD0/",
+            "https://www.flashscore.com/player/scariolo-sergio/4zmbs3ya/"
+        ],
+        "last_processed": 7
     },
     "Ukraine": {
         "team_id": "326cfd41-52b2-488a-bc0f-57fdc6a61595",
-        "team_url": "https://www.flashscore.com/team/ukraine/4h9UuBXH/"
+        "team_url": "https://www.flashscore.com/team/ukraine/4h9UuBXH/",
+        "url_players": [
+            "https://www.flashscore.com/player/bobrov-vyacheslav/lQPlxf9D/",
+            "https://www.flashscore.com/player/bublik-mikhailo/b7X1CBWN/",
+            "https://www.flashscore.com/player/klitschko-maxim/I7ingwGd/",
+            "https://www.flashscore.com/player/kovalev-artem/jNFOU9Ak/",
+            "https://www.flashscore.com/player/kovliar-oleksandr/ADjWRtWC/",
+            "https://www.flashscore.com/player/lukashov-denys/now10yJP/",
+            "https://www.flashscore.com/player/lypovyy-oleksandr/SYusSAOg/",
+            "https://www.flashscore.com/player/novitskyi-rostyslav/A1bpjnlL/",
+            "https://www.flashscore.com/player/pustovyi-artem/0We6OSNI/",
+            "https://www.flashscore.com/player/shelist-daniil/Qmwe2GlI/",
+            "https://www.flashscore.com/player/skapintsev-dmytro/2LJSdVPm/",
+            "https://www.flashscore.com/player/sushkin-yehor/EuxT1jdt/",
+            "https://www.flashscore.com/player/tkachenko-ivan/EiXMoGTh/",
+            "https://www.flashscore.com/player/tyrtyshnyk-illia/p23GMU5G/",
+            "https://www.flashscore.com/player/voinalovich-andrii/KlKSwUrQ/",
+            "https://www.flashscore.com/player/zotov-vitaliy/4ve51sC9/",
+            "https://www.flashscore.com/player/bagatskis-ainars/rLKfKyah/",
+            "https://www.flashscore.com/player/stepanovski-vitaly/6HFuJGNi/"
+        ],
+        "last_processed": 15
     },
     "Georgia": {
         "team_id": "1fc0eb48-ab7b-4ead-87e4-1bd46d4dafac",

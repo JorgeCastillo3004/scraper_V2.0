@@ -18,8 +18,9 @@ export default function useWebSocket(section) {
     ws.onopen  = () => setStatus('connected')
     ws.onclose = () => {
       setStatus('disconnected')
-      // Reconexión automática cada 4s
-      timerRef.current = setTimeout(connect, 4000)
+      // Reconexión SOLO si la pestaña está visible (en background no reconectamos
+      // ni streameamos: el panel corre mucho tiempo y no debe gastar en background).
+      if (!document.hidden) timerRef.current = setTimeout(connect, 4000)
     }
     ws.onerror = () => ws.close()
 
@@ -28,13 +29,24 @@ export default function useWebSocket(section) {
         const parsed = JSON.parse(data)
         if (parsed.type === 'status') { setStatus(parsed.value); return }
       } catch (_) {}
-      setLines(prev => [...prev.slice(-499), data])
+      setLines(prev => [...prev.slice(-499), data])   // tope 500 líneas (no crece)
     }
   }, [section])
 
   useEffect(() => {
-    connect()
+    // Cerrar la conexión cuando la pestaña se oculta; reconectar al volver.
+    const onVis = () => {
+      if (document.hidden) {
+        clearTimeout(timerRef.current)
+        wsRef.current?.close()
+      } else {
+        connect()
+      }
+    }
+    document.addEventListener('visibilitychange', onVis)
+    if (!document.hidden) connect()
     return () => {
+      document.removeEventListener('visibilitychange', onVis)
       clearTimeout(timerRef.current)
       wsRef.current?.close()
     }

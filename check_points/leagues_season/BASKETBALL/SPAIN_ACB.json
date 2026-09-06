@@ -1,0 +1,22 @@
+{
+  "Tenerife": {
+    "team_id": "a5567e8e-c404-4b53-b5df-a44e6f838352",
+    "team_url": "https://www.flashscore.com/team/tenerife/OfgZ0mtF/",
+    "stadium_id": "0332458c-6c47-4935-9996-5f277c4338eb"
+  },
+  "Barcelona": {
+    "team_id": "a936659f-2b04-4169-ae9a-668ba0e23b2a",
+    "team_url": "https://www.flashscore.com/team/barcelona/EDQLcAfL/",
+    "stadium_id": "bd5ed855-541b-43e0-b390-ae98fff4e5ef"
+  },
+  "Joventut Badalona": {
+    "team_id": "bb8a40ed-9474-45de-8677-102dd52cfda9",
+    "team_url": "https://www.flashscore.com/team/joventut-badalona/Sn9ppE18/",
+    "stadium_id": "acbb1707-0880-426c-a566-7128145bcec5"
+  },
+  "Valencia": {
+    "team_id": "7668befb-ff0d-4ce5-8ad1-4697fd220142",
+    "team_url": "https://www.flashscore.com/team/valencia/6w8lqYGE/",
+    "stadium_id": "b71ebf33-7dc6-4432-b3b6-0e455444fff9"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "Seattle Seahawks": {
+    "team_id": "635ba3eb-f9fa-4af6-998d-00f30b78e0f0",
+    "team_url": "https://www.flashscore.com/team/seattle-seahawks/f5h1oOee/",
+    "stadium_id": "13907c9a-1a95-44bc-9dc7-9f47770200be"
+  },
+  "New England Patriots": {
+    "team_id": "70871936-eea2-4b29-afd9-44542d909a95",
+    "team_url": "https://www.flashscore.com/team/new-england-patriots/G6oNfmi8/",
+    "stadium_id": "d27a4a59-25c9-4a10-a59e-d05d2f01c515"
+  },
+  "Los Angeles Rams": {
+    "team_id": "3638b5a8-4645-4ea8-bff2-782b41a46d8a",
+    "team_url": "https://www.flashscore.com/team/los-angeles-rams/z7hZioyR/",
+    "stadium_id": "85f23275-e9b2-4008-9216-9ed62ca6cca9"
+  },
+  "San Francisco 49ers": {
+    "team_id": "f5d17770-9af8-4467-b9f4-3764e28f933e",
+    "team_url": "https://www.flashscore.com/team/san-francisco-49ers/jBnfYoFr/",
+    "stadium_id": "9e6902f0-5e3d-461f-ba8f-e9c202bcba52"
+  },
+  "Carolina Panthers": {
+    "team_id": "514ae715-dd86-4a42-9180-b1d376d1625c",
+    "team_url": "https://www.flashscore.com/team/carolina-panthers/IoAX6qmR/",
+    "stadium_id": "18c025bf-35c9-4f22-9b68-03fa73228d49"
+  },
+  "Chicago Bears": {
+    "team_id": "02df2f7c-6ee2-4edf-b3b6-07540fb17f07",
+    "team_url": "https://www.flashscore.com/team/chicago-bears/2clovUM8/",
+    "stadium_id": "eb83ab9b-451b-4b41-bebb-27c8de740f78"
+  },
+  "Cincinnati Bengals": {
+    "team_id": "b9833b25-71c1-4921-9b25-fe2d1f82c59c",
+    "team_url": "https://www.flashscore.com/team/cincinnati-bengals/bwahmpRr/",
+    "stadium_id": "e24e62f1-1ab4-4512-9768-cb215ccd606c"
+  },
+  "Tampa Bay Buccaneers": {
+    "team_id": "f600383b-392d-4cc2-8646-7f847f79676d",
+    "team_url": "https://www.flashscore.com/team/tampa-bay-buccaneers/40on8pjK/",
+    "stadium_id": "2b74e85f-33b4-4602-bcb4-0e69d3359dd0"
+  },
+  "Detroit Lions": {
+    "team_id": "b1e11069-fc06-4c25-84b2-ef1725313ccd",
+    "team_url": "https://www.flashscore.com/team/detroit-lions/boZWV3E7/",
+    "stadium_id": "03f7a442-e5c4-4a92-813f-a87c990e7293"
+  },
+  "New Orleans Saints": {
+    "team_id": "bc182e0f-927d-40e2-92eb-f87efb248954",
+    "team_url": "https://www.flashscore.com/team/new-orleans-saints/lSi5prB1/",
+    "stadium_id": "c31fbc58-5e91-4dc5-86c9-d53154adae44"
+  },
+  "Houston Texans": {
+    "team_id": "b6931de6-f9e0-40f3-81e4-64508b968538",
+    "team_url": "https://www.flashscore.com/team/houston-texans/SIj9q2Q7/",
+    "stadium_id": "1e45c7c0-090c-4b1b-bb47-0b81b0ebfce0"
+  },
+  "Buffalo Bills": {
+    "team_id": "2d3e7b31-eb8d-41f9-83b9-0937ef65d3ee",
+    "team_url": "https://www.flashscore.com/team/buffalo-bills/t2lcn4tk/",
+    "stadium_id": "1c5dc817-9ba8-4872-bfe6-9dd699151241"
+  },
+  "Indianapolis Colts": {
+    "team_id": "a2b457ff-ebd5-493a-94e0-c774241bbf42",
+    "team_url": "https://www.flashscore.com/team/indianapolis-colts/OOp2WPqe/",
+    "stadium_id": "996209dc-9a0d-4269-a0f5-16a0ec9b1495"
+  },
+  "Baltimore Ravens": {
+    "team_id": "b52e4373-e614-4dbd-a506-d34c1f93e3d6",
+    "team_url": "https://www.flashscore.com/team/baltimore-ravens/pUern3T0/",
+    "stadium_id": "de6b4f3b-805b-46af-a5b9-280ca0ddaa63"
+  },
+  "Jacksonville Jaguars": {
+    "team_id": "ad374041-f7da-4431-99a2-4e5bd796b996",
+    "team_url": "https://www.flashscore.com/team/jacksonville-jaguars/QwhQ85IE/",
+    "stadium_id": "1c5706af-b0ff-4c47-96eb-5059aefd898f"
+  },
+  "Cleveland Browns": {
+    "team_id": "42712530-48c6-4ae4-ace6-5690e45df531",
+    "team_url": "https://www.flashscore.com/team/cleveland-browns/KfzTWqa1/",
+    "stadium_id": "7cc2a819-94c0-41a0-a027-71dd21586336"
+  },
+  "Pittsburgh Steelers": {
+    "team_id": "8bd46ffe-69f7-4b71-a8c4-e45d8be06bb4",
+    "team_url": "https://www.flashscore.com/team/pittsburgh-steelers/AXWJxS6R/",
+    "stadium_id": "e6d6df15-d493-4d70-b11e-59d2fb5b3454"
+  },
+  "Atlanta Falcons": {
+    "team_id": "bfe325b7-4674-4e71-b3f5-856f47ac143f",
+    "team_url": "https://www.flashscore.com/team/atlanta-falcons/hClIiQIR/",
+    "stadium_id": "eab5f4ad-a4c2-4355-bb4f-161d992638fa"
+  },
+  "Tennessee Titans": {
+    "team_id": "1bcea40e-4a6c-4caa-8237-3f21d04478a9",
+    "team_url": "https://www.flashscore.com/team/tennessee-titans/nmgM9o38/",
+    "stadium_id": "725747aa-1953-4112-a452-bea0c9777c47"
+  },
+  "New York Jets": {
+    "team_id": "fbfd4be0-d75b-44cb-91bf-717c76403fab",
+    "team_url": "https://www.flashscore.com/team/new-york-jets/Q9nr9QzE/",
+    "stadium_id": "940de9aa-45fa-4b89-9731-239a395bb4bc"
+  },
+  "Las Vegas Raiders": {
+    "team_id": "28696ae3-bfa2-42d6-b206-590d7310186f",
+    "team_url": "https://www.flashscore.com/team/las-vegas-raiders/Ei4Qg76E/",
+    "stadium_id": "76b590d3-4bcf-48cc-9178-e521f83bad07"
+  },
+  "Miami Dolphins": {
+    "team_id": "881e0463-0a5d-49e4-8bd6-6788098fb00f",
+    "team_url": "https://www.flashscore.com/team/miami-dolphins/WQivmqEf/",
+    "stadium_id": "fbd90572-0d48-45d0-92cb-ae50cfda5a52"
+  },
+  "Los Angeles Chargers": {
+    "team_id": "cd6fd870-64b4-4b31-bc6d-febc4a768586",
+    "team_url": "https://www.flashscore.com/team/los-angeles-chargers/K0iU7PXK/",
+    "stadium_id": "85f23275-e9b2-4008-9216-9ed62ca6cca9"
+  },
+  "Arizona Cardinals": {
+    "team_id": "3d95a09d-0292-4ce7-bed8-22ec4a32439d",
+    "team_url": "https://www.flashscore.com/team/arizona-cardinals/6guNl5qr/",
+    "stadium_id": "8d3d9b6c-3951-4cd9-a818-0051a5d039ee"
+  },
+  "Minnesota Vikings": {
+    "team_id": "36ae41bd-21d9-4edc-8d46-162c15acf907",
+    "team_url": "https://www.flashscore.com/team/minnesota-vikings/IsfjpsbD/",
+    "stadium_id": "5e5c55fa-ef0b-41d0-b883-11f31ec4f7fe"
+  },
+  "Green Bay Packers": {
+    "team_id": "a5d681b1-de52-4bac-84bf-82eae3c21485",
+    "team_url": "https://www.flashscore.com/team/green-bay-packers/O6ksuA72/",
+    "stadium_id": "2883b085-0710-4e80-afea-b1cbd7b4d765"
+  },
+  "Philadelphia Eagles": {
+    "team_id": "11287dde-9ce3-4f89-9a9b-89e7a5c490b1",
+    "team_url": "https://www.flashscore.com/team/philadelphia-eagles/dGgVhRLK/",
+    "stadium_id": "233393c5-a5c4-4fc9-a45d-664c7876342c"
+  },
+  "Washington Commanders": {
+    "team_id": "72b9f154-b8c2-4120-92b3-eb058c593062",
+    "team_url": "https://www.flashscore.com/team/washington-commanders/pYobX5Ul/",
+    "stadium_id": "ea3dd546-b390-48a6-bf87-34434c0f2a46"
+  },
+  "New York Giants": {
+    "team_id": "a0d8852b-5b4a-4fe6-855c-0dbf71f01314",
+    "team_url": "https://www.flashscore.com/team/new-york-giants/lIrBvlxF/",
+    "stadium_id": "940de9aa-45fa-4b89-9731-239a395bb4bc"
+  },
+  "Dallas Cowboys": {
+    "team_id": "91608ab6-6ada-4ade-b9bc-37dbd2ab0f59",
+    "team_url": "https://www.flashscore.com/team/dallas-cowboys/S8sFw8iL/",
+    "stadium_id": "edf00551-e4b3-42e9-b0db-55afe61e3e51"
+  },
+  "Kansas City Chiefs": {
+    "team_id": "4a41fcfc-af8a-43cd-af79-350ab2af5c85",
+    "team_url": "https://www.flashscore.com/team/kansas-city-chiefs/vienoNr7/",
+    "stadium_id": "a34b69b1-d43c-4b34-96b0-5c6421b53baa"
+  },
+  "Denver Broncos": {
+    "team_id": "465461d1-66d4-44f3-818f-ac4452036571",
+    "team_url": "https://www.flashscore.com/team/denver-broncos/l22ZmPbl/",
+    "stadium_id": "36535a60-db0d-4a8f-8b82-3d61c21e81c9"
+  }
+}

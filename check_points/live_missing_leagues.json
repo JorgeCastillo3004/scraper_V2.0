@@ -1,0 +1,397 @@
+{
+  "updated_at": "2026-07-11T18:46:33.904290",
+  "leagues": {
+    "BASEBALL|JAPAN|NPB": {
+      "sport": "BASEBALL",
+      "country": "JAPAN",
+      "league": "NPB",
+      "count": 228,
+      "first_seen": "2026-06-13T09:04:18.625458",
+      "last_seen": "2026-06-13T11:16:46.440934",
+      "status": "resolved",
+      "sample_matches": [
+        "Chiba Lotte Marines~Yokohama BayStars",
+        "Fukuoka S. Hawks~Yakult Swallows",
+        "Nippon Ham Fighters~Chunichi Dragons",
+        "Rakuten Gold. Eagles~Hiroshima Carp",
+        "Orix Buffaloes~Hanshin Tigers"
+      ]
+    },
+    "BASEBALL|SOUTH KOREA|KBO": {
+      "sport": "BASEBALL",
+      "country": "SOUTH KOREA",
+      "league": "KBO",
+      "count": 3729,
+      "first_seen": "2026-06-13T10:11:35.582665",
+      "last_seen": "2026-07-03T14:57:50.231357",
+      "status": "resolved",
+      "sample_matches": [
+        "KIA Tigers~Doosan Bears",
+        "Kiwoom Heroes~Hanwha Eagles",
+        "KT Wiz Suwon~NC Dinos",
+        "LG Twins~Lotte Giants",
+        "Samsung Lions~SSG Landers",
+        "KIA Tigers~LG Twins",
+        "SSG Landers~Lotte Giants",
+        "Doosan Bears~KT Wiz Suwon",
+        "NC Dinos~Hanwha Eagles",
+        "Samsung Lions~Kiwoom Heroes"
+      ],
+      "missing_date": "2026-07-03",
+      "source": "live"
+    },
+    "FOOTBALL|CHILE|Liga de Primera": {
+      "sport": "FOOTBALL",
+      "country": "CHILE",
+      "league": "Liga de Primera",
+      "count": 134,
+      "first_seen": "2026-06-13T18:32:56.371670",
+      "last_seen": "2026-06-15T01:29:05.899815",
+      "status": "resolved",
+      "sample_matches": [
+        "Coquimbo~O'Higgins",
+        "Colo Colo~Cobresal",
+        "U. Catolica~U. De Concepcion"
+      ]
+    },
+    "BASKETBALL|TURKEY|Super Lig - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "TURKEY",
+      "league": "Super Lig - Play Offs",
+      "count": 145,
+      "first_seen": "2026-06-13T19:01:52.788401",
+      "last_seen": "2026-06-19T21:03:17.633437",
+      "status": "resolved",
+      "sample_matches": [
+        "Fenerbahce~Besiktas",
+        "Besiktas~Fenerbahce"
+      ],
+      "missing_date": "2026-06-19",
+      "source": "live"
+    },
+    "FOOTBALL|WORLD|World Championship": {
+      "sport": "FOOTBALL",
+      "country": "WORLD",
+      "league": "World Championship",
+      "count": 1106,
+      "first_seen": "2026-06-13T21:06:20.309900",
+      "last_seen": "2026-06-26T04:31:00.670432",
+      "status": "pending",
+      "sample_matches": [
+        "Qatar~Switzerland",
+        "Qatar~Switzerland\nPENALTY",
+        "Brazil~Morocco",
+        "Haiti~Scotland",
+        "Australia~Turkey",
+        "Netherlands~Japan",
+        "Ivory Coast~Ecuador",
+        "Sweden~Tunisia",
+        "Spain~Cape Verde",
+        "Belgium~Egypt"
+      ],
+      "missing_date": "2026-06-26",
+      "source": "live"
+    },
+    "BASEBALL|MEXICO|LMB": {
+      "sport": "BASEBALL",
+      "country": "MEXICO",
+      "league": "LMB",
+      "count": 4624,
+      "first_seen": "2026-06-14T00:01:32.985699",
+      "last_seen": "2026-07-11T07:37:22.197647",
+      "status": "resolved",
+      "sample_matches": [
+        "Jalisco~Diablos Rojos",
+        "Puebla~Toros de Tijuana",
+        "Monterrey~Campeche",
+        "Queretaro~Dos Laredos",
+        "Bravos de Leon~Laguna",
+        "Veracruz~Saltillo",
+        "Chihuahua~Oaxaca",
+        "Tabasco~Aguascalientes",
+        "Yucatan~Caliente de Durango",
+        "Monclova~Quintana Roo"
+      ],
+      "missing_date": "2026-07-11",
+      "source": "live"
+    },
+    "BASEBALL|USA|MLB": {
+      "sport": "BASEBALL",
+      "country": "USA",
+      "league": "MLB",
+      "count": 6402,
+      "first_seen": "2026-06-14T00:01:33.236708",
+      "last_seen": "2026-07-11T07:59:11.276310",
+      "status": "pending",
+      "sample_matches": [
+        "Baltimore Orioles~San Diego Padres",
+        "Pittsburgh Pirates~Miami Marlins",
+        "Washington Nationals~Seattle Mariners",
+        "Boston Red Sox~Texas Rangers",
+        "Chicago White Sox~Los Angeles Dodgers",
+        "Cincinnati Reds~Arizona Diamondbacks",
+        "Cleveland Guardians~Detroit Tigers",
+        "New York Mets~Atlanta Braves",
+        "Kansas City Royals~Houston Astros",
+        "Milwaukee Brewers~Philadelphia Phillies"
+      ],
+      "missing_date": "2026-07-11",
+      "source": "live"
+    },
+    "BASKETBALL|ARGENTINA|Liga A - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "ARGENTINA",
+      "league": "Liga A - Play Offs",
+      "count": 142,
+      "first_seen": "2026-06-14T02:16:10.250987",
+      "last_seen": "2026-06-21T04:07:44.458886",
+      "status": "resolved",
+      "sample_matches": [
+        "Gimnasia~Quimsa",
+        "Quimsa~Gimnasia"
+      ],
+      "missing_date": "2026-06-21",
+      "source": "live"
+    },
+    "BASKETBALL|USA|NBA - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "USA",
+      "league": "NBA - Play Offs",
+      "count": 82,
+      "first_seen": "2026-06-14T02:43:45.874601",
+      "last_seen": "2026-06-14T05:33:17.202731",
+      "status": "resolved",
+      "sample_matches": [
+        "San Antonio Spurs~New York Knicks"
+      ]
+    },
+    "BASKETBALL|VENEZUELA|Superliga - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "VENEZUELA",
+      "league": "Superliga - Play Offs",
+      "count": 184,
+      "first_seen": "2026-06-16T01:08:48.490712",
+      "last_seen": "2026-06-19T02:41:34.209298",
+      "status": "pending",
+      "sample_matches": [
+        "Marinos~Guaiqueries"
+      ],
+      "missing_date": "2026-06-19",
+      "source": "live"
+    },
+    "BASKETBALL|ITALY|Lega A - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "ITALY",
+      "league": "Lega A - Play Offs",
+      "count": 100,
+      "first_seen": "2026-06-16T20:03:08.188939",
+      "last_seen": "2026-06-18T22:07:09.080575",
+      "status": "pending",
+      "sample_matches": [
+        "Venezia~Olimpia Milano"
+      ],
+      "missing_date": "2026-06-18",
+      "source": "live"
+    },
+    "BASKETBALL|FRANCE|LNB - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "FRANCE",
+      "league": "LNB - Play Offs",
+      "count": 171,
+      "first_seen": "2026-06-17T20:33:20.749087",
+      "last_seen": "2026-06-23T23:20:24.844405",
+      "status": "pending",
+      "sample_matches": [
+        "Paris~Monaco",
+        "Monaco~Paris"
+      ],
+      "missing_date": "2026-06-23",
+      "source": "live"
+    },
+    "BASKETBALL|SPAIN|ACB - Play Offs": {
+      "sport": "BASKETBALL",
+      "country": "SPAIN",
+      "league": "ACB - Play Offs",
+      "count": 149,
+      "first_seen": "2026-06-18T20:04:37.295963",
+      "last_seen": "2026-06-24T21:48:05.115555",
+      "status": "pending",
+      "sample_matches": [
+        "Valencia~Barcelona",
+        "Barcelona~Valencia"
+      ],
+      "missing_date": "2026-06-24",
+      "source": "live"
+    },
+    "TENNIS|ATP - SINGLES|Wimbledon (United Kingdom) - Qualification, grass": {
+      "sport": "TENNIS",
+      "country": "ATP - SINGLES",
+      "league": "Wimbledon (United Kingdom) - Qualification, grass",
+      "count": 3683,
+      "first_seen": "2026-06-22T12:07:08.506169",
+      "last_seen": "2026-06-25T18:34:15.810611",
+      "status": "pending",
+      "sample_matches": [
+        "Piros Z.~Ivanov I.",
+        "Squire H.~Zheng M.",
+        "Andrade A.~Smith C.",
+        "Chidekh C.~Dougaz A.",
+        "Djere L.~Houkes M.",
+        "Faria J.~Grenier H.",
+        "Gaston H.~Midon L.",
+        "Glinka D.~Coppejans K.",
+        "Gomez F. A.~Tabur C.",
+        "Lajal M.~Pavlovic L."
+      ],
+      "missing_date": "2026-06-25",
+      "source": "live"
+    },
+    "TENNIS|WTA - SINGLES|Wimbledon (United Kingdom) - Qualification, grass": {
+      "sport": "TENNIS",
+      "country": "WTA - SINGLES",
+      "league": "Wimbledon (United Kingdom) - Qualification, grass",
+      "count": 3476,
+      "first_seen": "2026-06-23T12:07:41.655176",
+      "last_seen": "2026-06-25T18:30:07.926583",
+      "status": "pending",
+      "sample_matches": [
+        "Brancaccio N.~Lazaro Garcia A.",
+        "Cross K.~Stoiana M.",
+        "Grant T. C.~Preston T.",
+        "Korneeva A.~Shubladze A.",
+        "Noha Akugue N.~Pigato L.",
+        "Riera J.~Britton D.",
+        "Salkova D.~Shymanovich I.",
+        "Sun L.~Klimovicova L.",
+        "Tan H.~Pohankova M.",
+        "Crawley F.~Sakatsume H."
+      ],
+      "missing_date": "2026-06-25",
+      "source": "live"
+    },
+    "BASEBALL|MEXICO|LMB - All Stars": {
+      "sport": "BASEBALL",
+      "country": "MEXICO",
+      "league": "LMB - All Stars",
+      "count": 98,
+      "first_seen": "2026-06-29T02:06:19.261038",
+      "last_seen": "2026-06-29T05:19:26.750315",
+      "status": "pending",
+      "sample_matches": [
+        "Mexico~LMB All Stars"
+      ],
+      "missing_date": "2026-06-29",
+      "source": "live"
+    },
+    "TENNIS|ATP - SINGLES|Wimbledon (United Kingdom), grass": {
+      "sport": "TENNIS",
+      "country": "ATP - SINGLES",
+      "league": "Wimbledon (United Kingdom), grass",
+      "count": 6474,
+      "first_seen": "2026-06-29T12:07:51.174695",
+      "last_seen": "2026-07-10T19:46:46.748662",
+      "status": "pending",
+      "sample_matches": [
+        "Jodar R.~Gill F.",
+        "Shapovalov D.~Carreno-Busta P.",
+        "Vukic A.~Brooksby J.",
+        "Nava E.~Buse I.",
+        "Kovacevic A.~Van De Zandschulp B.",
+        "Svrcina D.~Tien L.",
+        "Trungelliti M.~Damm M.",
+        "van Assche L.~Fucsovics M.",
+        "Rublev A.~Safiullin R.",
+        "Mochizuki S.~Basing M."
+      ],
+      "missing_date": "2026-07-10",
+      "source": "live"
+    },
+    "TENNIS|WTA - SINGLES|Wimbledon (United Kingdom), grass": {
+      "sport": "TENNIS",
+      "country": "WTA - SINGLES",
+      "league": "Wimbledon (United Kingdom), grass",
+      "count": 4062,
+      "first_seen": "2026-06-29T12:12:07.943390",
+      "last_seen": "2026-07-11T18:46:33.904057",
+      "status": "pending",
+      "sample_matches": [
+        "Bencic B.~Stojsavljevic M.",
+        "Sorribes Tormo S.~Jimenez Kasintseva V.",
+        "Cristian J.~Jovic I.",
+        "Pegula J.~Vidmanova D.",
+        "Sawangkaew M.~Chwalinska M.",
+        "Cristian J.~Jovic I.\nSET",
+        "Wang Xin.~Cocciaretto E.",
+        "Li A.~Sonmez Z.",
+        "Ostapenko J.~Dart H.",
+        "Putintseva Y.~Maria T."
+      ],
+      "missing_date": "2026-07-11",
+      "source": "live"
+    },
+    "FOOTBALL|WORLD|World Championship - Play Offs": {
+      "sport": "FOOTBALL",
+      "country": "WORLD",
+      "league": "World Championship - Play Offs",
+      "count": 418,
+      "first_seen": "2026-06-29T19:02:21.790833",
+      "last_seen": "2026-07-06T23:05:58.129313",
+      "status": "pending",
+      "sample_matches": [
+        "Brazil~Japan",
+        "Germany~Paraguay",
+        "Netherlands~Morocco",
+        "Ivory Coast~Norway",
+        "France~Sweden",
+        "Belgium~Senegal",
+        "Belgium\nPENALTY~Senegal",
+        "Portugal~Spain"
+      ],
+      "missing_date": "2026-07-06",
+      "source": "live"
+    },
+    "FOOTBALL|ECUADOR|Liga Pro": {
+      "sport": "FOOTBALL",
+      "country": "ECUADOR",
+      "league": "Liga Pro",
+      "count": 23,
+      "first_seen": "2026-07-02T00:01:46.104743",
+      "last_seen": "2026-07-06T23:48:03.970881",
+      "status": "pending",
+      "sample_matches": [
+        "LDU Quito~Orense",
+        "U. Catolica~Mushuc Runa"
+      ],
+      "missing_date": "2026-07-06",
+      "source": "live"
+    },
+    "BASEBALL|SOUTH KOREA|KBO - All Stars": {
+      "sport": "BASEBALL",
+      "country": "SOUTH KOREA",
+      "league": "KBO - All Stars",
+      "count": 95,
+      "first_seen": "2026-07-11T11:04:26.107198",
+      "last_seen": "2026-07-11T15:06:48.261365",
+      "status": "pending",
+      "sample_matches": [
+        "Dream~Nanum"
+      ],
+      "missing_date": "2026-07-11",
+      "source": "live"
+    },
+    "FOOTBALL|URUGUAY|Liga AUF Uruguaya - Torneo Intermedio": {
+      "sport": "FOOTBALL",
+      "country": "URUGUAY",
+      "league": "Liga AUF Uruguaya - Torneo Intermedio",
+      "count": 44,
+      "first_seen": "2026-07-11T15:04:34.970415",
+      "last_seen": "2026-07-11T16:59:11.466547",
+      "status": "pending",
+      "sample_matches": [
+        "Juventud~Montevideo City"
+      ],
+      "missing_date": "2026-07-11",
+      "source": "live"
+    }
+  }
+}

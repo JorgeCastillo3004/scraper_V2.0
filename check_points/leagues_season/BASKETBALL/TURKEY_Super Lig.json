@@ -1,0 +1,12 @@
+{
+  "Fenerbahce": {
+    "team_id": "2f3e73fe-04c4-4333-9bd5-3dacb2b6cd7c",
+    "team_url": "https://www.flashscore.com/team/fenerbahce/rDhoZR1l/",
+    "stadium_id": "28fbc278-2f0d-4d9f-b8bb-83723bb3b0f0"
+  },
+  "Besiktas": {
+    "team_id": "1ab8b850-a0a7-4a50-8e64-70e41457509f",
+    "team_url": "https://www.flashscore.com/team/besiktas/hE4Gkj9l/",
+    "stadium_id": "05101ede-73a5-409b-8ff7-dcf0730c262c"
+  }
+}

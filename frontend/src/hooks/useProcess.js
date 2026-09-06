@@ -16,9 +16,13 @@ export default function useProcess(section, pollMs = 3000) {
   }, [section])
 
   useEffect(() => {
-    refresh()
-    const id = setInterval(refresh, pollMs)
-    return () => clearInterval(id)
+    if (!document.hidden) refresh()
+    // No pollear si la pestaña está oculta (el panel corre mucho tiempo en
+    // background; no debe gastar red/memoria si no se está mirando).
+    const id = setInterval(() => { if (!document.hidden) refresh() }, pollMs)
+    const onVis = () => { if (!document.hidden) refresh() }
+    document.addEventListener('visibilitychange', onVis)
+    return () => { clearInterval(id); document.removeEventListener('visibilitychange', onVis) }
   }, [refresh, pollMs])
 
   const run = async (fn) => {

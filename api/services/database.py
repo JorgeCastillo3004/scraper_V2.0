@@ -178,6 +178,41 @@ def get_league_key_index() -> dict:
     _league_key_index.update({'expires_at': now + LEAGUE_KEY_INDEX_TTL, 'data': index})
     return index
 
+
+def get_pending_minus_one_leagues() -> list[dict]:
+    """Ligas MAPEABLES (presentes en leagues_info) con partidos PASADOS en score=-1.
+
+    A diferencia del by_league_sql de la UI (LIMIT 15), devuelve TODAS — pensado
+    para la auto-completación del scheduler, que debe cubrir el universo completo.
+    Solo lectura. Cada item: {'sport': SPORT_KEY, 'key': LEAGUE_KEY,
+    'league_id': int, 'count': int}, ordenado por count desc.
+    """
+    sql = """
+        SELECT m.league_id, COUNT(DISTINCT m.match_id) AS cnt
+        FROM match m
+        JOIN match_detail md ON md.match_id = m.match_id
+        JOIN score_entity se ON se.match_detail_id = md.match_detail_id
+        WHERE se.points = -1 AND m.match_date < CURRENT_DATE
+          AND m.league_id IS NOT NULL
+        GROUP BY m.league_id
+        ORDER BY cnt DESC
+    """
+    index = get_league_key_index()
+    try:
+        with get_conn() as conn:
+            with conn.cursor() as cur:
+                cur.execute(sql)
+                rows = cur.fetchall()
+    except Exception:
+        return []
+    out = []
+    for lid, cnt in rows:
+        meta = index.get(lid)
+        if meta:   # solo mapeables: tienen sport_key/league_key → results_url usable
+            out.append({'sport': meta['sport'], 'key': meta['key'],
+                        'league_id': lid, 'count': cnt})
+    return out
+
 # Mapa visible → query SQL. Cada uno devuelve filas (sport, country, league, count)
 # salvo "status_legacy" que es status → count.
 _INCONS_QUERIES = {
@@ -314,13 +349,15 @@ _INCONS_QUERIES = {
 _STATUS_LEGACY_VALUES = ('completed', 'schedule', 'R', 'P', 'IN PROGRESS')
 
 
-def get_inconsistencias_summary() -> dict:
+def get_inconsistencias_summary(fresh: bool = False) -> dict:
     """
     Resumen de inconsistencias en la BD para la pantalla de control.
-    Cachea 60 s para no martillar Postgres si el panel se refresca seguido.
+    Cachea 60 s para no martillar Postgres con el auto-refresh del panel.
+    `fresh=True` (botón Refrescar manual) saltea el caché y consulta la BD,
+    pero igual actualiza el caché para los auto-refresh siguientes.
     """
     now = time.time()
-    if _inconsistencias_cache['data'] is not None and now < _inconsistencias_cache['expires_at']:
+    if not fresh and _inconsistencias_cache['data'] is not None and now < _inconsistencias_cache['expires_at']:
         return _inconsistencias_cache['data']
 
     summary = {}
@@ -416,19 +453,29 @@ def get_live_matches() -> list[dict]:
     try:
         with get_conn() as conn:
             with conn.cursor() as cur:
+                # Score actual (para LIVE = último resultado): se arma desde
+                # match_detail (home/visitor) + score_entity.points. points = -1
+                # (FIXTURE_POINTS) significa "sin marcador todavía".
                 cur.execute("""
                     SELECT m.match_id, m.name, m.match_date, m.status,
-                           l.league_name, s.name as sport
+                           l.league_name, s.name as sport,
+                           MAX(CASE WHEN md.home    THEN se.points END) AS home_score,
+                           MAX(CASE WHEN md.visitor THEN se.points END) AS away_score
                     FROM match m
                     JOIN league l ON l.league_id = m.league_id
                     JOIN sport  s ON s.sport_id  = l.sport_id
+                    LEFT JOIN match_detail md ON md.match_id = m.match_id
+                    LEFT JOIN score_entity se ON se.match_detail_id = md.match_detail_id
                     WHERE m.status IN ('LIVE','COMPLETED')
                       AND m.match_date = CURRENT_DATE
+                    GROUP BY m.match_id, m.name, m.match_date, m.status,
+                             l.league_name, s.name
                     ORDER BY m.match_date DESC
                     LIMIT 50
                 """)
                 rows = cur.fetchall()
-                cols = ['match_id', 'name', 'match_date', 'status', 'league_name', 'sport']
+                cols = ['match_id', 'name', 'match_date', 'status', 'league_name',
+                        'sport', 'home_score', 'away_score']
         return [dict(zip(cols, row)) for row in rows]
     except Exception as e:
         return [{'error': str(e)}]

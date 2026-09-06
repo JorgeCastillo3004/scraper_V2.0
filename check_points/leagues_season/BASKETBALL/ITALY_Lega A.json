@@ -1,0 +1,12 @@
+{
+  "Olimpia Milano": {
+    "team_id": "f115cb0e-db08-412b-a86b-1f4c7cc30eb0",
+    "team_url": "https://www.flashscore.com/team/milan/tUT82gR9/",
+    "stadium_id": "d7f4f41d-8663-4aae-81ad-cc10a5acb034"
+  },
+  "Venezia": {
+    "team_id": "aac28ca7-3ae3-4738-bd51-34a3292c6ed4",
+    "team_url": "https://www.flashscore.com/team/venezia/nR1rGe9M/",
+    "stadium_id": "35500c6b-53bb-49de-93ea-0e92d985aab6"
+  }
+}

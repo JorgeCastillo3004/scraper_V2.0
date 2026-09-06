@@ -44,6 +44,7 @@ export default function Equipos() {
     let cancelled = false
 
     const refreshShots = async () => {
+      if (document.hidden) return   // sin gasto si la pestaña está oculta
       try {
         const { data } = await getTeamScreenshots()
         if (!cancelled) setWorkerShots(data.workers || [])
@@ -53,7 +54,7 @@ export default function Equipos() {
     }
 
     refreshShots()
-    const id = setInterval(refreshShots, proc.isRunning ? 4000 : 10000)
+    const id = setInterval(refreshShots, proc.isRunning ? 5000 : 15000)
     return () => {
       cancelled = true
       clearInterval(id)

@@ -1,0 +1,12 @@
+[
+ {
+  "league_key": "WORLD_World Championship",
+  "motivo": "no está en leagues_info.json",
+  "faltan_hoy": 2
+ },
+ {
+  "league_key": "USA_NHL",
+  "motivo": "no está en leagues_info.json",
+  "faltan_hoy": 1
+ }
+]

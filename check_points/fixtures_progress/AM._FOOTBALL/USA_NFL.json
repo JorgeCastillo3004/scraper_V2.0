@@ -1,0 +1,2187 @@
+{
+ "sport_key": "AM._FOOTBALL",
+ "league_key": "USA_NFL",
+ "league_id": "1daffbae-2eb6-4fd4-a764-e15c5a0eec82",
+ "season_id": "7b2ebe64-a906-4367-a30e-7be2e0272565",
+ "matches": [
+  {
+   "name": "Seattle Seahawks~New England Patriots",
+   "date": "10.09. 02:20",
+   "url": "https://www.flashscore.com/match/GQtrH2RF/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~San Francisco 49ers",
+   "date": "11.09. 02:35",
+   "url": "https://www.flashscore.com/match/OjpjFtdS/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Chicago Bears",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/KMVL9KJk/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Tampa Bay Buccaneers",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/hlqT7bl2/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~New Orleans Saints",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/KfyFV1t9/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Buffalo Bills",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/h8ZMTuBL/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Baltimore Ravens",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/OjQhOJYr/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Cleveland Browns",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/UmT0Mc3e/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Atlanta Falcons",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/21R8KyY7/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~New York Jets",
+   "date": "13.09. 19:00",
+   "url": "https://www.flashscore.com/match/U7JfruQE/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Miami Dolphins",
+   "date": "13.09. 22:25",
+   "url": "https://www.flashscore.com/match/8KqzOAv0/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~Arizona Cardinals",
+   "date": "13.09. 22:25",
+   "url": "https://www.flashscore.com/match/z7oSPW9m/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Green Bay Packers",
+   "date": "13.09. 22:25",
+   "url": "https://www.flashscore.com/match/fyrrMl9C/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Washington Commanders",
+   "date": "13.09. 22:25",
+   "url": "https://www.flashscore.com/match/21ojKSwP/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Dallas Cowboys",
+   "date": "14.09. 02:20",
+   "url": "https://www.flashscore.com/match/Kt8cOvjt/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~Denver Broncos",
+   "date": "15.09. 02:15",
+   "url": "https://www.flashscore.com/match/S6B5MIKh/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~Detroit Lions",
+   "date": "18.09. 02:15",
+   "url": "https://www.flashscore.com/match/KETCKdk5/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Carolina Panthers",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/hSRKIzKH/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~New Orleans Saints",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/0hVSGElU/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~Minnesota Vikings",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/jHAxyIZo/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Cincinnati Bengals",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/OU8pZe4b/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Pittsburgh Steelers",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/Ao7hXZYA/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Green Bay Packers",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/IBA0VD3N/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Cleveland Browns",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/EsdWPiRp/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Philadelphia Eagles",
+   "date": "20.09. 19:00",
+   "url": "https://www.flashscore.com/match/tllImeJi/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Jacksonville Jaguars",
+   "date": "20.09. 22:05",
+   "url": "https://www.flashscore.com/match/noiQoZm4/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~Las Vegas Raiders",
+   "date": "20.09. 22:05",
+   "url": "https://www.flashscore.com/match/KbkYqDIG/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Seattle Seahawks",
+   "date": "20.09. 22:25",
+   "url": "https://www.flashscore.com/match/SOhtrimT/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Washington Commanders",
+   "date": "20.09. 22:25",
+   "url": "https://www.flashscore.com/match/b7qCxVAj/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Miami Dolphins",
+   "date": "20.09. 22:25",
+   "url": "https://www.flashscore.com/match/j1Wc0Y2c/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~Indianapolis Colts",
+   "date": "21.09. 02:20",
+   "url": "https://www.flashscore.com/match/OSq5bCX9/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~New York Giants",
+   "date": "22.09. 02:15",
+   "url": "https://www.flashscore.com/match/URBxt4Hr/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Atlanta Falcons",
+   "date": "25.09. 02:15",
+   "url": "https://www.flashscore.com/match/2uApvrne/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~Los Angeles Chargers",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/A5DhxMG7/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Carolina Panthers",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/zq5v0P8E/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~New York Jets",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/8d3nb3wR/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Houston Texans",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/vufIhs1l/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~New England Patriots",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/n5cQjLV0/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~Kansas City Chiefs",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/KIeYla0D/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Tennessee Titans",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/QFrKC2hK/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Cincinnati Bengals",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/dbZk7tGs/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Seattle Seahawks",
+   "date": "27.09. 19:00",
+   "url": "https://www.flashscore.com/match/UBXc5Kpf/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Arizona Cardinals",
+   "date": "27.09. 22:05",
+   "url": "https://www.flashscore.com/match/xxy63bF6/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Minnesota Vikings",
+   "date": "27.09. 22:05",
+   "url": "https://www.flashscore.com/match/UqgD1xpJ/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Baltimore Ravens",
+   "date": "27.09. 22:25",
+   "url": "https://www.flashscore.com/match/hMWUJJam/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Las Vegas Raiders",
+   "date": "27.09. 22:25",
+   "url": "https://www.flashscore.com/match/MwtaPuxQ/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Los Angeles Rams",
+   "date": "28.09. 02:20",
+   "url": "https://www.flashscore.com/match/0nzwIcUa/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~Philadelphia Eagles",
+   "date": "29.09. 02:15",
+   "url": "https://www.flashscore.com/match/YaYpGyaC/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Pittsburgh Steelers",
+   "date": "02.10. 02:15",
+   "url": "https://www.flashscore.com/match/KGWhEFTO/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Indianapolis Colts",
+   "date": "04.10. 15:30",
+   "url": "https://www.flashscore.com/match/AuC2YIEt/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Tennessee Titans",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/rgAAWdqg/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~New England Patriots",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/jJDIUzE5/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~New York Jets",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/dGGQSErI/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Jacksonville Jaguars",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/S2wbA6Sj/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Dallas Cowboys",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/f9VqY9Kc/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Arizona Cardinals",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/2ZYiWmkA/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Los Angeles Rams",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/zmXaURJM/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Green Bay Packers",
+   "date": "04.10. 19:00",
+   "url": "https://www.flashscore.com/match/WWXUO5sp/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Miami Dolphins",
+   "date": "04.10. 22:05",
+   "url": "https://www.flashscore.com/match/vcywNqCd/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Kansas City Chiefs",
+   "date": "04.10. 22:25",
+   "url": "https://www.flashscore.com/match/WjOOpm43/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Denver Broncos",
+   "date": "04.10. 22:25",
+   "url": "https://www.flashscore.com/match/pEUvs53S/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~Los Angeles Chargers",
+   "date": "04.10. 22:25",
+   "url": "https://www.flashscore.com/match/vHRWrRYF/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Detroit Lions",
+   "date": "05.10. 02:20",
+   "url": "https://www.flashscore.com/match/tpGAyqRk/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Atlanta Falcons",
+   "date": "06.10. 02:15",
+   "url": "https://www.flashscore.com/match/lAJIZMe2/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Tampa Bay Buccaneers",
+   "date": "09.10. 02:15",
+   "url": "https://www.flashscore.com/match/Iqb2sZE8/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Philadelphia Eagles",
+   "date": "11.10. 15:30",
+   "url": "https://www.flashscore.com/match/jcdAuDqL/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~Cincinnati Bengals",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/0Wstzi7r/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Las Vegas Raiders",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/8dolYUye/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Minnesota Vikings",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/tAqdW867/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Cleveland Browns",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/8GyrfCbE/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Indianapolis Colts",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/0OgkhjTQ/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Houston Texans",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/dfuLnUjl/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~New York Giants",
+   "date": "11.10. 19:00",
+   "url": "https://www.flashscore.com/match/4KrTp8L0/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~Denver Broncos",
+   "date": "11.10. 22:05",
+   "url": "https://www.flashscore.com/match/CpnyqnjD/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Detroit Lions",
+   "date": "11.10. 22:25",
+   "url": "https://www.flashscore.com/match/2Dcnj3ct/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Chicago Bears",
+   "date": "11.10. 22:25",
+   "url": "https://www.flashscore.com/match/lUeflsSh/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~San Francisco 49ers",
+   "date": "11.10. 22:25",
+   "url": "https://www.flashscore.com/match/dfa2nLd5/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Baltimore Ravens",
+   "date": "12.10. 02:20",
+   "url": "https://www.flashscore.com/match/U7cApaRH/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Buffalo Bills",
+   "date": "13.10. 02:15",
+   "url": "https://www.flashscore.com/match/xY0IrwdU/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Seattle Seahawks",
+   "date": "16.10. 02:15",
+   "url": "https://www.flashscore.com/match/QTuS2tsn/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Houston Texans",
+   "date": "18.10. 15:30",
+   "url": "https://www.flashscore.com/match/bsvz1KBb/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Chicago Bears",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/67srabtB/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Baltimore Ravens",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/EXpjcxBN/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Tennessee Titans",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/A3WLiGYp/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~New York Jets",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/2BY6FJQi/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "New York Giants~New Orleans Saints",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/AyxFDce4/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Carolina Panthers",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/rkzNByQG/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Pittsburgh Steelers",
+   "date": "18.10. 19:00",
+   "url": "https://www.flashscore.com/match/jFwV9FfT/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Arizona Cardinals",
+   "date": "18.10. 22:05",
+   "url": "https://www.flashscore.com/match/KUT04gIj/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~Los Angeles Chargers",
+   "date": "18.10. 22:25",
+   "url": "https://www.flashscore.com/match/COGnSdAc/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Buffalo Bills",
+   "date": "18.10. 22:25",
+   "url": "https://www.flashscore.com/match/KlKfQzuA/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Dallas Cowboys",
+   "date": "19.10. 02:20",
+   "url": "https://www.flashscore.com/match/SEN2OE9M/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Washington Commanders",
+   "date": "20.10. 02:15",
+   "url": "https://www.flashscore.com/match/Op9YIhXq/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~New England Patriots",
+   "date": "23.10. 02:15",
+   "url": "https://www.flashscore.com/match/A17tHW1d/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Pittsburgh Steelers",
+   "date": "25.10. 14:30",
+   "url": "https://www.flashscore.com/match/x8aSvzf3/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~San Francisco 49ers",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/ALczwEOF/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Cincinnati Bengals",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/GKP7K58l/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Tampa Bay Buccaneers",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/8SsFIqw1/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~New York Giants",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/tttNGN7D/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Indianapolis Colts",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/8nY8vRaK/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Miami Dolphins",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/vVOvZ4Ns/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Cleveland Browns",
+   "date": "25.10. 18:00",
+   "url": "https://www.flashscore.com/match/CrNnXrhf/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Denver Broncos",
+   "date": "25.10. 21:05",
+   "url": "https://www.flashscore.com/match/baLfVMM6/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~Green Bay Packers",
+   "date": "25.10. 21:25",
+   "url": "https://www.flashscore.com/match/6PO2T0iJ/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Los Angeles Rams",
+   "date": "25.10. 21:25",
+   "url": "https://www.flashscore.com/match/bJBli4qQ/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~Kansas City Chiefs",
+   "date": "26.10. 01:20",
+   "url": "https://www.flashscore.com/match/U12Kor7m/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Dallas Cowboys",
+   "date": "27.10. 01:15",
+   "url": "https://www.flashscore.com/match/za5SqMy0/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Carolina Panthers",
+   "date": "30.10. 01:15",
+   "url": "https://www.flashscore.com/match/8C3zr06C/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~Baltimore Ravens",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/Gx7rtvyP/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Tennessee Titans",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/61nh0sMt/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Arizona Cardinals",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/vFp0bLjg/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~Minnesota Vikings",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/Ctb7daL5/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Indianapolis Colts",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/K61FfwjI/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Las Vegas Raiders",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/hKaNhHKU/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Cleveland Browns",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/pCRUdTWo/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Atlanta Falcons",
+   "date": "01.11. 19:00",
+   "url": "https://www.flashscore.com/match/j9Uxe71b/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Los Angeles Chargers",
+   "date": "01.11. 22:05",
+   "url": "https://www.flashscore.com/match/OMSpgoWA/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Kansas City Chiefs",
+   "date": "01.11. 22:25",
+   "url": "https://www.flashscore.com/match/ULfIzwGq/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~New England Patriots",
+   "date": "01.11. 22:25",
+   "url": "https://www.flashscore.com/match/xnbQYGpd/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Philadelphia Eagles",
+   "date": "02.11. 02:20",
+   "url": "https://www.flashscore.com/match/UuoCdKx3/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~Chicago Bears",
+   "date": "03.11. 02:15",
+   "url": "https://www.flashscore.com/match/GdqKfb7F/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Jacksonville Jaguars",
+   "date": "07.11. 02:15",
+   "url": "https://www.flashscore.com/match/OMnShxxS/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Cincinnati Bengals",
+   "date": "08.11. 15:30",
+   "url": "https://www.flashscore.com/match/KhYcmGak/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Denver Broncos",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/SIy6ofU1/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Dallas Cowboys",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/v7ri9cM8/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~New York Jets",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/CKta7yiL/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~Detroit Lions",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/r3XU1FEr/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Cleveland Browns",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/jTzw0gqe/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~New York Giants",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/OtZpbXD7/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Los Angeles Rams",
+   "date": "08.11. 19:00",
+   "url": "https://www.flashscore.com/match/UwMWLz6E/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~Houston Texans",
+   "date": "08.11. 22:05",
+   "url": "https://www.flashscore.com/match/x4PvKEzR/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Las Vegas Raiders",
+   "date": "08.11. 22:05",
+   "url": "https://www.flashscore.com/match/YZAAEhbl/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Green Bay Packers",
+   "date": "08.11. 22:25",
+   "url": "https://www.flashscore.com/match/t0EICWS0/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~Arizona Cardinals",
+   "date": "08.11. 22:25",
+   "url": "https://www.flashscore.com/match/ncHQAAcD/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~Tampa Bay Buccaneers",
+   "date": "09.11. 02:20",
+   "url": "https://www.flashscore.com/match/vi4CYDkK/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Buffalo Bills",
+   "date": "10.11. 02:15",
+   "url": "https://www.flashscore.com/match/AZfrTiDs/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Washington Commanders",
+   "date": "13.11. 02:15",
+   "url": "https://www.flashscore.com/match/IabjRVsf/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~New England Patriots",
+   "date": "15.11. 15:30",
+   "url": "https://www.flashscore.com/match/jDdbP9C6/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Kansas City Chiefs",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/OvA5NmsJ/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Houston Texans",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/lKQGU4ln/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Minnesota Vikings",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/MXOOSrJb/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Miami Dolphins",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/UcSWQMmB/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Carolina Panthers",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/zeVvP0IN/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Buffalo Bills",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/WQGAJvto/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Jacksonville Jaguars",
+   "date": "15.11. 19:00",
+   "url": "https://www.flashscore.com/match/bX8dsrYi/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Los Angeles Rams",
+   "date": "15.11. 22:05",
+   "url": "https://www.flashscore.com/match/6cC4uM24/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Seattle Seahawks",
+   "date": "15.11. 22:05",
+   "url": "https://www.flashscore.com/match/vBACw0XG/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~San Francisco 49ers",
+   "date": "15.11. 22:25",
+   "url": "https://www.flashscore.com/match/QR8Kyv2T/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Pittsburgh Steelers",
+   "date": "16.11. 02:20",
+   "url": "https://www.flashscore.com/match/dAajWHPj/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Los Angeles Chargers",
+   "date": "17.11. 02:15",
+   "url": "https://www.flashscore.com/match/l4nxfLHc/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Indianapolis Colts",
+   "date": "20.11. 02:15",
+   "url": "https://www.flashscore.com/match/dUkphanA/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~Miami Dolphins",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/lx8ijwHM/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Baltimore Ravens",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/p8gNpHvp/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~New Orleans Saints",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/hYdVre9d/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Tennessee Titans",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/KvkH6b13/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~Tampa Bay Buccaneers",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/hhmP4xWF/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~Arizona Cardinals",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/v9oX2G0S/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Jacksonville Jaguars",
+   "date": "22.11. 19:00",
+   "url": "https://www.flashscore.com/match/Aix3cfOk/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~New York Jets",
+   "date": "22.11. 22:05",
+   "url": "https://www.flashscore.com/match/r5zBeYh2/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Las Vegas Raiders",
+   "date": "22.11. 22:25",
+   "url": "https://www.flashscore.com/match/ABSdJyo9/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Pittsburgh Steelers",
+   "date": "22.11. 22:25",
+   "url": "https://www.flashscore.com/match/EsfU0TUs/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Minnesota Vikings",
+   "date": "23.11. 02:20",
+   "url": "https://www.flashscore.com/match/nehxa7af/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Cincinnati Bengals",
+   "date": "24.11. 02:15",
+   "url": "https://www.flashscore.com/match/fLepcoU6/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Green Bay Packers",
+   "date": "26.11. 02:00",
+   "url": "https://www.flashscore.com/match/2oahePbJ/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~Chicago Bears",
+   "date": "26.11. 19:00",
+   "url": "https://www.flashscore.com/match/d8Yy3yIP/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Philadelphia Eagles",
+   "date": "26.11. 22:30",
+   "url": "https://www.flashscore.com/match/hhZ6cFum/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~Kansas City Chiefs",
+   "date": "27.11. 02:20",
+   "url": "https://www.flashscore.com/match/0IxFegAa/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Denver Broncos",
+   "date": "27.11. 21:00",
+   "url": "https://www.flashscore.com/match/YVzNgXvC/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~New Orleans Saints",
+   "date": "29.11. 19:00",
+   "url": "https://www.flashscore.com/match/tdvViB9O/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Las Vegas Raiders",
+   "date": "29.11. 19:00",
+   "url": "https://www.flashscore.com/match/UiJvCEft/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Baltimore Ravens",
+   "date": "29.11. 19:00",
+   "url": "https://www.flashscore.com/match/25HnAhPh/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~New York Giants",
+   "date": "29.11. 19:00",
+   "url": "https://www.flashscore.com/match/AVKf8Wg5/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~New York Jets",
+   "date": "29.11. 19:00",
+   "url": "https://www.flashscore.com/match/IeO26AOH/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Atlanta Falcons",
+   "date": "29.11. 19:00",
+   "url": "https://www.flashscore.com/match/j9MA4lgU/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Tennessee Titans",
+   "date": "29.11. 22:05",
+   "url": "https://www.flashscore.com/match/KOdKOivn/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Washington Commanders",
+   "date": "29.11. 22:25",
+   "url": "https://www.flashscore.com/match/Sl0SMV8b/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Seattle Seahawks",
+   "date": "29.11. 22:25",
+   "url": "https://www.flashscore.com/match/02bzL9wB/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~New England Patriots",
+   "date": "30.11. 02:20",
+   "url": "https://www.flashscore.com/match/8S1rJm8N/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Carolina Panthers",
+   "date": "01.12. 02:15",
+   "url": "https://www.flashscore.com/match/Oh7DDRVp/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Kansas City Chiefs",
+   "date": "04.12. 02:15",
+   "url": "https://www.flashscore.com/match/GnfayVNi/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Detroit Lions",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/OCc7Z8h4/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~Jacksonville Jaguars",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/Wx1FXnNG/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Cincinnati Bengals",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/2PNnFv7k/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Green Bay Packers",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/ltMfDIy2/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "New York Giants~San Francisco 49ers",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/GnEtyMT8/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Los Angeles Chargers",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/l0ClZabL/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Washington Commanders",
+   "date": "06.12. 19:00",
+   "url": "https://www.flashscore.com/match/Kr3KTwMr/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Philadelphia Eagles",
+   "date": "06.12. 22:05",
+   "url": "https://www.flashscore.com/match/Qu6SRHje/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Miami Dolphins",
+   "date": "06.12. 22:05",
+   "url": "https://www.flashscore.com/match/bg4zQeL7/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Carolina Panthers",
+   "date": "06.12. 22:25",
+   "url": "https://www.flashscore.com/match/QadMmaDE/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Buffalo Bills",
+   "date": "06.12. 22:25",
+   "url": "https://www.flashscore.com/match/YPaUowrR/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Houston Texans",
+   "date": "07.12. 02:20",
+   "url": "https://www.flashscore.com/match/Ueo0tH5l/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~Dallas Cowboys",
+   "date": "08.12. 02:15",
+   "url": "https://www.flashscore.com/match/2Nb7vez1/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Minnesota Vikings",
+   "date": "11.12. 02:15",
+   "url": "https://www.flashscore.com/match/Am2FxZ4D/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Tampa Bay Buccaneers",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/2sk10xcK/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~New Orleans Saints",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/YPuXfGKs/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Atlanta Falcons",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/vNrugfkf/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~Tennessee Titans",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/CzsmiYJ6/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~Chicago Bears",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/K0pekClJ/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Denver Broncos",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/n7xsDFtQ/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Indianapolis Colts",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/rwOC7g4m/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Houston Texans",
+   "date": "13.12. 19:00",
+   "url": "https://www.flashscore.com/match/UgMK5XYa/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Los Angeles Chargers",
+   "date": "13.12. 22:05",
+   "url": "https://www.flashscore.com/match/xKPS3B3C/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Kansas City Chiefs",
+   "date": "13.12. 22:25",
+   "url": "https://www.flashscore.com/match/86n0o3mo/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Los Angeles Rams",
+   "date": "13.12. 22:25",
+   "url": "https://www.flashscore.com/match/SKdg7pA4/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~New York Giants",
+   "date": "13.12. 22:25",
+   "url": "https://www.flashscore.com/match/zDvn96uh/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Buffalo Bills",
+   "date": "14.12. 02:20",
+   "url": "https://www.flashscore.com/match/0Yf15OvH/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Pittsburgh Steelers",
+   "date": "15.12. 02:15",
+   "url": "https://www.flashscore.com/match/8bb9329T/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~San Francisco 49ers",
+   "date": "18.12. 02:15",
+   "url": "https://www.flashscore.com/match/vskubtXj/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Seattle Seahawks",
+   "date": "19.12. 23:00",
+   "url": "https://www.flashscore.com/match/WzxRLqPc/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~Chicago Bears",
+   "date": "20.12. 02:20",
+   "url": "https://www.flashscore.com/match/IizZJNgA/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Cincinnati Bengals",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/QHwsI1OM/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Miami Dolphins",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/MmPCCunp/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Jacksonville Jaguars",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/UDSKAJGd/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Cleveland Browns",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/dK64IVZ2/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Baltimore Ravens",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/UX4CG94F/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~New Orleans Saints",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/xb8KEmZR/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Indianapolis Colts",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/8taj9Rdk/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Atlanta Falcons",
+   "date": "20.12. 19:00",
+   "url": "https://www.flashscore.com/match/tfcb75R1/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~New York Jets",
+   "date": "20.12. 22:05",
+   "url": "https://www.flashscore.com/match/Y1aqV8J8/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Denver Broncos",
+   "date": "20.12. 22:25",
+   "url": "https://www.flashscore.com/match/xblNNQBr/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Dallas Cowboys",
+   "date": "20.12. 22:25",
+   "url": "https://www.flashscore.com/match/tS2iTnlL/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Detroit Lions",
+   "date": "21.12. 02:20",
+   "url": "https://www.flashscore.com/match/pOiVL4te/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~New England Patriots",
+   "date": "22.12. 02:15",
+   "url": "https://www.flashscore.com/match/jLfwKrB7/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Philadelphia Eagles~Houston Texans",
+   "date": "25.12. 02:15",
+   "url": "https://www.flashscore.com/match/rFsPsn3E/#/match-summary/match-summary",
+   "home": "Philadelphia Eagles",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~Green Bay Packers",
+   "date": "25.12. 19:00",
+   "url": "https://www.flashscore.com/match/lE9dPwmm/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "Green Bay Packers",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Buffalo Bills",
+   "date": "25.12. 22:30",
+   "url": "https://www.flashscore.com/match/dvD4NHHa/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "Seattle Seahawks~Los Angeles Rams",
+   "date": "26.12. 02:15",
+   "url": "https://www.flashscore.com/match/UiBCLenC/#/match-summary/match-summary",
+   "home": "Seattle Seahawks",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~Tampa Bay Buccaneers",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/rZmPnYpB/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Cleveland Browns",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/G89KJZGO/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Cincinnati Bengals",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/UknXpCFN/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Cincinnati Bengals",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~Los Angeles Chargers",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/6XlUww2t/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Washington Commanders",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/0Yx3ujwo/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Arizona Cardinals",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/vomxxHWh/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Arizona Cardinals",
+   "done": true
+  },
+  {
+   "name": "New York Jets~New England Patriots",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/nBjpze15/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "New England Patriots",
+   "done": true
+  },
+  {
+   "name": "Pittsburgh Steelers~Carolina Panthers",
+   "date": "27.12. 19:00",
+   "url": "https://www.flashscore.com/match/hSPl3gVi/#/match-summary/match-summary",
+   "home": "Pittsburgh Steelers",
+   "visitor": "Carolina Panthers",
+   "done": true
+  },
+  {
+   "name": "Las Vegas Raiders~Tennessee Titans",
+   "date": "27.12. 22:05",
+   "url": "https://www.flashscore.com/match/vJ8iYYVH/#/match-summary/match-summary",
+   "home": "Las Vegas Raiders",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~San Francisco 49ers",
+   "date": "27.12. 22:25",
+   "url": "https://www.flashscore.com/match/CW6aWC0U/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~Jacksonville Jaguars",
+   "date": "28.12. 02:20",
+   "url": "https://www.flashscore.com/match/2en9jGon/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Detroit Lions~New York Giants",
+   "date": "29.12. 02:15",
+   "url": "https://www.flashscore.com/match/ALkHlfGb/#/match-summary/match-summary",
+   "home": "Detroit Lions",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Baltimore Ravens",
+   "date": "01.01.2027",
+   "url": "https://www.flashscore.com/match/0hTd1Xa4/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Baltimore Ravens",
+   "done": true
+  },
+  {
+   "name": "Atlanta Falcons~New Orleans Saints",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/6kW4aBUG/#/match-summary/match-summary",
+   "home": "Atlanta Falcons",
+   "visitor": "New Orleans Saints",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Seattle Seahawks",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/v3UCckaT/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Cleveland Browns~Indianapolis Colts",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/AoLrhTMj/#/match-summary/match-summary",
+   "home": "Cleveland Browns",
+   "visitor": "Indianapolis Colts",
+   "done": true
+  },
+  {
+   "name": "Dallas Cowboys~New York Giants",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/xhDUFWEc/#/match-summary/match-summary",
+   "home": "Dallas Cowboys",
+   "visitor": "New York Giants",
+   "done": true
+  },
+  {
+   "name": "Jacksonville Jaguars~Washington Commanders",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/bqZd6Js1/#/match-summary/match-summary",
+   "home": "Jacksonville Jaguars",
+   "visitor": "Washington Commanders",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Chargers~Kansas City Chiefs",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/69x54cCD/#/match-summary/match-summary",
+   "home": "Los Angeles Chargers",
+   "visitor": "Kansas City Chiefs",
+   "done": true
+  },
+  {
+   "name": "Miami Dolphins~Buffalo Bills",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/A5BxEAqA/#/match-summary/match-summary",
+   "home": "Miami Dolphins",
+   "visitor": "Buffalo Bills",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Denver Broncos",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/b3PjS04K/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Denver Broncos",
+   "done": true
+  },
+  {
+   "name": "New York Jets~Minnesota Vikings",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/t6m9e2Tr/#/match-summary/match-summary",
+   "home": "New York Jets",
+   "visitor": "Minnesota Vikings",
+   "done": true
+  },
+  {
+   "name": "Tampa Bay Buccaneers~Los Angeles Rams",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/8xBMMvSs/#/match-summary/match-summary",
+   "home": "Tampa Bay Buccaneers",
+   "visitor": "Los Angeles Rams",
+   "done": true
+  },
+  {
+   "name": "Tennessee Titans~Pittsburgh Steelers",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/lWjHgtbe/#/match-summary/match-summary",
+   "home": "Tennessee Titans",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~Las Vegas Raiders",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/MqkPiKS7/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Chicago Bears~Detroit Lions",
+   "date": "03.01.2027",
+   "url": "https://www.flashscore.com/match/ljsBFNKE/#/match-summary/match-summary",
+   "home": "Chicago Bears",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "San Francisco 49ers~Philadelphia Eagles",
+   "date": "04.01.2027",
+   "url": "https://www.flashscore.com/match/fmpJD1kR/#/match-summary/match-summary",
+   "home": "San Francisco 49ers",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Houston Texans",
+   "date": "05.01.2027",
+   "url": "https://www.flashscore.com/match/jJVl8uDl/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Houston Texans",
+   "done": true
+  },
+  {
+   "name": "Arizona Cardinals~San Francisco 49ers",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/G2EUKIdf/#/match-summary/match-summary",
+   "home": "Arizona Cardinals",
+   "visitor": "San Francisco 49ers",
+   "done": true
+  },
+  {
+   "name": "Baltimore Ravens~Pittsburgh Steelers",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/lGCxJdR6/#/match-summary/match-summary",
+   "home": "Baltimore Ravens",
+   "visitor": "Pittsburgh Steelers",
+   "done": true
+  },
+  {
+   "name": "Buffalo Bills~New York Jets",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/dtGpHzdJ/#/match-summary/match-summary",
+   "home": "Buffalo Bills",
+   "visitor": "New York Jets",
+   "done": true
+  },
+  {
+   "name": "Carolina Panthers~Atlanta Falcons",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/8UMVvvlQ/#/match-summary/match-summary",
+   "home": "Carolina Panthers",
+   "visitor": "Atlanta Falcons",
+   "done": true
+  },
+  {
+   "name": "Cincinnati Bengals~Cleveland Browns",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/4081ZHBm/#/match-summary/match-summary",
+   "home": "Cincinnati Bengals",
+   "visitor": "Cleveland Browns",
+   "done": true
+  },
+  {
+   "name": "Denver Broncos~Los Angeles Chargers",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/CQB9Xet0/#/match-summary/match-summary",
+   "home": "Denver Broncos",
+   "visitor": "Los Angeles Chargers",
+   "done": true
+  },
+  {
+   "name": "Green Bay Packers~Detroit Lions",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/KjFHVZAC/#/match-summary/match-summary",
+   "home": "Green Bay Packers",
+   "visitor": "Detroit Lions",
+   "done": true
+  },
+  {
+   "name": "Houston Texans~Tennessee Titans",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/h4DPTDuP/#/match-summary/match-summary",
+   "home": "Houston Texans",
+   "visitor": "Tennessee Titans",
+   "done": true
+  },
+  {
+   "name": "Indianapolis Colts~Jacksonville Jaguars",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/OnzXXPit/#/match-summary/match-summary",
+   "home": "Indianapolis Colts",
+   "visitor": "Jacksonville Jaguars",
+   "done": true
+  },
+  {
+   "name": "Kansas City Chiefs~Las Vegas Raiders",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/WCwuW3Mh/#/match-summary/match-summary",
+   "home": "Kansas City Chiefs",
+   "visitor": "Las Vegas Raiders",
+   "done": true
+  },
+  {
+   "name": "Los Angeles Rams~Seattle Seahawks",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/4QymUsi5/#/match-summary/match-summary",
+   "home": "Los Angeles Rams",
+   "visitor": "Seattle Seahawks",
+   "done": true
+  },
+  {
+   "name": "Minnesota Vikings~Chicago Bears",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/CjueSLLH/#/match-summary/match-summary",
+   "home": "Minnesota Vikings",
+   "visitor": "Chicago Bears",
+   "done": true
+  },
+  {
+   "name": "New England Patriots~Miami Dolphins",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/GM6S9D5j/#/match-summary/match-summary",
+   "home": "New England Patriots",
+   "visitor": "Miami Dolphins",
+   "done": true
+  },
+  {
+   "name": "New Orleans Saints~Tampa Bay Buccaneers",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/8GgEXGcc/#/match-summary/match-summary",
+   "home": "New Orleans Saints",
+   "visitor": "Tampa Bay Buccaneers",
+   "done": true
+  },
+  {
+   "name": "New York Giants~Philadelphia Eagles",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/GtcMVfS9/#/match-summary/match-summary",
+   "home": "New York Giants",
+   "visitor": "Philadelphia Eagles",
+   "done": true
+  },
+  {
+   "name": "Washington Commanders~Dallas Cowboys",
+   "date": "10.01.2027",
+   "url": "https://www.flashscore.com/match/O60UTYdM/#/match-summary/match-summary",
+   "home": "Washington Commanders",
+   "visitor": "Dallas Cowboys",
+   "done": true
+  }
+ ],
+ "last_index": 271,
+ "status": "completed",
+ "section": "fixtures"
+}

@@ -1,0 +1,8 @@
+[Unit]
+Description=Rotacion de logs del scraper live (trunca geckodriver.log y live_persist.log)
+
+[Service]
+Type=oneshot
+ExecStart=/home/scraper/live_v2/rotate_logs.sh
+StandardOutput=append:/home/scraper/live_v2/logs/rotate.log
+StandardError=append:/home/scraper/live_v2/logs/rotate.log

@@ -18,19 +18,44 @@ def get_player_data_tennis(driver):
 
 	profile_block = driver.find_element(By.CLASS_NAME, 'container__heading')
 	player_country = profile_block.find_element(By.XPATH, './/span[@class="breadcrumb__text"]').text
-	if 'age' in dict_player_full_info.keys():
-		date_str = dict_player_full_info['age'].split()[1].replace('(','').replace(')','')
-		player_dob = datetime.strptime(date_str, "%d.%m.%Y")
-	else:
-		player_dob = datetime.strptime('01.01.1900', "%d.%m.%Y") 
+	# DOB del jugador. La clave que extrae FlashScore es 'Age' (mayúscula), pero antes
+	# se chequeaba 'age' (minúscula) → NUNCA matcheaba y TODOS los jugadores quedaban
+	# con 1900-01-01. Buscamos la clave sin importar mayúsculas y parseamos la fecha
+	# entre paréntesis ("Age: 35 (13.12.1990)") de forma defensiva.
+	age_val = next((v for k, v in dict_player_full_info.items() if k.strip().lower() == 'age'), None)
+	player_dob = datetime.strptime('01.01.1900', "%d.%m.%Y")
+	if age_val and '(' in age_val:
+		try:
+			date_str = age_val.split('(')[1].replace(')', '').strip()
+			player_dob = datetime.strptime(date_str, "%d.%m.%Y")
+		except Exception:
+			pass  # formato inesperado → queda el centinela 1900
 
 	player_name = profile_block.find_element(By.XPATH, './/div[@class="heading__name"]').text
 	player_name = clean_field(player_name)
 
-	image_url = profile_block.find_element(By.XPATH, './/img[@loading="eager"]').get_attribute('src')
-	image_path = random_name_logos(player_name, folder = 'images/players/')	
-	save_image(driver, image_url, image_path)
-	player_photo = image_path.replace('images/players/','')
+	# Foto del jugador. El selector por atributo loading="eager" era frágil: ese
+	# atributo se asienta un instante DESPUÉS de renderizar el <img>, así que la
+	# extracción inmediata fallaba intermitentemente (NoSuchElementException) y, al
+	# no estar envuelta, tumbaba la creación del partido entero. Usamos la clase
+	# estable heading__logo con espera corta y fallback sin foto.
+	image_url = ''
+	try:
+		img_el = WebDriverWait(driver, 5).until(
+			lambda d: profile_block.find_element(By.XPATH, './/img[contains(@class,"heading__logo")]'))
+		image_url = img_el.get_attribute('src') or ''
+	except Exception:
+		try:
+			image_url = profile_block.find_element(By.XPATH, './/img').get_attribute('src') or ''
+		except Exception:
+			image_url = ''
+	if image_url:
+		image_path = random_name_logos(player_name, folder = 'images/players/')
+		save_image(driver, image_url, image_path)
+		player_photo = image_path.replace('images/players/','')
+	else:
+		print(f'[WARN] sin foto para jugador {player_name} (player_photo vacío)')
+		player_photo = ''
 	
 	player_id = random_id_text( player_country + player_name)
 	player_dict = {'player_id':player_id, 'player_country':player_country, 'player_dob':player_dob, 'player_name':player_name,\

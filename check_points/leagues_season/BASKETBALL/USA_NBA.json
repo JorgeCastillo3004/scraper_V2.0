@@ -1,0 +1,12 @@
+{
+  "San Antonio Spurs": {
+    "team_id": "cd94147b-f7f2-4877-8c40-8145731bd23a",
+    "team_url": "https://www.flashscore.com/team/san-antonio-spurs/IwmkErSH/",
+    "stadium_id": "c4df233d-e3ad-468a-ac0d-911b75c14abe"
+  },
+  "New York Knicks": {
+    "team_id": "cb7f9158-59ff-4f4d-a529-95e7295671f4",
+    "team_url": "https://www.flashscore.com/team/new-york-knicks/WCNO4nbt/",
+    "stadium_id": "fe7f1bbe-00f4-4cca-8ed5-1d56f2e6e78a"
+  }
+}

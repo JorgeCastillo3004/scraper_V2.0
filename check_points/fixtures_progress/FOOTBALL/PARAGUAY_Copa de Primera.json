@@ -1,0 +1,58 @@
+{
+ "sport_key": "FOOTBALL",
+ "league_key": "PARAGUAY_Copa de Primera",
+ "league_id": "88947817-f726-4f75-80e8-4deb6582ac2f",
+ "season_id": "c9ee77b6-f8c1-4fa3-861a-5f6c92de4118",
+ "matches": [
+  {
+   "name": "2 de Mayo~Rubio Nu",
+   "date": "25.07. 22:00",
+   "url": "https://www.flashscore.com/match/jDcJWpEM/#/match-summary/match-summary",
+   "home": "2 de Mayo",
+   "visitor": "Rubio Nu",
+   "done": true
+  },
+  {
+   "name": "Ameliano~Nacional Asuncion",
+   "date": "25.07. 22:00",
+   "url": "https://www.flashscore.com/match/Uc9AY6qA/#/match-summary/match-summary",
+   "home": "Ameliano",
+   "visitor": "Nacional Asuncion",
+   "done": true
+  },
+  {
+   "name": "Cerro Porteno~Sportivo Trinidense",
+   "date": "25.07. 22:00",
+   "url": "https://www.flashscore.com/match/tv8ZWg85/#/match-summary/match-summary",
+   "home": "Cerro Porteno",
+   "visitor": "Sportivo Trinidense",
+   "done": true
+  },
+  {
+   "name": "Guarani~Sp. Luqueno",
+   "date": "25.07. 22:00",
+   "url": "https://www.flashscore.com/match/x61rVXxI/#/match-summary/match-summary",
+   "home": "Guarani",
+   "visitor": "Sp. Luqueno",
+   "done": true
+  },
+  {
+   "name": "Olimpia Asuncion~Libertad Asuncion",
+   "date": "25.07. 22:00",
+   "url": "https://www.flashscore.com/match/O062zTEc/#/match-summary/match-summary",
+   "home": "Olimpia Asuncion",
+   "visitor": "Libertad Asuncion",
+   "done": true
+  },
+  {
+   "name": "Recoleta~San Lorenzo",
+   "date": "25.07. 22:00",
+   "url": "https://www.flashscore.com/match/8hOFCPMj/#/match-summary/match-summary",
+   "home": "Recoleta",
+   "visitor": "San Lorenzo",
+   "done": true
+  }
+ ],
+ "last_index": 5,
+ "status": "completed"
+}

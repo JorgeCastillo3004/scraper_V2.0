@@ -1,11 +1,28 @@
 {
     "FOOTBALL": {
-        "last_date": "2026-03-14 22:12:40"
+        "last_date": "2026-07-11 16:22:05"
     },
     "TENNIS": {
-        "last_date": "2026-03-14 21:16:58"
+        "last_date": "2026-06-28 21:40:22",
+        "pending_last_date": "2026-07-10 05:52:51",
+        "phase2": {
+            "files": [
+                "check_points/news/TENNIS/41_121.json"
+            ],
+            "current_file": "check_points/news/TENNIS/41_121.json",
+            "current_index": 18
+        }
     },
     "GOLF": {
-        "last_date": "2026-03-14 10:19:58"
+        "last_date": "2026-06-28 06:41:41"
+    },
+    "BASKETBALL": {
+        "last_date": "2026-06-25 14:08:56"
+    },
+    "AMERICAN_SPORTS": {
+        "last_date": "2026-06-27 20:52:00"
+    },
+    "HOCKEY": {
+        "last_date": "2026-06-27 20:52:00"
     }
 }
