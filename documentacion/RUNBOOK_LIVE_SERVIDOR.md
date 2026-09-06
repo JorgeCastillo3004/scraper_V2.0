@@ -8,6 +8,49 @@
 
 ---
 
+---
+
+## 0. Estado verificado (2026-09-06, 19:32 UTC)
+
+Comprobado en el servidor, no de memoria:
+
+| Comprobación | Resultado |
+|---|---|
+| Servicio activo | `active` |
+| Arranca solo tras un reinicio del servidor | `enabled` + **`Linger=yes`** ✅ |
+| Se relanza si el proceso muere | **`Restart=always`**, `RestartSec=15` ✅ |
+| Veces que ha hecho falta relanzarlo | **`NRestarts=0`** (no ha fallado ni una vez) |
+| Tiempo funcionando | **10 h 06 min** sin interrupción |
+| ¿Está trabajando ahora? | sí — **ciclo 213** en curso |
+| RAM del servidor | 4.111 MB usados de 11.954 (7,8 GB libres) |
+| Navegador | **1,50 GB** (umbral de reciclaje: 3.000 MB) |
+| Reciclajes por memoria | 0 todavía — aún no ha llegado al umbral |
+
+**Las dos condiciones de continuidad están cubiertas:**
+- *Si el proceso falla* → `Restart=always` lo levanta a los 15 s.
+- *Si se reinicia el servidor* → la unidad está `enabled` y el usuario `scraper` tiene
+  `linger`, así que sus servicios arrancan sin necesidad de que nadie inicie sesión.
+  Esto es lo que faltaba en el incidente que lo tuvo **38 días caído**.
+
+### Cambios aplicados hoy (2026-09-06)
+
+1. **Reciclaje del navegador arreglado.** Antes no reciclaba nunca en el servidor
+   (`_maybe_recycle_live` salía en `if _OWN_DRIVER: return`) y Firefox llegó a **7,9 GB
+   en 6 días**, con solo 1,9 GB libres. Ahora mide el árbol de su propio PID y hace
+   hot-swap al superar **3 GB** (`DRIVER_MEM_LIMIT_MB` en `run_live.sh`).
+   Efecto inmediato: RAM usada **8.289 → 2.812 MB**.
+2. **Sesión reutilizable.** El navegador nuevo abre ya logueado reutilizando la sesión
+   (cookies + `localStorage`, en `tmp/fs_session.json`): **1,5 s** en vez de los 13,3 s
+   del formulario. Sin esto, reciclar cada pocas horas implicaría un login cada vez.
+
+### Pendiente de desplegar
+
+- **Heartbeat por ciclo** (`main2.py`): hoy `run_status_live.json` conserva la marca del
+  arranque —se comprobó con 8 h de diferencia—, así que **no sirve para saber si el
+  proceso está vivo o colgado**. El arreglo está en el repo; hasta desplegarlo, la señal
+  de vida buena es el `mtime` de `live_persist.log`.
+
+
 ## 1. Qué corre y dónde
 
 | | |

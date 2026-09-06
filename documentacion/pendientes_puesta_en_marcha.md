@@ -157,7 +157,21 @@ resto (engine + panel) sigue pendiente.
 
 ---
 
-## Estado actual del sistema (contexto, 2026-08-30)
+## Estado actual del sistema (verificado 2026-09-06)
+
+- **Servidor:** live `active` + `enabled`, `Restart=always` (15 s), **`Linger=yes`** →
+  sobrevive a fallos del proceso y a reinicios del servidor. **10 h sin interrupción,
+  0 reinicios necesarios**, ciclo 213. RAM 4.111/11.954 MB; navegador en 1,50 GB con
+  umbral de reciclaje en 3 GB. Disco: 157 GB libres (se recuperaron 18 GB).
+- **BD:** pendientes a cerrar **875 → 15**; partidos colgados en `LIVE` **24 → 0**.
+- **Respaldo (SofaScore):** 12 ligas y 202 equipos mapeados en 5 deportes;
+  139/144 partidos localizados (97 %) y **0 discrepancias de marcador**. Todo en modo
+  lectura: no escribe en la BD.
+- 🔴 **Sigue sin alertas:** nadie avisa si el live muere. El detector de obsolescencia ya
+  existe (`scripts/staleness_detector.py`) pero no está enganchado a ningún aviso.
+- 🔴 **P7 sin cerrar:** un solo escritor. Bloquea que el respaldo pueda escribir.
+
+## Estado anterior (contexto, 2026-08-30)
 - **Servidor:** live corriendo bajo systemd (9 deportes, interval 60), 0 errores de BD,
   rotación de logs activa. Ver [`RUNBOOK_LIVE_SERVIDOR.md`](RUNBOOK_LIVE_SERVIDOR.md).
 - **Local:** panel apagado (API 8009 / Vite 5174 sin levantar). Venvs, geckodriver y
