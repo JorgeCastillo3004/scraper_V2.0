@@ -18,6 +18,7 @@ import requests
 import json
 import os
 import re
+import shutil
 import time
 import uuid
 
@@ -25,6 +26,34 @@ local_time_naive = datetime.now()
 utc_time_naive = datetime.utcnow()
 time_difference_naive = utc_time_naive - local_time_naive
 unable_validate = False
+
+# ── Clasificación del estado del partido (texto de event__stage de FlashScore) ──
+# La regla vieja era "si NO dice 'Finished' -> LIVE", lo que marcaba LIVE por error a
+# partidos 'Postponed'/'Cancelled'/'Abandoned'/etc. (no están en vivo ni tienen marcador).
+# Solo 'LIVE' y 'COMPLETED' deben disparar actualización de score/estado en el flujo live.
+_FINISHED_STAGES = {
+    'finished', 'after extra time', 'after pen.', 'after penalties',
+    'aet', 'ap', 'awarded', 'walkover', 'wo',
+}
+_NONLIVE_STAGES = {
+    'postponed', 'cancelled', 'canceled', 'abandoned', 'interrupted',
+    'suspended', 'delayed', 'awaiting', 'awaiting d.', 'to be determined',
+    'tbd', 'not started', 'scheduled',
+}
+
+
+def classify_live_status(stage_text):
+    """Estado del partido a partir del texto de `event__stage`.
+    Devuelve 'COMPLETED', 'LIVE' o la etiqueta NO-live en MAYÚSCULAS ('POSTPONED', ...).
+    Cualquier label que no sea finalizado ni no-live se considera 'LIVE' (un partido en
+    juego muestra minuto/quarter/inning/set, que no están en ninguna de las listas)."""
+    s = (stage_text or '').strip()
+    sl = s.lower()
+    if sl in _FINISHED_STAGES:
+        return 'COMPLETED'
+    if sl in _NONLIVE_STAGES:
+        return s.upper()
+    return 'LIVE'
 
 days = {'monday': 0,
         'tuesday': 1,
@@ -156,8 +185,23 @@ def launch_navigator_chrome(url, headless = True):
     driver.get(url)
     return driver
 
-def launch_navigator(url, headless= True, enable_profile=False):
-    geckodriver_path = "/home/jorge/.cache/selenium/geckodriver/linux64/0.35.0/geckodriver"
+def launch_navigator(url, headless= True, enable_profile=False, lightweight=False, load_images=False,
+                     profile_dir=None):
+    # load_images=True fuerza la carga de imágenes aunque el driver sea lightweight.
+    # Necesario para flujos de CREACIÓN que descargan logos/fotos (p.ej. tenis:
+    # get_player_data_tennis → save_image). El modo lightweight por defecto las
+    # desactiva para ahorrar RAM (driver de LIVE, que solo lee texto).
+    # Resolver geckodriver dinámicamente: PATH primero (cubre el de snap en
+    # /snap/bin/geckodriver), luego rutas conocidas. Antes estaba hardcodeado a
+    # ~/.cache/selenium, que desaparece al mover/restaurar la máquina.
+    geckodriver_path = (
+        shutil.which("geckodriver")
+        or next((p for p in (
+            "/snap/bin/geckodriver",
+            "/usr/local/bin/geckodriver",
+            "/usr/bin/geckodriver",
+        ) if os.path.exists(p)), None)
+    )
 
     # Configurar las opciones del navegador
     options = Options()
@@ -167,9 +211,52 @@ def launch_navigator(url, headless= True, enable_profile=False):
     options.add_argument('--disable-browser-side-navigation')
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
+    # Silenciar TODO el audio del navegador (ads/clips de FlashScore) en CUALQUIER
+    # driver creado, sea lightweight o no. media.volume_scale=0 mutea la salida de
+    # audio a nivel del navegador; autoplay.default=5 además bloquea autoplay.
+    options.set_preference('media.volume_scale', '0.0')
+    options.set_preference('media.autoplay.default', 5)
     if headless:
         print('Mode headless')
         options.add_argument('--headless')
+    if lightweight:
+        # Modo bajo consumo de RAM (p.ej. driver de LIVE, que solo necesita el TEXTO
+        # de los scores). Reduce procesos de contenido y memoria de Firefox.
+        if not load_images:
+            options.set_preference('permissions.default.image', 2)      # no cargar imágenes/logos/ads
+        options.set_preference('fission.autostart', False)              # sin aislamiento por sitio
+        options.set_preference('dom.ipc.processCount', 1)               # 1 proceso de contenido
+        options.set_preference('browser.sessionhistory.max_total_viewers', 0)  # sin bfcache
+        options.set_preference('browser.sessionhistory.max_entries', 1)
+        options.set_preference('browser.cache.disk.enable', False)
+        options.set_preference('browser.cache.memory.capacity', 32768)  # ~32 MB de caché en memoria
+        options.set_preference('media.autoplay.default', 5)             # sin autoplay
+        options.set_preference('toolkit.telemetry.enabled', False)
+        # --- extras de bajo consumo (2026-06-16): el scraper solo necesita texto/estructura ---
+        options.set_preference('webgl.disabled', True)                  # sin WebGL
+        options.set_preference('gfx.downloadable_fonts.enabled', False) # sin web fonts
+        options.set_preference('dom.serviceWorkers.enabled', False)     # sin service workers
+        options.set_preference('network.prefetch-next', False)          # sin prefetch de links
+        options.set_preference('network.dns.disablePrefetch', True)     # sin prefetch DNS
+        options.set_preference('media.peerconnection.enabled', False)   # sin WebRTC
+        options.set_preference('media.cache_size', 0)                   # sin caché de media
+        options.set_preference('browser.tabs.unloadOnLowMemory', True)  # descargar tabs en RAM baja
+        options.set_preference('places.history.enabled', False)         # sin historial
+        options.set_preference('extensions.pocket.enabled', False)
+        options.set_preference('reader.parse-on-load.enabled', False)
+        options.set_preference('javascript.options.mem.gc_incremental_slice_ms', 10)  # GC más agresivo
+    if load_images:
+        options.set_preference('permissions.default.image', 1)          # cargar imágenes (creación: logos/fotos)
+    if profile_dir:
+        # Perfil PERSISTENTE de verdad: `-profile <dir>` hace que Firefox USE ese
+        # directorio (no una copia), así cookies y localStorage sobreviven al cierre y
+        # el navegador abre ya logueado. Distinto de `enable_profile`, que usa
+        # FirefoxProfile(ruta) → COPIA a un temporal y nunca escribe de vuelta.
+        # OJO: un directorio de perfil admite UNA instancia a la vez (lock), así que
+        # para el hot-swap hacen falta dos perfiles alternados (A/B).
+        os.makedirs(profile_dir, exist_ok=True)
+        options.add_argument('-profile')
+        options.add_argument(profile_dir)
     if enable_profile:
         profile_path = "/home/jorge/.mozilla/firefox/lf4ga6zv.default-release"
         profile = FirefoxProfile(profile_path)
@@ -177,7 +264,7 @@ def launch_navigator(url, headless= True, enable_profile=False):
     service = Service(geckodriver_path)
     driver = webdriver.Firefox(service=service, options=options)
     driver.get(url)
-    driver.execute_script("document.body.style.zoom='50%'")    
+    driver.execute_script("document.body.style.zoom='50%'")
     return driver
 
 def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
@@ -276,6 +363,124 @@ def login(driver, email_="FS_EMAIL", password_="FS_PASSWORD", max_attempts=3):
                 raise RuntimeError(
                     f"Login fallido tras {max_attempts} intentos. Último error: {e}"
                 )
+
+# ── Sesión de FlashScore reutilizable (abrir el navegador ya logueado) ────────
+# El login por formulario es el paso más caro y frágil del arranque de un driver
+# (hasta 3 intentos, banner de cookies, ~30-60 s) y repetirlo seguido —p.ej. en cada
+# reciclaje del driver de live— es justo lo que conviene evitar. La sesión de
+# FlashScore vive en las cookies (+ localStorage) del dominio, así que se guardan
+# tras un login bueno y se re-inyectan en el driver nuevo: abre y ya está dentro.
+#
+# Por qué NO un perfil de Firefox persistente (`-profile`): un directorio de perfil
+# admite UNA instancia a la vez (lock de Firefox) y el hot-swap tiene el navegador
+# viejo y el nuevo vivos a la vez → el segundo no arrancaría. Además `enable_profile`
+# usa FirefoxProfile(ruta), que COPIA el perfil a un temporal y nunca escribe de
+# vuelta, así que tampoco persistiría nada. El JSON de sesión no tiene ese límite.
+
+FS_URL = 'https://www.flashscore.com'
+FS_SESSION_FILE = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tmp', 'fs_session.json')
+
+
+def is_logged_in(driver, timeout=8):
+    """True si la sesión de FlashScore está activa. Usa el MISMO marcador que login()
+    para verificar el submit (`header__text--loggedIn`), así ambos caminos coinciden."""
+    try:
+        WebDriverWait(driver, timeout).until(EC.presence_of_element_located(
+            (By.XPATH, '//*[contains(@class,"header__text--loggedIn")]')))
+        return True
+    except Exception:
+        return False
+
+
+def dump_fs_session(driver):
+    """Cookies + localStorage del dominio de FlashScore tal como los tiene `driver`."""
+    if 'flashscore' not in (getattr(driver, 'current_url', '') or ''):
+        driver.get(FS_URL)
+    try:
+        storage = driver.execute_script(
+            'var o={};for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);'
+            'o[k]=localStorage.getItem(k);}return o;') or {}
+    except Exception:
+        storage = {}
+    return {'cookies': driver.get_cookies(), 'storage': storage,
+            'saved_at': datetime.now().isoformat()}
+
+
+def save_fs_session(driver, path=FS_SESSION_FILE):
+    """Persiste la sesión a disco (para arranques en frío). Devuelve el dict guardado."""
+    data = dump_fs_session(driver)
+    try:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(data, f)
+        print(f'  [Sesión] guardada en {path} ({len(data["cookies"])} cookies)')
+    except Exception as e:
+        print(f'  [Sesión] no se pudo guardar ({type(e).__name__}: {e})')
+    return data
+
+
+def load_fs_session(path=FS_SESSION_FILE):
+    """Lee la sesión de disco; None si no hay o está corrupta."""
+    try:
+        with open(path, encoding='utf-8') as f:
+            data = json.load(f)
+        return data if data.get('cookies') else None
+    except Exception:
+        return None
+
+
+def apply_fs_session(driver, data):
+    """Inyecta cookies + localStorage en `driver` y recarga. True si la sesión quedó
+    activa. No lanza: si algo falla, el llamador cae al login normal."""
+    if not data or not data.get('cookies'):
+        return False
+    try:
+        if 'flashscore' not in (getattr(driver, 'current_url', '') or ''):
+            driver.get(FS_URL)          # add_cookie exige estar ya en el dominio
+        for c in data['cookies']:
+            c = dict(c)
+            c.pop('sameSite', None)     # Firefox rechaza algunos valores al re-inyectar
+            if c.get('expiry') is not None:
+                c['expiry'] = int(c['expiry'])
+            try:
+                driver.add_cookie(c)
+            except Exception:
+                c.pop('domain', None)   # 2º intento: dejar que lo infiera del dominio actual
+                try:
+                    driver.add_cookie(c)
+                except Exception:
+                    pass
+        for k, v in (data.get('storage') or {}).items():
+            try:
+                driver.execute_script('localStorage.setItem(arguments[0], arguments[1]);', k, v)
+            except Exception:
+                pass
+        driver.get(FS_URL)              # recargar ya con la sesión puesta
+        return is_logged_in(driver)
+    except Exception as e:
+        print(f'  [Sesión] no se pudo restaurar ({type(e).__name__}: {e})')
+        return False
+
+
+def ensure_login(driver, email_=None, password_=None, path=FS_SESSION_FILE, session=None):
+    """Deja `driver` logueado gastando lo menos posible, en este orden:
+      1. ya logueado           -> refresca el JSON de sesión y listo
+      2. sesión reutilizable   -> la inyecta (sin formulario);  `session` permite pasar
+         la del driver VIEJO en un hot-swap (más fresca que la de disco)
+      3. login por formulario  -> y guarda la sesión para la próxima
+    Devuelve 'already' | 'restored' | 'login'. Propaga el error solo si el login falla."""
+    if is_logged_in(driver, timeout=6):
+        save_fs_session(driver, path)
+        return 'already'
+    if apply_fs_session(driver, session or load_fs_session(path)):
+        print('  [Sesión] restaurada sin login (cookies reutilizadas)')
+        return 'restored'
+    print('  [Sesión] no reutilizable — login por formulario')
+    login(driver, email_=email_, password_=password_)
+    save_fs_session(driver, path)
+    return 'login'
+
 
 def dismiss_cookies(driver):
     """Cierra el banner de cookies de OneTrust si está visible."""
@@ -656,6 +861,28 @@ def update_resume_point(global_check_point, sport_name, league, team_name, miles
         'sport': sport_name, 'league': league, 'team_name': team_name
     }
     save_check_point('check_points/global_check_point.json', global_check_point)
+
+
+def red_box_warning(title, detail_lines=None):
+    """Imprime una ADVERTENCIA en CUADRO ROJO (ANSI) y CONTINÚA (no detiene el
+    proceso). Para condiciones que NUNCA deberían ocurrir, p.ej. resolver un
+    partido/liga SIN filtro de deporte (riesgo de colisión cross-deporte:
+    ligas homónimas en deportes distintos, ej. WORLD 'World Cup' en fútbol y
+    básquet). Si esta caja aparece en los logs, hay un caller a corregir."""
+    RED = '\033[1;31m'; RESET = '\033[0m'
+    lines = [str(title)] + [str(l) for l in (detail_lines or [])]
+    width = max([len(s) for s in lines] + [len('ADVERTENCIA - NO DEBERIA OCURRIR NUNCA')]) + 2
+    bar = '═' * width
+    try:
+        print(RED + '╔' + bar + '╗')
+        print('║' + 'ADVERTENCIA - NO DEBERIA OCURRIR NUNCA'.center(width) + '║')
+        print('╠' + bar + '╣')
+        for s in lines:
+            print('║ ' + s.ljust(width - 1) + '║')
+        print('╚' + bar + '╝' + RESET, flush=True)
+    except Exception:
+        # Nunca romper por un fallo de impresión de la advertencia.
+        print('[ADVERTENCIA-NO-DEBERIA-OCURRIR] ' + ' | '.join(lines), flush=True)
 
 
 int_folders()
