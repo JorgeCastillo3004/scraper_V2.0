@@ -108,6 +108,31 @@ elif valores:
 else:
     veredicto = 'DESCONOCIDO'
 
+# ── Aviso por Telegram: solo en los CAMBIOS de estado ────────────────────────
+# Avisar en cada comprobación sería ruido y acabaría ignorándose. Solo interesa el
+# momento en que se cae y el momento en que vuelve, comparando con el veredicto
+# anterior guardado en tmp/staleness_status.json.
+try:
+    sys.path.insert(0, os.path.join(ROOT, 'src'))
+    import telegram_notify as tg
+    anterior = None
+    try:
+        with open(os.path.join(ROOT, 'tmp', 'staleness_status.json'), encoding='utf-8') as fh:
+            anterior = json.load(fh).get('veredicto')
+    except Exception:
+        pass
+    if anterior != veredicto:
+        if veredicto == 'STALE':
+            tg.notify('🔴 FlashScore NO está actualizando\n' +
+                      '\n'.join(f'· {v}' for v in detalle.values()))
+        elif veredicto == 'OK' and anterior in ('STALE', 'WARN'):
+            tg.notify('✅ FlashScore volvió a actualizar con normalidad')
+        elif veredicto == 'WARN':
+            tg.notify('⚠️ FlashScore con avisos\n' +
+                      '\n'.join(f'· {v}' for v in detalle.values()))
+except Exception as e:
+    print(f'[aviso] no se pudo notificar ({type(e).__name__})')
+
 estado = {'comprobado_utc': ahora.isoformat(), 'veredicto': veredicto,
           'señales': señales, 'detalle': detalle,
           'umbrales': {'latido_max_min': args.latido_max,

@@ -17,6 +17,17 @@ from data_base import *
 from milestone7 import *
 from driver_session import get_driver, driver_tree_pss_mb, tree_pss_mb, relaunch_live_driver
 from common_functions import ensure_login, dump_fs_session   # sesión reutilizable (sin re-login)
+try:                                   # avisos por Telegram (inertes si no hay token)
+    import telegram_notify as tg
+except Exception:                      # entorno sin el módulo: no debe tumbar el live
+    class _TgMudo:
+        @staticmethod
+        def enabled():
+            return False
+        @staticmethod
+        def notify(_):
+            return False
+    tg = _TgMudo()
 
 # ── Headless del driver propio (standalone) ───────────────────────────────────
 # Lo manda config.py (LIVE_HEADLESS). Si config no lo define (instalación vieja),
@@ -86,6 +97,8 @@ def _hotswap_own_driver(old_driver):
     except Exception as e:
         print('[RECICLAJE] hot-swap NO realizado (%s: %s) — se mantiene el driver actual.'
               % (type(e).__name__, e))
+        tg.notify(f'⚠️ LIVE: el relevo del navegador falló ({type(e).__name__}). '
+                  f'Sigue el driver viejo; vigilar la memoria.')
         if nuevo is not None:
             try:
                 nuevo.quit()
@@ -98,7 +111,66 @@ def _hotswap_own_driver(old_driver):
         pass
     global _CURRENT_OWN_DRIVER
     _CURRENT_OWN_DRIVER = nuevo
+    _RECICLAJES[0] += 1
     return nuevo
+
+
+# ── Resumen periódico por Telegram ───────────────────────────────────────────
+# Dos cosas distintas y las dos necesarias: avisar cuando ALGO FALLA (arriba) y
+# mandar un RESUMEN cada hora aunque todo vaya bien. El resumen es lo que permite
+# notar los fallos silenciosos —el scraper corriendo pero sin encontrar nada— que
+# ninguna alerta de error detecta, porque no hay error que detectar.
+RESUMEN_CADA_S = int(os.environ.get('TELEGRAM_RESUMEN_SEGUNDOS', '3600'))
+_ULTIMO_RESUMEN = [time.time()]
+_CICLOS_HORA = [0]
+_RECICLAJES = [0]
+
+
+def _datos_resumen():
+    """Foto del estado desde la BD: qué hay en vivo y qué se cerró hoy."""
+    import psycopg2
+    from config import DB_HOST, DB_NAME, DB_USER, DB_PASS
+    con = psycopg2.connect(host=DB_HOST, dbname=DB_NAME, user=DB_USER,
+                           password=DB_PASS, connect_timeout=10)
+    cur = con.cursor()
+    cur.execute("""SELECT s.name, count(*) FROM match m
+                     JOIN league l ON m.league_id = l.league_id
+                     JOIN sport  s ON l.sport_id  = s.sport_id
+                    WHERE m.status = 'LIVE' GROUP BY 1 ORDER BY 2 DESC""")
+    en_vivo = cur.fetchall()
+    cur.execute("""SELECT count(*) FROM match
+                    WHERE status = 'COMPLETED' AND match_date = (now() at time zone 'utc')::date""")
+    completados = cur.fetchone()[0]
+    cur.close(); con.close()
+    return en_vivo, completados
+
+
+def _resumen_horario(forzar=False):
+    """Envía el resumen si toca. Nunca interrumpe el live: si algo falla, se calla."""
+    if not forzar and (time.time() - _ULTIMO_RESUMEN[0]) < RESUMEN_CADA_S:
+        return
+    _ULTIMO_RESUMEN[0] = time.time()
+    try:
+        en_vivo, completados = _datos_resumen()
+        mem = _live_mem_mb()
+        total_vivo = sum(n for _, n in en_vivo)
+        lineas = [f'📊 LIVE — resumen de la última hora ({datetime.now():%H:%M})',
+                  f'ciclos completados: {_CICLOS_HORA[0]}',
+                  f'partidos en vivo ahora: {total_vivo}']
+        for sport, n in en_vivo:
+            lineas.append(f'   · {sport}: {n}')
+        lineas.append(f'completados hoy: {completados}')
+        lineas.append(f'navegador: {mem:.0f} MB (recicla a {MEM_LIMIT_MB})')
+        if _RECICLAJES[0]:
+            lineas.append(f'reciclajes en la hora: {_RECICLAJES[0]}')
+        if _CICLOS_HORA[0] == 0:
+            lineas.append('⚠️ NINGÚN ciclo completado en la última hora')
+        tg.notify('\n'.join(lineas))
+    except Exception as e:
+        print(f'[resumen] no se pudo enviar ({type(e).__name__}: {e})')
+    finally:
+        _CICLOS_HORA[0] = 0
+        _RECICLAJES[0] = 0
 
 
 def _heartbeat(sports=None, interval=None):
@@ -121,6 +193,8 @@ def _maybe_recycle_live(driver):
     en modo propio, que es justo como corre el live del servidor, y por eso el
     Firefox crecía sin techo hasta el OOM."""
     _heartbeat()                 # latido: se llama entre ciclos, es el punto natural
+    _CICLOS_HORA[0] += 1
+    _resumen_horario()           # cada hora, aunque todo vaya bien
     try:
         mb = _live_mem_mb()
     except Exception:
@@ -314,6 +388,10 @@ def main_live(sports: list, interval: int):
     print(f"[INFO] Deportes seleccionados: {', '.join(sports)}")
     print(f"[INFO] Intervalo entre ciclos: {interval}s")
     print(f"[INFO] Reciclado de driver por memoria: ACTIVO (umbral {MEM_LIMIT_MB} MB, entre ciclos)")
+    print(f"[INFO] Avisos por Telegram: {'ACTIVOS' if tg.enabled() else 'sin configurar (no-op)'}")
+    # Un arranque inesperado es información: si llega este aviso de madrugada, el
+    # servicio se reinició solo y conviene mirar por qué.
+    tg.notify(f'▶️ LIVE arrancado — {len(sports)} deportes, intervalo {interval}s')
     retry_count = 0
     MAX_RETRIES = 10
     RETRY_DELAY = 30
@@ -354,8 +432,12 @@ def main_live(sports: list, interval: int):
             retry_count += 1
             print(f'[RESTART {datetime.now():%H:%M:%S}] CAUSA=ERROR: {type(e).__name__}: {e} '
                   f'(intento {retry_count}/{MAX_RETRIES}) → re-engancha/recrea el driver')
+            tg.notify(f'⚠️ LIVE: {type(e).__name__}: {str(e)[:160]}\n'
+                      f'reintento {retry_count}/{MAX_RETRIES}')
             if retry_count >= MAX_RETRIES:
                 print(f'[ERROR] main_live detenido tras {MAX_RETRIES} crashes consecutivos.')
+                tg.notify(f'🔴 LIVE DETENIDO tras {MAX_RETRIES} fallos seguidos. '
+                          f'Último: {type(e).__name__}: {str(e)[:120]}')
                 _write_status('error', sports, interval)
                 break
             print(f'[INFO] Reiniciando en {RETRY_DELAY}s...')
